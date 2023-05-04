@@ -10,4 +10,6 @@ public class SeniorInvestApplication {
 		SpringApplication.run(SeniorInvestApplication.class, args);
 	}
 
+	
+	
 }
