@@ -12,14 +12,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 	
 	@Autowired
-	private InvestUserDetailsService boardUserDetailsService;
+	private InvestUserDetailsService investUserDetailsService;
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		
 		security.authorizeHttpRequests()
         .requestMatchers("/user/**").authenticated()
-        .requestMatchers("/manager/**").hasAnyRole("MANAGER", "ADMIN")
         .requestMatchers("/admin/**").hasRole("ADMIN")
         .anyRequest().permitAll()
         .and().formLogin().loginPage("/login").defaultSuccessUrl("/loginSuccess", true)
