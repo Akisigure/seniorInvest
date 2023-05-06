@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #f8f9fa;
+    background-color: #000000;
 }
 
 .logo h1 {
@@ -22,4 +22,13 @@ header {
 .nav .nav-link:hover {
     color: #218838;
     text-decoration: none;
+}
+
+.section-container {
+    height: 100vh; /* 뷰포트 높이를 사용하여 섹션 높이 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
