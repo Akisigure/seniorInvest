@@ -21,9 +21,7 @@ public class UserService {
 	public int insertUser(Users users) {
 		users.setPassword(encoder.encode(users.getPassword()));
 		
-		users.setRole(Role.ROLE_ADMIN);
 		
-		/* System.out.println(i); */
 		
 		return 1;
 	}

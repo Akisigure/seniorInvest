@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.invest.user.dao.UserDao;
 import com.invest.user.dto.Users;
 
-
-
 @Service
 public class InvestUserDetailsService implements UserDetailsService {
 

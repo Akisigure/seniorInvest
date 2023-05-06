@@ -5,7 +5,9 @@ import java.util.Date;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Data
 public class Users {
 	
@@ -22,6 +24,7 @@ public class Users {
 	@Email
 	private String email;
 	private String address;
+	
 	private Date joinedDate;
 	private Role role;
 	private char enabled;
