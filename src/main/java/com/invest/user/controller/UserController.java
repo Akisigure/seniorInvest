@@ -27,7 +27,7 @@ public class UserController {
 	@PostMapping("/login")
 	public String loginUsers(Users user) {
 		logService.loginUsers(user);
-		return "redirect:welcome";
+		return "account/loginSuccess";
 	}
 	
 	@GetMapping("/register")

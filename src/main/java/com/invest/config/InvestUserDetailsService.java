@@ -16,10 +16,10 @@ public class InvestUserDetailsService implements UserDetailsService {
 	private UserDao userDao;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Users user = userDao.findById(username);
+	public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
+		Users user = userDao.findById(userid);
 		if(user == null) {
-			throw new UsernameNotFoundException(username + "사용자 없음");
+			throw new UsernameNotFoundException(userid + "사용자 없음");
 		} else {
 			return new SecurityUser(user);
 		}

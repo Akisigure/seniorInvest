@@ -19,4 +19,7 @@ public interface UserDao {
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
 	Users loginUser(Users user);
 	
+	@Insert("insert into user_role values(#{userid},#{role_id}")
+	int insertPermit(Users user);
+	
 }

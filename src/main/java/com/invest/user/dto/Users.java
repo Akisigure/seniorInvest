@@ -26,7 +26,7 @@ public class Users {
 	private String address;
 	
 	private Date joinedDate;
-	private Role role;
+	private Role role_id;
 	private char enabled;
 	private char restrictStock;
 	private char alert;
