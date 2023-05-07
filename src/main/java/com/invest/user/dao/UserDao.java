@@ -11,15 +11,15 @@ import com.invest.user.dto.Users;
 public interface UserDao {
 	
 	@Select("select userid from users where userid = #{userid}")
-	Users findById(String id);
+	Users findById(String userid);
 	
-	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address})")
+	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid})")
 	int registerUsers(Users user);
 	
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
 	Users loginUser(Users user);
-	
-	@Insert("insert into user_role values(#{userid},#{role_id}")
+	  
+	@Insert("insert into user_role(userid,role_id) values(#{userid},#{role_id}")
 	int insertPermit(Users user);
 	
 }

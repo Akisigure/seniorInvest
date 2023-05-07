@@ -14,7 +14,7 @@ public class SecurityUser extends User {
 
 	public SecurityUser(Users users) {
 		super(users.getUserid(), users.getPassword(),
-				AuthorityUtils.createAuthorityList(users.getRole_id().toString()));
+				AuthorityUtils.createAuthorityList(users.getRoleid().toString()));
 		this.users = users;
 	}
 	
@@ -25,5 +25,4 @@ public class SecurityUser extends User {
 	public Users getUsers() {
 		return users;
 	}
-	
 }

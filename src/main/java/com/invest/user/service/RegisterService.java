@@ -20,9 +20,12 @@ public class RegisterService {
 	public int registerUser(Users user) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		
-		user.setRole_id(Role.ROLE_MEMBER);
+		user.setRoleid(Role.ROLE_MEMBER);
 		
-		return dao.registerUsers(user);
+		int i = dao.registerUsers(user);
+		System.out.println(i);
+		
+		return i;
 	}
 	
 	

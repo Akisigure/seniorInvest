@@ -19,15 +19,8 @@ public class UserController {
 	LoginService logService;
 	
 	@GetMapping("/login")
-	public String loginPage() {
-		
+	public String login() {
 		return "account/login";
-	}
-	
-	@PostMapping("/login")
-	public String loginUsers(Users user) {
-		logService.loginUsers(user);
-		return "account/loginSuccess";
 	}
 	
 	@GetMapping("/register")
@@ -39,6 +32,11 @@ public class UserController {
 	public String register(Users user) {
 		regService.registerUser(user);
 		return "redirect:login";
+	}
+	
+	@GetMapping("/loginSuccess")
+	public String loginSuccess() {
+		return "account/loginSuccess";
 	}
 		
 	

@@ -21,9 +21,9 @@ public class UserService {
 	public int insertUser(Users users) {
 		users.setPassword(encoder.encode(users.getPassword()));
 		
-		users.setRole_id(Role.ROLE_MEMBER);
+		users.setRoleid(Role.ROLE_MEMBER);
 		
-		int i = dao.insertPermit(users);
+		int i = dao.registerUsers(users);
 		System.out.println(i);
 		
 		return i;
