@@ -10,7 +10,7 @@ import com.invest.user.dto.Users;
 @Mapper
 public interface UserDao {
 	
-	@Select("select userid from users where userid = #{userid}")
+	@Select("select * from users where userid = #{userid}")
 	Users findById(String userid);
 	
 	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid})")
