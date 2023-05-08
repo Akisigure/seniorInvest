@@ -4,66 +4,159 @@
 <html>
 <head>
 <title>회원가입</title>
+<style>
+<head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      text-decoration: none;
+      font-family:sans-serif;
+    }
+    
+    body {
+      background-image:#34495e;
+    }
+    
+    .joinForm {
+      position:absolute;
+      width:400px;
+      height:400px;
+      padding: 30px, 20px;
+      background-color:#FFFFFF;
+      text-align:center;
+      top:40%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      border-radius: 15px;
+    }
+    
+    .joinForm h2 {
+      text-align: center;
+      margin: 5px;
+      padding: 5px;
+      margin-top: -30px;
+    }
+    
+    .textForm {
+      border-bottom: 2px solid #adadad;
+      margin: 30px;
+      padding: 20px 10px;
+      margin-top: 10px;
+    }
+    
+    .id {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .pw {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .name {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .email {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .nickname {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .cellphoneNo {
+      width: 100%;
+      border:none;
+      outline:none;
+      color: #636e72;
+      font-size:16px;
+      height:25px;
+      background: none;
+    }
+    
+    .btn {
+      position:relative;
+      left:40%;
+      transform: translateX(-50%);
+      margin-bottom: 40px;
+      width:80%;
+      height:40px;
+      background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
+      background-position: left;
+      background-size: 200%;
+      color:white;
+      font-weight: bold;
+      border:none;
+      cursor:pointer;
+      transition: 0.4s;
+      display:inline;
+      font-size: 18px;
+    }
+    
+    .btn:hover {
+      background-position: right;
+    }
+  </style>
+</head>
+<link href="WEB-INF/css/register.css" rel="stylesheet"/> 
 </head>
 <body>
-<div>
-	<form method="post" id="register">
-		<table>
-			<tr><td>아이디 : <input type="text" name="userid" id="userid">
-						<input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span></td></tr>
-			<tr><td>비밀번호 : <input type="password" name="password" id="password"></td></tr>
-			<tr><td>계좌번호 : <input type="text" name="accountid" id="accountid"></td></tr>
-			<tr><td>전화번호 : <input type="text" name="phoneNumber" id="phoneNumber"></td></tr>
-			<tr><td>이름 : <input type="text" name="userName" id="userName"></td></tr>
-			<tr><td>이메일 : <input type="text" name="email" id="email"></td></tr>
-			<tr><td>주소 : <input type="text" name="address" id="address">
-						<input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"></td></tr>
-			<tr><td><input type="submit" value="가입하기"></td></tr>
-		</table>
-	</form>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-function addPost(){
-    new daum.Postcode({
-        oncomplete: function(data) {
-            	document.querySelector("#address").value = data.address;
-        }
-    }).open();
-}
-
-$(function(){
-	$("#id_check").click(function(){
-		let userid = $("#userid").val();
-		if(!userid){
-			$("#id_msg").html("아이디를 입력하세요")
-			return false;
-		}
-		$.ajax({url:"/", data:"userid="+userid, datatype:"text"}
-		).done(function(data){
-			
-			if(data == ""){
-				$("#id_msg").html("사용할 수 있는 아이디 입니다.");
-				$("#id_msg").append("<input type='hidden' userid='id_ck' value='1'>");
-			}else{
-				$("#id_msg").html("이미 사용중인 아이디 입니다.");
-			}
-		})
-	});
-	
-	$("#register").submit(function(){
-		if($("#id_ck").val() != 1){
-			$("#id_msg").html("아이디 중복 체크 하셔야 합니다..")
-			return false;
-		}
-		if(!$("#password").val()){
-			alert("비밀번호를 입력해야 합니다.");
-			return false;
-		}
-	});
-	
-})//ready
-</script>
+<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
+                                                                                               
+      <h2>회원가입</h2>
+      <div class="textForm">
+        <input name="loginId" type="text" class="id" placeholder="아이디">
+      </div>
+      <div class="textForm">
+        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+      </div>
+       <div class="textForm">
+        <input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인">
+      </div>
+      <div class="textForm">
+        <input name="name" type="password" class="name" placeholder="이름">
+      </div>
+       <div class="textForm">
+        <input name="email" type="text" class="email" placeholder="이메일">
+      </div>
+      <div class="textForm">
+        <input name="nickname" type="text" class="nickname" placeholder="닉네임">
+      </div>
+      <div class="textForm">
+        <input name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호">
+      </div>
+      <input type="submit" class="btn" value="가입하기"/>
+    </form>
 </body>
 </html>
