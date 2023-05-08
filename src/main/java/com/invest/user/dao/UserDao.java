@@ -18,8 +18,8 @@ public interface UserDao {
 	
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
 	Users loginUser(Users user);
-	  
-	@Insert("insert into user_role(userid,role_id) values(#{userid},#{role_id}")
-	int insertPermit(Users user);
+
+	@Select("select userid from users where userid = #{userid}")
+    String idCheck(String userid);
 	
 }
