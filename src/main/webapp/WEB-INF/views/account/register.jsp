@@ -103,6 +103,16 @@ body {
   background: none;
 }
 
+.address {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
 .btn {
   position:relative;
   left:40%;
@@ -133,16 +143,16 @@ body {
       <h2>회원가입</h2>
       <div class="textForm">
         <input name="userid" type="text" class="id" id="userid" placeholder="아이디"></input>
-        <input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span></td></tr>
+        <input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span>
       </div>
       <div class="textForm">
         <input name="accountid" type="text" class="id" placeholder="계좌번호"></input>
       </div>
       <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호">
+        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
       </div>
        <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호 확인">
+        <input name="password" type="password" class="pw" placeholder="비밀번호 확인" id="password">
       </div>
       <div class="textForm">
         <input name="userName" type="text" class="name" placeholder="이름">
@@ -153,6 +163,16 @@ body {
       <div class="textForm">
         <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호">
       </div>
+        <div class="textForm">
+        <input name="address" type="text" class="address" placeholder="주소" id="address"></input>
+         	<input name="addressDetail" type="text" class="address" placeholder="상세주소" id="addressDetail"></input>
+        <input name="addressNumber" type="text" class="address" placeholder="우편번호" id="addressNumber"></input>
+        <input type="button" name="addressNumber" id="addbtn" value="우편번호 검색" onclick="addPost()">
+     
+      </div>
+
+        
+
       <input type="submit" class="btn" value="회 원 가 입"/>
     </form>
 </div>
@@ -189,7 +209,7 @@ $(function(){
 	
 	$("#register").submit(function(){
 		if($("#id_ck").val() != 1){
-			$("#id_msg").html("아이디 중복 체크 하셔야 합니다.")
+			$("#id_msg").html("아이디 중복 체크를 하셔야 합니다.")
 			return false;
 		}
 		if(!$("#password").val()){
