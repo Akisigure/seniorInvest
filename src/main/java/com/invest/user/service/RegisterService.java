@@ -28,4 +28,8 @@ public class RegisterService {
 		return i;
 	}
 	
+	public String idCheck(String userid) {
+        return dao.idCheck(userid);
+    } 
+	
 }
