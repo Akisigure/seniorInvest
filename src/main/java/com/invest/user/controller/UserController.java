@@ -31,6 +31,11 @@ public class UserController {
 		return "account/loginSuccess";
 	}
 	
+	@GetMapping("/insert")
+	public String joinform() {
+		return "account/register";
+	}
+	
 	@GetMapping("/register")
 	public String registerPage() {
 		return "account/register";

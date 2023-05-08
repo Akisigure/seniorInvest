@@ -85,16 +85,6 @@
       background: none;
     }
     
-    .nickname {
-      width: 100%;
-      border:none;
-      outline:none;
-      color: #636e72;
-      font-size:16px;
-      height:25px;
-      background: none;
-    }
-    
     .cellphoneNo {
       width: 100%;
       border:none;
@@ -132,7 +122,7 @@
 <link href="WEB-INF/css/register.css" rel="stylesheet"/> 
 </head>
 <body>
-<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
+<form action="insert" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">
                                                                                                
       <h2>회원가입</h2>
       <div class="textForm">
@@ -149,9 +139,6 @@
       </div>
        <div class="textForm">
         <input name="email" type="text" class="email" placeholder="이메일">
-      </div>
-      <div class="textForm">
-        <input name="nickname" type="text" class="nickname" placeholder="닉네임">
       </div>
       <div class="textForm">
         <input name="cellphoneNo" type="number" class="cellphoneNo" placeholder="전화번호">

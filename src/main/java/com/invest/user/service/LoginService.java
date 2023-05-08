@@ -15,4 +15,8 @@ public class LoginService {
 	public Users loginUsers(Users user) {
 		return dao.loginUser(user);
 	}
+	
+	public int insertUsers(Users user) {
+		return dao.registerUsers(user);
+	}
 }
