@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +56,7 @@
                 outline:none;
             }
             input[type=submit]{
-                background-color: #8aa1a1;
+                background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
                 border:none;
                 color:white;
                 border-radius: 5px;
@@ -65,21 +66,33 @@
                 margin:100px auto 0;
                 display:block;
             }
-            #forgot{
-                text-align: center;
-                font-size:12pt;
-                color:rgb(164, 164, 164);
-                margin:10px 0px;
+            a{
+              font-size: 16pt;
+              color:black;
+              margin:10px 0px;
+              text-decoration: none;
+              display: block;
+              text-align: center;
             }
+            #error {
+             position:relative;
+                margin:10px 0;
+                text-align: center;
+                color : red;
+            }
+            
 </style>
 
     <head>
         <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     </head>
     <body>
+    
+
             <header>
             <h2>로그인</h2>
         </header>
+
         <form action="" method="POST">
 
 
@@ -87,12 +100,19 @@
                 <input id="userid" type="text" name="userid" placeholder="아이디">
                 <label for="userid">아이디</label>
             </div>
+            
+            <c:if test="${param.error != null}">
+ 	<div id="error">
+ 		<p>아이디나 비밀번호가 잘못되었습니다.</p>
+ 	</div>
+</c:if>
 
             <div class="input-box">
                 <input id="password" type="password" name="password" placeholder="비밀번호">
                 <label for="password">비밀번호</label>
             </div>
-            <div id="forgot">비밀번호 찾기</div>
+            <a href="register">회원가입</a>
+            <a href="pwdSearch">비밀번호 찾기</a>
             <input type="submit" value="로그인">
 
         </form>

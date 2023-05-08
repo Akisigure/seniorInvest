@@ -30,7 +30,7 @@ public class UserController {
 	LoginService logService;
 	
 	@GetMapping("/login")
-	public String login() {
+	public String login(String error) {
 		return "account/login";
 	}
 	
@@ -41,23 +41,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/register")
-	public String register(@Valid Users user, BindingResult bindingResult, Model m) {
-		if(bindingResult.hasErrors()) {
-			return "account/register";
-		}
+	public String register(Users user) {
 		
-		try {
 			regService.registerUser(user);
-		}catch (IllegalStateException e) {
-			m.addAttribute("errorMessage", e.getMessage());
-			return "account/register";
-		}
 		return "redirect:login";
 	}
 	
 	@PostMapping("/login")
-	public String loginSuccess() {
-		
+	public String loginSuccess(Users user) {
+		logService.loginUsers(user);
 		return "redirect:/";
 	}
 	

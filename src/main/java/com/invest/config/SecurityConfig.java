@@ -29,7 +29,7 @@ public class SecurityConfig {
         .requestMatchers("/user/**").authenticated()
         .requestMatchers("/admin/**").hasRole("ADMIN")
         .anyRequest().permitAll()
-        .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid")
+        .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true")
         .and().exceptionHandling().accessDeniedPage("/account/accessDenied")
         .and().logout().invalidateHttpSession(true).logoutSuccessUrl("/login");
 		
