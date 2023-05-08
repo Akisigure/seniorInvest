@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -143,7 +144,7 @@ optgroup option {
   margin-bottom: 40px;
   width:80%;
   height:40px;
-  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
   background-position: left;
   background-size: 200%;
   color:white;
@@ -152,6 +153,7 @@ optgroup option {
   cursor:pointer;
   transition: 0.4s;
   display:inline;
+   font-size: 24px;
 }
 #id_check  {
 	position:absolute;
@@ -170,6 +172,25 @@ span {
 	height : 20px;
 }
 
+#check {
+	position:absolute;
+	float : right;
+
+}
+#accountType  {
+	position:relative;
+	float :	left;
+}
+#mail_ck  {
+	position:absolute;
+	float :	right;
+}
+#addbtn {
+	position:absolute;
+	float : right;
+}
+
+
 
 
 .btn:hover {
@@ -179,10 +200,11 @@ span {
 </style>
 <body>
 <div>
-	<form  method="POST" class="joinForm" id="register">
+	<form:form method="POST" class="joinForm" id="register" modelAttribute ="Users">
                                                                                                
       <h2>회원가입</h2>
       <div class="textForm">
+      <form:errors element="div"/>
         <input name="userid" type="text" class="id" id="userid" placeholder="아이디"></input>
         <input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span>
       </div>
@@ -202,10 +224,10 @@ span {
        	 <input name="accountid" type="text" class="accountid" id="accountid" placeholder="계좌번호 -없이 입력"></input>
       </div>
       <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
+        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" required>
       </div>
        <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호 확인" id="password">
+         <input type="password" placeholder="비밀번호 확인" id="confirm_password" class="pw" name="passwordCheck" required>
       </div>
       <div class="textForm">
         <input name="userName" type="text" class="name" placeholder="이름">
@@ -214,7 +236,9 @@ span {
        <div class="textForm">
  		<input name="email" id="email" class="email" placeholder="이메일">
         <input type="button" id="mail_ck" value="메일 인증">
-		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
+      </div>
+      <div class="textForm">
+      		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
 		<div id="result">
 		</div>
       </div>
@@ -226,13 +250,13 @@ span {
          	<input name="addressDetail" type="text" class="address" placeholder="상세주소" id="addressDetail"></input>
         <input name="addressNumber" type="text" class="address" placeholder="우편번호" id="addressNumber"></input>
         <input type="button" name="addressNumber" id="addbtn" value="우편번호 검색" onclick="addPost()">
-     
-      </div>
+     	</div>
+  
 
         
 
       <input type="submit" class="btn" value="회 원 가 입"/>
-    </form>
+    </form:form>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -247,6 +271,18 @@ function addPost() {
 	}
 
 	let num ="";
+	
+	  function validatePassword() {
+		  var passwd = document.getElementById("password").value;
+		  var repeatPasswd = document.getElementById("repeat-password").value;
+
+		  if (passwd != repeatPasswd) {
+		    alert("패스워드가 일치하지 않습니다.");
+		    return false;
+		  }
+
+		  return true;
+		}
 
 	$(function() {
 	  $("#id_check").click(function() {
@@ -307,7 +343,12 @@ function addPost() {
 	          return false;
 	        }
 	      });
+	  
+
+	  
 	}) //ready
+	
+
 
 </script>
 </body>

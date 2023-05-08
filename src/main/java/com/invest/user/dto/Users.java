@@ -47,7 +47,6 @@ public class Users {
 	
 	private Date joinedDate;
 	
-	
 	private Role roleid;
 	
 	private String addressDetail;

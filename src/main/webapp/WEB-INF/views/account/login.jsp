@@ -55,31 +55,43 @@
                 border-bottom: solid 1px #8aa1a1;
                 outline:none;
             }
-            input[type=submit]{
+           .btn{
                 background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
+                background-position: left;
+                background-size: 200%;
                 border:none;
                 color:white;
                 border-radius: 5px;
+                cursor:pointer;
                 width:50%;
                 height:35px;
+                transition: 0.4s;
                 font-size: 14pt;
                 margin:100px auto 0;
                 display:block;
             }
-            a{
-              font-size: 16pt;
-              color:black;
-              margin:10px 0px;
-              text-decoration: none;
-              display: block;
-              text-align: center;
-            }
+            
             #error {
              position:relative;
                 margin:10px 0;
                 text-align: center;
                 color : red;
             }
+              .href_box{
+                position:relative;
+                margin:10px 0;
+                text-align: center;
+                text-decoration-line: none;
+            }
+              .href_box#a_reg{
+              pointer-events: none;
+              
+            }
+            
+            
+            .btn:hover {
+  background-position: right;
+}
             
 </style>
 
@@ -93,8 +105,7 @@
             <h2>로그인</h2>
         </header>
 
-        <form action="" method="POST">
-
+        <form  method="POST">
 
             <div class="input-box">
                 <input id="userid" type="text" name="userid" placeholder="아이디">
@@ -111,9 +122,11 @@
                 <input id="password" type="password" name="password" placeholder="비밀번호">
                 <label for="password">비밀번호</label>
             </div>
-            <a href="register">회원가입</a>
-            <a href="pwdSearch">비밀번호 찾기</a>
-            <input type="submit" value="로그인">
+            <div class="href_box">
+            <a class="a_reg" href="register">회원가입</a>
+            <a class="a_pwd" href="pwdSearch">비밀번호 찾기</a>
+            </div>
+            <input type="submit" value="로그인" class="btn">
 
         </form>
 

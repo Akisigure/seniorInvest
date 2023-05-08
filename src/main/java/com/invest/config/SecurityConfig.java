@@ -18,9 +18,6 @@ public class SecurityConfig {
 	@Autowired
 	private InvestUserDetailsService investUserDetailsService;
 	
-	@Autowired
-	private AuthFailureHandler authFailureHandler;
-	
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
