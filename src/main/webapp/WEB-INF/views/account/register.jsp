@@ -145,5 +145,50 @@
       </div>
       <input type="submit" class="btn" value="가입하기"/>
     </form>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function addPost(){
+    new daum.Postcode({
+        oncomplete: function(data) {
+            	document.querySelector("#address").value = data.address;
+            	alert("나머지 주소도 입력하세요.");
+        }
+    }).open();
+}    
+
+$(function(){
+	$("#id_check").click(function(){
+		let userid = $("#userid").val();
+		if(!userid){
+			$("#id_msg").html("아이디를 입력하세요")
+			return false;
+		}
+		$.ajax({url:"/idCheck", data:"userid="+userid, datatype:"text"}
+		).done(function(data){
+			
+			if(data == ""){
+				$("#id_msg").html("사용할 수 있는 아이디 입니다.");
+				$("#id_msg").append("<input type='hidden' id='id_ck' value='1'>");
+			}else{
+				$("#id_msg").html("이미 사용중인 아이디 입니다.");
+			}
+		})
+	});//아이디 중복 확인 click
+	
+	$("#register").submit(function(){
+		if($("#id_ck").val() != 1){
+			$("#id_msg").html("아이디 중복 체크 하셔야 합니다.")
+			return false;
+		}
+		if(!$("#password").val()){
+			alert("비밀번호를 입력해야 합니다.");
+			return false;
+		}
+	});
+	
+})//ready
+
+</script>
 </body>
 </html>
