@@ -34,7 +34,7 @@
                 top:15px;
 				position: absolute;
     			left: 30%;
-    			transform: translateX(-70%);
+    			transform: translateX(-100%);
     			text-align: center;
             }
             input:focus + label, label{
@@ -42,7 +42,7 @@
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
-                left:270px;
+                left:480px;
                 top:10px;
                 transition: all 0.2s ease ;
                 -webkit-transition: all 0.2s ease;
@@ -86,8 +86,8 @@
 
 
             <div class="input-box">
-                <input id="username" type="text" name="username" placeholder="아이디">
-                <label for="username">아이디</label>
+                <input id="userid" type="text" name="userid" placeholder="아이디">
+                <label for="userid">아이디</label>
             </div>
 
             <div class="input-box">
