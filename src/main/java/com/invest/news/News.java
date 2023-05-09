@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 
 @Getter
 @Setter
-@Entity
+@Entity // JPA 엔티티, DB의 테이블과 매핑
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
