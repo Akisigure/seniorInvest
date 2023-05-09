@@ -86,16 +86,6 @@ body {
   background: none;
 }
 
-.nickname {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-}
-
 .cellphoneNo {
   width: 100%;
   border:none;
@@ -164,7 +154,7 @@ optgroup option {
 	margin : -37px;
 	padding-left: -20px;
 }
-#id_msg {
+/* #id_msg {
 	position:absolute;
 	float : right;
 	right : -220px;
@@ -172,7 +162,7 @@ optgroup option {
 	height : 20px;
 	padding-left : 50px;
 	padding-right: -40px;
-}
+} */
 
 /* span {
 	position : absolute;
@@ -237,17 +227,21 @@ optgroup option {
   background-position: right;
 }
 
+.error{
+	color:red;
+}
+
 </style>
 <body>
 <div>
-	<form:form method="POST" class="joinForm" id="register" modelAttribute="Users">
+	<form:form method="POST" class="joinForm" id="register" modelAttribute="users">
                                                                                                
       <h2>회원가입</h2>
       <div class="textForm">
       <form:errors element="div"/>
         <input name="userid" type="text" class="id" id="userid" placeholder="아이디"></input>
         <input type="button" id="id_check" value="중복 확인" class="btn btn-primary rounded-pill px-3"><span id="id_msg"></span>
-        <form:errors path="userid" delimiter=" "/>
+        <form:errors path="userid" delimiter=" " class="error"/>
       </div>
       <div class="textForm">
       <select id="accountType" name="accountType">
@@ -263,12 +257,12 @@ optgroup option {
 			</optgroup>
 		</select>
        	 <input name="accountid" type="text" class="accountid" id="accountid" placeholder="계좌번호 -없이 입력"></input>
-       	  <form:errors path="accountid" delimiter=" " /><br/>
+       	  <form:errors path="accountid" delimiter=" " class="error" />
       </div>
       <div class="textForm">
         <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
         <span id="chkpw">6~15자리를 입력해주세요</span>	
-        <form:errors path="password" delimiter=" "/><br>
+        <form:errors path="password" delimiter=" " class="error"/>
        	 
       </div>
        <div class="textForm">
@@ -277,21 +271,23 @@ optgroup option {
     		<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호를 확인해주세요</span>
       </div>
       <div class="textForm">
-        <input name="userName" type="text" class="name" placeholder="이름">
+        <input name="userName" type="text" class="name" placeholder="이름" id="userName">
+        <form:errors path="userName" delimiter=" " class="error"/>
       </div>
  
        <div class="textForm">
  		<input name="email" id="email" class="email" placeholder="이메일">
-        <input type="button" id="mail_ck" value="메일 인증" class="btn btn-primary rounded-pill px-3">
-        <form:errors path="email" delimiter=" " /><br/>
+        <input type="button" id="mail_ck" value="메일 인증" class="btn btn-primary rounded-pill px-3"><span id="email_msg"></span>
+        <form:errors path="email" delimiter=" " class="error" />
       </div>
-      <div class="textForm">
+      <div class="textForm" style="display : none;" id="ck_form">
       		<div id="input" ><input id="ck_num" class="email" placeholder="인증번호 입력"> <input type="button" id="ck_b" value="인증 확인" class="btn btn-primary rounded-pill px-3"></div>
 		<div id="result">
 		</div>
       </div>
       <div class="textForm">
-        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호">
+        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호 -없이 입력" id="phoneNumber">
+        <form:errors path="phoneNumber" delimiter=" " class="error" />
       </div>
         <div class="textForm">
         <input name="address" type="text" class="address" placeholder="주소" id="address" readonly></input>
@@ -309,6 +305,7 @@ optgroup option {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+
 function addPost() {
     new daum.Postcode({
       oncomplete: function(data) {
@@ -348,9 +345,59 @@ function addPost() {
    }).open();
   }
 
+
+
+
+
+$(function() {
+	
+	let idInput = document.querySelector('#userid');
+	let idErrorMsg = document.querySelector('.error[id="userid.errors"]');
+
+	idInput.addEventListener('input', () => {
+		idErrorMsg.style.display = 'none';
+	});
+	
+	let accountidInput = document.querySelector('#accountid');
+	let accountidErrorMsg = document.querySelector('.error[id="accountid.errors"]');
+
+	accountidInput.addEventListener('input', () => {
+		accountidErrorMsg.style.display = 'none';
+	});
+	
+	let pwInput = document.querySelector('#password');
+	let pwErrorMsg = document.querySelector('.error[id="password.errors"]');
+
+	pwInput.addEventListener('input', () => {
+		pwErrorMsg.style.display = 'none';
+	});
+	
+	let emailInput = document.querySelector('#email');
+	let emailErrorMsg = document.querySelector('.error[id="email.errors"]');
+
+	emailInput.addEventListener('input', () => {
+	emailErrorMsg.style.display = 'none';
+	});
+	
+	let usernameInput = document.querySelector('#userName');
+	let usernameErrorMsg = document.querySelector('.error[id="userName.errors"]');
+
+	usernameInput.addEventListener('input', () => {
+	usernameErrorMsg.style.display = 'none';
+	});
+	
+	let phoneNumberInput = document.querySelector('#phoneNumber');
+	let phoneNumberErrorMsg = document.querySelector('.error[id="phoneNumber.errors"]');
+
+	phoneNumberInput.addEventListener('input', () => {
+	phoneNumberErrorMsg.style.display = 'none';
+	});
+
+
+
 	let num ="";
 
-	$(function() {
+
 	  $("#id_check").click(function() {
 	    let userid = $("#userid").val();
 	      if(!userid) {
@@ -372,32 +419,45 @@ function addPost() {
 	  $("#mail_ck").click(function() {
 		  let email = $("#email").val();
 		  if(!email) {
-			  $("#result").css("display","block").html("메일 주소 입력하세요");
+			  $("#email_msg").css("display","block").html("메일 주소를 입력하세요");
 		  	
 			  return false;
 		  }
-		 $.ajax({url:"/send",
-			data:"emailAddress="+email,
-			dataType:"json"
-		 }
-		 ).done(function(data){
-			if(eval(data[1])){
-				num = data[0];
-				alert("메일전송완료. 인증번호를 입력해주세요.")
-				$("#input,#result").css("display","block");
-			}
-		 });//ajax
-		 	$("#ck_b").click(function(){
-		 		let ck_num = $("#ck_num").val();
-		 		if(ck_num == num) {
-		 			$("#result").html("인증이 확인됨.")
-		 			$("#result").append("<input type='hidden' id='ck' value='1'>");
-		 		}else {
-		 			$("#result").html("인증에 실패했습니다. 다시확인해주세요.");
-		 		}
-		 	})
 		  
-	  })
+		  $.ajax({url:"/emailCheck", data:"email="+email,datatype:"text"}
+	      ).done(function(data) {
+
+	        if(data == ""){
+	          $("#email_msg").html("사용할 수 있는 이메일 입니다.");
+	          $("#email_msg").append("<input type='hidden' id='email_ck' value='1'>");
+	          
+	          $.ajax({url:"/send",
+	        		data:"emailAddress="+email,
+	        		dataType:"json"
+	        	 }
+	        	 ).done(function(data){
+	        		if(eval(data[1])){
+	        			num = data[0];
+	        			alert("메일전송완료. 인증번호를 입력해주세요.")
+	        			$("#input,#result,#ck_form").css("display","block");
+	        		}
+	        	 });//ajax
+	        	 	$("#ck_b").click(function(){
+	        	 		let ck_num = $("#ck_num").val();
+	        	 		if(ck_num == num) {
+	        	 			$("#result").html("인증이 확인되었습니다.")
+	        	 			$("#result").append("<input type='hidden' id='ck' value='1'>");
+	        	 		}else {
+	        	 			$("#result").html("인증에 실패했습니다. 다시확인해주세요.");
+	        	 		}
+	        	 	})
+	          
+	        }else {
+	          $("#email_msg").html("이미 사용중인 이메일 입니다.");
+	        }
+	      })//이메일 중복 확인 click
+	    });
+		  
 	  
 	      $('.pw').focusout(function () {
         var pwd1 = $("#password").val();
@@ -426,7 +486,6 @@ function addPost() {
 	          return false;
 	        }
 	      });
-	  
 
 	  
 	}) //ready

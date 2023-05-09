@@ -35,4 +35,9 @@ public class RegisterService {
         return dao.idCheck(userid);
     } 
 	
+	public String emailCheck(String email) {
+		return dao.emailCheck(email);
+	}
+
+	
 }

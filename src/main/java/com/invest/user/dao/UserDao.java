@@ -22,4 +22,7 @@ public interface UserDao {
 	@Select("select userid from users where userid = #{userid}")
     String idCheck(String userid);
 	
+	@Select("select email from users where email = #{email}")
+	String emailCheck(String email);
+	
 }

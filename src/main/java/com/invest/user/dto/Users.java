@@ -27,9 +27,11 @@ public class Users {
 	private String accountType;
 	 
 	@NotBlank(message = "비밀번호는 필수 입력 값입니다.")
-	@Length(min = 6, max = 15, message = "비밀번호는 6자 이상, 15자 이하로 입력해주세요.")
+	@Length(min = 6, max = 15, message="")
 	private String password;
 	
+	@Pattern(regexp = "^[가-힣]*$", message = "한글만 입력해주세요")
+	@Length(min =2, message = "한글만 입력해주세요")
 	private String userName;
 	
 	@Pattern(regexp = "^[0-9]*$", message = "숫자만 입력해주세요")
@@ -37,7 +39,7 @@ public class Users {
 	private String phoneNumber;
 	
 	@Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$", message = "이메일 형식이 올바르지 않습니다.")
-	@NotBlank(message = "이메일은 필수 입력 사항 입니다.")
+	@NotBlank(message = "")
 	private String email;
 	
 	private String address;

@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <style>
            header{
+           		padding-top: 150px;
                 display:flex;
                 justify-content: center;
             }
@@ -43,7 +45,7 @@
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
-                left:480px;
+                left:28%;
                 top:10px;
                 transition: all 0.2s ease ;
                 -webkit-transition: all 0.2s ease;
@@ -81,11 +83,16 @@
                 position:relative;
                 margin:10px 0;
                 text-align: center;
-                text-decoration-line: none;
+                text-decoration-line : none;
             }
               .href_box#a_reg{
               pointer-events: none;
               
+            }
+            
+            a {
+            	text-decoration-line : none;
+            	font-size : 25px;
             }
             
             
