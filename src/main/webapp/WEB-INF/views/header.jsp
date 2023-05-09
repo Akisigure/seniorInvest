@@ -25,13 +25,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#section-1">뉴스</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">뉴스</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-2">공지 사항</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-3">관심 종목</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-3">실시간 종목</a></li>
-                    <li class="nav-item"><a class="nav-link" href="news">마이 페이지</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-3">매도 주문</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-3">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="section-1">마이 페이지</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-1">매도 주문</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-1">Q&A</a></li>
                     <li class="nav-item"><a class="nav-link" href="login">로그 아웃</a></li>
                 </ul>
             </div>
