@@ -26,15 +26,29 @@
 	<main class="container-fluid p-0">
 		<div class="col section-container">
 			<div class="container">
-			<hr class="mt-0 mb-4" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+				<hr class="mt-0 mb-4"
+					style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
 				<h1 class="mb-4">경제 뉴스</h1>
-				<hr class="mt-0 mb-4" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+				<hr class="mt-0 mb-4"
+					style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
 
 				<c:forEach var="news" items="${newsPage.content}">
-					<h2>${news.title}</h2>
-					<p>${news.description}</p>
+					<div class="news-item">
+						<c:choose>
+							<c:when test="${not empty news.urlToImage}">
+								<img src="${news.urlToImage}" alt="News Image"
+									class="news-image">
+							</c:when>
+						</c:choose>
+						
+						<div class="news-text">
+							<p><a href=${news.url}><h2>${news.title}</h2></a></p>
+							<p class="news-description">${news.description}</p>
+							<p class="news-date">${news.publishedAt}</p>
+						</div>
+					</div>
+									
 				</c:forEach>
-
 				<c:if test="${newsPage.totalPages > 1}">
 					<div class="pagination mt-5">
 						<c:set var="startPage"
@@ -55,7 +69,8 @@
 
 						<c:if test="${endPage < newsPage.totalPages - 1}">
 							<span class="ellipsis">...</span>
-							<a href="<c:url value="/news?page=${newsPage.totalPages - 1}&size=15"/>"
+							<a
+								href="<c:url value="/news?page=${newsPage.totalPages - 1}&size=15"/>"
 								class="btn-pagination">${newsPage.totalPages}</a>
 						</c:if>
 					</div>
