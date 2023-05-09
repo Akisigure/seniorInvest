@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>회원가입</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <style>
 * {
@@ -155,22 +156,30 @@ optgroup option {
   display:inline;
    font-size: 24px;
 }
-#id_check  {
-	position:absolute;
+#id_check {
+	width : 120px;
+	height : 40px;
 	float : right;
-
+	font-size : 18px;
+	margin : -37px;
+	padding-left: -20px;
 }
 #id_msg {
 	position:absolute;
 	float : right;
+	right : -220px;
+	width : 190px;
+	height : 20px;
+	padding-left : 50px;
+	padding-right: -40px;
 }
 
-span {
+/* span {
 	position : absolute;
 	right : -220px;
 	width : 190px;
 	height : 20px;
-}
+} */
 
 #check {
 	position:absolute;
@@ -182,15 +191,46 @@ span {
 	float :	left;
 }
 #mail_ck  {
-	position:absolute;
-	float :	right;
-}
-#addbtn {
-	position:absolute;
+	width : 120px;
+	height : 40px;
 	float : right;
+	font-size : 18px;
+	margin : -45px;
+}
+
+#ck_b  {
+	width : 120px;
+	height : 40px;
+	float : right;
+	font-size : 18px;
+	margin : -45px;
 }
 
 
+#addbtn {
+	width : 120px;
+	height : 40px;
+	float : right;
+	font-size : 15px;
+	margin : -58px;
+}
+
+#chkpw {
+	position: absolute;
+	right : -180px;
+	width : 200px;
+	height : 20px;
+
+}
+
+#alert-danger {
+	position: absolute;
+		right : -180px;
+	width : 190px;
+	height : 20px;
+	float : right;
+
+}
 
 
 .btn:hover {
@@ -200,13 +240,14 @@ span {
 </style>
 <body>
 <div>
-	<form:form method="POST" class="joinForm" id="register" modelAttribute ="Users">
+	<form:form method="POST" class="joinForm" id="register" modelAttribute="Users">
                                                                                                
       <h2>회원가입</h2>
       <div class="textForm">
       <form:errors element="div"/>
         <input name="userid" type="text" class="id" id="userid" placeholder="아이디"></input>
-        <input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span>
+        <input type="button" id="id_check" value="중복 확인" class="btn btn-primary rounded-pill px-3"><span id="id_msg"></span>
+        <form:errors path="userid" delimiter=" "/>
       </div>
       <div class="textForm">
       <select id="accountType" name="accountType">
@@ -222,12 +263,18 @@ span {
 			</optgroup>
 		</select>
        	 <input name="accountid" type="text" class="accountid" id="accountid" placeholder="계좌번호 -없이 입력"></input>
+       	  <form:errors path="accountid" delimiter=" " /><br/>
       </div>
       <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" required>
+        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
+        <span id="chkpw">6~15자리를 입력해주세요</span>	
+        <form:errors path="password" delimiter=" "/><br>
+       	 
       </div>
        <div class="textForm">
-         <input type="password" placeholder="비밀번호 확인" id="confirm_password" class="pw" name="passwordCheck" required>
+         <input type="password" placeholder="비밀번호 확인" id="passwordCheck" class="pw" name="passwordCheck">
+        	<span id="alert-clear" style="display: none;">비밀번호가 일치합니다.</span>
+    		<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호를 확인해주세요</span>
       </div>
       <div class="textForm">
         <input name="userName" type="text" class="name" placeholder="이름">
@@ -235,10 +282,11 @@ span {
  
        <div class="textForm">
  		<input name="email" id="email" class="email" placeholder="이메일">
-        <input type="button" id="mail_ck" value="메일 인증">
+        <input type="button" id="mail_ck" value="메일 인증" class="btn btn-primary rounded-pill px-3">
+        <form:errors path="email" delimiter=" " /><br/>
       </div>
       <div class="textForm">
-      		<div id="input"><input id="ck_num"> <input type="button" id="ck_b" value="인증 확인"></div>
+      		<div id="input" ><input id="ck_num" class="email" placeholder="인증번호 입력"> <input type="button" id="ck_b" value="인증 확인" class="btn btn-primary rounded-pill px-3"></div>
 		<div id="result">
 		</div>
       </div>
@@ -246,10 +294,10 @@ span {
         <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호">
       </div>
         <div class="textForm">
-        <input name="address" type="text" class="address" placeholder="주소" id="address"></input>
+        <input name="address" type="text" class="address" placeholder="주소" id="address" readonly></input>
          	<input name="addressDetail" type="text" class="address" placeholder="상세주소" id="addressDetail"></input>
-        <input name="addressNumber" type="text" class="address" placeholder="우편번호" id="addressNumber"></input>
-        <input type="button" name="addressNumber" id="addbtn" value="우편번호 검색" onclick="addPost()">
+        <input name="addressNumber" type="text" class="address" placeholder="우편번호" id="addressNumber" readonly></input>
+        <input type="button" name="search" id="addbtn" value="우편번호 검색" onclick="addPost()" class="btn btn-primary rounded-pill px-3">
      	</div>
   
 
@@ -262,27 +310,45 @@ span {
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function addPost() {
-	  new daum.Postcode({
-	    oncomplete: function(data) {
-	      document.querySelector("#address").value = data.address;
-	      alert("나머지 주소도 입력하세요.");
-	    }
-	  }).open();
-	}
+    new daum.Postcode({
+      oncomplete: function(data) {
+          var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+          var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+          // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+          // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+          if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+              extraRoadAddr += data.bname;
+          }
+          // 건물명이 있고, 공동주택일 경우 추가한다.
+          if(data.buildingName !== '' && data.apartment === 'Y'){
+             extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+          }
+          // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+          if(extraRoadAddr !== ''){
+              extraRoadAddr = ' (' + extraRoadAddr + ')';
+          }
+          // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+          if(fullRoadAddr !== ''){
+              fullRoadAddr += extraRoadAddr;
+          }
+
+          // 우편번호와 주소 정보를 해당 필드에 넣는다.
+          console.log(data.zonecode);
+          console.log(fullRoadAddr);
+          
+          
+          $("[name=addressNumber]").val(data.zonecode);
+          $("[name=address]").val(fullRoadAddr);
+          
+          /* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
+          document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
+          document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
+      }
+   }).open();
+  }
 
 	let num ="";
-	
-	  function validatePassword() {
-		  var passwd = document.getElementById("password").value;
-		  var repeatPasswd = document.getElementById("repeat-password").value;
-
-		  if (passwd != repeatPasswd) {
-		    alert("패스워드가 일치하지 않습니다.");
-		    return false;
-		  }
-
-		  return true;
-		}
 
 	$(function() {
 	  $("#id_check").click(function() {
@@ -332,6 +398,23 @@ function addPost() {
 		 	})
 		  
 	  })
+	  
+	      $('.pw').focusout(function () {
+        var pwd1 = $("#password").val();
+        var pwd2 = $("#passwordCheck").val();
+  
+        if ( pwd1 != '' && pwd2 == '' ) {
+            null;
+        } else if (pwd1 != "" || pwd2 != "") {
+            if (pwd1 == pwd2) {
+                $("#alert-success").css('display', 'inline-block');
+                $("#alert-danger").css('display', 'none');
+            } else {
+                $("#alert-clear").css('display', 'none');
+                $("#alert-danger").css('display', 'inline-block');
+            }
+        }
+    }); //비밀번호 확인 스크립트 
 		  
 	      $("#joinform").submit(function() {
 	        if($("#id_ck").val() != 1) {

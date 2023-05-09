@@ -62,7 +62,6 @@ public class UserController {
 			return "account/register";
 		}
 		
-			// regService.registerUser(user);
 		return "redirect:login";
 	}
 	
