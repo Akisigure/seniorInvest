@@ -1,6 +1,8 @@
 package com.invest.user.service;
 
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,8 @@ public class RegisterService {
 		
 		user.setRoleid(Role.ROLE_MEMBER);
 		
+		user.setAccountid(randomAccount());
+		
 		int i = dao.registerUsers(user);
 		System.out.println(i);
 		
@@ -37,6 +41,17 @@ public class RegisterService {
 	
 	public String emailCheck(String email) {
 		return dao.emailCheck(email);
+	}
+	
+	private String randomAccount() {
+		
+		Random r = new Random();
+		String number = "";
+		for(int i = 0;i< 12; i++) {
+			number += r.nextInt(10);
+		}
+		System.out.println("number : "+number);
+		return number;
 	}
 
 	

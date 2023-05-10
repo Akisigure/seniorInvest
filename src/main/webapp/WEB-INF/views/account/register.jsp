@@ -244,22 +244,6 @@ optgroup option {
         <form:errors path="userid" delimiter=" " class="error"/>
       </div>
       <div class="textForm">
-      <select id="accountType" name="accountType">
-		<optgroup class="bank" label="은행 선택">
-			<option value = "국민은행">국민은행</option>
-			<option value = "농협은행">농협은행</option>
-			<option value = "신한은행">신한은행</option>
-			<option value = "우리은행">우리은행</option>
-			<option value = "하나은행">하나은행</option>
-			<option value = "수협은행">수협은행</option>
-			<option value = "토스뱅크">토스뱅크</option>
-			<option value = "카카오뱅크">카카오뱅크</option>
-			</optgroup>
-		</select>
-       	 <input name="accountid" type="text" class="accountid" id="accountid" placeholder="계좌번호 -없이 입력"></input>
-       	  <form:errors path="accountid" delimiter=" " class="error" />
-      </div>
-      <div class="textForm">
         <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
         <span id="chkpw">6~15자리를 입력해주세요</span>	
         <form:errors path="password" delimiter=" " class="error"/>
@@ -357,13 +341,7 @@ $(function() {
 	idInput.addEventListener('input', () => {
 		idErrorMsg.style.display = 'none';
 	});
-	
-	let accountidInput = document.querySelector('#accountid');
-	let accountidErrorMsg = document.querySelector('.error[id="accountid.errors"]');
 
-	accountidInput.addEventListener('input', () => {
-		accountidErrorMsg.style.display = 'none';
-	});
 	
 	let pwInput = document.querySelector('#password');
 	let pwErrorMsg = document.querySelector('.error[id="password.errors"]');

@@ -13,7 +13,7 @@ public interface UserDao {
 	@Select("select * from users where userid = #{userid}")
 	Users findById(String userid);
 	
-	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid,addressNumber,accountType,addressDetail) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid},#{addressNumber},#{accountType},#{addressDetail})")
+	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid,addressNumber,accountType) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid},#{addressNumber},#{accountType})")
 	int registerUsers(Users user);
 	
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
