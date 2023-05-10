@@ -40,21 +40,24 @@
 									class="news-image">
 							</c:when>
 						</c:choose>
-						
+
 						<div class="news-text">
-							<p><a href=${news.url}><h2>${news.title}</h2></a></p>
+							<p>
+								<a href=${news.url}><h2>${news.title}</h2></a>
+							</p>
 							<p class="news-description">${news.description}</p>
 							<p class="news-date">${news.publishedAt}</p>
 						</div>
 					</div>
-									
+
 				</c:forEach>
 				<c:if test="${newsPage.totalPages > 1}">
 					<div class="pagination mt-5">
 						<c:set var="startPage"
 							value="${newsPage.number - 4 > 0 ? newsPage.number - 4 : 0}" />
 						<c:set var="endPage"
-							value="${newsPage.number + 4 < newsPage.totalPages ? newsPage.number + 4 : newsPage.totalPages}" />
+							value="${newsPage.number + 4 < newsPage.totalPages ? newsPage.number + 4 : newsPage.totalPages - 1}" />
+
 
 						<c:if test="${startPage > 0}">
 							<a href="<c:url value="/news?page=0&size=15"/>"

@@ -33,10 +33,17 @@ $(document).ready(function () {
 });
 
 $(document).ready(function() {
-  var url = window.location.href;
-  $('ul.navbar-nav a.nav-link').filter(function() {
-      return this.href == url;
-  }).closest('li').addClass('active');
+    var url = window.location.href.split('?')[0];
+    $('ul.navbar-nav a.nav-link').each(function() {
+        var navLinkUrl = this.href.split('?')[0];
+        if (url == navLinkUrl) {
+            $(this).closest('li').addClass('active');
+        }
+    });
 });
+
+
+
+
 
 

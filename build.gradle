@@ -39,8 +39,8 @@ dependencies {
 	implementation 'org.json:json:20210307'
   	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
   	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+  	  	//뉴스데이터 받아오기
   	implementation 'com.github.KwabenBerko:News-API-Java:1.0.2'
-  	//뉴스데이터 받아오기
 	runtimeOnly 'com.h2database:h2'
        
 }
