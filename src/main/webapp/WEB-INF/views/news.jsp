@@ -20,8 +20,8 @@
 <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-	<!-- Main Content -->
-	<jsp:include page="/header"></jsp:include>
+	<!-- Main Content -->   
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<main class="container-fluid p-0">
 		<div class="col section-container">
