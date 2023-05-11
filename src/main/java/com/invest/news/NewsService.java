@@ -25,7 +25,7 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
-    @Scheduled(cron = "* * 1 * * *")
+    @Scheduled(cron = "* 10 * * * *")
     @Transactional
     public void updateNews() {
     	newsRepository.deleteAll();
@@ -71,7 +71,7 @@ public class NewsService {
     }
     
     public News getLatestNews() {
-        return newsRepository.findTopByOrderByPublishedAtDesc();
+        return newsRepository.findTopByOrderByIdDesc();
     }
     
     public String checkService() {
