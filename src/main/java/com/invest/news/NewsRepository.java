@@ -7,6 +7,5 @@ import com.invest.news.News;
 
 public interface NewsRepository extends JpaRepository<News, Long> {
     Page<News> findAll(Pageable pageable);
-    News findTopByOrderByPublishedAtDesc();
-
+    News findTopByOrderByIdDesc();
 }
