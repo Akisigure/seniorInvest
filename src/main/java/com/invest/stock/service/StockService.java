@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -25,16 +26,23 @@ public class StockService {
 	@Autowired
 	StockDao dao;
 	
+	@Autowired
+	SqlSession sqlsession;
+	
+	@Value("${API-KEY}")
+	private String APIKEY;
+	
 	public void stockInsert() throws Exception {
-	    String serviceKey = "xzbGS8uhUXCPc9cELMizspB0sDk6iFk8we83qhX%2Fx7%2Bs3jIXb0hPgnAHI1tr0IDL5e101RrbQy4TASEOK6RgIg%3D%3D";
+	    String serviceKey = APIKEY;
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="
-	           + serviceKey + "&mrktCls=KOSPI&numOfRows=1000&resultType=json"; // 결과 형식을 JSON으로 설정하였습니다.
+	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt=20230512"; // 결과 형식을 JSON으로 설정하였습니다.
 	 
 	    URL url = new URL(requestUrl);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    conn.setRequestMethod("GET"); // GET 방식으로 요청합니다.
 	    conn.setRequestProperty("Content-type", "application/json"); // 응답 데이터 형식을 JSON으로 설정합니다.;
 	    conn.setRequestProperty("mrktCls", "KOSPI");
+	    conn.setRequestProperty("basDt", "20230512");
 	    System.out.println("Response code: " + conn.getResponseCode());
 	 
 	    BufferedReader br;
@@ -43,7 +51,7 @@ public class StockService {
 	    } else { // 에러 발생 시
 	        br = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
 	    }
-
+	    
 	    StringBuilder sb = new StringBuilder();
 	    String line;
 
@@ -59,11 +67,14 @@ public class StockService {
 	    Gson gson = new Gson();
 	    StockList stock = gson.fromJson(jsonStr, StockList.class);
 	   
-	    for(int i = 0; i==stock.getResponse().getBody().getTotalCount();i++) {
-	    	System.out.println(stock.getResponse().getBody().getTotalCount());
-	    	 StockDto st = stock.getResponse().getBody().getItems().getItem().get(i);
-	    	 dao.insertStock(st);
-	    }
+	   for(int i = 0; i < stock.getResponse().getBody().getPageNo();i++) {
+		   for(int j = 0; j < stock.getResponse().getBody().getNumOfRows() ;j++) {
+		    	 StockDto st = stock.getResponse().getBody().getItems().getItem().get(j);
+		    	 
+		    	 dao.insertStock(st);
+			   
+		    }
+	   }//for
 	    
 	}
 

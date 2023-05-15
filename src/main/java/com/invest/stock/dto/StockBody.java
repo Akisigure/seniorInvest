@@ -7,4 +7,6 @@ public class StockBody {
 	
 	private StockItems items;
 	private int totalCount;
+	private int numOfRows;
+	private int pageNo;
 }
