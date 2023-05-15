@@ -3,8 +3,6 @@ package com.invest.news;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jakarta.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,13 +21,8 @@ public class NewsService {
 
     @Autowired
     private NewsMapper newsMapper;
-    
-    @PostConstruct
-    public void init() {
-        newsMapper.createTable();
-    }
 
-    @Scheduled(cron = "1 * * * * *")
+    @Scheduled(cron = "10 * * * * *")
     public void updateNews() {
         newsMapper.deleteAll();
         System.out.println("updateNews is called!");
@@ -86,8 +79,5 @@ public class NewsService {
     public News getLatestNews() {
         return newsMapper.findTopByOrderBypublishedAtDesc();
     }
-    
-    public String checkService() {
-        return "news Service is running!";
-    }
+   
 }
