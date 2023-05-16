@@ -5,12 +5,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Repository;
 
 import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
 
-@Repository
 @Mapper
 public interface UserDao {
 	
