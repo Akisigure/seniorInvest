@@ -1,10 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <style>
            header{
+           		padding-top: 150px;
                 display:flex;
                 justify-content: center;
             }
@@ -42,7 +45,7 @@
                 font-size:10pt;
                 pointer-events: none;
                 position: absolute;
-                left:480px;
+                left:28%;
                 top:10px;
                 transition: all 0.2s ease ;
                 -webkit-transition: all 0.2s ease;
@@ -50,52 +53,87 @@
                 -o-transition: all 0.2s ease;
                 text-align: center;
             }
-
             input:focus, input:not(:placeholder-shown){
                 border-bottom: solid 1px #8aa1a1;
                 outline:none;
             }
-            input[type=submit]{
-                background-color: #8aa1a1;
+           .btn{
+                background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
+                background-position: left;
+                background-size: 200%;
                 border:none;
                 color:white;
                 border-radius: 5px;
+                cursor:pointer;
                 width:50%;
                 height:35px;
+                transition: 0.4s;
                 font-size: 14pt;
                 margin:100px auto 0;
                 display:block;
             }
-            #forgot{
+            
+            #error {
+             position:relative;
+                margin:10px 0;
                 text-align: center;
-                font-size:12pt;
-                color:rgb(164, 164, 164);
-                margin:10px 0px;
+                color : red;
             }
+              .href_box{
+                position:relative;
+                margin:10px 0;
+                text-align: center;
+                text-decoration-line : none;
+            }
+              .href_box#a_reg{
+              pointer-events: none;
+              
+            }
+            
+            a {
+            	text-decoration-line : none;
+            	font-size : 25px;
+            }
+            
+            
+            .btn:hover {
+  background-position: right;
+}
+            
 </style>
 
     <head>
         <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     </head>
     <body>
+    
+
             <header>
             <h2>로그인</h2>
         </header>
 
-        <form action="" method="POST">
-
+        <form  method="POST">
 
             <div class="input-box">
                 <input id="userid" type="text" name="userid" placeholder="아이디">
                 <label for="userid">아이디</label>
             </div>
+            
+            <c:if test="${param.error != null}">
+ 	<div id="error">
+ 		<p>아이디나 비밀번호가 잘못되었습니다.</p>
+ 	</div>
+</c:if>
 
             <div class="input-box">
                 <input id="password" type="password" name="password" placeholder="비밀번호">
                 <label for="password">비밀번호</label>
             </div>
-            <div id="forgot">비밀번호 찾기</div>
-            <input type="submit" value="로그인">
+            <div class="href_box">
+            <a class="a_reg" href="register">회원가입</a>
+            <a class="a_pwd" href="pwdSearch">비밀번호 찾기</a>
+            </div>
+            <input type="submit" value="로그인" class="btn">
 
         </form>
 

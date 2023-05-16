@@ -1,0 +1,71 @@
+@charset "UTF-8";
+#ansimH{
+	width: 2000px;
+	height: 100px;
+	flex-grow: 0;
+	border: 1px solid #F5F5F5;
+	background: #5D7D55;
+	}
+#box_green {
+	width: 1100px;
+	height: 750px;
+	margin: 3% auto;
+	padding: 10%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 30px;
+}
+
+#box_white {
+	width: 1200px;
+	margin-top:-6.8%;
+	margin-left: -87px;
+	padding: 100px 40px;
+	border: 1px solid #F5F5F5;
+	background: #FFFFFF;
+	border-radius: 30px;
+	justify-content : center;
+	
+}
+#sinCP{
+	width: 800px;
+	height: 100px;
+	font-size: 56px;
+	font-style: nomal;
+	font-weight: bold;
+	text-align:left;
+	justify-content: top;
+	position: relative;
+
+}
+#another{
+	width: 1000px;
+	font-size:32px;
+	font-style:nomal;
+	color:green;
+
+	
+}
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
+	;
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-green {
+	width:50px;
+	background-color: #77af9c;
+	color: white;
+	font-size: 20pt;
+}
+

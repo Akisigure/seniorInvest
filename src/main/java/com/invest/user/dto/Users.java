@@ -2,33 +2,62 @@ package com.invest.user.dto;
 
 import java.util.Date;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Users {
 	
-	@NotEmpty(message = "아이디를 적어주세요")
+	@NotBlank(message = "아이디는 필수 입력 사항입니다.")
 	private String userid;
-	@NotEmpty(message = "계좌번호를 적어주세요(-제외)")
+	
+	@NotBlank(message = "계좌번호는 필수 입력 사항입니다.")
 	private String accountid;
-	@NotEmpty(message = "비밀번호를 적어주세요")
+	
+	@NotBlank(message = "은행을 선택해 주세요.")
+	private String accountType;
+	 
+	@NotBlank(message = "비밀번호는 필수 입력 값입니다.")
+	@Length(min = 6, max = 15, message="")
 	private String password;
-	@NotEmpty(message = "이름을 적어주세요")
+	
+	@Pattern(regexp = "^[가-힣]*$", message = "한글만 입력해주세요")
+	@Length(min =2, message = "한글만 입력해주세요")
 	private String userName;
-	@NotEmpty(message = "핸드폰번호를 적어주세요(-제외)")
+	
+	@Pattern(regexp = "^[0-9]*$", message = "숫자만 입력해주세요")
+	@NotBlank(message = "전화번호는 필수 입력 사항 입니다.")
 	private String phoneNumber;
-	@Email
+	
+	@Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$", message = "이메일 형식이 올바르지 않습니다.")
+	@NotBlank(message = "")
 	private String email;
+	
 	private String address;
 	
+	private String addressNumber;
+	
 	private Date joinedDate;
-	private Role role_id;
+	
+	private Role roleid;
+	
+	private String addressDetail;
+	
 	private char enabled;
+	
 	private char restrictStock;
+	
 	private char alert;
+	
+	
 
 }

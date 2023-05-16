@@ -18,7 +18,7 @@ public class InvestUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
 		Users user = userDao.findById(userid);
-		if(user == null) {
+		if(user == null) {  
 			throw new UsernameNotFoundException(userid + "사용자 없음");
 		} else {
 			return new SecurityUser(user);
