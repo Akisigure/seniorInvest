@@ -58,6 +58,8 @@ public class Users {
 	
 	private char alert;
 	
+	private UpdatePassword updatePassword;
+	
 	
 
 }

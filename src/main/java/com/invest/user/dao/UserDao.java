@@ -2,15 +2,21 @@ package com.invest.user.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
+import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
 
-
+@Repository
 @Mapper
 public interface UserDao {
 	
-	@Select("select * from users where userid = #{userid}")   
+	
+	
+	@Select("select * from users where userid = #{userid}")
 	Users findById(String userid);
 	
 	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid,addressNumber,accountType,addressDetail) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid},#{addressNumber},#{accountType},#{addressDetail})")
@@ -25,4 +31,21 @@ public interface UserDao {
 	@Select("select email from users where email = #{email}")
 	String emailCheck(String email);
 	
+	@Select("select password from users where email = #{email}")
+	boolean findPassword(@Param("email") String email);
+	
+	@Update("update users set password = #{password} where email= #{email}")
+	int updatePassword(Findpwd findpwd);
+	
+	@Select("select userName from users where userName=#{userName}")
+	Users getUserByUsername(String userName);
+	
+	@Select("select userid, email from users where email=#{email}")
+	Users findByEmail(String email);
+
+	
+	
+	
+	
 }
+  
