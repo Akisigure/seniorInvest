@@ -13,6 +13,6 @@ public class LoginService {
 	UserDao dao;
 	
 	public Users loginUsers(Users user) {
-		return dao.loginUser(user);
+		return dao.loginUser(user); 
 	}
 }
