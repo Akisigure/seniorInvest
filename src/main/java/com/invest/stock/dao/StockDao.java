@@ -1,5 +1,8 @@
 package com.invest.stock.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,6 +25,12 @@ public interface StockDao {
 	
 	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp}, vs = #{vs}, #{mrktTotAmt} where srtnCd = #{srtnCd}")
 	int updateStock(StockDto stock);
+
+	//srtnCd like '#{srtnCd}%' or 
+	@Select("select srtnCd,itmsNm from stock where itmsNm like concat(#{value} , '%')")
+	List<Map<String, Object>> stockSearchResult(Map<String, Object> paramMap);
 	
+	@Select("select srtnCd,itmsNm,mkp,fltRt,vs from stock where itmsNm= #{itmsNm} ")
+	StockDto stockDetailInfo(StockDto stock);
 }
  

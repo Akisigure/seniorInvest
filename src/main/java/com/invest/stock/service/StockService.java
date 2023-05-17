@@ -6,22 +6,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.invest.stock.dao.StockDao;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockList;
-import com.invest.stock.dto.StockResponse;
 
 
 @Service
@@ -30,11 +24,12 @@ public class StockService {
 	@Autowired
 	StockDao dao;
 	
-	@Autowired
-	SqlSession sqlsession;
-	
 	@Value("${API-KEY}")
 	private String APIKEY;
+	
+	public String getAPIKEY() {
+		return APIKEY;
+	}
 	
 	//최초 1회만 실행할 것
 	public void stockInsert() throws Exception {
@@ -184,6 +179,16 @@ public class StockService {
 		    }
 	  }//for
 	   
+	}
+	
+	public List<Map<String, Object>>stockSearchResult(Map<String, Object> paramMap) {
+		//String srtnCd, String itmsNm
+		return dao.stockSearchResult(paramMap);
+		
+	}
+	
+	public StockDto stockDetailInfo(StockDto stock) {
+		return dao.stockDetailInfo(stock);
 	}
 	
 	
