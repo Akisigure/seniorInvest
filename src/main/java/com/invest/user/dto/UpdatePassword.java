@@ -7,3 +7,4 @@ public class UpdatePassword {
 	private String password;
 	private String passwordCheck;
 }
+
