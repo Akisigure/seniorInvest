@@ -91,7 +91,7 @@ public class StockService {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String formatedNow = now.format(format);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="
-	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow; // 결과 형식을 JSON으로 설정하였습니다.
+	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow;
 	 
 	    URL url = new URL(requestUrl);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -50,5 +50,7 @@ public class Users {
 	
 	private char enabled;
 	
+	private UpdatePassword updatePassword;
+	
 
 }
