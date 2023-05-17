@@ -9,16 +9,19 @@ import org.apache.ibatis.annotations.Update;
 import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
 
+
 @Mapper
 public interface UserDao {
 	
 	
-	
-	@Select("select * from users where userid = #{userid}")
-	Users findById(String userid);
-	
-	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid,addressNumber,accountType,addressDetail) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid},#{addressNumber},#{accountType},#{addressDetail})")
+	@Insert("insert into users (userid,accountid,password,userName,phoneNumber,email,address,roleid,addressNumber,addressDetail) values(#{userid},#{accountid},#{password},#{userName},#{phoneNumber},#{email},#{address},#{roleid},#{addressNumber},#{addressDetail})")
 	int registerUsers(Users user);
+	
+	@Insert("insert into userAccountInfo(accountid) values(#{accountid})")
+	int insertUserBalance(String accountid);
+	
+	@Select("select * from users where userid = #{userid}")   
+	Users findById(String userid);
 	
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
 	Users loginUser(Users user);
@@ -40,10 +43,5 @@ public interface UserDao {
 	
 	@Select("select userid, email from users where email=#{email}")
 	Users findByEmail(String email);
-
-	
-	
-	
 	
 }
-  
