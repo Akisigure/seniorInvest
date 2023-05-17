@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <title>회원가입</title>
@@ -96,27 +96,7 @@ body {
   background: none;
 }
 
-.accountid {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-  position: relative;
-}
 
-
-
-optgroup option {
- border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-}
 
 .address {
   width: 100%;
@@ -176,10 +156,7 @@ optgroup option {
 	float : right;
 
 }
-#accountType  {
-	position:relative;
-	float :	left;
-}
+
 #mail_ck  {
 	width : 120px;
 	height : 40px;
@@ -222,7 +199,6 @@ optgroup option {
 
 }
 
-
 .btn:hover {
   background-position: right;
 }
@@ -243,22 +219,7 @@ optgroup option {
         <input type="button" id="id_check" value="중복 확인" class="btn btn-primary rounded-pill px-3"><span id="id_msg"></span>
         <form:errors path="userid" delimiter=" " class="error"/>
       </div>
-      <div class="textForm">
-      <select id="accountType" name="accountType">
-		<optgroup class="bank" label="은행 선택">
-			<option value = "국민은행">국민은행</option>
-			<option value = "농협은행">농협은행</option>
-			<option value = "신한은행">신한은행</option>
-			<option value = "우리은행">우리은행</option>
-			<option value = "하나은행">하나은행</option>
-			<option value = "수협은행">수협은행</option>
-			<option value = "토스뱅크">토스뱅크</option>
-			<option value = "카카오뱅크">카카오뱅크</option>
-			</optgroup>
-		</select>
-       	 <input name="accountid" type="text" class="accountid" id="accountid" placeholder="계좌번호 -없이 입력"></input>
-       	  <form:errors path="accountid" delimiter=" " class="error" />
-      </div>
+
       <div class="textForm">
         <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
         <span id="chkpw">6~15자리를 입력해주세요</span>	
@@ -358,12 +319,6 @@ $(function() {
 		idErrorMsg.style.display = 'none';
 	});
 	
-	let accountidInput = document.querySelector('#accountid');
-	let accountidErrorMsg = document.querySelector('.error[id="accountid.errors"]');
-
-	accountidInput.addEventListener('input', () => {
-		accountidErrorMsg.style.display = 'none';
-	});
 	
 	let pwInput = document.querySelector('#password');
 	let pwErrorMsg = document.querySelector('.error[id="password.errors"]');

@@ -20,11 +20,7 @@ public class Users {
 	@NotBlank(message = "아이디는 필수 입력 사항입니다.")
 	private String userid;
 	
-	@NotBlank(message = "계좌번호는 필수 입력 사항입니다.")
 	private String accountid;
-	
-	@NotBlank(message = "은행을 선택해 주세요.")
-	private String accountType;
 	 
 	@NotBlank(message = "비밀번호는 필수 입력 값입니다.")
 	@Length(min = 6, max = 15, message="")
@@ -44,20 +40,15 @@ public class Users {
 	
 	private String address;
 	
+	private String addressDetail;
+	
 	private String addressNumber;
 	
 	private Date joinedDate;
 	
 	private Role roleid;
 	
-	private String addressDetail;
-	
 	private char enabled;
-	
-	private char restrictStock;
-	
-	private char alert;
-	
 	
 
 }

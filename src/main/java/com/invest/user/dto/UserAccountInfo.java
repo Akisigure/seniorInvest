@@ -7,11 +7,6 @@ public class UserAccountInfo {
 	
 	private String userid;
 	private String userName;
-	private long Balance;
+	private long balance;
 	private String accountid;
-	private int StockEA;
-	private int StockCode;
-	private String StockName;
-
-	
 }

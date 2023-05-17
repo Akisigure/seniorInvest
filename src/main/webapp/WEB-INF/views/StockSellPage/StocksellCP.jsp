@@ -17,8 +17,10 @@
 		<div id="another">주당 2,980원에 판매되었습니다. 총 판매된 금액을 확인해 보세요</div>
 			</div>
 		<div id="sinCP"><p>주문이 완료되었습니다</p>새로운 주식을 살펴보세요</div>
-		<input type="button"class="w-btn w-btn-green1" value="메인페이지 바로가기">
-		<input type="button"class="w-btn w-btn-green2" value="매도페이지 바로가기">
+		<a href="http://localhost:8079">
+		<input type="button"class="w-btn w-btn-green1" value="메인페이지 바로가기"></a>
+		<a href="http://localhost:8079/Stocksell">
+		<input type="button"class="w-btn w-btn-green2" value="매도페이지 바로가기"></a>
 			</div>
 </body>
 </html>

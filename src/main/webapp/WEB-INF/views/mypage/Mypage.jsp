@@ -1,24 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><title>Mypage 마이페이지</title>
+<title>Mypage 마이페이지</title>
  <link rel="stylesheet" href="css/Mypage.css">
+ <meta charset="UTF-8">
+
 </head>
 <body>
-	<header id="ansimH"><img src="img/logoR.png"><h1>안심증권 > 마이페이지</h1>
-	</header>
+	<header>안심증권 > 마이페이지</header>
+
 	
 <form>
 	<div id="boxBalance">
 		<div id=BaL><label for="Balance">나의 잔액 > </label></div>
-		<span class="BalNum">20,385,300원</span>
+		<span class="BalNum">
+		<fmt:formatNumber value="${Balance.balance}" type="number" ></fmt:formatNumber>
+		원
+		
+		</span>
 	</div>
 
 	<div id="boxAccount">
 		<div id=Acc>나의 계좌 ></div>
-		<span class="bankN">1234-566-7894</span>
+		<span class="bankN">${Balance.accountid}</span>
 	</div>
 
 	<div id="stockEA">

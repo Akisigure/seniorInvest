@@ -8,13 +8,12 @@ import com.invest.user.dto.UserAccountInfo;
 
 @Service
 public class AccountBalanceService {
+
+	@Autowired
+	AccountBalanceDao accountBalnceDao;
 	
-	/*
-	 * @Autowired private AccountBalanceDao AccountBalanceDAO;
-	 */    
-    
-	/*
-	 * public AccountBalanceDao getUserAccountInfo(String bankCode, String
-	 * accountNumber) { return AccountBalanceDAO; }
-	 */
+	 public UserAccountInfo getUserBalance(String accountid) {
+		return accountBalnceDao.getUserBalance(accountid);
+	 }
+	
 }

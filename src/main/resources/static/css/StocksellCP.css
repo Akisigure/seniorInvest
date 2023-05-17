@@ -62,10 +62,19 @@
 	transition: 0.25s;
 }
 
-.w-btn-green {
-	width:50px;
+.w-btn-green1 {
+	width: 350px;
 	background-color: #77af9c;
 	color: white;
 	font-size: 20pt;
+	top:25%;
+	padding: 25px ;
 }
-
+.w-btn-green2 {
+	width:350px;
+	background-color: #77af9c;
+	color: white;
+	font-size: 20pt;
+	top:25%;
+	padding: 25px ;
+}
