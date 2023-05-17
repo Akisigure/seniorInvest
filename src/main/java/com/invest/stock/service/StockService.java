@@ -129,11 +129,11 @@ public class StockService {
 	}
 
 	
-	@Scheduled(cron = "0 59 23 * * *")
+	@Scheduled(cron = "0 57 00 * * *")
 	public void updateStock() throws Exception {
 		
 		String serviceKey = APIKEY;
-		LocalDate now = LocalDate.now().minusDays(1);
+		LocalDate now = LocalDate.now().minusDays(3);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String formatedNow = now.format(format);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="

@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
+import com.invest.stock.service.StockTradeService;
 
 @Controller
 public class StockController {
 
 	@Autowired
 	StockService service;
+	
+	@Autowired
+	StockTradeService tradeService;
 	
 	  @GetMapping("/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
@@ -62,8 +66,40 @@ public class StockController {
 	}
 	
 	@PostMapping("/stockBuy")
-	public String stockBuyPage(String srtnCd, StockDto stock, Model m) {
+	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m) {
 		
+		StockDto detail = service.stockDetailInfo(stock);
+		
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("detail",detail);
+		
+		int count = tradeService.warningStock(srtnCd);
+		
+		if(count == 1) {
+			return "stock/warning";
+		}else { 
+			return "stock/stockBuy";
+		}
+		
+	}
+	
+	
+	@PostMapping("/AgreeStockBuy")
+	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m) {
+		
+		StockDto detail = service.stockDetailInfo(stock);
+		
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("detail",detail);
+		
+		return "stock/stockBuy";
+	}
+	
+	@PostMapping("/orderStock")
+	public String orderStock(int quantity,int orderPrice, String srtnCd, Model m) {
+
 		return "";
 	}
 	
