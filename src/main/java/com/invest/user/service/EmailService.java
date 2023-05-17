@@ -12,8 +12,6 @@ import jakarta.mail.internet.MimeMessage.RecipientType;
 
 
 
-
-
 @Service("emailService")
 public class EmailService {
 	@Autowired
