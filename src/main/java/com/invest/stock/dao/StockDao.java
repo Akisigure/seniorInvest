@@ -20,8 +20,7 @@ public interface StockDao {
 	@Update("update lastest_stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp} where srtnCd = #{srtnCd}")
 	int updateLastestStock(StockDto stock);
 	
-	//vs, trqu mrktTotAmt
-	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp} where srtnCd = #{srtnCd}")
+	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp}, vs = #{vs}, #{mrktTotAmt} where srtnCd = #{srtnCd}")
 	int updateStock(StockDto stock);
 	
 }
