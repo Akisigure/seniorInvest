@@ -14,7 +14,7 @@
 	<div id="box_green">
 		<div id="box_white">
 		
-		<div id="sin"><p>신일전자 주를</p><p>판매하겠습니다</div>
+		<div id="sin">${stock.itmsNm}<p> 주를 판매하겠습니다</div>
 			<br>
 			<div id="totalOdAt">
 				<pre class="total">총 주문 금액                         2880원</pre>

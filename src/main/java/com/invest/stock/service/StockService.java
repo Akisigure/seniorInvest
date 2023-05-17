@@ -76,7 +76,7 @@ public class StockService {
 		    	 StockDto st = stock.getResponse().getBody().getItems().getItem().get(j);
 		    	 
 		    	 dao.insertStock(st);
-		    	 dao.insertLastestStock(st);
+		    	// dao.insertLastestStock(st);
 		    }
 	   }//for
 	    

@@ -12,12 +12,12 @@
 	</header>
 	<div id="box_green">
 		<div id="box_white">
-			<div id="sin">신일전자</div>
+			<div id="sin"><p>${stock.itmsNm}</p></div>
 			<br>
 			<div id="currentPrice">현재가격</div>
 			<br>
 			<div id="currentP">
-				<p>2880원</p>
+				<p>${stock.mkp }</p>
 			</div>
 			<br>
 			<div id="Q">몇 주를 판매할까요?</div>
