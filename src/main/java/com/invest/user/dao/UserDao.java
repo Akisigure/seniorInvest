@@ -2,9 +2,11 @@ package com.invest.user.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
+import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
 
 
@@ -21,7 +23,6 @@ public interface UserDao {
 	@Select("select * from users where userid = #{userid}")   
 	Users findById(String userid);
 	
-	
 	@Select("select * from users where userid = #{userid} and password = #{password} ")
 	Users loginUser(Users user);
 
@@ -31,6 +32,16 @@ public interface UserDao {
 	@Select("select email from users where email = #{email}")
 	String emailCheck(String email);
 	
+	@Select("select password from users where email = #{email}")
+	boolean findPassword(@Param("email") String email);
 	
+	@Update("update users set password = #{password} where email= #{email}")
+	int updatePassword(Findpwd findpwd);
+	
+	@Select("select userName from users where userName=#{userName}")
+	Users getUserByUsername(String userName);
+	
+	@Select("select userid, email from users where email=#{email}")
+	Users findByEmail(String email);
 	
 }
