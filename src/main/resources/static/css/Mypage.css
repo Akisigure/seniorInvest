@@ -1,0 +1,162 @@
+@charset "UTF-8";
+#ansimH{
+	width: 2000px;
+	height: 100px;
+	flex-grow: 0;
+	border: 1px solid #F5F5F5;
+	background: #5D7D55;
+	}
+/* .2{
+	font-weight:bold;
+	font-color:#5D7D55;
+} */
+#boxBalance {
+	width: 800px;
+	height: 100px;
+	flex-grow: 0;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 30px;
+}
+
+.BalNum {
+	width: 900px;
+	height: 100px;
+	flex-grow: 0;
+	margin: 90px 0 0 200px;
+	font-family: Inter;
+	font-size: 60px;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: left;
+	color: #000;
+}
+
+#BaL {
+	display: flex;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+#boxAccount {
+	display: block;
+	width: 800px;
+	height: 95px;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 30px;
+}
+
+#Acc {
+	display: flex;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+.bankN {
+	width: 800px;
+	height: 700px;
+	flex-grow: 0;
+	margin: 450px 0 0px 200px;
+	font-size: 50px;
+	font-weight: bold;
+	text-align: right;
+	vertical-align: bottom;
+	color: #000;
+}
+
+#stockEA {
+	display: block;
+	width: 800px;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid black;
+	border-radius: 25px;
+}
+
+#Sto {
+	display: flex;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
+	;
+
+button {
+	margin: 10px;
+}
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 20px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	top: -20px;
+}
+
+.w-btn-green {
+	width: 150px;
+	padding: 15px 10x;
+	background-color: #77af9c;
+	color: white;
+	right: 180%;
+	font-size: 20pt;
+}
+
+table {
+	
+	width : 800px;
+	height: 550px;
+	border-collapse: collapse;
+	box-shadow: 0 5px 10px #e1e5ee;
+	background-color: white;
+	text-align: left;
+	overflow: hidden;
+	font-family: Mukta;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.0rem;
+	background-color: #f9fbff;
+}
+
+thead {
+	box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+	padding: 1rem 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	font-size: 0.7rem;
+	font-weight: 900;
+}
+
+td {
+	padding: 1rem 2rem;
+}
+
+th, td {
+	text-align: center;
+}

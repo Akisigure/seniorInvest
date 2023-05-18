@@ -20,7 +20,8 @@
 </head>
 <body>
     <!-- Main Content -->
-    <jsp:include page="/WEB-INF/views/stock/header.jsp"></jsp:include>
+
+    <jsp:include page="/header"></jsp:include>
 
     <main class="container-fluid p-0">
         <div class="col section-container">
@@ -83,4 +84,5 @@
 </body>
 
 </html>
-           
+                            
+>>>>>>> refs/heads/main

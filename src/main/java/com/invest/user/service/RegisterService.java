@@ -1,6 +1,8 @@
 package com.invest.user.service;
 
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,21 @@ public class RegisterService {
 	
 	@Autowired
 	private PasswordEncoder encoder; 
+	
+	public String randomAccount() {
+		
+		Random r = new Random();
+		
+		String number = "";
+		for(int i = 0;i< 8; i++) {
+			number += r.nextInt(10);
+		}
+		System.out.println("accountNumber : "+number);
+		
+		dao.insertUserBalance(number);
+		return number;
+		
+	}
 
 	@Transactional
 	public int registerUser(Users user) {
