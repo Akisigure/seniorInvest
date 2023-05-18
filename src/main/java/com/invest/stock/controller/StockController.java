@@ -1,23 +1,26 @@
 package com.invest.stock.controller;
 
+import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
+import com.invest.stock.service.StockTradeService;
 
 @Controller
 public class StockController {
 
 	@Autowired
 	StockService service;
-
+	
 	@Autowired
-	RestTemplate restTemplate;
-
+	StockTradeService tradeService;
 	
 	  @GetMapping("/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
@@ -27,12 +30,32 @@ public class StockController {
 			return "redirect:";
 	        
 	    }
-	 
-	 
 
-	@GetMapping("/stockDetail")
-	public String stockSearch(Model m) {
-
+	@GetMapping("/stockSearch")
+	public String stockSearch() {
+		return "stock/stockSearch";
+	}
+	
+	@PostMapping("/ajax/stockSearch")
+	@ResponseBody
+	public Map<String, Object> stockSearch(@RequestParam Map<String, Object> paramMap) {
+		
+		List<Map<String,Object>> resultList = service.stockSearchResult(paramMap);
+		paramMap.put("resultList", resultList);
+		
+		return paramMap;
+	}
+	
+	@PostMapping("/stockDetail")
+	public String stockDetail(String itmsNm,StockDto stock, Model m) {
+		
+		System.out.println("itmsNm"+itmsNm);
+		
+		StockDto detail = service.stockDetailInfo(stock);
+		m.addAttribute("APIKEY",service.getAPIKEY());
+		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("detail",detail);
+		
 		return "stock/stockDetail";
 	}
 	
@@ -41,5 +64,48 @@ public class StockController {
 		service.updateLastestStock();
 		return "redirect:";
 	}
+	
+	@PostMapping("/stockBuy")
+	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m) {
+		
+		StockDto detail = service.stockDetailInfo(stock);
+		
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("detail",detail);
+		
+		int count = tradeService.warningStock(srtnCd);
+		
+		if(count == 1) {
+			return "stock/warning";
+		}else { 
+			return "stock/stockBuy";
+		}
+		
+	}
+	
+	
+	@PostMapping("/AgreeStockBuy")
+	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m) {
+		
+		StockDto detail = service.stockDetailInfo(stock);
+		
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("detail",detail);
+		
+		return "stock/stockBuy";
+	}
+	
+	@PostMapping("/orderStock")
+	public String orderStock(int quantity,int orderPrice, String srtnCd, Model m) {
+
+		return "";
+	}
+	
+	
+	
+	
+	
 
 }
