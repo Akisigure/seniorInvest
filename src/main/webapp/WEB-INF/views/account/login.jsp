@@ -131,7 +131,7 @@
             </div>
             <div class="href_box">
             <a class="a_reg" href="register">회원가입</a>
-            <a class="a_pwd" href="pwdSearch">비밀번호 찾기</a>
+            <a class="a_pwd" href="findPassword">비밀번호 찾기</a>
             </div>
             <input type="submit" value="로그인" class="btn">
 

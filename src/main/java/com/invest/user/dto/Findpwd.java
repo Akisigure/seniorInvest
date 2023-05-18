@@ -12,6 +12,3 @@ public class Findpwd {
 	private String password;
 	private String userid;
 	}
-
-
-
