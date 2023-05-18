@@ -9,4 +9,5 @@ public class StockBody {
 	private int totalCount;
 	private int numOfRows;
 	private int pageNo;
+	private StockItems item;
 }
