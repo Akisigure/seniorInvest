@@ -26,3 +26,4 @@ public class SecurityUser extends User {
 		return users;
 	}
 }
+

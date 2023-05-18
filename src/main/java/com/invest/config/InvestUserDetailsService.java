@@ -24,4 +24,6 @@ public class InvestUserDetailsService implements UserDetailsService {
 			return new SecurityUser(user);
 		}
 	}
+
 }
+

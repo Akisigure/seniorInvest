@@ -4,7 +4,11 @@ main {
 }
 
 body {
+<<<<<<< HEAD
 	font-size: 20px;
+=======
+  font-size:17px;
+>>>>>>> branch 'main' of https://github.com/Akisigure/seniorInvest.git
 	background-color: white;
 	margin: 0;
 	padding: 0;
@@ -28,7 +32,11 @@ header {
 
 .nav .nav-link {
 	color: rgb(255, 255, 255);
+<<<<<<< HEAD
 	font-size: 24px;
+=======
+  font-size: 20px;
+>>>>>>> branch 'main' of https://github.com/Akisigure/seniorInvest.git
 	font-weight: bold;
 }
 
