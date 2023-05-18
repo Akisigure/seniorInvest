@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.invest.config.SecurityUser;
@@ -48,15 +50,17 @@ public class AcBalStockEAController {
 	}
 
 	@GetMapping("/StocksellDc")
-	public String stocksellDc(@AuthenticationPrincipal SecurityUser user, Model m) {
-		List<StockQuantityDto> quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid());
+	public String stocksellDc(@AuthenticationPrincipal SecurityUser user, Model m, String srtnCd) {
+		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd);
 
 		m.addAttribute("CPstock", quan);
 		return "StockSellPage/StocksellDc";
 	}
 
-	@GetMapping("/Stocksellcheck")
-	public String stocksellcheck() {
+	@PostMapping("/Stocksellcheck")  //Stocksellcheck
+	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m) {
+	
+	
 		return "StockSellPage/Stocksellcheck";
 	}
 

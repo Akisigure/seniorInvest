@@ -9,4 +9,6 @@ public class StockQuantityDto {
 	private String itmsNm;
 	private int stockEA;
 	private int mkp;
+	private int quantity;
+
 }

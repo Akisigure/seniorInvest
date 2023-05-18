@@ -51,7 +51,9 @@
 						<td>${stock.itmsNm }</td>
 						<td>${stock.stockEA}</td>
 						<td>${ stock.mkp}</td>
+						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }"> <input type="button" value="매도"></a></td>
 					</tr>
+					
 					
 					
 					</c:forEach>
