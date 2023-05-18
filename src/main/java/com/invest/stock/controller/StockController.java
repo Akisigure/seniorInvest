@@ -97,11 +97,7 @@ public class StockController {
 		return "stock/stockBuy";
 	}
 	
-	@PostMapping("/orderStock")
-	public String orderStock(int quantity,int orderPrice, String srtnCd, Model m) {
 
-		return "";
-	}
 	
 	
 	

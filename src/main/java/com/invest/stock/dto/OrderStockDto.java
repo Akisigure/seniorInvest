@@ -1,4 +1,4 @@
-package com.invest.orderstock.dto;
+package com.invest.stock.dto;
 
 import java.util.Date;
 
