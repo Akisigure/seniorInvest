@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.invest.config.SecurityUser;
 import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockQuantityDto;
-import com.invest.stock.service.OrderStockService;
+import com.invest.stock.service.StockTradeService;
 
 @Controller
 public class OrderStockController {
  
 	@Autowired
-	OrderStockService service;
+	StockTradeService service;
 	
 	@PostMapping("/orderComplete")
-	public String addOrder(OrderStockDto order,StockQuantityDto quantity, @AuthenticationPrincipal SecurityUser user) {
+	public String buyTrade(OrderStockDto order,StockQuantityDto quantity, @AuthenticationPrincipal SecurityUser user) {
 		  String userid = user.getUsers().getUserid();
 		  System.out.println(userid);
 		  service.addOrder(order,userid);
-		  service.stockTrade(userid, quantity);
+		  service.stockBuyTrade(userid, quantity);
 		  
 		return "stock/orderComplete";
 	}
