@@ -16,7 +16,7 @@ public interface StockQuantityDao {
 	@Select("select s.itmsNm, s.mkp, sq.srtnCd, userid, stockEA from stock s,stockQuantity sq where s.srtnCd = sq.srtnCd and userid= #{userid}")
 	List<StockQuantityDto> getStockByUserid(String userid);
 	//선택한 주식 1개만
-	@Select("select s.itmsNm, s.mkp, sq.srtnCd, userid, stockEA from stock s,stockQuantity sq where s.srtnCd = sq.srtnCd and userid= #{userid} and sq.srtnCd= #{srtnCd}")
+	@Select("select s.itmsNm, s.mkp, sq.srtnCd, userid, stockEA from stock s,stockQuantity sq where s.srtnCd = sq.srtnCd and userid= #{userid} and sq.srtnCd= #{srtnCd} and tradeNo = #{tradeNo}")
 	StockQuantityDto getStockByUseridstock(Map<String, String> map);
 	
 	 

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.invest.stock.dto.OrderStockDto;
+import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockQuantityDto;
 
 @Mapper
@@ -28,7 +29,7 @@ public interface OrderStockDao {
 	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
 	int getPrice(String srtnCd);
 	
-	@Insert("insert into stockquantity (userid,srtnCd,stockEA,tradePrice) values (#{userid},#{srtnCd},#{quantity}, #{quantity} * #{orderPrice} )")
+	@Insert("insert into stockquantity (userid,srtnCd,stockEA,tradePrice,itmsNm) values (#{userid},#{srtnCd},#{quantity}, #{quantity} * #{orderPrice} ,itmsNm )")
 	int tradeResult(OrderStockDto quantity);
 	
 	@Update("update orderstock set orderStatus = 'Y' where no = #{no}")
@@ -36,5 +37,6 @@ public interface OrderStockDao {
 	
 	@Update("update useraccountinfo set balance = #{balance} where accountid = #{accountid}")
 	int stockBuyBalance(@Param("balance") long balance, @Param("accountid") String accountid);
+	
 	
 }

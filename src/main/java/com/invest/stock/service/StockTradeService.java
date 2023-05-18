@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.invest.stock.dao.OrderStockDao;
 import com.invest.stock.dto.OrderStockDto;
+import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockQuantityDto;
 
 @Service
@@ -23,13 +24,13 @@ public class StockTradeService {
 	}
 	
 	@Transactional
-	public void stockBuyTrade(String userid, StockQuantityDto quantity) {
+	public void stockBuyTrade(String userid, StockQuantityDto quantity,String itmsNm) {
 		String accountid = dao.getAccountId(userid); //계좌정보 가져오기
 		List<OrderStockDto> order = dao.orderList(); //주문일자 check
 		
 		int balance = dao.getBalance(accountid);
 		
-		
+		 
 		for (OrderStockDto list : order) {
 			System.out.println(list);
 		 if(balance > list.getQuantity() * list.getOrderPrice()) {
@@ -46,12 +47,12 @@ public class StockTradeService {
 	
 	@Transactional
 	public void stockSellTrade(String userid, StockQuantityDto quantity) {
-		String accountid = dao.getAccountId(userid); //계좌정보 가져오기
-		List<OrderStockDto> order = dao.orderList(); //주문일자 check
+		String accountid = dao.getAccountId(userid); 
+		List<OrderStockDto> order = dao.orderList(); 
 		
 		int balance = dao.getBalance(accountid);
 		
-		
+		 
 		for (OrderStockDto list : order) {
 			System.out.println(list);
 		 if(balance > list.getQuantity() * list.getOrderPrice()) {

@@ -17,11 +17,11 @@ public class OrderStockController {
 	StockTradeService service;
 	
 	@PostMapping("/orderComplete")
-	public String buyTrade(OrderStockDto order,StockQuantityDto quantity, @AuthenticationPrincipal SecurityUser user) {
+	public String buyTrade(OrderStockDto order,StockQuantityDto quantity,String itmsNm, @AuthenticationPrincipal SecurityUser user) {
 		  String userid = user.getUsers().getUserid();
 		  System.out.println(userid);
 		  service.addOrder(order,userid);
-		  service.stockBuyTrade(userid, quantity);
+		  service.stockBuyTrade(userid, quantity,itmsNm);
 		  
 		return "stock/orderComplete";
 	}
