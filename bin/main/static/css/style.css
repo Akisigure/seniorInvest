@@ -1,25 +1,174 @@
-body {
-    font-size: 20px;
-    background-color: white;
-    margin: 0;
-    padding: 0;
+
+main {
+	padding-top: 80px;
 }
 
+body {
+	font-size: 20px;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.section-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+/*헤더로 묶인 네비게이션바 관련*/
 header {
-    background-color: #f8f9fa;
+	background-color: #000000;
 }
 
 .logo h1 {
-    color: #28a745;
+	color: #28a745;
 }
 
 .nav .nav-link {
-    color: #28a745;
-    font-size: 24px;
-    font-weight: bold;
+	color: rgb(255, 255, 255);
+	font-size: 24px;
+	font-weight: bold;
 }
 
 .nav .nav-link:hover {
-    color: #218838;
-    text-decoration: none;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+.navbar-brand img {
+	height: 120px;
+	width: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: rgb(255, 255, 255);
+	font-size: 24px;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: #218838;
+	text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: #28a745;
+  border-radius: 5px;
+  color: white;
+}
+
+
+/* 메인 페이지 뉴스관련 */
+.latest-news {
+	margin: 10px;
+	text-align: center;
+}
+
+.latest-news h2 {
+	font-size: 24px;
+}
+
+.news-description {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.latest-news img {
+	width: 100%;
+	line-height: 30px;
+}
+
+.view-article {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #28a745;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.view-article:hover {
+	background-color: #218838;
+}
+
+.news-link {
+	color: black;
+	text-decoration: none;
+}
+
+.news-link:hover {
+	color: gray;
+}
+
+.news-img {
+	margin-bottom: 25px;
+}
+
+.news-title {
+	margin-bottom: 20px;
+}
+
+.news-description {
+	margin-bottom: 20px;
+}
+
+/* 페이지 버튼 관련 */
+.btn-pagination {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 25px;
+  border-radius: 5px;
+  border: 1px solid #28a745;
+  background-color: #fff;
+  color: #28a745;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.btn-pagination.active {
+	background-color: #28a745;
+	color: #ffffff;
+}
+
+.btn-pagination:hover {
+	background-color: #28a745;
+	color: #ffffff;
+}
+
+a {
+	text-decoration-line: none;
+}
+
+/*뉴스페이지의 속성관련*/
+
+.news-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.news-item .news-image {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.news-item .news-text {
+    flex-grow: 1;
+}
+
+.news-date {
+    font-size: 0.8em;
+    color: gray;
 }
