@@ -71,6 +71,8 @@ public class UserController {
 	
 	@PostMapping("/register")
 	public String register(@Validated Users user,BindingResult result, Model m) throws Exception {
+	
+		 String accountid = regService.randomAccount();//계좌
 		
 		System.out.println(user.toString());
 		
@@ -83,6 +85,7 @@ public class UserController {
 		}
 		
 		try {
+			user.setAccountid(accountid);
 			regService.registerUser(user);
 		
 			
