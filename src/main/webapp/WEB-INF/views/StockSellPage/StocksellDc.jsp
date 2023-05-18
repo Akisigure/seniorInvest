@@ -37,7 +37,8 @@
 			<form action="Stocksellcheck" method="POST"> 
 			<input type="text" class="EnterA" placeholder="수량입력" name="quantity" style="width: 240px; font-size: 30pt;">
 			<input type="hidden" name="srtnCd" value="${CPstock.srtnCd}">
-			<input type="hidden" name="mkp" value="${CPstock.mkp}">			</div>
+			<input type="hidden" name="mkp" value="${CPstock.mkp}">	
+			<input type="hidden" name="itmsNm" value="${CPstock.itmsNm}">			</div>
 
 			<a href="http://localhost:8079/Stocksellcheck"> 
 			<input type="submit" class="w-btn w-btn-green" value="완료"></a>

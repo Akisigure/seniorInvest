@@ -65,7 +65,7 @@ public class AcBalStockEAController {
 	}
 
 	@GetMapping("/StocksellCP")
-	public String stocksellCP() {
+	public String stocksellCP(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m) {
 
 		return "StockSellPage/StocksellCP";
 
