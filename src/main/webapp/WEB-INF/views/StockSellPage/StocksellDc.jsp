@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,31 +14,39 @@
 	</header>
 	<div id="box_green">
 		<div id="box_white">
-			<div id="sin">신일전자</div>
+			<div id="stockName">
+				
+					<p>${CPstock.itmsNm}</p>
+			</div>
 			<br>
 			<div id="currentPrice">현재가격</div>
 			<br>
 			<div id="currentP">
-				<p>2880원</p>
+				<p>${CPstock.mkp }</p>
 			</div>
+
 			<br>
 			<div id="Q">몇 주를 판매할까요?</div>
 			<br>
 			<div id="available">
-				<p>판매 가능 수량 1주</p>
+				<p>판매 가능 수량 ${CPstock.stockEA }주</p>
 			</div>
+
 			<br>
-				<div id="Enter">
-					<input type="text" class="EnterA" placeholder="수량입력"
-						style="width: 240px; font-size: 30pt;">
+			<div id="Enter">
+			<form action="Stocksellcheck" method="POST"> 
+			<input type="text" class="EnterA" placeholder="수량입력" name="quantity" style="width: 240px; font-size: 30pt;">
+			<input type="hidden" name="srtnCd" value="${CPstock.srtnCd}">
+			<input type="hidden" name="mkp" value="${CPstock.mkp}">	
+			<input type="hidden" name="itmsNm" value="${CPstock.itmsNm}">			</div>
 
-				</div>
-				<a href="http://localhost:8079/Stocksellcheck"> <input
-					type="submit" class="w-btn w-btn-green" value="완료"></a>
+			<a href="http://localhost:8079/Stocksellcheck"> 
+			<input type="submit" class="w-btn w-btn-green" value="완료"></a>
 
-
-		
+			</form>
+			
 		</div>
 	</div>
+	
 </body>
 </html>

@@ -28,10 +28,9 @@
 	justify-content : center;
 }
 
-#sin {
+#stockName {
 	width: 800px;
 	height: 70px;
-	font-size: 40px;
 	font-style: nomal;
 	text-align: center;
 	vertical-align: top;
@@ -41,8 +40,8 @@
 	padding: 0 100px;
 	margin: auto;
 	position: relative;
-	top: -50%;
-	left: 70%;
+	top: -40%;
+	left: 45%;
 	transform: translate(-50%, -50%);
 }
 
