@@ -31,8 +31,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 });
-<<<<<<< HEAD
-
 $(document).ready(function() {
     var url = window.location.href.split('?')[0];
     $('ul.navbar-nav a.nav-link').each(function() {
@@ -42,20 +40,3 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
-
-
-
-=======
-$(document).ready(function() {
-    var url = window.location.href.split('?')[0];
-    $('ul.navbar-nav a.nav-link').each(function() {
-        var navLinkUrl = this.href.split('?')[0];
-        if (url == navLinkUrl) {
-            $(this).closest('li').addClass('active');
-        }
-    });
-});
->>>>>>> branch 'main' of https://github.com/Akisigure/seniorInvest.git
