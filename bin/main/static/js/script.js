@@ -31,7 +31,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 });
-
 $(document).ready(function() {
     var url = window.location.href.split('?')[0];
     $('ul.navbar-nav a.nav-link').each(function() {
@@ -41,9 +40,3 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
-
-
-
