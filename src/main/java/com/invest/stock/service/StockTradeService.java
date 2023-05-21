@@ -49,18 +49,20 @@ public class StockTradeService {
 	public void stockSellTrade(String userid, StockQuantityDto stockQuantity,int tradeNo,int quantity,String srtnCd) {
 		String accountid = dao.getAccountId(userid); 
 		long balance = dao.getBalance(accountid);
-		int sellStock = dao.getTradePrice(userid, tradeNo);
+		int sellStock = dao.getLastestPrice(srtnCd);
 		System.out.println(sellStock);
 		 
-		
-			dao.stockSellUpdate(stockQuantity, quantity, userid,tradeNo,srtnCd);
-			dao.stockSellBalance(balance, accountid, sellStock);
-			System.out.println("done");
-	
+			
 
+				dao.stockSellUpdate(stockQuantity, quantity, userid,tradeNo,srtnCd);
+				dao.stockSellBalance(balance, accountid, sellStock);
+				dao.deleteQuantity(userid);
+				System.out.println("done");
+				
+			
+				
+			
+		
 	
 	}
-	
-	
-	
 }

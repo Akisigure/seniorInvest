@@ -40,16 +40,16 @@ public interface StockTradeDao {
 	@Update("update useraccountinfo set balance = #{balance} where accountid = #{accountid}")
 	int stockBuyBalance(@Param("balance") long balance, @Param("accountid") String accountid);
 	
-	@Update("update stockquantity set tradePrice = tradePrice - ((tradePrice / stockEA) * #{quantity}), stockEA = stockEA - #{quantity} where userid = #{userid} and tradeNo = #{tradeNo} and srtnCd = #{srtnCd}")
+	@Update("update stockquantity set stockEA = stockEA - #{quantity} where userid = #{userid} and tradeNo = #{tradeNo} and srtnCd = #{srtnCd}")
 	int stockSellUpdate(StockQuantityDto stockQuantity,@Param("quantity") int quantity,@Param("userid")String userid,@Param("tradeNo") int tradeNo,@Param("srtnCd")String srtnCd);
 	
-	@Delete("delete from stockquantity where userid= #{userid} and tradeNo = #{tradeNo} and stockEA = 0")
-	int NotQuantity(@Param("userid")String userid,@Param("tradeNo") int tradeNo);
+	@Delete("delete from stockquantity where userid= #{userid} and stockEA = 0")
+	int deleteQuantity(@Param("userid")String userid);
 	
 	@Update("update useraccountinfo set balance = #{balance} + #{sellStock} where accountid = #{accountid}")
 	int stockSellBalance(@Param("balance") long balance, @Param("accountid") String accountid,@Param("sellStock")long sellStock);
 	
-	@Select("select tradePrice from stockquantity where userid = #{userid} and tradeNo = #{tradeNo}")
-	int getTradePrice(@Param("userid") String userid, @Param("tradeNo") int tradeNo);
+	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
+	int getLastestPrice(@Param("srtnCd") String srtnCd);
 	
 }

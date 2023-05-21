@@ -23,7 +23,7 @@
 			</div>
 			<a href="http://localhost:8079/Mypage"><p onclick="alert('취소하시겠습니까? 취소 하시면 마이페이지로 돌아갑니다.')"><input type="button" class="w-btn w-btn-pink" value="취소"></p></a>
 			<div>
-			<form action="StocksellCP">
+			<form action="StocksellCP" method="post">
 			<input type="submit" onclick="alert('정말 판매하시겠습니까?')"class="w-btn w-btn-blue" value="확인">
 			<input type="hidden" name="srtnCd" value="${order.srtnCd}">
 			<input type="hidden" name="mkp" value="${order.mkp}">	
@@ -32,8 +32,6 @@
 			<input type="hidden" name="tradeNo" value="${order.tradeNo}">
 			</form>  
 			</div>
-			
-			
 			
     	</div>
 	</div>

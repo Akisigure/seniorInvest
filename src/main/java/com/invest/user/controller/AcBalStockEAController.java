@@ -65,17 +65,19 @@ public class AcBalStockEAController {
 
 	@PostMapping("/Stocksellcheck")  //Stocksellcheck
 	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
-		String userid = user.getUsers().getUserid();
 		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
 		m.addAttribute("quan",quan);
-		tradeService.stockSellTrade(userid, dto, tradeNo, quantity,srtnCd);
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("tradeNo",tradeNo);
+		m.addAttribute("quantity",quantity);
 		
 		return "StockSellPage/Stocksellcheck";
 	}
-
-	@GetMapping("/StocksellCP")
-	public String stocksellCP(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m) {
-
+ 
+	@PostMapping("/StocksellCP")
+	public String stocksellCP(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
+		String userid = user.getUsers().getUserid();
+		tradeService.stockSellTrade(userid, dto, tradeNo, quantity,srtnCd);
 		return "StockSellPage/StocksellCP";
 
 	}
