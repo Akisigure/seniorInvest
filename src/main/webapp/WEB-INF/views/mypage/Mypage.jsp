@@ -31,11 +31,6 @@
 	<div id="stockEA">
 		<div id="Sto">보유수량 ></div>
 		<div id="table">
-			<div style='width: 50px; float: right;'>
-				<a href="http://localhost:8079/Stocksell"> 
-				<input type="button"class="w-btn w-btn-green" value="매도"></a>
-
-			</div>
 			<br> <br>
 			<table>
 				<thead>
@@ -51,7 +46,7 @@
 						<td>${stock.itmsNm }</td>
 						<td>${stock.stockEA}</td>
 						<td>${ stock.mkp}</td>
-						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }"> <input type="button" value="매도"></a></td>
+						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}"> <input type="button" value="매도"></a></td>
 					</tr>
 					
 					

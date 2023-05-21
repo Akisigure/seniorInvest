@@ -16,11 +16,12 @@ public class StockQuantityService {
 	@Autowired
 	StockQuantityDao stockQuantityDao;
 	
-	public StockQuantityDto getStockByUserid(String userid, String srtnCd){
+	public StockQuantityDto getStockByUserid(String userid, String srtnCd,int tradeNo){
 		
-		Map<String, String> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("userid", userid);
 		map.put("srtnCd", srtnCd);
+		map.put("tradeNo", tradeNo);
 		
 		return stockQuantityDao.getStockByUseridstock(map);
 		
