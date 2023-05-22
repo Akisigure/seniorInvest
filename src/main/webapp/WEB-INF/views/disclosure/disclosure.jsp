@@ -37,9 +37,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 	$(function() {
-  reloadData(); // 초기 데이터 요청
+  reloadData(); 
   
-  // 10분마다 데이터를 갱신하기 위해 setInterval을 사용
   setInterval(reloadData, 600000); // 10분 = 600000 밀리초
 });
 
@@ -49,18 +48,15 @@ function reloadData() {
     type: 'POST',
     dataType: 'json',
     success: function(response) {
-      // 데이터 처리 로직
-			var dataTable = $('#dataTable tbody');
-      dataTable.empty();
+		var dataTable = $('#dataTable tbody');
+    	dataTable.empty();
       
-      // 받은 JSON 데이터를 반복하여 HTML로 출력합니다.
       for (var i = 0; i < response.list.length; i++) {
         var item = response.list[i];
         var corpName = item.corp_name;
         var reportName = item.report_nm;
         var submitter = item.flr_nm;
         
-        // 테이블 행을 생성하여 데이터를 넣습니다.
         var row = $('<tr>');
         row.append($('<td>').text(corpName));
         row.append($('<td>').text(reportName));
@@ -70,7 +66,6 @@ function reloadData() {
       }
     },
     error: function(xhr, status, error) {
-      // 오류 처리 로직
     }
   });
 }

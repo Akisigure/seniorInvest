@@ -26,7 +26,7 @@ public class DisclosureService {
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 	String formatedNow = now.format(format);
 	
-	public DisclosureCommand APItest() {
+	public DisclosureCommand disclosureAjax() {
 	
 	URI uri = UriComponentsBuilder
             .fromUriString("https://opendart.fss.or.kr/api/list.json")

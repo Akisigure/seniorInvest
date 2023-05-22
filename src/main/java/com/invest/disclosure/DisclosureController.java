@@ -17,7 +17,7 @@ public class DisclosureController {
 	@ResponseBody
 	public DisclosureCommand ajaxDisclosure(Model m) {
 
-		DisclosureCommand list = service.APItest();
+		DisclosureCommand list = service.disclosureAjax();
 		
 		m.addAttribute("list",list);
 	
@@ -25,10 +25,10 @@ public class DisclosureController {
 		return list;
 	}
 	
-	@GetMapping("/test")
-	public String test() {
+	@GetMapping("/disclosure")
+	public String disclosurePage() {
 		
-		return "test";
+		return "disclosure/disclosure";
 	}
 
 }
