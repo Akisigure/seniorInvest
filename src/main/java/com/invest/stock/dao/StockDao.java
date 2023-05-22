@@ -34,5 +34,5 @@ public interface StockDao {
 	
 	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")
 	int warningStock(String srtnCd);
+
 }
- 

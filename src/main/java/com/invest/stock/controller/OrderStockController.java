@@ -32,8 +32,5 @@ public class OrderStockController {
 		  System.out.println(userid);
 		  
 		return "stock/sellComplete";
-	}
-	
-	
-	
+	}	
 }
