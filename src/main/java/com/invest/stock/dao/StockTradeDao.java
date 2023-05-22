@@ -16,11 +16,11 @@ import com.invest.stock.dto.StockQuantityDto;
 @Mapper
 public interface StockTradeDao {
 	
-	@Insert("insert into orderstock(userid,srtnCd,quantity,orderPrice) values (#{userid},#{srtnCd},#{quantity},#{orderPrice})")
+	@Insert("insert into orderstock(userid,srtnCd,quantity,orderPrice,accountid,itmsNm) values (#{userid},#{srtnCd},#{quantity},#{orderPrice},#{accountid},#{itmsNm})")
 	int addOrder(OrderStockDto order);
 	
 	@Select("select accountid from users where userid = #{userid}")
-	String getAccountId(String userid);
+	String getAccountId(@Param("userid")String userid);
 	
 	@Select("select * from orderstock where date(orderdate) = date(now()) and orderstatus = 'N'")
 	List<OrderStockDto> orderList();
@@ -51,5 +51,8 @@ public interface StockTradeDao {
 	
 	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
 	int getLastestPrice(@Param("srtnCd") String srtnCd);
+
+	
+	
 	
 }
