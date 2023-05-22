@@ -14,4 +14,5 @@ public class OrderStockDto {
 	private int orderPrice;
 	private char orderStatus;
 	private Date orderDate;
+	private String itmsNm;
 }

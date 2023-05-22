@@ -52,4 +52,6 @@ public interface StockTradeDao {
 	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
 	int getLastestPrice(@Param("srtnCd") String srtnCd);
 	
+
 }
+

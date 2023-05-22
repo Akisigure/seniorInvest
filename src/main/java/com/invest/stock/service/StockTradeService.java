@@ -30,7 +30,6 @@ public class StockTradeService {
 		
 		long balance = dao.getBalance(accountid);
 		
-		  
 		for (OrderStockDto list : order) {
 			System.out.println(list);
 		 if(balance > list.getQuantity() * list.getOrderPrice()) {
@@ -65,4 +64,6 @@ public class StockTradeService {
 		
 	
 	}
+
 }
+

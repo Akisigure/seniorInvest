@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class StockDto {
-
+	
 	private Date basDt;
 	private String srtnCd;
 	private String itmsNm;
