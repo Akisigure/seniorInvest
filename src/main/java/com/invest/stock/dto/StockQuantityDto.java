@@ -10,9 +10,6 @@ public class StockQuantityDto {
 	private int stockEA;
 	private int mkp;
 	private int quantity;
-
-
 	private int tradeNo;
-
 	private long tradePrice;
 }

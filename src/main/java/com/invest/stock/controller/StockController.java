@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
+import com.invest.stock.service.StockTradeService;
 import com.invest.stock.service.StockWarningService;
 
 @Controller

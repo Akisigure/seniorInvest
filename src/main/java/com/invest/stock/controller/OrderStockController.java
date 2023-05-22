@@ -26,5 +26,14 @@ public class OrderStockController {
 		return "stock/orderComplete";
 	}
 	
+	@PostMapping("/sellComplete")
+	public String sellTrade(OrderStockDto order,StockQuantityDto quantity,String itmsNm, @AuthenticationPrincipal SecurityUser user) {
+		  String userid = user.getUsers().getUserid();
+		  System.out.println(userid);
+		  
+		return "stock/sellComplete";
+	}
+	
+	
 	
 }
