@@ -16,6 +16,7 @@
 <input type="text" name="quantity" placeholder="수량을 입력해주세요">
 <input type="text" name="orderPrice" placeholder="원하시는 가격대를 적어주세요">
 <input type="hidden" name="srtnCd" value="${srtnCd}">
+<input type="hidden" name="itmsNm" value="${itmsNm}">
 <input type="submit" value="매수하기">
 </form>
 </body>
