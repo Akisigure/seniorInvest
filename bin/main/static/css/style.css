@@ -35,8 +35,6 @@ header {
 .nav .nav-link:hover {
 	color: rgb(255, 255, 255);
 	text-decoration: none;
-<<<<<<< HEAD
-=======
 }
 
 .navbar-brand img {
@@ -173,7 +171,6 @@ a {
 .news-date {
     font-size: 0.8em;
     color: gray;
->>>>>>> refs/heads/main
 }
 
 .navbar-brand img {

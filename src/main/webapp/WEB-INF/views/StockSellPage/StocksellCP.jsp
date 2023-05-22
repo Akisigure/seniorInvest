@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +15,8 @@
 	</header>
 	<div id="box_green">
 		<div id="box_white">
-		<div id="sinCP"><p>신일전자 1주 판매완료</p></div>
-		<div id="another">주당 2,980원에 판매되었습니다. 총 판매된 금액을 확인해 보세요</div>
+		<div id="sinCP"><p>${order.itmsNm } ${order.quantity}주 판매완료</p></div>
+		<div id="another">주당  ${ order.mkp}원에 판매되었습니다. 총 판매된 금액을 확인해 보세요</div>
 			</div>
 		<div id="sinCP"><p>주문이 완료되었습니다</p>새로운 주식을 살펴보세요</div>
 		<a href="http://localhost:8079">

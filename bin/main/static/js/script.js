@@ -39,8 +39,5 @@ $(document).ready(function() {
             $(this).closest('li').addClass('active');
         }
     });
-<<<<<<< HEAD
+
 });
-=======
-});
->>>>>>> refs/heads/main

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,52 +31,28 @@
 	<div id="stockEA">
 		<div id="Sto">보유수량 ></div>
 		<div id="table">
-			<div style='width: 50px; float: right;'>
-				<a href="http://localhost:8079/Stocksell"> 
-				<input type="button"class="w-btn w-btn-green" value="매도"></a>
-
-			</div>
 			<br> <br>
 			<table>
 				<thead>
 					<tr>
 						<th>종목명</th>
 						<th>보유수량</th>
-					
+						<th>현재가</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody> <!--  ${StockEA} -->
+					<c:forEach items="${StockEA}" var="stock">
 					<tr>
-						<td>야놀자</td>
-						<td>2</td>
-						
+						<td>${stock.itmsNm }</td>
+						<td>${stock.stockEA}</td>
+						<td>${ stock.mkp}</td>
+						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}"> <input type="button" value="매도"></a></td>
 					</tr>
-					<tr>
-						<td>당근마켓</td>
-						<td>2</td>
-						
-					</tr>
-					<tr>
-						<td>현대카드</td>
-						<td>2</td>
-						
-					</tr>
-					<tr>
-						<td>메리츠증권</td>
-						<td>2</td>
 					
-					</tr>
-					<tr>
-						<td>대우건설</td>
-						<td>2</td>
-						
-					</tr>
-					<tr>
-						<td>SFA 반도체</td>
-						<td>2</td>
-						
-					</tr>
-				</tbody>
+					
+					
+					</c:forEach>
+					</tbody>
 			</table>
 		</div>
 	</div>
