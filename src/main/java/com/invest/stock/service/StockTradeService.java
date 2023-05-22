@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.invest.stock.dao.StockTradeDao;
 import com.invest.stock.dto.OrderStockDto;
-import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockQuantityDto;
 
 @Service

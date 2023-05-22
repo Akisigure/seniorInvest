@@ -96,9 +96,10 @@
             chartInfo.forEach(function(item, index) {
                 let date = item.basDt;
                 let price = item.mkp;
-
-                monthList.push(date);
-                monthData.push(price);
+				
+                let formattedDate = date.substring(0, 4) + "년" + date.substring(4, 6) + "월" + date.substring(6) + "일";
+                monthList.unshift(formattedDate);
+                monthData.unshift(price);
             });
 
             updateChart(monthList, monthData);

@@ -31,4 +31,5 @@ public class StockQuantityService {
 	public List<StockQuantityDto> getStockByUserid(String userid) {
 		return stockQuantityDao.getStockByUserid(userid);
 	}
+
 }
