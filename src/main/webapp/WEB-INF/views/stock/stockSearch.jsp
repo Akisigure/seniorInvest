@@ -9,8 +9,37 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <style>
+  body, html{
+  	height: 100%;
+  }
+  
+  .searchForm{
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	height: 100%;
+  }
+
   .searchResult {
     display: none;
+  }
+  
+  #autoComplete{
+  	width: 500px;
+  	height: 40px;
+  	text-align: center;
+  }
+  
+  #stockSearch{
+    width : 120px;
+	height : 40px;
+	font-size : 18px;
+	color: white;
+	background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
+	border:none;
+  	cursor:pointer;
+  	display:inline;
+  	font-weight: bold;
   }
 </style>
 <body>
@@ -68,6 +97,11 @@
           event.preventDefault();
 
           var selectedValue = $("#autoComplete").val();
+          
+          if(selectedValue.trim() === ""){
+        	  alert("주식 이름을 작성해주세요.");
+        	  return;
+          }
 
           $.ajax({
             url: "/ajax/stockSearch",
