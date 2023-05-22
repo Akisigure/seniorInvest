@@ -19,6 +19,6 @@ public class NewsController {
                        Model model) {
         Page<News> newsPage = newsService.getNews(page, size);
         model.addAttribute("newsPage", newsPage);
-        return "news";
+        return "news/news";
     }
 }

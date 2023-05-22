@@ -12,6 +12,6 @@ public class HeaderController {
 
     @GetMapping("/header")
     public String getHeader() {
-        return "header";
+        return "home/header";
     }
 }

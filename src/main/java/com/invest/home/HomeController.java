@@ -17,6 +17,6 @@ public class HomeController {
     public String home(Model model) {
         News latestNews = newsService.getLatestNews();
         model.addAttribute("latestNews", latestNews);
-        return "home";
+        return "home/home";
     }
 }
