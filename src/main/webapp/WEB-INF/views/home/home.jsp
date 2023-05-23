@@ -14,7 +14,7 @@
 	rel="stylesheet">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="./css/style.css">
-<script src="./js/script.js"></script>
+
 </head>
 
 <body>
@@ -56,5 +56,6 @@
 	</main>
 
 </body>
-
+<!-- Custom JS -->
+<script src="./js/script.js"></script>
 </html>
