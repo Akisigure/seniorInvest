@@ -51,9 +51,5 @@ public class FindpwService {
 		return rowsAffected;
 	}
 
-	public void updatePassword(Users user) {
-		
-		
-	}
 	
 }

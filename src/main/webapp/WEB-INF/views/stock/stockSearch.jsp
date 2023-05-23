@@ -48,6 +48,7 @@
       <input type="text" name="itmsNm" id="autoComplete">
       <input type="submit" value="검색" id="stockSearch">
     </form>
+    
   </div>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

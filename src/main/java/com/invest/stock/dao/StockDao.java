@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -24,7 +25,7 @@ public interface StockDao {
 	
 	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp}, vs = #{vs}, mrktTotAmt = #{mrktTotAmt} where srtnCd = #{srtnCd}")
 	int updateStock(StockDto stock);
-
+	
 	//srtnCd like '#{srtnCd}%' or 
 	@Select("select srtnCd,itmsNm from stock where itmsNm like concat(#{value} , '%')")
 	List<Map<String, Object>> stockSearchResult(Map<String, Object> paramMap);
@@ -34,5 +35,6 @@ public interface StockDao {
 	
 	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")
 	int warningStock(String srtnCd);
+	
 
 }

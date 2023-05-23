@@ -146,12 +146,12 @@ public class UserController {
 	    findpwService.updatePassword(email, encoder.encode(temporaryPassword));
 	    
 	    // 임시 비밀번호를 사용자 이메일로 전송하는 로직을 구현합니다.
-	    sendTemporaryPasswordEmail(user.getEmail(), temporaryPassword);
+	    model.addAttribute("temporaryPassword",temporaryPassword);
 	    
-	    return "redirect:/login"; // 로그인 페이지로 이동
+	    return "account/temPassword"; // 로그인 페이지로 이동
 	  }
 	  
-	  private String generateTemporaryPassword() {
+	  public String generateTemporaryPassword() {
 		  
 		  int length = 8;
 		  String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -173,13 +173,9 @@ public class UserController {
 	    return passwordEncoder.encode(password);
 	  }
 	  
-	  private void sendTemporaryPasswordEmail(String email, String temporaryPassword) {
+	  private String sendTemporaryPasswordEmail(String email, String temporaryPassword) {
 		  // 이메일 전송을 위한 설정
 		  Properties properties = new Properties();
-		  properties.put("mail.smtp.host", "smtp.gmail.com"); // SMTP 서버 호스트
-		  properties.put("mail.smtp.port", "587"); // SMTP 포트
-		  properties.put("mail.smtp.auth", "true"); // 인증 설정
-		  properties.put("mail.smtp.starttls.enable", "true"); // TLS 사용 설정
 
 		  String senderEmail = "mailniaad@gmail.com"; // 발신자 이메일
 		  String senderPassword = "afqjtduixoapdytb"; // 임시 발급 비밀번
@@ -191,65 +187,21 @@ public class UserController {
 		    }
 		  });
 
-		  try {
-		    // 이메일 메시지 생성
-		    Message message = new MimeMessage(session);
-		    message.setFrom(new InternetAddress(senderEmail));
-		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-		    message.setSubject("임시 비밀번호"); // 이메일 제목
-		    message.setText("임시 비밀번호: " + temporaryPassword); // 이메일 내용
-
-		    // 이메일 전송
-		    Transport.send(message);
-
-		    System.out.println("임시 비밀번호가 이메일로 전송되었습니다.");
-		    System.out.println("이메일: " + email);
-		    System.out.println("임시 비밀번호: " + temporaryPassword);
-		  } catch (MessagingException e) {
-		    e.printStackTrace();
-		  }
+		 return temporaryPassword;
 		}
 	  
-	
-
-	
-	@PostMapping("/updatePassword")
-	public String updatePassword(@Validated @ModelAttribute("updatePassword") Findpwd findpwd, BindingResult bindingResult, Model model ) {
-		if(bindingResult.hasErrors() || findpwd == null) {
-			System.out.println("test");
-			return "account/updatePassword";
-		}
-		
-		String email = findpwd.getEmail();
-		String newPassword = findpwd.getNewPassword();
-		
-		Users user = findpwService.findByEmail(email);
-		if(user != null) {
-			String encryptedPassword = user.getPassword();
-			if(encryptedPassword.startsWith("{bcrypt}")) {
-				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-				String encryptedNewPassword = passwordEncoder.encode(newPassword);
-				
-				user.setPassword(encryptedNewPassword);
-				findpwService.updatePassword("encryptedNewPassword",encryptedNewPassword);
-				
-				return "redirect:/login";
-			} else {
-				model.addAttribute("error", "유효한 암호화된 비밀번호가 아닙니다.");
-			 }
-			} else {
-				model.addAttribute("error", "사용자를 찾을 수 없습니다.");
-			}
-			
-			return "account/updatePassword";
-		}
-		
 		
 	@GetMapping("/saveEmailCheck")
 	@ResponseBody
 	public String saveEmailCheck(String email) {
 		String savecheckEmail = findpwService.emailCheck(email);
 		return savecheckEmail;
+	}
+	
+	@PostMapping("/temPassword")
+	public String temloginSucess(Users user) {
+		logService.loginUsers(user);
+		return "account/updatePassword";
 	}
 
 			

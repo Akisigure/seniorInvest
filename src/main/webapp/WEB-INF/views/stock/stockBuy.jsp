@@ -4,11 +4,16 @@
 <head>
 <title>매수화면</title>
 </head>
+<style>
+p{
+	text-align:center;
+}
+</style>
 <body>
-종목명 : ${itmsNm}
-시장가 : ${detail.mkp}
-전일대비 : ${detail.fltRt}
-변동가격 : ${detail.vs}
+<p>종목명 : ${itmsNm} </p>
+<p>시장가 : ${detail.mkp} </p>
+<p>전일대비 : ${detail.fltRt} </p>
+<p>변동가격 : ${detail.vs} </p>
 
 
 <form method="post" action="/orderComplete">
