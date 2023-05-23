@@ -59,6 +59,9 @@ public interface StockTradeDao {
 	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType) values(#{srtnCd},#{accountid},#{userid},#{quantity},'S')")
 	int sellTradeInfo(StockQuantityDto dto);
 	
+	@Delete("delete from orderstock where orderStatus = 'N'")
+	int deleteTradeOrder();
+	
 	
 
 }
