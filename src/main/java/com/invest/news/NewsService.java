@@ -25,7 +25,7 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
-    @Scheduled(cron = "1 * * * * *")
+    @Scheduled(cron = "* * 1 * * *")
     @Transactional
     public void updateNews() {
     	newsRepository.deleteAll();

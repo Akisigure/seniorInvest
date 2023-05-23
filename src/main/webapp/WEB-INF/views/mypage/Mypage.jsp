@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mypage 마이페이지</title>
+<title>My page 마이페이지</title>
  <link rel="stylesheet" href="css/Mypage.css">
  <meta charset="UTF-8">
 
 </head>
 <body>
-	<header>안심증권 > 마이페이지</header>
+	<jsp:include page="/header"></jsp:include>
 
 	
 <form>
