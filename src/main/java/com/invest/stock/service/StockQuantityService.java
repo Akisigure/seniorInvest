@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invest.stock.dao.StockQuantityDao;
+import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockQuantityDto;
 
 @Service
@@ -23,11 +24,16 @@ public class StockQuantityService {
 		map.put("srtnCd", srtnCd);
 		
 		return stockQuantityDao.getStockByUseridstock(map);
-		
-		
-	}
 
+	}
 	public List<StockQuantityDto> getStockByUserid(String userid) {
 		return stockQuantityDao.getStockByUserid(userid);
+	}
+ 
+	public int getOrderPrice(String userid) {
+		stockQuantityDao.getOrderPrice(userid);
+		
+		
+		return 1;
 	}
 }

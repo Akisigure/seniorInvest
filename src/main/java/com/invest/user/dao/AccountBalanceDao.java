@@ -15,5 +15,5 @@ public interface AccountBalanceDao {
     
     @Update("UPDATE useraccountinfo SET balance = #{balance} WHERE userId = #{userId}")
     void updateBalance(UserAccountInfo userAccountInfo);
-
+    
 }    
