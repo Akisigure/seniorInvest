@@ -33,7 +33,7 @@ dependencies {
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
 	implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.0'
 	implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '6.0.3'
-	implementation 'org.json:json:20210307'
+	implementation 'com.google.code.gson:gson:2.8.9'
   implementation 'org.apache.httpcomponents:httpclient:4.5.13'
   implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 }

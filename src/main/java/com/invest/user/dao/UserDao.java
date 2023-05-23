@@ -1,5 +1,9 @@
 package com.invest.user.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -21,5 +25,19 @@ public interface UserDao {
 	  
 	@Insert("insert into user_role(userid,role_id) values(#{userid},#{role_id}")
 	int insertPermit(Users user);
+	
+	@Select("select * from users order by userid asc limit #{start}, #{count}")
+	List<Users> selectUsers(Map<String, Object> m);
+
+	@Select("select count(*) from users")
+	int count();
+
+
+	List<Users> userListSearch(Map<String, Object> m);
+	
+
+	int countUserSearch(Map<String, Object> m);//검색 글 갯수
+	
+
 	
 }
