@@ -41,8 +41,7 @@
 		<section id="section-2" class="row vh-100 m-0">
 			<div class="col section-container">
 				<div class="container">
-					<h2 class="text-center">Section 2</h2>
-					<p class="text-center">공지사항</p>
+				<jsp:include page="/stockMainview"></jsp:include>
 				</div>
 			</div>
 		</section>

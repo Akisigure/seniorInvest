@@ -99,10 +99,11 @@ public class StockController {
 	}
 	
 
-	
-	
-	
-	
-	
+	@GetMapping("/stockMainview")
+	public String stockMainview(Model model) {
+	    List<StockDto> stockMainview = service.stockMainview();
+	    model.addAttribute("stockMainview", stockMainview);
+	    return "stock/stockMainview";
+	}
 
 }

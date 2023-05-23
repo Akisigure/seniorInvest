@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notice">공지 사항</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notices">공지 사항</a></li>
                     <li class="nav-item"><a class="nav-link" href="intstock">관심 종목</a></li>
                     <li class="nav-item"><a class="nav-link" href="rtstock">실시간 종목</a></li>
                     <li class="nav-item"><a class="nav-link" href="mypage">마이 페이지</a></li>
