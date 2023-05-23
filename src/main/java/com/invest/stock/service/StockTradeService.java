@@ -41,6 +41,7 @@ public class StockTradeService {
 				if(list.getOrderPrice() >= price) {
 					dao.updateAddOrder(list.getNo());//  체결 상태 변경
 					dao.tradeResult(list); // 보유 수량 추가
+					dao.buyTradeInfo(list); //개래내역 추가
 					dao.stockBuyBalance(balance-(list.getQuantity() * list.getOrderPrice()), list.getAccountid()); // 잔액변경
 				}
 			}
@@ -50,14 +51,17 @@ public class StockTradeService {
 	
 	@Transactional
 	public void stockSellTrade(String userid, StockQuantityDto stockQuantity,int tradeNo,int quantity,String srtnCd) {
+		stockQuantity.setUserid(userid);
 		String accountid = dao.getAccountId(userid); 
+		stockQuantity.setAccountid(accountid);
 		long balance = dao.getBalance(accountid);
 		int sellStock = dao.getLastestPrice(srtnCd);
 		System.out.println(sellStock);
 
-				dao.stockSellUpdate(stockQuantity, quantity, userid,tradeNo,srtnCd);
+				dao.stockSellUpdate(stockQuantity);
 				dao.stockSellBalance(balance, accountid, sellStock);
 				dao.deleteQuantity(userid);
+				dao.sellTradeInfo(stockQuantity);
 				System.out.println("done");
 	
 	}
