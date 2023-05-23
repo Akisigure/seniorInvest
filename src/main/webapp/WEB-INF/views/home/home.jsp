@@ -19,16 +19,15 @@
 
 <body>
 	<!-- Main Content -->
-
-	<jsp:include page="/header"></jsp:include>
-
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<main class="container-fluid p-0">
 		<section id="section-1" class="row vh-100 m-0">
 			<div class="col section-container">
 				<div class="container">
 					<div class="latest-news">
-						<img class="news-img" src="${latestNews.urlToImage}" alt="News Image"> <a href="${latestNews.url}">
+						<img class="news-img" src="${latestNews.urlToImage}"
+							alt="News Image"> <a href="${latestNews.url}"
 							class="news-link">
 							<h3 class="news-title">${latestNews.title}</h3>
 						</a>
@@ -42,8 +41,7 @@
 		<section id="section-2" class="row vh-100 m-0">
 			<div class="col section-container">
 				<div class="container">
-					<h2 class="text-center">Section 2</h2>
-					<p class="text-center">공지사항</p>
+				<jsp:include page="/stockMainview"></jsp:include>
 				</div>
 			</div>
 		</section>

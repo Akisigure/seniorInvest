@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -35,5 +34,5 @@ public interface StockDao {
 	
 	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")
 	int warningStock(String srtnCd);
+
 }
- 

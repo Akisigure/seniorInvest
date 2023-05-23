@@ -1,5 +1,6 @@
 package com.invest.stock.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
 import com.invest.stock.service.StockTradeService;
+import com.invest.stock.service.StockWarningService;
 
 @Controller
 public class StockController {
@@ -20,7 +24,7 @@ public class StockController {
 	StockService service;
 	
 	@Autowired
-	StockTradeService tradeService;
+	StockWarningService tradeService;
 	
 	  @GetMapping("/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
@@ -36,18 +40,25 @@ public class StockController {
 		return "stock/stockSearch";
 	}
 	
+	/*
+	 * @PostMapping("/stockSearch") public
+	 */
+	
 	@PostMapping("/ajax/stockSearch")
 	@ResponseBody
 	public Map<String, Object> stockSearch(@RequestParam Map<String, Object> paramMap) {
 		
 		List<Map<String,Object>> resultList = service.stockSearchResult(paramMap);
 		paramMap.put("resultList", resultList);
+		paramMap.put("isStockExist", resultList.size() > 0);
 		
 		return paramMap;
 	}
 	
-	@PostMapping("/stockDetail")
-	public String stockDetail(String itmsNm,StockDto stock, Model m) {
+
+
+	@GetMapping("/stockDetail")
+	public String stockDetail( String itmsNm,StockDto stock, Model m) {
 		
 		System.out.println("itmsNm"+itmsNm);
 		

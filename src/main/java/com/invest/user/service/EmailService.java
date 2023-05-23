@@ -23,7 +23,7 @@ public class EmailService {
 		
 		MimeMessage msg = mailSender.createMimeMessage();
 	
-		msg.setSubject(email.getSubject());
+		msg.setSubject(email.getSubject());   
 		
 		//일반 텍스트만 전송하려는 경우
 		msg.setText(email.getContent());
