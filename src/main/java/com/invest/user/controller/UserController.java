@@ -58,7 +58,6 @@ public class UserController {
 	@GetMapping("/admin/userList")
 	public String getUserList(String searchn, String search,@RequestParam(name = "p", defaultValue = "1") int page, Model m) {
 		int count = userService.countUserSearch(searchn, search ); 
-		System.out.println(count+"count");
 		if (count > 0) {
 
 			int perPage = 10; // 한 페이지에 보일 글의 갯수
