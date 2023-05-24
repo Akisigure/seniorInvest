@@ -9,28 +9,6 @@
 	font-style: normal;
 }
 
-.crumbs {
-	display: flex;
-	font-family: 'SUITE-Regular';
-	text-align: right;
-	text-decoration: none;
-	float:right;
-}
-
-.crumbs li {
-	list-style: none;
-	margin: 0 10px;
-	display: inline-block;
-}
-
-.crumbs a {
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	font-family: 'SUITE-Regular';
-	display: inline-block;
-}
-
 #header {
 	display: flex;
 	justify-content: space-between;
@@ -83,7 +61,7 @@
 	border-radius: 15px;
 	position: relative;
 	text-align: center;
-	left: 18%;
+	left: 24%;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -108,7 +86,7 @@
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	font-size: 15pt;
+	font-size: 18pt;
 	font-family: 'SUITE-Regular';
 }
 
@@ -123,7 +101,7 @@
 	border-radius: 15px;
 	position: relative;
 	text-align: center;
-	left: 18%;
+	left: 24%;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -132,7 +110,8 @@
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	font-size: 15pt;
+	font-size: 18pt;
+	font-family: 'SUITE-Regular';
 }
 
 .bankN {
@@ -145,6 +124,7 @@
 	text-align: right;
 	vertical-align: bottom;
 	color: #000;
+	font-family: 'SUITE-Regular';
 }
 
 #stockEA {
@@ -161,7 +141,8 @@
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	font-size: 20pt;
+	font-size: 25pt;
+	font-family: 'SUITE-Regular';
 }
 
 @import
@@ -170,29 +151,22 @@
 
 button {
 	margin: 10px;
+
 }
 
 .w-btn {
 	position: relative;
 	border: none;
 	display: inline-block;
-	padding: 15px 20px;
-	border-radius: 15px;
-	font-family: "paybooc-Light", sans-serif;
-	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'SUITE-Regular';
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	text-decoration: none;
 	font-weight: 600;
 	transition: 0.25s;
-	top: -20px;
-}
-
-.w-btn-green {
-	width: 150px;
-	padding: 15px 10x;
 	background-color: #77af9c;
 	color: white;
-	right: 180%;
-	font-size: 20pt;
 }
 
 table {
@@ -203,12 +177,13 @@ table {
 	background-color: white;
 	text-align: left;
 	overflow: hidden;
-	font-family: Mukta;
 	display: grid;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.3rem;
 	background-color: #f9fbff;
+	font-family: 'SUITE-Regular';
+
 }
 
 thead {
@@ -216,6 +191,7 @@ thead {
 }
 
 th {
+	background-color: #f9fbff;
 	padding: 1rem 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;

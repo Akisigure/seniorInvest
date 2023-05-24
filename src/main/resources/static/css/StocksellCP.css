@@ -1,4 +1,46 @@
 @charset "UTF-8";
+/* 스타일 설정 */
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #f6f6f6;
+	height: 80px; /* 헤더의 높이를 지정 */
+	font-size: 24pt;
+	padding:30px;
+
+}
+
+#logo {
+	width: 20%;
+	height: 200%; /* 로고 이미지의 높이를 지정 */
+}
+
+#menu {
+	display: flex;
+}
+
+#menu li {
+	list-style: none;
+	margin: 0 10px;
+}
+
+#menu a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-family: 'SUITE-Regular';
+}
 #ansimH{
 	width: 2000px;
 	height: 100px;

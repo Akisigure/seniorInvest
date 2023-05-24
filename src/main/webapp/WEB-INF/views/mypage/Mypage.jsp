@@ -10,13 +10,6 @@
 
 </head>
 <body>
-	<nav class="crumbs">
-		<ul>
-			<li><a href="#">로그아웃</a></li>
-			<li><a href="#">마이페이지</a></li>
-		</ul>
-	</nav>
-
 	<header id="header">
 		<img src="img/logoR.png" alt="로고" id="logo">
 		<nav id="navigation">
@@ -61,15 +54,13 @@
 								<td>${stock.stockEA}</td>
 								<td>${stock.mkp}</td>
 								<td>${stock.rofreturn }</td>
-								<td><a
-									href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}">
-										<input type="button" value="매도">
+								<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}">
+									<input type="button" class="w-btn" value="매도">
 								</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<
 			</div>
 		</div>
 	</form>

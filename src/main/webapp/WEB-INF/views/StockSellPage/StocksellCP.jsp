@@ -10,8 +10,16 @@
 <title>Stock sell complete 매도 완료 페이지</title>
 </head>
 <body>
-<header id="ansimH">
-	<h1>안심증권 > 매도 결정 확인 페이지</h1>
+<header id="header">
+		<img src="img/logoR.png" alt="로고" id="logo">
+		<nav id="navigation">
+			<ul id="menu">
+				<li><a href="#">주식 검색(매수)</a></li>
+				<li><a href="#">테마뉴스</a></li>
+				<li><a href="#">공시</a></li>
+				<li><a href="#">공지사항 | Q&A </a></li>
+			</ul>
+		</nav>
 	</header>
 	<div id="box_green">
 		<div id="box_white">
