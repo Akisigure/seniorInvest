@@ -3,8 +3,10 @@ package com.invest.stock.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.invest.stock.dao.StockQuantityDao;
 import com.invest.stock.dto.StockQuantityDto;
 
@@ -22,18 +24,13 @@ public class StockQuantityService {
 		map.put("tradeNo", tradeNo);
 		
 		return stockQuantityDao.getStockByUseridstock(map);
-
 	}
+
 	public List<StockQuantityDto> getStockByUserid(String userid) {
 		return stockQuantityDao.getStockByUserid(userid);
 	}
-  
-	
-	public int getOrderPrice(String userid) {
-		stockQuantityDao.getOrderPrice(userid);
-		
-		
-		return 1;
+	public List<StockQuantityDto> getOrderPrice(String userid){
+		return stockQuantityDao.getOrderPrice(userid);
 	}
 
 }

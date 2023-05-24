@@ -41,30 +41,20 @@ public class AcBalStockEAController {
 
 		m.addAttribute("Balance", info);
 
-		List<StockQuantityDto> quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid());
+		List<StockQuantityDto> quan = stockQuantityService.getOrderPrice(user.getUsers().getUserid());
 
 		m.addAttribute("StockEA", quan);
 		return "mypage/Mypage";
 
 	}
-	@GetMapping("/mypage_test")
-	public String mypage_test() {
-		return "mypage/mypage_test";
 
-	}
 
-	@GetMapping("/Stocksell")
-	public String stocksell(@AuthenticationPrincipal SecurityUser user, Model m) {
-		List<StockQuantityDto> quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid());
-
-		m.addAttribute("quantity", quan);
-		return "StockSellPage/Stocksell";
-	}
 
 	@GetMapping("/StocksellDc")
 	public String stocksellDc(@AuthenticationPrincipal SecurityUser user, Model m, String srtnCd,int tradeNo) {
+		System.out.println(user.getUsers().getUserid()+ srtnCd+tradeNo);
 		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
-		
+		System.out.println("quan::"+quan);
 		m.addAttribute("tradeNo",tradeNo);
 		m.addAttribute("CPstock", quan);
 		return "StockSellPage/StocksellDc";
@@ -87,6 +77,10 @@ public class AcBalStockEAController {
 		tradeService.stockSellTrade(userid, dto, tradeNo, quantity,srtnCd);
 		return "StockSellPage/StocksellCP";
 
+	}
+	@GetMapping("/mypage_test")
+	public String mypage_test () {
+		return "mypage/mypage_test";
 	}
 
 }

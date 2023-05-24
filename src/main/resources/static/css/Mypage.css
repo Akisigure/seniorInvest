@@ -1,72 +1,90 @@
 @charset "UTF-8";
-
-ul,li{
-    list-style: none;
+/* 스타일 설정 */
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
 }
 
-a{
-    text-decoration:none;
+.crumbs {
+	display: flex;
+	font-family: 'SUITE-Regular';
+	text-align: right;
+	text-decoration: none;
+	float:right;
 }
 
-img{
-	
-	width:300PX;
-	
+.crumbs li {
+	list-style: none;
+	margin: 0 10px;
+	display: inline-block;
 }
 
-#wrap{
-    width:100%;
-    background:#E7E7E7;
+.crumbs a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-family: 'SUITE-Regular';
+	display: inline-block;
 }
 
-#header{
-    width:1200px;
-    height:100px;
-    margin:0 auto;
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #f6f6f6;
+	height: 80px; /* 헤더의 높이를 지정 */
+	font-size: 24pt;
+	padding:30px;
+
 }
 
-#logo{
-    
-    float:left;
+#logo {
+	width: 20%;
+	height: 200%; /* 로고 이미지의 높이를 지정 */
 }
 
-#gnb{
-    float:right;
-}
-#gnb > ul > li{
-    float:left;
-    display:inline-block;
-}
-#gnb > ul > li > a{
-    font-size:19px;
-    color:#004385;
-    font-weight: bold;
-    width:180px;
-    display:inline-block;
-    margin:40px 0;
+#menu {
+	display: flex;
 }
 
+#menu li {
+	list-style: none;
+	margin: 0 10px;
+}
 
-#ansimH{
+#menu a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-family: 'SUITE-Regular';
+}
+
+#ansimH {
 	width: 2000px;
 	height: 100px;
 	flex-grow: 0;
 	border: 1px solid #F5F5F5;
 	background: #5D7D55;
-	}
-/* .2{
-	font-weight:bold;
-	font-color:#5D7D55;
-} */
+}
+
 #boxBalance {
 	width: 800px;
-	height: 100px;
+	height: 80px;
 	flex-grow: 0;
 	margin: 3% auto;
 	padding: 5%;
 	border: 1px solid #F5F5F5;
 	background: #E6F0E0;
-	border-radius: 30px;
+	border-radius: 15px;
+	position: relative;
+	text-align: center;
+	left: 18%;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .BalNum {
@@ -74,7 +92,7 @@ img{
 	height: 100px;
 	flex-grow: 0;
 	margin: 90px 0 0 200px;
-	font-family: Inter;
+	font-family: 'SUITE-Regular';
 	font-size: 60px;
 	font-weight: 800;
 	font-stretch: normal;
@@ -91,17 +109,22 @@ img{
 	vertical-align: top;
 	font-weight: bold;
 	font-size: 15pt;
+	font-family: 'SUITE-Regular';
 }
 
 #boxAccount {
 	display: block;
 	width: 800px;
-	height: 95px;
+	height: 80px;
 	margin: 3% auto;
 	padding: 5%;
 	border: 1px solid #F5F5F5;
 	background: #E6F0E0;
-	border-radius: 30px;
+	border-radius: 15px;
+	position: relative;
+	text-align: center;
+	left: 18%;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #Acc {
@@ -130,7 +153,7 @@ img{
 	margin: 3% auto;
 	padding: 5%;
 	border: 1px solid black;
-	border-radius: 25px;
+	border-radius: 15px;
 }
 
 #Sto {
@@ -173,8 +196,7 @@ button {
 }
 
 table {
-	
-	width : 800px;
+	width: 800px;
 	height: 550px;
 	border-collapse: collapse;
 	box-shadow: 0 5px 10px #e1e5ee;
@@ -185,7 +207,7 @@ table {
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.0rem;
+	font-size: 1.3rem;
 	background-color: #f9fbff;
 }
 
@@ -197,7 +219,7 @@ th {
 	padding: 1rem 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
-	font-size: 0.7rem;
+	font-size: 1.3rem;
 	font-weight: 900;
 }
 

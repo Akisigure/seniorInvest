@@ -3,30 +3,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>경일게임아카데미</title>
-    <link rel="stylesheet" href="css/mypage_test.css">
-</head>
-<body>
-    <div id="wrap">
-        <div id="header">
-            <h1 id="logo">
-               <a href="#"><img src="img/logoR.png"/></a>
-            </h1>
-            <div id="gnb">
-                <ul>
-                    <li><a href="#">메인페이지</a></li>
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">뉴스/공시</a></li>
-                    <li><a href="#">Q&A</a></li>
-                </ul>
-            </div>
-        </div>
-      
+    <title>마이페이지</title>
+    <style>
+      /* 스타일 설정 */
+      #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #f6f6f6;
+      }
 
-    </div>
-</body>
+      #logo {
+        width: 100px;
+        height: auto;
+      }
+
+      #menu {
+        display: flex;
+      }
+
+      #menu li {
+        list-style: none;
+        margin: 0 10px;
+      }
+
+      #menu a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <img src="로고이미지 주소" alt="로고" id="logo">
+      <nav id="navigation">
+        <ul id="menu">
+          <li><a href="#">로그인/회원가입</a></li>
+          <li><a href="#">뉴스</a></li>
+          <li><a href="#">Q&A</a></li>
+          <li><a href="#">메인페이지</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
 </html>
