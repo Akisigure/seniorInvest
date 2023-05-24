@@ -3,11 +3,7 @@ package com.invest.news;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jakarta.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -17,21 +13,21 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import java.util.List;
 
 @Service
 @EnableScheduling
 public class NewsService {
 
     @Autowired
-    private NewsRepository newsRepository;
+    private NewsDao newsDao;
 
-    @Scheduled(cron = "* * 1 * * *")
-    @Transactional
+    @Scheduled(cron = "1 * * * * *")
     public void updateNews() {
-    	newsRepository.deleteAll();
+        newsDao.deleteAll();
         System.out.println("updateNews is called!");
         RestTemplate restTemplate = new RestTemplate();
-        String apiUrl = "https://newsapi.org/v2/everything?q=경제&sortBy=publishedAt&language=ko&apiKey=4169a009e56148aea0c63c4b201330a1";
+        String apiUrl = "https://newsapi.org/v2/everything?q=경제&sortBy=published_at&language=ko&apiKey=4169a009e56148aea0c63c4b201330a1";
         
         HttpHeaders headers = new HttpHeaders();
         headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
@@ -40,6 +36,9 @@ public class NewsService {
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
         ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, entity, String.class);
+
+        System.out.println("API Response: " + response.getBody());
+
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.getBody());
@@ -55,23 +54,30 @@ public class NewsService {
                 news.setPublishedAt(article.get("publishedAt").asText());
                 news.setContent(article.get("content").asText());
                 
-                newsRepository.save(news);
+                newsDao.save(news);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
-    public Page<News> getNews(int page, int size) {
-        PageRequest pageRequest = PageRequest.of(page, size);
-        return newsRepository.findAll(pageRequest);
+    public PageInfo<News> getNews(int page, int size) {
+        int totalElements = newsDao.count();
+        List<News> content = newsDao.findWithPagination(page * size, size);
+        PageInfo<News> pageInfo = new PageInfo<>();
+        pageInfo.setContent(content);
+        pageInfo.setPageNumber(page);
+        pageInfo.setPageNumber(size);
+        pageInfo.setTotalElements(totalElements);
+        return pageInfo;
+    }
+    
+    public List<News> getNews() {
+        return newsDao.findAll();
     }
     
     public News getLatestNews() {
-        return newsRepository.findTopByOrderByPublishedAtDesc();
+        return newsDao.findTopByOrderBypublishedAtDesc();
     }
-    
-    public String checkService() {
-        return "Service is running!";
-    }
+   
 }

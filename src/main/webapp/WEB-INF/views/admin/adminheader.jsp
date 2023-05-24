@@ -24,9 +24,15 @@
                         <i class="fa-solid fa-house" class="nav__icon"></i>
                         <span class="nav_name">Dashboard</span>
                     </a>
+                    
                     <a href="#" class="nav__link">
                         <i class="fa-solid fa-comment" class="nav__icon"></i>
-                        <span class="nav_name">Q&A</span>
+                        <span class="nav_name">Q&A 관리</span>
+                    </a>
+
+    				<a href="#" class="nav__link class="nav__icon">
+                        <i class="fa-solid fa-clipboard"></i>
+                        <span class="nav_name">공지사항 관리</span>
                     </a>
 
 					
@@ -46,11 +52,11 @@
                     </a>
 
                 </div>
-                <a href="#" class="nav__link">
-                    <i class="fa-solid fa-right-from-bracket" class="nav__icon"></i>
-                    <span class="nav_name">로그 아웃</span>
-                </a>
             </div>
+                             <a href="#" class="nav__link nav__logout">
+       				<i class="fa-solid fa-right-from-bracket" class="nav__icon"></i>
+       				<span class="nav_name">Log out</span>
+   					</a>
             </div>
         </nav>
     </div>

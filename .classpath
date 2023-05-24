@@ -21,15 +21,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="lib" path="C:/Users/lmw/.m2/repository/org/springframework/spring-webmvc/6.0.8/spring-webmvc-6.0.8.jar" sourcepath="C:/Users/lmw/.m2/repository/org/springframework/spring-webmvc/6.0.8/spring-webmvc-6.0.8-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lmw/.m2/repository/org/springframework/spring-webmvc/6.0.8/spring-webmvc-6.0.8-javadoc.jar!/"/>
-			<attribute name="maven.groupId" value="org.springframework"/>
-			<attribute name="maven.artifactId" value="spring-webmvc"/>
-			<attribute name="maven.version" value="6.0.8"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>

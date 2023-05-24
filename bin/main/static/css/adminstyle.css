@@ -1,25 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-/* VARIABLES CSS */
 :root {
     --nav--width: 92px;
 
-    /* Colores */
     --first-color: #0c5df4;
     --bg-color: #12192c;
     --sub-color: #b6cefc;
     --white-color: #fff;
 
-    /* Fuente y tipografia */
     --body-font: 'Poppins', sans-serif;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
+    --normal-font-size: 16px;
+    --small-font-size: 14px;
 
-    /* z index */
     --z-fixed: 100;
 }
 
-/* BASE */
 *, ::before, ::after {
     box-sizing: border-box;
 }
@@ -27,7 +22,7 @@
 body {
     position: relative;
     margin: 0;
-    padding: 2rem 0 0 6.75rem;
+    padding: 32px 0 0 108px;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
@@ -47,7 +42,6 @@ a {
     text-decoration: none;
 }
 
-/* l NAV */
 .l-navbar {
     position: fixed;
     top: 0;
@@ -56,36 +50,33 @@ a {
     height: 100vh;
     background-color: var(--bg-color);
     color: var(--white-color);
-    padding: 1.5rem 1.5rem 2rem;
+    padding: 24px 24px 32px;
     transition: .5s;
     z-index: var(--z-fixed);
 }
 
-/* NAV */
 .nav {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    padding: 0;
 }
-
-
 
 .nav__toggle {
     display: grid;
     grid-template-columns: max-content max-content;
     align-items: center;
-    padding: .75rem;    /* Adjust to the required padding */
+    padding: 12px;
     justify-content: space-between;
     color: var(--white-color);
-    border-radius: .5rem;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+    margin-bottom: 16px;
     transition: .3s;
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 20px;
 }
-
 
 .nav__logo {
     color: var(--white-color);
@@ -95,46 +86,41 @@ a {
 .nav__link {
     display: grid;
     grid-template-columns: max-content max-content;
-    align-items: right;
-    padding: .75rem;    /* You might want to increase this value */
+    align-items: center;
+    padding: 12px;
     justify-content: space-between;
-    color: var(--white-color);
-    border-radius: .5rem;
-    margin-bottom: 1rem;
+    color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 16px;
     transition: .3s;
     cursor: pointer;
+    
 }
-
 
 .nav__link:hover {
     background-color: var(--first-color);
 }
 
 .nav__icon {
-    font-size: 1.25rem;
+    font-size: 20px;
 }
 
 .nav_name {
     font-size: var(--small-font-size);
 }
 
-/* Expander menu */
 .expander {
-    width: calc(var(--nav--width) + 9.25rem);
+    width: calc(var(--nav--width) + 148px);
 }
 
-/* Add padding body*/
 .body-pd {
-    padding: 2rem 0 0 16rem;
+    padding: 32px 0 0 256px;
 }
 
-/* Active links menu */
 .active {
     background-color: var(--first-color);
 }
 
-
-/* Rotate icon */
 .rotate {
     transform: rotate(180deg);
     transition: .5s;
@@ -148,3 +134,38 @@ a {
     display: block;
 }
 
+.nav__logout {
+	
+	position: absolute;
+    bottom: 0;
+    background-color: #0a4076;
+}
+
+.nav__logout:hover {
+    background-color: #082b4f;  
+}
+
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: calc(100% - 50px);  /* Adjust this value based on your header's height */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    overflow: auto; /* Add this */
+  }
