@@ -1,17 +1,18 @@
 package com.invest.stock.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.invest.config.SecurityUser;
+import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
 import com.invest.stock.service.StockTradeService;
@@ -24,7 +25,10 @@ public class StockController {
 	StockService service;
 	
 	@Autowired
-	StockWarningService tradeService;
+	StockWarningService warningService;
+	
+	@Autowired
+	StockTradeService tradeService;
 	
 	  @GetMapping("/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
@@ -85,7 +89,7 @@ public class StockController {
 		m.addAttribute("itmsNm",itmsNm);
 		m.addAttribute("detail",detail);
 		
-		int count = tradeService.warningStock(srtnCd);
+		int count = warningService.warningStock(srtnCd);
 		
 		if(count == 1) {
 			return "stock/warning";

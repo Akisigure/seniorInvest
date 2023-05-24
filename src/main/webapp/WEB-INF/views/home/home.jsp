@@ -18,9 +18,8 @@
 </head>
 
 <body>
-	<!-- Main Content -->
 
-	<jsp:include page="/header"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
 
 	<main class="container-fluid p-0">
