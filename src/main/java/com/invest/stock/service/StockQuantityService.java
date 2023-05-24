@@ -16,6 +16,7 @@ public class StockQuantityService {
 	@Autowired
 	StockQuantityDao stockQuantityDao;
 	
+	//tradeNo로 보유주식 리스트에서 하나 선택하기
 	public StockQuantityDto getStockByUserid(String userid, String srtnCd,int tradeNo){
 		
 		Map<String, Object> map = new HashMap<>();
@@ -28,6 +29,7 @@ public class StockQuantityService {
 		
 	}
 
+	//보유주식 리스트 뽑아오기
 	public List<StockQuantityDto> getStockByUserid(String userid) {
 		return stockQuantityDao.getStockByUserid(userid);
 	}

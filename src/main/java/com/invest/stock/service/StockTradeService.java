@@ -16,6 +16,7 @@ public class StockTradeService {
 	@Autowired
 	StockTradeDao dao;
 	
+	//지정가 거래 주문 넣기
 	public void addOrder(OrderStockDto order,String userid,String srtnCd,String itmsNm) {
 		String accountid = dao.getAccountId(userid);
 		long balance = dao.getBalance(accountid);
@@ -30,6 +31,7 @@ public class StockTradeService {
 		System.out.println(a);
 	}
 	
+	//매 정각 1시간마다 지정가 주문 처리
 	@Scheduled(cron = "0 0 0/1 * * * ")
 	@Transactional
 	public void stockBuyTrade() {
@@ -52,7 +54,7 @@ public class StockTradeService {
 				} 
 				//미채결 시 
 				else {  
-					dao.deleteTradeOrder(); 
+					//거래 취소 시 주문 금액 되돌려주기
 					dao.stockBuyBalance(balance+(list.getQuantity() * list.getOrderPrice()), list.getAccountid()); 
 					
 				}
@@ -60,7 +62,7 @@ public class StockTradeService {
 		}
 	}
 	
-	
+	//매도는 실시간으로 처리
 	@Transactional
 	public void stockSellTrade(String userid, StockQuantityDto stockQuantity) {
 		stockQuantity.setUserid(userid);
@@ -78,12 +80,14 @@ public class StockTradeService {
 	
 	}
 	
-	
+	//체결되지 않은 지정가 주문 리스트
 	public List<OrderStockDto> cancelTradeList(String userid) {
 		
 		return dao.cancelTradeList(userid);
 	}
 	
+	//체결되지 않은 지정가 주문 취소
+	@Transactional
 	public void cancelTrade(OrderStockDto dto) {
 		long balance = dao.getBalance(dto.getAccountid());
 		dto.setBalance(balance);

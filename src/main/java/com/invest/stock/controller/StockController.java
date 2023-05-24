@@ -30,7 +30,8 @@ public class StockController {
 	@Autowired
 	StockTradeService tradeService;
 	
-	  @GetMapping("/getStockPriceInfo")
+	//DB저장용 최초 실행 코드 한번만 호출해야 함
+	  @GetMapping("/admin/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
 		  
 		  service.stockInsert();
@@ -44,10 +45,7 @@ public class StockController {
 		return "stock/stockSearch";
 	}
 	
-	/*
-	 * @PostMapping("/stockSearch") public
-	 */
-	
+	//주식 검색 자동완성
 	@PostMapping("/ajax/stockSearch")
 	@ResponseBody
 	public Map<String, Object> stockSearch(@RequestParam Map<String, Object> paramMap) {
@@ -74,12 +72,6 @@ public class StockController {
 		return "stock/stockDetail";
 	}
 	
-	@GetMapping("/updateStocks")
-	public String updateTest() throws Exception {
-		service.updateLastestStock();
-		return "redirect:";
-	}
-	
 	@PostMapping("/stockBuy")
 	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m) {
 		
@@ -92,7 +84,7 @@ public class StockController {
 		int count = warningService.warningStock(srtnCd);
 		
 		if(count == 1) {
-			return "stock/warning";
+			return "stock/warning"; //유의종목일 시 이동
 		}else { 
 			return "stock/stockBuy";
 		}

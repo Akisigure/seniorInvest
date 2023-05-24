@@ -78,7 +78,7 @@ public class StockService {
 	    
 	}//method
 	
-	//API 갱신시간에 갱신
+	//API 갱신시간에 갱신 (오전 11시 30분)
 	@Scheduled(cron = "0 30 11 * * *")
 	public void updateLastestStock() throws Exception {
 		
@@ -129,7 +129,7 @@ public class StockService {
 	   }//for
 	}
 
-	
+	//매일 저녁에 업데이트
 	@Scheduled(cron = "0 57 00 * * *")
 	public void updateStock() throws Exception {
 		
@@ -182,8 +182,8 @@ public class StockService {
 	   
 	}
 	
+	//검색 자동완성 AJAX
 	public List<Map<String, Object>>stockSearchResult(Map<String, Object> paramMap) {
-		//String srtnCd, String itmsNm
 		return dao.stockSearchResult(paramMap);
 		
 	}
