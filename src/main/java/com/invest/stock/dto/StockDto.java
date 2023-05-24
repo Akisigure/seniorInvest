@@ -15,5 +15,6 @@ public class StockDto {
 	private int mkp;
 	private int trqu;
 	private long mrktTotAmt;
+	private boolean favorited;
 	
 }

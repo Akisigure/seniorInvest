@@ -6,15 +6,6 @@ import java.util.List;
 
 @Mapper
 public interface NewsDao {
-    @Update("CREATE TABLE IF NOT EXISTS news(" +
-            "id BIGINT AUTO_INCREMENT PRIMARY KEY," +
-            "topic VARCHAR(255)," +
-            "title VARCHAR(255)," +
-            "description TEXT," +
-            "url VARCHAR(255)," +
-            "publishedAt VARCHAR(255)," +
-            "content TEXT)")
-    void createTable();
 	
     @Delete("DELETE FROM news")
     void deleteAll();
