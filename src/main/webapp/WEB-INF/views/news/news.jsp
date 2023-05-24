@@ -23,64 +23,56 @@
 	<!-- Main Content -->
 	<jsp:include page="/header"></jsp:include>
 
-	<main class="container-fluid p-0">
-		<div class="col section-container">
-			<div class="container">
-				<hr class="mt-0 mb-4"
-					style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
-				<h1 class="mb-4">경제 뉴스</h1>
-				<hr class="mt-0 mb-4"
-					style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+	<main class="container">
+		<h1 class="mt-5 mb-5">종합 최신 뉴스</h1>
 
-				<c:forEach var="news" items="${newsList}">
-					<div class="news-item">
-						<c:choose>
-							<c:when test="${not empty news.urlToImage}">
-								<img src="${news.urlToImage}" alt="News Image"
-									class="news-image">
-							</c:when>
-						</c:choose>
+		<!-- Topic Buttons -->
+		<div class="topic-buttons">
+			<a href="/news/반도체주" class="btn btn-topic">반도체주</a> 
+			<a href="/news/2차전지주" class="btn btn-topic">2차전지주</a>
+			<a href="/news/전기자동차주" class="btn btn-topic">전기자동차주</a>
+			<a href="/news/고령화주" class="btn btn-topic">고령화주</a>
+			<a href="/news/코로나주" class="btn btn-topic">코로나주</a>
+			<a href="/news/임플란트주" class="btn btn-topic">임플란트주</a>
+			<a href="/news/AI주" class="btn btn-topic">AI주</a>
+			<a href="/news/우주항공주" class="btn btn-topic">우주항공주</a>
+		</div>
 
-						<div class="news-text">
-							<p>
-								<a href=${news.url}><h2>${news.title}</h2></a>
-							</p>
-							<p class="news-description">${news.description}</p>
-							<p class="news-date">${news.publishedAt}</p>
-						</div>
-					</div>
+		<c:forEach var="news" items="${newsPage.content}">
+			<div class="news-item">
+				<a href=${news.url } class="news-title">${news.title}</a>
+				<p class="news-description">${news.description}</p>
+				<p class="news-date">${news.publishedAt}</p>
+			</div>
+		</c:forEach>
 
+		<!-- Pagination -->
+		<c:if test="${newsPage.totalPages > 1}">
+			<div class="pagination mt-5">
+				<c:set var="startPage"
+					value="${newsPage.number - 4 > 0 ? newsPage.number - 4 : 0}" />
+				<c:set var="endPage"
+					value="${newsPage.number + 4 < newsPage.totalPages ? newsPage.number + 4 : newsPage.totalPages - 1}" />
+
+				<c:if test="${startPage > 0}">
+					<a href="<c:url value="/news?page=0&size=15"/>"
+						class="btn-pagination">1</a>
+					<span class="ellipsis">...</span>
+				</c:if>
+
+				<c:forEach begin="${startPage}" end="${endPage}" varStatus="loop">
+					<a href="<c:url value="/news?page=${loop.index}&size=15"/>"
+						class="btn-pagination ${loop.index == newsPage.number ? 'active' : ''}">${loop.index + 1}</a>
 				</c:forEach>
-				<c:if test="${totalPages > 1}">
-					<div class="pagination mt-5">
-						<c:set var="startPage"
-							value="${currentPage - 4 > 0 ? currentPage - 4 : 0}" />
-						<c:set var="endPage"
-							value="${currentPage + 4 < totalPages ? currentPage + 4 : totalPages - 1}" />
 
-
-						<c:if test="${startPage > 0}">
-							<a href="<c:url value="/news?page=0&size=15"/>"
-								class="btn-pagination">1</a>
-							<span class="ellipsis">...</span>
-						</c:if>
-
-						<c:forEach begin="${startPage}" end="${endPage}" varStatus="loop">
-							<a href="<c:url value="/news?page=${loop.index}&size=15"/>"
-								class="btn-pagination ${loop.index == currentPage ? 'active' : ''}">${loop.index + 1}</a>
-						</c:forEach>
-
-						<c:if test="${endPage < totalPages - 1}">
-							<span class="ellipsis">...</span>
-							<a
-								href="<c:url value="/news?page=${totalPages - 1}&size=15"/>"
-								class="btn-pagination">${totalPages}</a>
-						</c:if>
-					</div>
+				<c:if test="${endPage < newsPage.totalPages - 1}">
+					<span class="ellipsis">...</span>
+					<a
+						href="<c:url value="/news?page=${newsPage.totalPages - 1}&size=15"/>"
+						class="btn-pagination">${newsPage.totalPages}</a>
 				</c:if>
 			</div>
-		</div>
+		</c:if>
 	</main>
 </body>
-
 </html>

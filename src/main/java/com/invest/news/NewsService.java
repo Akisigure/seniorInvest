@@ -2,17 +2,14 @@ package com.invest.news;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 @Service
@@ -22,62 +19,72 @@ public class NewsService {
     @Autowired
     private NewsDao newsDao;
 
-    @Scheduled(cron = "1 * * * * *")
+    @Scheduled(cron = "* * 1 * * *")
     public void updateNews() {
         newsDao.deleteAll();
-        System.out.println("updateNews is called!");
+
         RestTemplate restTemplate = new RestTemplate();
-        String apiUrl = "https://newsapi.org/v2/everything?q=경제&sortBy=published_at&language=ko&apiKey=4169a009e56148aea0c63c4b201330a1";
         
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
-        headers.add("User-Agent", "Mozilla/5.0");
-
+        headers.set("X-Naver-Client-Id", "6TE7xniYwivNNfn5tygO");
+        headers.set("X-Naver-Client-Secret", "uiXC3il1NB");
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, entity, String.class);
+        String[] topics = {"반도체주", "2차전지주", "전기자동차주", "고령화주", "코로나주", "임플란트주", "AI주", "우주항공주"};
 
-        System.out.println("API Response: " + response.getBody());
+        for (String topic : topics) {
+            String apiUrl = "https://openapi.naver.com/v1/search/news.json?query=" + topic + "&display=50";
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(response.getBody());
-            JsonNode articles = root.path("articles");
+            ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, entity, String.class);
 
-            for (JsonNode article : articles) {
-                News news = new News();
-                news.setAuthor(article.get("author").asText());
-                news.setTitle(article.get("title").asText());
-                news.setDescription(article.get("description").asText());
-                news.setUrl(article.get("url").asText());
-                news.setUrlToImage(article.get("urlToImage").asText());
-                news.setPublishedAt(article.get("publishedAt").asText());
-                news.setContent(article.get("content").asText());
-                
-                newsDao.save(news);
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode root = mapper.readTree(response.getBody());
+                JsonNode articles = root.path("items");
+
+                for (JsonNode article : articles) {
+                    News news = new News();
+                    news.setTopic(topic);
+                    news.setTitle(article.get("title").asText());
+                    news.setDescription(article.get("description").asText());
+                    news.setUrl(article.get("link").asText());
+                    news.setPublishedAt(article.get("pubDate").asText());
+                    news.setContent(article.get("content").asText());
+
+                    newsDao.save(news);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
-    
+
     public PageInfo<News> getNews(int page, int size) {
         int totalElements = newsDao.count();
         List<News> content = newsDao.findWithPagination(page * size, size);
         PageInfo<News> pageInfo = new PageInfo<>();
         pageInfo.setContent(content);
         pageInfo.setPageNumber(page);
-        pageInfo.setPageNumber(size);
-        pageInfo.setTotalElements(totalElements);
+        pageInfo.setPageSize(size);
+        pageInfo.setTotalPages((int) Math.ceil((double) totalElements / size));
+
         return pageInfo;
     }
     
-    public List<News> getNews() {
-        return newsDao.findAll();
+    public News getLatestNews() {
+        return newsDao.getLatestNews();
     }
     
-    public News getLatestNews() {
-        return newsDao.findTopByOrderBypublishedAtDesc();
+    public PageInfo<News> getNewsByTopic(String topic, int page, int size) {
+        int totalElements = newsDao.countByTopic(topic);
+        List<News> content = newsDao.findWithPaginationAndTopic(topic, page * size, size);
+        PageInfo<News> pageInfo = new PageInfo<>();
+        pageInfo.setContent(content);
+        pageInfo.setPageNumber(page);
+        pageInfo.setPageSize(size);
+        pageInfo.setTotalPages((int) Math.ceil((double) totalElements / size));
+
+        return pageInfo;
     }
-   
 }
+
