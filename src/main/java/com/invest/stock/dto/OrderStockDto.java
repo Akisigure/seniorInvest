@@ -16,4 +16,5 @@ public class OrderStockDto {
 	private Date orderDate;
 	private String itmsNm;
 	private String accountid;
+	private long balance;
 }

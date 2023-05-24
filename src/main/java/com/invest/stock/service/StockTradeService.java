@@ -27,7 +27,7 @@ public class StockTradeService {
 		
 		//거래 주문 시 미리 금액 차감
 		int a = dao.stockBuyBalance(balance-(order.getQuantity() * order.getOrderPrice()), accountid);
-		
+		System.out.println(a);
 	}
 	
 	@Scheduled(cron = "0 0 0/1 * * * ")
@@ -53,7 +53,7 @@ public class StockTradeService {
 				//미채결 시 
 				else {  
 					dao.deleteTradeOrder(); 
-					dao.stockBuyBalance(balance+(list.getQuantity() * list.getOrderPrice()), list.getAccountid()); //미채결 시 환금
+					dao.stockBuyBalance(balance+(list.getQuantity() * list.getOrderPrice()), list.getAccountid()); 
 					
 				}
 			}
@@ -62,12 +62,12 @@ public class StockTradeService {
 	
 	
 	@Transactional
-	public void stockSellTrade(String userid, StockQuantityDto stockQuantity,int tradeNo,int quantity,String srtnCd) {
+	public void stockSellTrade(String userid, StockQuantityDto stockQuantity) {
 		stockQuantity.setUserid(userid);
 		String accountid = dao.getAccountId(userid); 
 		stockQuantity.setAccountid(accountid);
 		long balance = dao.getBalance(accountid);
-		int sellStock = dao.getLastestPrice(srtnCd) * quantity;
+		int sellStock = dao.getLastestPrice(stockQuantity.getSrtnCd()) * stockQuantity.getQuantity();
 		System.out.println(sellStock);
 
 				dao.stockSellUpdate(stockQuantity);
@@ -77,4 +77,19 @@ public class StockTradeService {
 				System.out.println("done");
 	
 	}
+	
+	
+	public List<OrderStockDto> cancelTradeList(String userid) {
+		
+		return dao.cancelTradeList(userid);
+	}
+	
+	public void cancelTrade(OrderStockDto dto) {
+		long balance = dao.getBalance(dto.getAccountid());
+		dto.setBalance(balance);
+		System.out.println(dto);
+		dao.cancelTrade(dto);
+		dao.stockBuyBalance(balance+(dto.getQuantity() * dto.getOrderPrice()), dto.getAccountid()); 
+	}
+	
 }

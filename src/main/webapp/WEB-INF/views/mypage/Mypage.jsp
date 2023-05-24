@@ -48,13 +48,36 @@
 						<td>${ stock.mkp}</td>
 						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}"> <input type="button" value="매도"></a></td>
 					</tr>
-					
-					
-					
 					</c:forEach>
 					</tbody>
 			</table>
 		</div>
+	</div>
+	<div id="stockEA">
+	<div id="Sto">미체결 주문 ></div>
+			<br> <br>
+			<table>
+				<thead>
+					<tr>
+						<th>종목명</th>
+						<th>주문수량</th>
+						<th>거래금액</th>
+						<th>주문일시</th>
+					</tr>
+				</thead>
+				<tbody> <!--  ${StockEA} -->
+					<c:forEach items="${cList}" var="clist">
+					<tr>
+						<td>${clist.itmsNm }</td>
+						<td>${clist.quantity}</td>
+						<td>${clist.orderPrice}</td>
+						<td><fmt:formatDate pattern="yyyy년 MM월 dd일 hh시 mm분" value="${clist.orderDate}"/> </td>
+						<td><input type="button" onclick="location.href='/cancelTrade?no=${clist.no}&quantity=${clist.quantity}&orderPrice=${clist.orderPrice}&accountid=${clist.accountid}'" value="주문 취소"></td>
+					</tr>
+					</c:forEach>
+					</tbody>
+	</table>
+	
 	</div>
 	</form>
 </body>

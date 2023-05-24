@@ -53,7 +53,7 @@ public interface StockTradeDao {
 	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
 	int getLastestPrice(@Param("srtnCd") String srtnCd);
 	
-	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType) values(#{srtnCd},#{accountid},#{userid},#{quantity},'B')")
+	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType,orderPrice) values(#{srtnCd},#{accountid},#{userid},#{quantity},'B',#{orderPrice})")
 	int buyTradeInfo(OrderStockDto dto);
 	
 	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType) values(#{srtnCd},#{accountid},#{userid},#{quantity},'S')")
@@ -62,7 +62,11 @@ public interface StockTradeDao {
 	@Delete("delete from orderstock where orderStatus = 'N'")
 	int deleteTradeOrder();
 	
+	@Select("select * from orderstock where userid = #{userid} and orderStatus = 'N'")
+	List<OrderStockDto> cancelTradeList(@Param("userid")String userid);
 	
+	@Delete("delete from orderstock where orderStatus = 'N' and userid = #{userid} and no = #{no}")
+	int cancelTrade(OrderStockDto dto);
 
 }
 

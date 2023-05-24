@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.invest.stock.dao.StockDao;
+import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockList;
 
@@ -190,6 +191,8 @@ public class StockService {
 	public StockDto stockDetailInfo(StockDto stock) {
 		return dao.stockDetailInfo(stock);
 	}
+	
+	
 	
 	
 	
