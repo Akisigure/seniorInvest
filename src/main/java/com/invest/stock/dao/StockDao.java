@@ -24,7 +24,7 @@ public interface StockDao {
 	
 	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp}, vs = #{vs}, mrktTotAmt = #{mrktTotAmt} where srtnCd = #{srtnCd}")
 	int updateStock(StockDto stock);
-
+	
 	//srtnCd like '#{srtnCd}%' or 
 	@Select("select srtnCd,itmsNm from stock where itmsNm like concat(#{value} , '%')")
 	List<Map<String, Object>> stockSearchResult(Map<String, Object> paramMap);
@@ -37,5 +37,7 @@ public interface StockDao {
 	
 	@Select("select * from stock order by mrktTotAmt desc limit 10")
 	List<StockDto> stockMainview();
-
+ 
+	
+	
 }

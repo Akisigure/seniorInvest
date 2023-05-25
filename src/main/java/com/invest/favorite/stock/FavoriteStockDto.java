@@ -23,4 +23,5 @@ public class FavoriteStockDto {
     public void setFavorited(boolean favorited) {
         isFavorited = favorited;
     }
+    
 }

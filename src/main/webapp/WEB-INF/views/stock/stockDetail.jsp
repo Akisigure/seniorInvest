@@ -43,6 +43,18 @@
     .mx-auto {
         margin: 0 auto;
     }
+    
+    #stockbuy{
+      background: linear-gradient(125deg, #8BC34A, #4CAF50, #8BC34A);
+      color:white;
+      border:none;
+      font-size:16pt;
+      font-weight: bold;
+      cursor:pointer;
+      width : 120px;
+	  height : 40px;
+	  border-radius:10px;
+    }
 </style>
 <body>
     <div class="text-center mx-auto">
@@ -62,7 +74,7 @@
             <form method="post" action="/stockBuy">
                 <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
-                <input type="submit" value="매수하기">
+                <input type="submit" value="매수하기" id="stockbuy">
             </form>
         </div>
         <canvas id="myChart" width="500" height="150"></canvas>

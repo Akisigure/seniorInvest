@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -113,7 +115,7 @@ public class StockService {
 
 	    br.close();
 	    conn.disconnect();
-
+ 
 	    String jsonStr = sb.toString();
 	    Gson gson = new Gson();
 	    StockList stock = gson.fromJson(jsonStr, StockList.class);
@@ -192,13 +194,10 @@ public class StockService {
 		return dao.stockDetailInfo(stock);
 	}
 	
+ 
 	public List<StockDto> stockMainview() {
 	    return dao.stockMainview();
-	}
+	} 
+}
 	
 	
-	
-	
-	
-
-	}  

@@ -39,21 +39,30 @@ public class FindpwService {
 		return dao.findByEmail(email);
 	}
 	
-	public int updatePassword(String email, String newPassword) {
+	public int temPassword(String email, String newPassword) {
 			Findpwd findpwd = new Findpwd();
 			findpwd.setEmail(email);
 			
 			findpwd.setPassword(newPassword);
 						
-			int isUpdated = dao.updatePassword(findpwd);
+			int isUpdated = dao.temPassword(findpwd);
 			
 			System.out.println(isUpdated);
 		return rowsAffected;
 	}
 
-	public void updatePassword(Users user) {
+	
+	public int updatePassword(String userid, String password) {
 		
+		Findpwd findpwd = new Findpwd();
+		 findpwd.setPassword(password);
+		 
+		 int isUpdated = dao.updatePassword(userid, password);
 		
+		 return rowsAffected;
 	}
+	
+	
+
 	
 }
