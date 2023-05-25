@@ -36,6 +36,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.json:json:20210307'
 implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+	implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '6.0.3'
    
 }
 
