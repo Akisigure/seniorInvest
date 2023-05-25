@@ -68,7 +68,7 @@ public class AcBalStockEAController {
 		return "StockSellPage/StocksellDc";
 	}
 
-	@PostMapping("/Stocksellcheck")  //Stocksellcheck
+	@PostMapping("/Stocksellcheck") 
 	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
 		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
 		m.addAttribute("quan",quan);
@@ -79,6 +79,7 @@ public class AcBalStockEAController {
 		return "StockSellPage/Stocksellcheck";
 	}
  
+	//정말 판매하시겠습니까? 예를 누를 시 주식 매도
 	@PostMapping("/StocksellCP")
 	public String stocksellCP(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
 		String userid = user.getUsers().getUserid();
@@ -87,6 +88,7 @@ public class AcBalStockEAController {
 
 	}
 	
+	//지정가 거래 취소
 	@GetMapping("/cancelTrade")
 	public String cancelTrade(@AuthenticationPrincipal SecurityUser user,OrderStockDto dto,int no){
 		String userid = user.getUsers().getUserid();
