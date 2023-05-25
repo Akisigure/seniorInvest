@@ -19,7 +19,7 @@ public class NewsService {
     @Autowired
     private NewsDao newsDao;
 
-    @Scheduled(cron = "* 5 * * * *")
+    @Scheduled(cron = "* * * * * 1")
     public void updateNews() {
         newsDao.deleteAll();
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.invest.admin.notice.NoticeDao">
+
+	<insert id="insert" parameterType="com.invest.admin.notice.NoticeDto">
+		insert into notice(userid,title, content, regdate)
+		values( #{userid}, #{title},#{content},now())
+	</insert>
+
+	<update id="updateNotice" parameterType="com.invest.admin.notice.NoticeDto">
+		update notice set title=#{title} , content=#{content}
+		where noticeNo=#{noticeNo}
+	</update>
+
+	<update id="addReadcount" parameterType="int">
+		update notice set readcount = readcount + 1 where noticeNo = #{noticeNo}
+	</update>
+
+	<delete id="deleteNotice" parameterType="int">
+		delete from notice where noticeNo = #{noticeNo}
+	</delete>
+
+	<select id="noticeList" parameterType="map" resultType="com.invest.admin.notice.NoticeDto">
+		select * from notice 
+		order by regdate desc limit #{start} , #{count}
+ 		
+	</select>
+	<select id="count" resultType="int">
+		select count(*) from notice
+	</select>
+
+	<select id="noticeOne" parameterType="int" 
+					resultType="com.invest.admin.notice.NoticeDto">
+		select * from notice where noticeNo = #{noticeNo}
+	</select>
+	
+	<select id="noticeListSearch" parameterType="map" resultType="com.invest.admin.notice.NoticeDto">
+		
+		select * from notice 
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title like concat('%',#{search},'%')</when>
+				<when test="searchn == 1"> content like concat('%',#{search},'%') </when>
+				<when test="searchn == 2"> userid like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+	 
+		order by regdate desc  limit #{start} , #{count}
+ 		
+	</select>
+	
+	<select id="countSearch" resultType="int" parameterType="map">
+		select count(*) from notice
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title like concat('%',#{search},'%')</when>
+				<when test="searchn == 1"> content like concat('%',#{search},'%') </when>
+				<when test="searchn == 2"> userid like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+	</select>
+	
+
+</mapper>
