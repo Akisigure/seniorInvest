@@ -32,7 +32,7 @@ public interface StockTradeDao {
 	@Select("select mkp from stock where srtnCd = #{srtnCd}")
 	int getPrice(String srtnCd);
 	
-	@Insert("insert into stockquantity (userid,srtnCd,stockEA,tradePrice) values (#{userid},#{srtnCd},#{quantity}, #{quantity} * #{orderPrice})")
+	@Insert("insert into stockquantity (userid,srtnCd,stockEA,tradePrice,itmsNm) values (#{userid},#{srtnCd},#{quantity}, #{quantity} * #{orderPrice} ,itmsNm )")
 	int tradeResult(OrderStockDto quantity);
 	
 	@Update("update orderstock set orderStatus = 'Y' where no = #{no}")
