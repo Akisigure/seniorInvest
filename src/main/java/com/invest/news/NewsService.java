@@ -19,7 +19,7 @@ public class NewsService {
     @Autowired
     private NewsDao newsDao;
 
-    @Scheduled(cron = "* * 1 * * *")
+    @Scheduled(cron = "* 5 * * * *")
     public void updateNews() {
         newsDao.deleteAll();
 
@@ -49,7 +49,12 @@ public class NewsService {
                     news.setDescription(article.get("description").asText());
                     news.setUrl(article.get("link").asText());
                     news.setPublishedAt(article.get("pubDate").asText());
-                    news.setContent(article.get("content").asText());
+                    JsonNode contentNode = article.get("content");
+                    if (contentNode != null) {
+                        news.setContent(contentNode.asText());
+                    } else {
+                        news.setContent("");
+                    }
 
                     newsDao.save(news);
                 }
