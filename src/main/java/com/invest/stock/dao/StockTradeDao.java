@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockQuantityDto;
+import com.invest.stock.dto.StockTradeDto;
 
 @Mapper
 public interface StockTradeDao {
@@ -41,7 +42,7 @@ public interface StockTradeDao {
 	int stockBuyBalance(@Param("balance") long balance, @Param("accountid") String accountid);
 	
 	@Update("update stockquantity set stockEA = stockEA - #{quantity} where userid = #{userid} and tradeNo = #{tradeNo} and srtnCd = #{srtnCd}")
-	int stockSellUpdate(StockQuantityDto stockQuantity,@Param("quantity") int quantity,@Param("userid")String userid,@Param("tradeNo") int tradeNo,@Param("srtnCd")String srtnCd);
+	int stockSellUpdate(StockQuantityDto stockQuantity);
 	
 	@Delete("delete from stockquantity where userid= #{userid} and stockEA = 0")
 	int deleteQuantity(@Param("userid")String userid);
@@ -51,10 +52,21 @@ public interface StockTradeDao {
 	
 	@Select("select mkp from lastest_stock where srtnCd = #{srtnCd}")
 	int getLastestPrice(@Param("srtnCd") String srtnCd);
-
 	
+	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType,orderPrice) values(#{srtnCd},#{accountid},#{userid},#{quantity},'B',#{orderPrice})")
+	int buyTradeInfo(OrderStockDto dto);
 	
+	@Insert("insert into tradeInfo (srtnCd,accountid,userid,tradeQuantity,tradeType) values(#{srtnCd},#{accountid},#{userid},#{quantity},'S')")
+	int sellTradeInfo(StockQuantityDto dto);
 	
+	@Delete("delete from orderstock where orderStatus = 'N'")
+	int deleteTradeOrder();
+	
+	@Select("select * from orderstock where userid = #{userid} and orderStatus = 'N'")
+	List<OrderStockDto> cancelTradeList(@Param("userid")String userid);
+	
+	@Delete("delete from orderstock where orderStatus = 'N' and userid = #{userid} and no = #{no}")
+	int cancelTrade(OrderStockDto dto);
 
 }
 

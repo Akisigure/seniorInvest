@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class StockQuantityDto {
 	private String userid;
+	private String accountid;
 	private String srtnCd;
 	private String itmsNm;
 	private int stockEA;

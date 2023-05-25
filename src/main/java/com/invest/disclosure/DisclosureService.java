@@ -28,7 +28,7 @@ public class DisclosureService {
 	
 	public DisclosureCommand disclosureAjax() {
 	
-	URI uri = UriComponentsBuilder
+	URI uri = UriComponentsBuilder //최근 공시 30개씩 받아옴
             .fromUriString("https://opendart.fss.or.kr/api/list.json")
             .queryParam("crtfc_key",crtfc_key)
             .queryParam("end_de", formatedNow)

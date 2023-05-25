@@ -13,7 +13,7 @@ public class DisclosureController {
 	@Autowired
 	DisclosureService service;
 	
-	@PostMapping("ajax/disclosure")
+	@PostMapping("ajax/disclosure") //API AJAX호출
 	@ResponseBody
 	public DisclosureCommand ajaxDisclosure(Model m) {
 

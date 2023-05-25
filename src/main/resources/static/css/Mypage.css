@@ -8,128 +8,102 @@
 	font-weight: 400;
 	font-style: normal;
 }
-
-#header {
+#Picon {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-	background-color: #f6f6f6;
-	height: 80px; /* 헤더의 높이를 지정 */
-	font-size: 24pt;
-	padding:30px;
+	color: #5D7D55;
 
+	transform: translate(10%, 30%);
+	
+	
 }
-
-#logo {
-	width: 20%;
-	height: 200%; /* 로고 이미지의 높이를 지정 */
-}
-
-#menu {
-	display: flex;
-}
-
-#menu li {
-	list-style: none;
-	margin: 0 10px;
-}
-
-#menu a {
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
+#userN{
 	font-family: 'SUITE-Regular';
-}
-
-#ansimH {
-	width: 2000px;
-	height: 100px;
-	flex-grow: 0;
-	border: 1px solid #F5F5F5;
-	background: #5D7D55;
+	font-size: 17pt;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	transform: translate(60%, 120%);
+	
+	
 }
 
 #boxBalance {
-	width: 800px;
-	height: 80px;
+	display: flex;
+	width: 1000px;
+	height: 75px;
 	flex-grow: 0;
 	margin: 3% auto;
-	padding: 5%;
+	padding: 9%;
+	transform: translate(27%, 10%);
 	border: 1px solid #F5F5F5;
 	background: #E6F0E0;
 	border-radius: 15px;
-	position: relative;
-	text-align: center;
-	left: 18%;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.BalNum {
-	width: 900px;
-	height: 100px;
-	flex-grow: 0;
-	margin: 90px 0 0 200px;
-	font-family: 'SUITE-Regular';
-	font-size: 60px;
-	font-weight: 800;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #000;
+	width: 1000px;
 }
 
 #BaL {
+	width:160px;
 	display: flex;
-	text-align: left;
-	vertical-align: top;
 	font-weight: bold;
-	font-size: 18pt;
+	font-size: 24pt;
 	font-family: 'SUITE-Regular';
+	text-align:center;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -170%);
+
+}
+
+.BalNum {
+	display: flex;
+	font-family: 'SUITE-Regular';
+	font-size: 80px;
+	font-weight: 800;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(5%, -50%);
 }
 
 #boxAccount {
-	display: block;
-	width: 800px;
+	display: flex;
+	width: 1000px;
 	height: 80px;
 	margin: 3% auto;
-	padding: 5%;
+	padding: 9%;
+	transform: translate(27%, 10%);
 	border: 1px solid #F5F5F5;
 	background: #E6F0E0;
 	border-radius: 15px;
-	position: relative;
-	text-align: center;
-	left: 18%;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #Acc {
 	display: flex;
 	text-align: left;
-	vertical-align: top;
 	font-weight: bold;
-	font-size: 18pt;
+	font-size: 24pt;
 	font-family: 'SUITE-Regular';
+	top: 50%;
+	left: 20%;
+	transform: translate(-10%, -150%);
 }
 
 .bankN {
-	width: 800px;
-	height: 700px;
-	flex-grow: 0;
-	margin: 450px 0 0px 200px;
-	font-size: 50px;
-	font-weight: bold;
-	text-align: right;
-	vertical-align: bottom;
-	color: #000;
+	display: flex;
 	font-family: 'SUITE-Regular';
+	font-size: 120px;
+	font-weight: 800;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-30%, -50%);
 }
 
 #stockEA {
 	display: block;
-	width: 800px;
+	width: 1000px;
 	margin: 3% auto;
 	padding: 5%;
 	border: 1px solid black;
@@ -144,6 +118,7 @@
 	font-size: 25pt;
 	font-family: 'SUITE-Regular';
 }
+
 p {
 	color: #b3b3b3;
 	font-weight: 300;
@@ -178,29 +153,27 @@ h2 {
 	background-color: #efefef;
 	padding: 20px;
 	border-radius: 4px;
-	width: 800px;
-	font-size:24pt;
+	width: 750px;
+	font-size: 22pt;
 	text-align: center;
-
 }
 
 .custom-table {
-	min-width: 800px;
-	
+	min-width: 700px;
 }
 
 .custom-table thead tr, .custom-table thead th {
 	border-top: none;
 	border-bottom: none !important;
-	font-size: 24px;
+	font-size: 22px;
 	text-transform: uppercase;
 	letter-spacing: .1rem;
 }
 
 .custom-table tbody th, .custom-table tbody td {
-	color: #777;
+	color: black;
 	font-weight: 400;
-	padding-bottom: 20px;
+	padding-bottom: 18px;
 	padding-top: 20px;
 	font-weight: 300;
 }
@@ -210,8 +183,7 @@ h2 {
 	font-weight: 300;
 }
 
-
-.custom-table tbody tr th, .custom-table tbody tr td /* 삼성전자 */{ 
+.custom-table tbody tr th, .custom-table tbody tr td /* 삼성전자 */ {
 	background: #fff;
 	border: none;
 }
@@ -235,14 +207,12 @@ h2 {
 	background: transparent !important;
 }
 
-
 @import
 	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
 	;
 
 button {
 	margin: 10px;
-
 }
 
 .w-btn {
