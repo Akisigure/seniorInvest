@@ -8,12 +8,12 @@
 
 <link rel="stylesheet" href="./css/stockmainview.css">
 <head>
-<title>실시간 거래량 top10</title>
+<title>시가총액 상위 10</title>
 </head>
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1>실시간 거래량 top10</h1>
+			<h1>시가총액 상위 10</h1>
 			<table>
 				<thead>
 					<tr>
