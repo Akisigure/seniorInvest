@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/notices")
+// @RequestMapping("/notices")
 public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
 
-    @GetMapping("/form")
+    @GetMapping("admin/notices/form")
     public String showNoticeForm() {
         return "notice/noticeWriter";
     }
@@ -51,5 +51,10 @@ public class NoticeController {
     public String deleteNotice(@PathVariable int id) {
         noticeService.deleteNotice(id);
         return "redirect:/notices";
+    }
+    
+    @GetMapping("/notices")
+    public String noticePage() {
+    	return "notice/notice";
     }
 }
