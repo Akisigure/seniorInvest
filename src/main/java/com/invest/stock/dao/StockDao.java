@@ -34,5 +34,8 @@ public interface StockDao {
 	
 	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")
 	int warningStock(String srtnCd);
+	
+	@Select("select * from stock order by mrktTotAmt desc limit 10")
+	List<StockDto> stockMainview();
 
 }

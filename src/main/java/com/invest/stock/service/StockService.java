@@ -192,6 +192,9 @@ public class StockService {
 		return dao.stockDetailInfo(stock);
 	}
 	
+	public List<StockDto> stockMainview() {
+	    return dao.stockMainview();
+	}
 	
 	
 	
