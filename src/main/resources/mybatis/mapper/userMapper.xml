@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.invest.user.dao.UserDao">
+
+	<select id="userListSearch" parameterType="map" resultType="com.invest.user.dto.Users">
+		
+		select * from users 
+		<where>
+			<choose>
+				<when test="searchn == 'userName'">
+				userName like concat('%',#{search},'%')</when>
+				<when test="searchn == 'email'"> email like concat('%',#{search},'%') </when>
+				<when test="searchn == 'address'"> address like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+
+		order by userid  limit #{start} , #{count}
+ 		
+	</select>
+	
+	<select id="countUserSearch" resultType="int" parameterType="map">
+		select count(*) from users 
+		<where>
+			<choose>
+				<when test="searchn == 'userName'">
+				userName like concat('%',#{search},'%')</when>
+				<when test="searchn == 'email'"> email like concat('%',#{search},'%') </when>
+				<when test="searchn == 'address'"> address like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+	</select>
+	
+</mapper>
