@@ -72,7 +72,7 @@
         </div>
         <div>
             <form method="post" action="/stockBuy">
-                <input type="hidden" name="itmsNm" value="${itmsNm}">
+                <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
                 <input type="submit" value="매수하기" id="stockbuy">
             </form>

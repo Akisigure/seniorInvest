@@ -17,11 +17,10 @@ public class OrderStockController {
 	StockTradeService service;
 	
 	@PostMapping("/orderComplete")
-	public String buyTrade(OrderStockDto order,StockQuantityDto quantity,String itmsNm, @AuthenticationPrincipal SecurityUser user) {
+	public String buyTrade(OrderStockDto order,StockQuantityDto quantity,String itmsNm, @AuthenticationPrincipal SecurityUser user,String srtnCd) {
 		  String userid = user.getUsers().getUserid();
-		  System.out.println(userid);
-		  service.addOrder(order,userid);
-		  service.stockBuyTrade(userid, quantity,itmsNm);
+		  System.out.println("구매ID : " + userid);
+		  service.addOrder(order,userid,srtnCd,itmsNm);
 		  
 		return "stock/orderComplete";
 	}
@@ -29,7 +28,7 @@ public class OrderStockController {
 	@PostMapping("/sellComplete")
 	public String sellTrade(OrderStockDto order,StockQuantityDto quantity,String itmsNm, @AuthenticationPrincipal SecurityUser user) {
 		  String userid = user.getUsers().getUserid();
-		  System.out.println(userid);
+		  System.out.println("판매ID : " + userid);
 		  
 		return "stock/sellComplete";
 	}	
