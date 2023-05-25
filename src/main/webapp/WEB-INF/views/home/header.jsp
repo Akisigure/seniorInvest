@@ -31,7 +31,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
                     <li class="nav-item"><a class="nav-link" href="disclosure">공시</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notices">공지사항</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notice/list">공지사항</a></li>
                     <li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
                     <li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
                     <li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
