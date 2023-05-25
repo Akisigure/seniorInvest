@@ -1,6 +1,7 @@
 package com.invest.user.controller;
 
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -143,12 +144,12 @@ public class UserController {
 	    
 	    // 비밀번호 초기화 로직을 수행합니다.
 	    String temporaryPassword = generateTemporaryPassword();
-	    findpwService.updatePassword(email, encoder.encode(temporaryPassword));
+	    findpwService.temPassword(email, encoder.encode(temporaryPassword));
 	    
-	    // 임시 비밀번호를 사용자 이메일로 전송하는 로직을 구현합니다.
+
 	    model.addAttribute("temporaryPassword",temporaryPassword);
 	    
-	    return "account/temPassword"; // 로그인 페이지로 이동
+	    return "account/temPassword"; 
 	  }
 	  
 	  public String generateTemporaryPassword() {
@@ -197,14 +198,36 @@ public class UserController {
 		String savecheckEmail = findpwService.emailCheck(email);
 		return savecheckEmail;
 	}
-	
+
 	@PostMapping("/temPassword")
-	public String temloginSucess(Users user) {
-		logService.loginUsers(user);
+	public String temPassword(Users user) {
+		
+		return "redirect:/login";
+		
+	}
+			
+	@GetMapping("/updatePassword")
+	public String updatePasswordPage(Users user) {
+		
 		return "account/updatePassword";
 	}
-
-			
 	
+	@PostMapping("/updatePassword")
+	public String updatePassword(String password, Principal principal ) {
+		Authentication authentication = (Authentication) principal;
+		String userid = authentication.getName();
+		
+		System.out.println(userid);
+		String encryptedPassword = "{bcrypt}" + passwordEncoder.encode(password);
+		
+		findpwService.updatePassword(userid, encryptedPassword);
+		System.out.println(password);
+		
+		return "redirect:/";
+		    
+	 
+	}
+	
+	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 }

@@ -40,7 +40,6 @@
   width: 100%;
   border:none;
   outline:none;
-  color: #636e72;
   font-size:16px;
   height:25px;
   background: none;

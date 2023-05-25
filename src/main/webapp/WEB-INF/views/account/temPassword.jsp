@@ -1,39 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>ÀÓ½Ã ºñ¹Ð¹øÈ£</title>
+<title>ìž„ì‹œ ë¹„ë°€ë²ˆí˜¸</title>
 </head>
 <body>
 <%@ page import="com.invest.user.controller.UserController" %>
 
 
 <% UserController obj = new UserController();
-   String temporaryPassword = obj.generateTemporaryPassword();%>
+   String temporaryPassword = obj.generateTemporaryPassword();
+   %>
 
-<p>ÀÓ½Ãºñ¹Ð¹øÈ£: ${temporaryPassword}</p>
-
- <form  method="POST">
-
-            <div class="input-box">
-                <input id="userid" type="text" name="userid" placeholder="¾ÆÀÌµð">
-                <label for="userid">¾ÆÀÌµð</label>
-            </div>
-            
-            <c:if test="${param.error != null}">
- 	<div id="error">
- 		<p>¾ÆÀÌµð³ª ºñ¹Ð¹øÈ£°¡ Àß¸øµÇ¾ú½À´Ï´Ù.</p>
- 	</div>
-</c:if>
-
-            <div class="input-box">
-                <input id="password" type="password" name="password" placeholder="ºñ¹Ð¹øÈ£">
-                <label for="password">ºñ¹Ð¹øÈ£</label>
-            </div>
-            <input type="submit" value="·Î±×ÀÎ" class="btn">
-
-        </form>
+<p>ìž„ì‹œë¹„ë°€ë²ˆí˜¸: ${temporaryPassword}</p>
+<form method="post" action="/temPassword">
+	<input type="hidden" name="email" value="${email}">
+	<input type="submit" value="í™•ì¸" class="btn">
+	</form>
 </body>
+
 </html>

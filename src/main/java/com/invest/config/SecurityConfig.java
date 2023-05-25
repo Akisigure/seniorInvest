@@ -25,6 +25,7 @@ public class SecurityConfig {
 		security.authorizeHttpRequests()
         .requestMatchers("/user/**").authenticated()
         .requestMatchers("/admin/**").hasRole("ADMIN")
+        .requestMatchers("/updatePassword").authenticated()
         .anyRequest().permitAll()
         .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true")
         .and().exceptionHandling().accessDeniedPage("/account/accessDenied")
