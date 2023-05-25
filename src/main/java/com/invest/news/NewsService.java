@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
-import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class NewsService {
     @Autowired
     private NewsDao newsDao;
 
-    @Scheduled(cron = "* 5 * * * *")
+    @Scheduled(cron = "* * 1 * * *")
     public void updateNews() {
         newsDao.deleteAll();
 
@@ -30,7 +29,7 @@ public class NewsService {
         headers.set("X-Naver-Client-Secret", "uiXC3il1NB");
         HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-        String[] topics = {"반도체주", "2차전지주", "전기자동차주", "고령화주", "코로나주", "임플란트주", "AI주", "우주항공주"};
+        String[] topics = {"반도체주", "2차전지주", "전기자동차주", "OLED주", "코로나주", "임플란트주", "AI주", "우주항공주"};
 
         for (String topic : topics) {
             String apiUrl = "https://openapi.naver.com/v1/search/news.json?query=" + topic + "&display=50";
@@ -55,7 +54,6 @@ public class NewsService {
                     } else {
                         news.setContent("");
                     }
-
                     newsDao.save(news);
                 }
             } catch (Exception e) {

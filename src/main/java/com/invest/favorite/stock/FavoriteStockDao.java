@@ -11,7 +11,7 @@ public interface FavoriteStockDao {
     int addFavoriteStock(FavoriteStockDto favoriteStockDto);
 
     @Select("select * from favoriteStock where userid = #{userid} and accountId = #{accountId}")
-    List<FavoriteStockDto> getFavoriteStocks(String userid, String accountId);
+    List<FavoriteStockDto> getFavoriteStocks(@Param("userid") String userid, @Param("accountId") String accountId);
 
     @Delete("delete from favoriteStock where no = #{no}")
     int removeFavoriteStock(int no);
@@ -19,9 +19,7 @@ public interface FavoriteStockDao {
     @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm}")
     Optional<FavoriteStockDto> findByUserIdAndAccountIdAnditmsNm(@Param("userid") String userid, @Param("accountId") String accountId, @Param("itmsNm") String itmsNm);
 
-    // 추가된 메서드
-    @Update("update favoriteStock set favorited = #{favorited} where no = #{no}")
-    int updateFavoriteStatus(@Param("no") int no, @Param("favorited") boolean favorited);
-    
-    
+    // Commented out until the database column 'favorited' is confirmed
+    // @Update("update favoriteStock set favorited = #{favorited} where no = #{no}")
+    // int updateFavoriteStatus(@Param("no") int no, @Param("favorited") boolean favorited);
 }

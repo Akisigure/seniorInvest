@@ -17,6 +17,7 @@
 			<table>
 				<thead>
 					<tr>
+					    <th></th>
 						<th>종목명</th>
 						<th>전일 대비</th>
 						<th>등락률</th>
@@ -26,14 +27,19 @@
 				<tbody>
 					<c:forEach var="stock" items="${stockMainview}">
 						<tr>
-							<td><i id="star-${stock.itmsNm}" class="fa-star far"
-								data-itms-nm="${stock.itmsNm}"
-								onclick="toggleFavorite(this.id, this.dataset.itmsNm)"></i> <c:out
-									value="${stock.itmsNm}" /></td>
+							<td class="star-icon"><i id="star-${stock.itmsNm}"
+								class="fa-star far" data-itms-nm="${stock.itmsNm}"
+								onclick="toggleFavorite(this.id, this.dataset.itmsNm)"></i></td>
+							<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
 							<td><c:out value="${stock.vs}" /></td>
-							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.fltRt}%" /></td>
-							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.mkp}" /></td>
+							<td
+								class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out
+									value="${stock.fltRt}%" /></td>
+							<td
+								class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out
+									value="${stock.mkp}" /></td>
 						</tr>
+
 					</c:forEach>
 				</tbody>
 			</table>
@@ -44,32 +50,32 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-function toggleFavorite(elementId, itmsNm) {
-    var element = $('#' + elementId);
-    var isFavorited = element.hasClass('fas');
+	function toggleFavorite(elementId, itmsNm) {
+		var element = $('#' + elementId);
+		var isFavorited = element.hasClass('fas');
 
-    var requestData = {
-        userid: getUserId(),
-        accountId: 'acc1',
-        itmsNm: itmsNm
-    };
+		var requestData = {
+			userid : getUserId(),
+			accountId : 'acc1',
+			itmsNm : itmsNm
+		};
 
-    $.ajax({
-        url: '/favoriteStock/addfavoriteStock',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(requestData),
-        success: function(response) {
-            element.toggleClass('far fas');
-        },
-        error: function(response) {
+		$.ajax({
+			url : '/favoriteStock/addfavoriteStock',
+			type : 'POST',
+			contentType : 'application/json',
+			data : JSON.stringify(requestData),
+			success : function(response) {
+				element.toggleClass('far fas');
+			},
+			error : function(response) {
 
-        }
-    });
-}
+			}
+		});
+	}
 
-function getUserId() {
-    return 'user1';
-}
+	function getUserId() {
+		return 'user1';
+	}
 </script>
 </html>

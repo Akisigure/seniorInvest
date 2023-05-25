@@ -17,7 +17,7 @@ public class NewsController {
     public String news(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "15") int size,
                        Model model) {
         PageInfo<News> newsPageInfo = newsService.getNews(page, size);
-        newsPageInfo.setNumber(page); // Set the current page number
+        newsPageInfo.setNumber(page); 
         model.addAttribute("newsPage", newsPageInfo);
         return "news/news";
     }
@@ -32,14 +32,7 @@ public class NewsController {
         model.addAttribute("topic", topic);
         return "news/news_topic";
     }
+
     
-    @GetMapping("/newstopic")
-    public String newsTopic(@RequestParam String topic, @RequestParam(defaultValue = "0") int page,
-                            @RequestParam(defaultValue = "15") int size, Model model) {
-        PageInfo<News> newsPage = newsService.getNewsByTopic(topic, page, size);
-        newsPage.setNumber(page); // Set the current page number
-        model.addAttribute("newsPage", newsPage);
-        model.addAttribute("topic", topic);
-        return "news/news_topic";
-    }
+
 }
