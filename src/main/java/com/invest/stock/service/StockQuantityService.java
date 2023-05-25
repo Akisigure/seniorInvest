@@ -25,13 +25,14 @@ public class StockQuantityService {
 		map.put("tradeNo", tradeNo);
 		
 		return stockQuantityDao.getStockByUseridstock(map);
-		
-		
 	}
 
 	//보유주식 리스트 뽑아오기
 	public List<StockQuantityDto> getStockByUserid(String userid) {
 		return stockQuantityDao.getStockByUserid(userid);
+	}
+	public List<StockQuantityDto> getOrderPrice(String userid){
+		return stockQuantityDao.getOrderPrice(userid);
 	}
 
 }

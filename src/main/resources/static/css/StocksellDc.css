@@ -1,4 +1,47 @@
 @charset "UTF-8";
+/* 스타일 설정 */
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #f6f6f6;
+	height: 80px; /* 헤더의 높이를 지정 */
+	font-size: 24pt;
+	padding:30px;
+
+}
+
+#logo {
+	width: 20%;
+	height: 200%; /* 로고 이미지의 높이를 지정 */
+}
+
+#menu {
+	display: flex;
+}
+
+#menu li {
+	list-style: none;
+	margin: 0 10px;
+}
+
+#menu a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-family: 'SUITE-Regular';
+}
+
 #ansimH{
 	width: 2000px;
 	height: 100px;
@@ -6,6 +49,7 @@
 	border: 1px solid #F5F5F5;
 	background: #5D7D55;
 	}
+	
 #box_green {
 	width: 1100px;
 	height: 750px;
@@ -13,7 +57,8 @@
 	padding: 10%;
 	border: 1px solid #F5F5F5;
 	background: #E6F0E0;
-	border-radius: 30px;
+	border-radius: 15px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #box_white {
@@ -24,40 +69,44 @@
 	padding: 250px 20px;
 	border: 1px solid #F5F5F5;
 	background: #FFFFFF;
-	border-radius: 30px;
+	border-radius: 15px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	justify-content : center;
 }
 
 #stockName {
 	width: 800px;
 	height: 70px;
-	font-style: nomal;
-	text-align: center;
-	vertical-align: top;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
 	padding: 0 100px;
 	margin: auto;
+	font-family: 'SUITE-Regular';
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	display: flex;
+	align-items: center;
 	position: relative;
 	top: -40%;
-	left: 45%;
+	left: 44%;
 	transform: translate(-50%, -50%);
+}
+.SN{
+	font-size: 55pt;
 }
 
 #currentPrice {
 	width: 800px;
 	height: 65px;
-	font-size: 30px;
-	font-style: nomal;
-	text-align: center;
-	vertical-align: top;
-	display: flex;
-	align-items: center;
 	padding: 0 100px;
 	margin: auto;
+	font-size: 30px;
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	vertical-align: top;
+	align-items: center;
+	display: flex;
 	position: relative;
-	top: -50%;
+	top: -40%;
 	left: 72%;
 	transform: translate(-50%, -50%);
 }
@@ -65,37 +114,38 @@
 #currentP {
 	width: 150px;
 	height: 50px;
+	padding: 0px 10px;
+	margin: auto;
 	border: 1px solid #000000;
 	background: #CFCFCF;
 	border-radius: 20px;
-	padding: 0px 10px;
-	margin: auto;
 	position: relative;
 	display: flex;
 	top: -60%;
 	left: 2.3%;
-	position: relative
+	position: relative;
 }
 
 p {
+	margin: auto;	
 	text-align: center;
-	font-size: 19pt;
 	vertical-align: bottom;
-	margin: auto;
+	font-size: 24pt;
+	font-family: 'SUITE-Regular';
 }
 
 #Q {
 	width: 800px;
 	height: 50px;
-	font-size: 45px;
-	font-style: nomal;
-	text-align: center;
-	vertical-align: top;
-	font-weight: bold;
-	display: flex;
-	align-items: top;
 	padding: 0 100px;
 	margin: auto;
+	font-size: 45px;
+	font-family: 'SUITE-Regular';
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	display: flex;
+	align-items: top;
 	position: relative;
 	top: -50%;
 	left: 60%;
@@ -105,11 +155,11 @@ p {
 #available {
 	width: 250px;
 	height: 50px;
+	padding: 0px 10px;
+	margin: auto;
 	border: 1px solid #000000;
 	background: #CFCFCF;
 	border-radius: 20px;
-	padding: 0px 10px;
-	margin: auto;
 	position: relative;
 	display: flex;
 	top: -50%;
@@ -120,15 +170,14 @@ p {
 
 #Enter {
 	width: 400px;
-	border: 1px solid #000000;
-	background: #FFFFFF;
-	border-radius: 20px;
-	padding: 60px 50px;
+	padding: 30px 50px;
 	margin: auto;
 	position: relative;
 	top: -45%;
 	left: 2%;
-	position: relative
+	border: 1px solid #000000;
+	background: #FFFFFF;
+	border-radius: 20px;
 }
 
 .EnterA {
@@ -136,9 +185,9 @@ p {
 	width: 300px;
 	height: 100px;
 	margin: 0 auto;
-	padding: 10px 100px;
+	padding: 10px 130px;
 	font-weight:bold;
-	
+	font-family: 'SUITE-Regular';
 
 }
 
@@ -151,25 +200,26 @@ button {
 }
 
 .w-btn {
-	position: relative;
+	padding: 15px 30px;
 	border: none;
 	display: inline-block;
-	padding: 15px 30px;
+	font-family: 'SUITE-Regular';
+	font-weight: 600;
 	border-radius: 15px;
-	font-family: "paybooc-Light", sans-serif;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 	text-decoration: none;
-	font-weight: 600;
 	transition: 0.25s;
+	position: relative;
 }
 
 .w-btn-green {
 	width: 300px;
 	padding: 20px 0;
+	font-size: 30pt;
+	font-family: 'SUITE-Regular';
 	background-color: #77af9c;
 	color: white;
 	left: 70%;
-	font-size: 30pt;
 	position: relative;
 	top:-120px;
 	right:20px;
