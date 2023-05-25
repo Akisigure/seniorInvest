@@ -25,6 +25,7 @@ public class StockQuantityService {
 		map.put("tradeNo", tradeNo);
 		
 		return stockQuantityDao.getStockByUseridstock(map);
+		
 	}
 
 	//보유주식 리스트 뽑아오기

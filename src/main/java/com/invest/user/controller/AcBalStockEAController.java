@@ -61,18 +61,17 @@ public class AcBalStockEAController {
 	}
 
 	@GetMapping("/StocksellDc")
-	public String stocksellDc(@AuthenticationPrincipal SecurityUser user, Model m, String srtnCd, int tradeNo) {
-		System.out.println(user.getUsers().getUserid() + srtnCd + tradeNo);
-		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd, tradeNo);
-		System.out.println("quan::" + quan);
-		m.addAttribute("tradeNo", tradeNo);
+	public String stocksellDc(@AuthenticationPrincipal SecurityUser user, Model m, String srtnCd,int tradeNo) {
+		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
+		
+		m.addAttribute("tradeNo",tradeNo);
 		m.addAttribute("CPstock", quan);
 		return "StockSellPage/StocksellDc";
 	}
 	
 
 	@PostMapping("/Stocksellcheck") 
-	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
+	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto, @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
 		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
 		m.addAttribute("quan",quan);
 		m.addAttribute("srtnCd",srtnCd);
