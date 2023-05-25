@@ -44,11 +44,20 @@ public class AcBalStockEAController {
 		m.addAttribute("Balance", info);
 		m.addAttribute("cList", cList);
 
-		List<StockQuantityDto> quan = stockQuantityService.getOrderPrice(user.getUsers().getUserid());
+		List<StockQuantityDto> quan = stockQuantityService.getOrderPrice(userid);
 
 		m.addAttribute("StockEA", quan);
 		return "mypage/Mypage";
 
+	}
+	
+
+	@GetMapping("/Stocksell")
+	public String stocksell(@AuthenticationPrincipal SecurityUser user, Model m) {
+		List<StockQuantityDto> quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid());
+
+		m.addAttribute("quantity", quan);
+		return "StockSellPage/Stocksell";
 	}
 
 	@GetMapping("/StocksellDc")
@@ -60,16 +69,16 @@ public class AcBalStockEAController {
 		m.addAttribute("CPstock", quan);
 		return "StockSellPage/StocksellDc";
 	}
+	
 
-	@PostMapping("/Stocksellcheck")
-	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,
-			@AuthenticationPrincipal SecurityUser user, Model m, String srtnCd, int tradeNo, int quantity) {
-		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd, tradeNo);
-		m.addAttribute("quan", quan);
-		m.addAttribute("srtnCd", srtnCd);
-		m.addAttribute("tradeNo", tradeNo);
-		m.addAttribute("quantity", quantity);
-
+	@PostMapping("/Stocksellcheck") 
+	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto,  @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
+		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
+		m.addAttribute("quan",quan);
+		m.addAttribute("srtnCd",srtnCd);
+		m.addAttribute("tradeNo",tradeNo);
+		m.addAttribute("quantity",quantity);
+		
 		return "StockSellPage/Stocksellcheck";
 	}
 

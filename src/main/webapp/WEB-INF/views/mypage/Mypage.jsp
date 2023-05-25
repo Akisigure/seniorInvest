@@ -1,160 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Mypage 마이페이지</title>
-<link rel="stylesheet" href="css/Mypage.css">
-<meta charset="UTF-8">
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts/icomoon/style.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<!-- 부트스트랩 가져오기위해 필요한 링크 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Style -->
-<link rel="stylesheet" href="css/style.css">
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="./css/style.css">
-<!--  Custom script -->
-<script src="./js/script.js"></script>
-<!-- Bootstrap Bundle-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
- 
+ <link rel="stylesheet" href="css/Mypage.css">
+ <meta charset="UTF-8">
+
 </head>
 <body>
- 
-	<header class="sticky-top">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-				<a class="navbar-brand" href="/"> <img src="./img/logo1.png"></a> 
-				<a href="updatepw">비밀번호 수정</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
-						<li class="nav-item"><a class="nav-link" href="disclosure">공시</a></li>
-						<li class="nav-item"><a class="nav-link" href="notices">공지사항</a></li>
-						<li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
-						<li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
-						<li class="nav-item"><a class="nav-link" href="login">로그아웃</a></li>
-						<li class="nav-item"><a class="nav-link" href="stockSearch">주식검색</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<form>
-	<div id="Picon">
-<div id="userN"><i class="bi bi-person fs-60">${userid}님, 환영합니다</i></div>
-</div>
-		<div id="boxBalance" style="display: inline-block; , width: 50%;">
-			<div id=BaL>  나의 잔액 ></div>
-			<span class="BalNum"> 
-			<fmt:formatNumber value="${Balance.balance}" type="number"></fmt:formatNumber>원
-			</span>
-		</div>
-		<div id="boxAccount" style="display: inline-block; , width: 30%;">
-			<div id=Acc>나의 계좌번호 ></div>
-			<span class="bankN">${Balance.accountid}</span>
-		</div>
+	<header>안심증권 > 마이페이지</header>
 
-		<div id="stockEA">
-			<div id="Sto">보유수량 ></div>
-			<div class="content">
-				<div class="table-responsive custom-table-responsive">
-					<!--  전체 회색 박스 -->
+	
+<form>
+	<div id="boxBalance">
+		<div id=BaL><label for="Balance">나의 잔액 > </label></div>
+		<span class="BalNum">
+		<fmt:formatNumber value="${Balance.balance}" type="number" ></fmt:formatNumber>
+		원
+		
+		</span>
+	</div>
 
-					<table class="table custom-table">
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th scope="col">종목명</th>
-								<th scope="col">보유수량</th>
-								<th scope="col">현재가</th>
-								<th scope="col">수익률</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!--  ${StockEA} -->
-							<c:forEach items="${StockEA}" var="stock">
-								<tr>
-									<th scope="row"></th>
-									<td>${stock.itmsNm }</td>
-									<td>${stock.stockEA}</td>
-									<td>${stock.mkp}</td>
-									<td>${stock.rofreturn }</td>
-									<td><a
-										href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}">
-											<input type="button" class="w-btn" value="매도">
-									</a></td>
-								</tr>
-							</c:forEach>
-							<tr class="spacer">
-								<td colspan="100"></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div id="stockEA">
-			<div id="Sto">미체결 주문 ></div>
-			<div class="content">
-				<div class="table-responsive custom-table-responsive">
-					<!--  전체 회색 박스 -->
+	<div id="boxAccount">
+		<div id=Acc>나의 계좌 ></div>
+		<span class="bankN">${Balance.accountid}</span>
+	</div>
 
-					<table class="table custom-table">
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th>종목명</th>
-								<th>주문수량</th>
-								<th>거래금액</th>
-								<th>주문일시</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!--  ${StockEA} -->
-							<c:forEach items="${cList}" var="clist">
-								<tr>
-									<th scope="row"></th>
-									<td>${clist.itmsNm }</td>
-									<td>${clist.quantity}</td>
-									<td>${clist.orderPrice}</td>
-									<td><fmt:formatDate pattern="yyyy년 MM월 dd일 hh시 mm분"
-											value="${clist.orderDate}" /></td>
-									<td><input type="button"
-										onclick="location.href='/cancelTrade?no=${clist.no}&quantity=${clist.quantity}&orderPrice=${clist.orderPrice}&accountid=${clist.accountid}'"
-										value="주문 취소"></td>
-								</tr>
-							</c:forEach>
-							<tr class="spacer">
-								<td colspan="100"></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
+	<div id="stockEA">
+		<div id="Sto">보유수량 ></div>
+		<div id="table">
+			<br> <br>
+			<table>
+				<thead>
+					<tr>
+						<th>종목명</th>
+						<th>보유수량</th>
+						<th>현재가</th>
+					</tr>
+				</thead>
+				<tbody> <!--  ${StockEA} -->
+					<c:forEach items="${StockEA}" var="stock">
+					<tr>
+						<td>${stock.itmsNm }</td>
+						<td>${stock.stockEA}</td>
+						<td>${ stock.mkp}</td>
+						<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}"> <input type="button" value="매도"></a></td>
+					</tr>
+					</c:forEach>
+					</tbody>
+			</table>
 		</div>
+	</div>
+	<div id="stockEA">
+	<div id="Sto">미체결 주문 ></div>
+			<br> <br>
+			<table>
+				<thead>
+					<tr>
+						<th>종목명</th>
+						<th>주문수량</th>
+						<th>거래금액</th>
+						<th>주문일시</th>
+					</tr>
+				</thead>
+				<tbody> <!--  ${StockEA} -->
+					<c:forEach items="${cList}" var="clist">
+					<tr>
+						<td>${clist.itmsNm }</td>
+						<td>${clist.quantity}</td>
+						<td>${clist.orderPrice}</td>
+						<td><fmt:formatDate pattern="yyyy년 MM월 dd일 hh시 mm분" value="${clist.orderDate}"/> </td>
+						<td><input type="button" onclick="location.href='/cancelTrade?no=${clist.no}&quantity=${clist.quantity}&orderPrice=${clist.orderPrice}&accountid=${clist.accountid}'" value="주문 취소"></td>
+					</tr>
+					</c:forEach>
+					</tbody>
+	</table>
+	
+	</div>
 	</form>
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>

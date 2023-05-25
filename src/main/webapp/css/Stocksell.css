@@ -1,0 +1,105 @@
+@charset "UTF-8";
+#ansimH{
+	width: 2000px;
+	height: 100px;
+	flex-grow: 0;
+	border: 1px solid #F5F5F5;
+	background: #5D7D55;
+	}
+#boxStockEA {
+	width: 950px;
+	height: 750px;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 30px;
+}
+
+#stockEAUser {
+	width: 800px;
+	height: 100px;
+	font-size: 55px;
+	font-style: nomal;
+	text-align: center;
+	vertical-align: top;
+	font-weight: bold;
+	display: flex;
+	align-items: top;
+	padding: 0 100px;
+}
+
+#whiteS {
+	width: 900px;
+	height: 300px;
+	margin: 8px;
+	padding: 100px 20px;
+	border: 1px solid #F5F5F5;
+	background: #FFFFFF;
+	border-radius: 30px;
+}
+table {
+	
+	width : 800px;
+	height: 550px;
+	border-collapse: collapse;
+	box-shadow: 0 5px 10px #e1e5ee;
+	background-color: white;
+	text-align: left;
+	overflow: hidden;
+	font-family: Mukta;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.0rem;
+	background-color: #f9fbff;
+
+}
+
+thead {
+	box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+	padding: 1rem 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	font-size: 0.7rem;
+	font-weight: 900;
+}
+
+td {
+	padding: 1rem 2rem;
+}
+
+th, td {
+	text-align: center;
+}
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+
+
+button {
+    margin: 20px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.w-btn-green {
+	width:500px;	
+	padding: 50px 0;
+    background-color: #77af9c;
+    color: white;
+    left:25%;
+    font-size: 30pt;
+}

@@ -71,7 +71,7 @@
 					<input type="hidden" name="mkp" value="${CPstock.mkp}"> 
 					<input type="hidden" name="itmsNm" value="${CPstock.itmsNm}"> 
 					<input type="hidden" name="tradeNo" value="${tradeNo}"> 
-					<a href="http://localhost:8079/Stocksellcheck"><input type="submit" class="w-btn w-btn-green" value="완료"></a>
+					<input type="submit" class="w-btn w-btn-green" value="완료">
 
 				</form>
 			</div>
