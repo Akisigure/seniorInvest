@@ -6,76 +6,38 @@
 <head>
 <meta charset="utf-8">
 <title>비밀번호 수정</title>
+<link rel="stylesheet" href="./css/updatePassword.css">
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="./js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<style>
-* {
-  margin: 0px;
-  padding: 0px;
-  text-decoration: none;
-  font-family:sans-serif;
 
-}
-
-.updateForm{
-  position:absolute;
-  width:400px;
-  height:400px;
-  padding: 30px, 20px;
-  background-color:#FFFFFF;
-  text-align:center;
-  top:40%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border-radius: 15px;
-}
-
-.textForm{
-  border-bottom: 2px solid #adadad;
-  margin: 30px;
-  padding: 10px 10px;
-}
-
-.pw{
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #636e72;
-  font-size:16px;
-  height:25px;
-  background: none;
-}
-
-#chkpw{
-	position: absolute;
-	right : -180px;
-	width : 200px;
-	height : 20px;
-}
-
-.btn{
-  position:relative;
-  left:40%;
-  transform: translateX(-50%);
-  margin-bottom: 40px;
-  width:80%;
-  height:40px;
-  background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
-  background-position: left;
-  background-size: 200%;
-  color:white;
-  font-weight: bold;
-  border:none;
-  cursor:pointer;
-  transition: 0.4s;
-  display:inline;
-   font-size: 24px;
-}
-.error{
-	color: #d92742;
-	font-weight: bold;
-}
-
-</style>
+ <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="./img/logo1.png"> 
+            </a>
+            <a href="updatePassword">비밀번호 수정</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
+                    <li class="nav-item"><a class="nav-link" href="disclosure">공시</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notices">공지사항</a></li>
+                    <li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
+                    <li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login">로그아웃</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stockSearch">주식검색</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 <body>
 	<form method="post" class="updateForm" action="/updatePassword">
 	<div class="textForm">

@@ -1,30 +1,29 @@
-@charset "UTF-8";
-.searchForm {
-	display: flex;
-	align-items: center;
-}
 
-.searchForm input[type="text"] {
-	margin-right: 5px;
-	padding-right: 30px; /* 오른쪽에 버튼 공간을 확보하기 위한 패딩 추가 */
-	height: 40px; /* 검색바의 높이 설정 */
-	border: 1px solid #ccc;
-	border-radius: 25px;
-	outline: none;
-}
+  .searchForm{
+  	position: absolute;
+  	top : 50%;
+  	left : 50%;
+  	transform: translate(-50%, -50%);
+  }
 
-.searchForm button[type="submit"] {
-	background-color: #28a745; /* 초록색 배경색 설정 */
-	border: none;
+  .searchResult {
+    display: none;
+  }
+  
+  #autoComplete{
+  	width: 500px;
+  	height: 35px;
+  	text-align: center;
+  }
+  
+  #stockSearch{
+    width : 120px;
+	height : 35px;
+	font-size : 18px;
 	color: white;
-	position: relative;
-	left: -60px;
-	height: 40px; 
-	width: 50px;
-	border-radius: 25px;
-}
-
-.searchForm button[type="submit"] i {
-	display: inline-block;
-	vertical-align: middle;
-}
+	background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
+	border:none;
+  	cursor:pointer;
+  	display:inline;
+  	font-weight: bold;
+  }
