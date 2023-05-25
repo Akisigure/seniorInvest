@@ -41,7 +41,7 @@
             <td>2.35</td>
            </tr>
             <tr class="spacer"><td colspan="100"></td></tr>
-            <tr class="active">
+            <tr>
               <th scope="row"></th>
                 <td>아모레퍼시픽</td>
               <td>6</td>

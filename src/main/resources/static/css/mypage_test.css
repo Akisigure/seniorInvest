@@ -44,16 +44,19 @@ h2 {
 	padding: 20px;
 	border-radius: 4px;
 	width: 900px;
+	font-size:24pt;
+	text-align: center;
 }
 
 .custom-table {
 	min-width: 900px;
+	
 }
 
 .custom-table thead tr, .custom-table thead th {
 	border-top: none;
 	border-bottom: none !important;
-	font-size: 12px;
+	font-size: 24px;
 	text-transform: uppercase;
 	letter-spacing: .1rem;
 }
@@ -96,6 +99,3 @@ h2 {
 	background: transparent !important;
 }
 
-.custom-table tbody tr.active {
-	opacity: .4;
-}
