@@ -35,7 +35,7 @@
                     <li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
                     <li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
                     <li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login">로그아웃</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logout">로그아웃</a></li>
                     <li class="nav-item"><a class="nav-link" href="stockSearch">주식검색</a></li>
                 </ul>
             </div>
