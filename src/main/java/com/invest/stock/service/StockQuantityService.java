@@ -18,7 +18,7 @@ public class StockQuantityService {
 	
 	//tradeNo로 보유주식 리스트에서 하나 선택하기
 	public StockQuantityDto getStockByUserid(String userid, String srtnCd,int tradeNo){
-		
+		System.out.println(userid+srtnCd+tradeNo);
 		Map<String, Object> map = new HashMap<>();
 		map.put("userid", userid);
 		map.put("srtnCd", srtnCd);
@@ -34,7 +34,7 @@ public class StockQuantityService {
 	}
 	
 	public List<StockQuantityDto> getOrderPrice(String userid){
-		return stockQuantityDao.getOrderPrice(userid);
+		return stockQuantityDao.getStockByUserid(userid);
 	}
 
 }
