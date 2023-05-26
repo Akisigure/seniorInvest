@@ -23,9 +23,12 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
 		 
 		security.authorizeHttpRequests()
-        .requestMatchers("/*").authenticated()
+        .requestMatchers("/stockBuy").authenticated()
+        .requestMatchers("/Mypage").authenticated()
         .requestMatchers("/admin/**").hasRole("ADMIN")
         .requestMatchers("/updatePassword").authenticated()
+        .requestMatchers("/qa/**").authenticated()
+        .requestMatchers("/StocksellDc").authenticated()
         .anyRequest().permitAll()
         .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true").permitAll()
         .and().exceptionHandling().accessDeniedPage("/account/accessDenied")
