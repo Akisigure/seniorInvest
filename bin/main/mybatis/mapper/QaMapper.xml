@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.invest.qaboard.dao.QaDao">
+
+
+	<select id="qaListSearch" parameterType="map" resultType="com.invest.qaboard.dto.QaDto">
+	
+	select * from qaboard 
+	<where>
+		<choose>
+			<when test="search == '단순문의'"> re_step = 0 and category like concat('%단순%')</when>
+			<when test="search == '기술문의'"> re_step = 0 and category like concat('%기술%') </when>
+			<when test="search == '보안문의'"> re_step = 0 and category like concat('%보안%') </when>
+			<when test="search == '결제문의'"> re_step = 0 and category like concat('%결제%') </when>
+		</choose>
+	</where> 
+ 
+	order by regdate limit #{start} , #{count}
+		
+</select>
+
+	<select id="countCategorySearch" resultType="int" parameterType="map">
+		select count(*) from users 
+		<where>
+			<choose>
+				<when test="searchn == '단순문의'"> re_step = 0 and category like concat('%단순%')</when>
+			<when test="searchn == '기술문의'"> re_step = 0 and category like concat('%기술%') </when>
+			<when test="searchn == '보안문의'"> re_step = 0 and category like concat('%보안%') </when>
+			<when test="searchn == '결제문의'"> re_step = 0 and category like concat('%결제%') </when>
+			</choose>
+		</where> 
+	</select>
+	
+</mapper>

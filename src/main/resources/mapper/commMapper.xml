@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.invest.qaboard.dao.CommDao">
+
+	<insert id="insertComm" parameterType="com.invest.qaboard.dto.CommDto">
+		insert into comm(id, content, regdate, no) values(#{id}, #{content}, now(), #{no})
+	</insert>
+
+	<delete id="deleteComm" parameterType="int">
+		delete from comm where cno=#{cno}
+	</delete>
+	
+	<select id="selectComm" parameterType="int" resultType="com.invest.qaboard.dto.CommDto">
+		select * from comm where no=#{no} order by regdate desc
+	</select>
+	
+	
+</mapper>
