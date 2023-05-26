@@ -3,36 +3,41 @@ package com.invest.stock.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-import com.invest.stock.dto.TradeInfo;
-
+import com.invest.stock.dto.StockDto;
 
 @Mapper
 public interface StockDao {
 	
-	/* 여러 컬럼을 join에 사용
-	 * select * from TEST1 A left join TEST B on A.ref_id = B.id AND A.name =
-	 * B.name;
-	 */
-	//매수인 경우
-	@Select("select DISTINCT t.tradeInfoNo, t.userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
-			+ "from TradeInfo t left join stock s on t.srtnCd = s.srtnCd "
-			+ "where t.tradeType = 'B' "
-			+ "order by t.orderDate asc limit #{start}, #{count}")
-	List<TradeInfo> getTradeList(Map<String, Object> m);
+	@Insert("insert into stock(srtnCd,itmsNm,basDt,vs,fltRt,mkp,trqu,mrktTotAmt) values (#{srtnCd},#{itmsNm},#{basDt},#{vs},#{fltRt},#{mkp},#{trqu},#{mrktTotAmt})")
+	int insertStock(StockDto stock);
+
+	@Insert("insert into lastest_stock(srtnCd,basDt,fltRt,mkp) values (#{srtnCd},#{basDt},#{fltRt},#{mkp})")
+	int insertLastestStock(StockDto stock);
 	
-	//매도인 경우
-	@Select("select DISTINCT t.tradeInfoNo, t.userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
-			+ "from TradeInfo t left join stock s on t.srtnCd = s.srtnCd "
-			+ "where t.tradeType = 'S' order by t.orderDate asc limit #{start}, #{count}")
-	List<TradeInfo> getTradeOrderList(Map<String, Object> m);
+	@Update("update lastest_stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp} where srtnCd = #{srtnCd}")
+	int updateLastestStock(StockDto stock);
 	
-	@Select("select count(*) from TradeInfo where tradeType = 'B'") 
-	int countTradeSearch(); // 매수 거래 수 
+	@Update("update stock set basDt = #{basDt}, fltRt = #{fltRt}, mkp = #{mkp}, vs = #{vs}, mrktTotAmt = #{mrktTotAmt} where srtnCd = #{srtnCd}")
+	int updateStock(StockDto stock);
 	
-	@Select("select count(*) from TradeInfo where tradeType = 'S'") 
-	int countTradeOrderSearch(); // 매도 거래 수
+	//srtnCd like '#{srtnCd}%' or 
+	@Select("select srtnCd,itmsNm from stock where itmsNm like concat(#{value} , '%')")
+	List<Map<String, Object>> stockSearchResult(Map<String, Object> paramMap);
+	
+	@Select("select srtnCd,itmsNm,mkp,fltRt,vs from stock where itmsNm= #{itmsNm} ")
+	StockDto stockDetailInfo(StockDto stock);
+	
+	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")
+	int warningStock(String srtnCd);
+	
+	@Select("select * from stock order by mrktTotAmt desc limit 10")
+	List<StockDto> stockMainview();
+ 
+	
 	
 }

@@ -57,35 +57,7 @@ public class QaService {
 	}
 
 	
-	//admin qaList 전체검색
-		public List<QaDto> qaListSearch( String search,int start){
-			Map<String,Object> m = new HashMap<String, Object>();
-			m.put("search", search);
-			m.put("start", start);
-			m.put("count", 10);
-			
-			
-			if(search == null) {
-				return dao.AllqaListSearch(m);
-			}else {
-				return dao.qaListSearch(m);
-				
-			}
-			
-		}
-		
-	
-	//admin 검색
-	public int countCategorySearch(String search) {
-		Map<String,Object> m = new HashMap<String, Object>();
-		m.put("search", search);
-		if(search == null) {
-			return dao.count();
-		}else {
-			return dao.countCategorySearch(m);
-			
-		}
-	}
+
 
 
 }

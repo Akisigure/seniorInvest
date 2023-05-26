@@ -15,11 +15,12 @@ function getselect() {
 </script>
 </head>
 <body>
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
+<!-- // header -->
+
 <div id="wrap">
-	<!-- header -->
-	
-	
-	<!-- // header -->
+
 	
 	<!-- container -->
 	<div id="container">

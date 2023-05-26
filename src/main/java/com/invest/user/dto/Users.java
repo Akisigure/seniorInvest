@@ -17,24 +17,32 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Users {
 	
-	@NotBlank(message = "아이디는 필수 입력 값입니다.")
+	@NotBlank(message = "아이디는 필수 입력 사항입니다.")
 	private String userid;
 	
 	private String accountid;
-	
+	 
 	@NotBlank(message = "비밀번호는 필수 입력 값입니다.")
-	@Length(min = 4, max = 16, message = "비밀번호는 4자 이상, 16자 이하로 입력해주세요.")
+	@Length(min = 6, max = 15, message="")
 	private String password;
 	
+	@Pattern(regexp = "^[가-힣]*$", message = "한글만 입력해주세요")
+	@Length(min =2, message = "한글만 입력해주세요")
 	private String userName;
 	
+	@Pattern(regexp = "^[0-9]*$", message = "숫자만 입력해주세요")
+	@NotBlank(message = "전화번호는 필수 입력 사항 입니다.")
 	private String phoneNumber;
 	
 	@Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$", message = "이메일 형식이 올바르지 않습니다.")
-	@NotBlank(message = "이메일은 필수 입력 값입니다.")
+	@NotBlank(message = "")
 	private String email;
 	
 	private String address;
+	
+	private String addressDetail;
+	
+	private String addressNumber;
 	
 	private Date joinedDate;
 	
@@ -42,8 +50,8 @@ public class Users {
 	
 	private char enabled;
 	
-	private char restrictStock;
+	private UpdatePassword updatePassword;
 	
-	private char alert;
 
 }
+   

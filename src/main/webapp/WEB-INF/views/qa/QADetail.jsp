@@ -11,11 +11,11 @@
 </head>
 <body>
 <input type="hidden" id="no" th:value="${dto.no}">
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
+<!-- // header -->
 <div id="wrap">
-	<!-- header -->
-	<div id="header">
-	</div><!-- // header -->
-	
+
 	<!-- container -->
 	<div id="container">
 			
