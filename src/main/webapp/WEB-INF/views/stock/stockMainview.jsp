@@ -27,9 +27,9 @@
 					<c:forEach var="stock" items="${stockMainview}">
 						<tr>
 							<td><i id="star-${stock.itmsNm}" class="fa-star far"
-								data-itms-nm="${stock.itmsNm}"
-								onclick="toggleFavorite(this.id, this.dataset.itmsNm)"></i> <c:out
-									value="${stock.itmsNm}" /></td>
+								data-itms-nm="${stock.itmsNm}" 
+								onclick="toggleFavorite(this.id, this.dataset.itmsNm)" ></i><a href="/stockDetail?itmsNm=${stock.itmsNm}">${stock.itmsNm}</a>
+									</td>
 							<td><c:out value="${stock.vs}" /></td>
 							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.fltRt}%" /></td>
 							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.mkp}" /></td>
@@ -71,5 +71,7 @@ function toggleFavorite(elementId, itmsNm) {
 function getUserId() {
     return 'user1';
 }
+
+
 </script>
 </html>

@@ -22,7 +22,7 @@ public class NewsService {
     @Scheduled(cron = "* * * * * 1")
     public void updateNews() {
         newsDao.deleteAll();
-
+        System.out.println("NEWS 스케줄러 작동");
         RestTemplate restTemplate = new RestTemplate();
         
         HttpHeaders headers = new HttpHeaders();
