@@ -1,0 +1,176 @@
+@charset "UTF-8";
+#ansimH{
+	width: 2000px;
+	height: 100px;
+	flex-grow: 0;
+	border: 1px solid #F5F5F5;
+	background: #5D7D55;
+	}
+#box_green {
+	width: 1100px;
+	height: 750px;
+	margin: 3% auto;
+	padding: 10%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 30px;
+}
+
+#box_white {
+	width: 1200px;
+	height: 400px;
+	margin-top:-7%;
+	margin-left: -80px;
+	padding: 250px 20px;
+	border: 1px solid #F5F5F5;
+	background: #FFFFFF;
+	border-radius: 30px;
+	justify-content : center;
+}
+
+#stockName {
+	width: 800px;
+	height: 70px;
+	font-style: nomal;
+	text-align: center;
+	vertical-align: top;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	padding: 0 100px;
+	margin: auto;
+	position: relative;
+	top: -40%;
+	left: 45%;
+	transform: translate(-50%, -50%);
+}
+
+#currentPrice {
+	width: 800px;
+	height: 65px;
+	font-size: 30px;
+	font-style: nomal;
+	text-align: center;
+	vertical-align: top;
+	display: flex;
+	align-items: center;
+	padding: 0 100px;
+	margin: auto;
+	position: relative;
+	top: -50%;
+	left: 72%;
+	transform: translate(-50%, -50%);
+}
+
+#currentP {
+	width: 150px;
+	height: 50px;
+	border: 1px solid #000000;
+	background: #CFCFCF;
+	border-radius: 20px;
+	padding: 0px 10px;
+	margin: auto;
+	position: relative;
+	display: flex;
+	top: -60%;
+	left: 2.3%;
+	position: relative
+}
+
+p {
+	text-align: center;
+	font-size: 19pt;
+	vertical-align: bottom;
+	margin: auto;
+}
+
+#Q {
+	width: 800px;
+	height: 50px;
+	font-size: 45px;
+	font-style: nomal;
+	text-align: center;
+	vertical-align: top;
+	font-weight: bold;
+	display: flex;
+	align-items: top;
+	padding: 0 100px;
+	margin: auto;
+	position: relative;
+	top: -50%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+}
+
+#available {
+	width: 250px;
+	height: 50px;
+	border: 1px solid #000000;
+	background: #CFCFCF;
+	border-radius: 20px;
+	padding: 0px 10px;
+	margin: auto;
+	position: relative;
+	display: flex;
+	top: -50%;
+	left: 2%;
+	position: relative;
+	left: 2%;
+}
+
+#Enter {
+	width: 400px;
+	border: 1px solid #000000;
+	background: #FFFFFF;
+	border-radius: 20px;
+	padding: 60px 50px;
+	margin: auto;
+	position: relative;
+	top: -45%;
+	left: 2%;
+	position: relative
+}
+
+.EnterA {
+	border: none;
+	width: 300px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 10px 100px;
+	font-weight:bold;
+	
+
+}
+
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
+	;
+
+button {
+	margin: 20px;
+}
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-green {
+	width: 300px;
+	padding: 20px 0;
+	background-color: #77af9c;
+	color: white;
+	left: 70%;
+	font-size: 30pt;
+	position: relative;
+	top:-120px;
+	right:20px;
+}
