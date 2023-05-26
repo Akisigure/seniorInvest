@@ -47,14 +47,17 @@
 </header>
 
 <body>
-  <div class="searchForm">
+<p>주식 검색</p>
+  <img id="icon" src="img/search.png"><div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
+    <div id="inputForm">
       <input type="text" name="itmsNm" id="autoComplete">
       <input type="submit" value="검색" id="stockSearch">
+</div>
     </form>
-    
+  
   </div>
-
+  
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>

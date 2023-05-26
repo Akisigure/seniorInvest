@@ -9,60 +9,19 @@
 	font-style: normal;
 }
 
-#header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
-	background-color: #f6f6f6;
-	height: 80px; /* 헤더의 높이를 지정 */
-	font-size: 24pt;
-	padding:30px;
-
-}
-
-#logo {
-	width: 20%;
-	height: 200%; /* 로고 이미지의 높이를 지정 */
-}
-
-#menu {
-	display: flex;
-}
-
-#menu li {
-	list-style: none;
-	margin: 0 10px;
-}
-
-#menu a {
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	font-family: 'SUITE-Regular';
-}
-
-#ansimH{
-	width: 2000px;
-	height: 100px;
-	flex-grow: 0;
-	border: 1px solid #F5F5F5;
-	background: #5D7D55;
-	}
-	
-#box_green {
-	width: 1100px;
+main {
+	width: 1300px;
 	height: 750px;
 	margin: 3% auto;
 	padding: 10%;
 	border: 1px solid #F5F5F5;
-	background: #E6F0E0;
-	border-radius: 15px;
+	background: #CDE5C4;
+	border-radius: 5px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #box_white {
-	width: 1200px;
+	width: 1000px;
 	height: 400px;
 	margin-top:-7%;
 	margin-left: -80px;

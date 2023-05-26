@@ -50,7 +50,11 @@ public class AcBalStockEAController {
 		return "mypage/Mypage";
 
 	}
-	
+	@GetMapping("/mypage_test")
+	public String mypage_test() {
+		return "mypage/mypage_test";
+
+	}
 
 	@GetMapping("/Stocksell")
 	public String stocksell(@AuthenticationPrincipal SecurityUser user, Model m) {
