@@ -8,11 +8,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
+<!-- // header -->
 <div id="wrap">
-	<!-- header -->
-	
-	
-	<!-- // header -->
 	
 	<!-- container -->
 	<div id="container">

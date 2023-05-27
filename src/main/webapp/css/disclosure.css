@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.container {
+	display: flex;
+	justify-content: space-around;
+}
+
+table {
+	width:100%; 
+	border-collapse:collapse; 
+	border:1px solid #ddd;
+}
+
+table thead {
+	background:#000; 
+	color:#fff;
+}
+
+table thead th {
+	padding:1em; 
+	border:1px solid #ddd;
+}
+
+table tbody td {
+	padding:1em; 
+	text-align:left; 
+	border:1px solid #ddd;
+}
+
+table tbody tr.bg td {
+	background:#eee;
+}

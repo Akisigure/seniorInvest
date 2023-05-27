@@ -24,7 +24,7 @@ public interface CommDao {
 	@Select("select * from comm where cno = #{cno}")
 	CommDto selectOneComm(int cno);
 	
-	@Update("update comm set content = #{content} where cno =#{cno}")
+	@Update("update comm set regdate = #{regdate}, content = #{content} where cno =#{cno}")
 	int updateComm(CommDto dto);
 
 }

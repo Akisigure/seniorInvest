@@ -11,11 +11,11 @@
 </head>
 <body>
 <input type="hidden" id="no" th:value="${dto.no}">
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
+<!-- // header -->
 <div id="wrap">
-	<!-- header -->
-	<div id="header">
-	</div><!-- // header -->
-	
+
 	<!-- container -->
 	<div id="container">
 			
@@ -46,9 +46,9 @@
 								<td colspan="3">${dto.subject}</td>
 							</tr>
 							<tr>
-								<th scope="row">글내용</th>
-								<td colspan="3"><pre>${dto.content}</pre></td>
+								<th colspan="4">글내용</th>
 							</tr>
+							<tr><td colspan="4"><br><br><pre>${dto.content}</pre><br><br></td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -68,25 +68,24 @@
 					</span>	
 				</div>
 				</c:if>
-				</div><br><br><br><br><hr><br>
+				</div><br><br><br><br><br>
 				<!-- //comment -->
 				<footer>
 				<div>
+				<p style="font-size: 15px; font-weight:bolder">댓글</p><hr>
 					<div id="comm">
-					<p style="font-size: 15px; font-weight:bolder">댓글</p><br>
 					<c:forEach items="${cList}" var="comm">
+						<br>
 						<div title="${comm.no}"></div>	
-						<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
+						<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" pattern="yyyy. M. dd. a hh:mm:ss"/></div>
 						<c:if test="${comm.id ==user.users.userid }"> 
 							<span style="float: right;">
 								<button class="dbtn" id="${comm.cno}">삭제</button>
-								<button type="button" class="ubtn" onclick="location.href='/qa/commentUpdate/${comm.cno}'">수정</button>
-								<%-- <button class="ubtn" id="${comm.cno}">수정</button> --%>
 							</span>
 						</c:if>
 						<div>${comm.content }
 						</div>	
-						<hr>			
+						<br><hr>			
 					</c:forEach>
 					</div>
 					<br><br><br><br><br><hr><br>
@@ -120,12 +119,12 @@
 			}).done(function(resp){
 				let clist="";
 				resp.forEach(function(comm,index){
-					clist += "<br><div>"+comm.id+" / "+new Date(comm.regdate).toLocaleDateString() 
+					clist += "<br><div>"+comm.id+" / "+new Date(comm.regdate).toLocaleString() 
 					+ "</div><div>"+comm.content;
 					if(id == comm.id){
 						clist +='<button class="dbtn" id="'+comm.cno+'" style="float: right;">삭제</button>';
 					} 
-					clist+="</div><hr>"
+					clist+="</div><br><hr>"
 					
 				});
 				
@@ -137,13 +136,14 @@
 		$("#comm").on("click",".dbtn",function(){
 			let cno = $(this).attr("id");
 			$.ajax({url:"/qa/commentDelete/"+cno,
-				method:"POST"
+				method:"get"
 		}).done(function(cno){		
-				$("[cno="+cno+"]").remove();	
+				$("[id="+cno+"]").remove();	
+				alert('댓글이 삭제되었습니다');
+				window.location.reload();
 		});
-		
-
 		})//click
+		
 	})//ready
 
 </script>

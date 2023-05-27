@@ -5,13 +5,16 @@
 <head>
 <title>Insert title here</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/disclosure.css">
 <style>
-* {
-	text-align: center;
-}
+
 
 </style>
 <body>
+<jsp:include page="../home/header.jsp"></jsp:include>
+<div class="container" >
+<div class="description">
 	<table id="dataTable">
 		<thead>
 			<tr>
@@ -34,6 +37,8 @@
 		</tbody>
 	</table>
 	<div id="dataContainer"></div>
+	</div>
+	</div> <!-- container -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 	$(function() {

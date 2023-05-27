@@ -31,7 +31,7 @@ public class StockController {
 	StockTradeService tradeService;
 	
 	//DB저장용 최초 실행 코드 한번만 호출해야 함
-	  @GetMapping("/admin/getStockPriceInfo")
+	  @GetMapping("/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
 		  
 		  service.stockInsert();

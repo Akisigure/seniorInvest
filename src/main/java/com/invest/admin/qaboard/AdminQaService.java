@@ -1,4 +1,5 @@
-package com.invest.qaboard.service;
+package com.invest.admin.qaboard;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,27 +9,13 @@ import org.springframework.stereotype.Service;
 
 import com.invest.qaboard.dao.QaDao;
 import com.invest.qaboard.dto.QaDto;
-import com.invest.user.dto.Users;
-
-
 
 @Service
-public class QaService {
-
+public class AdminQaService {
+	
 	@Autowired
 	QaDao dao;
-
-	public int count() {
-		return dao.count();
-	}
-
-	public List<QaDto> selectList(int start){
-		Map<String, Object> m = new HashMap<>();
-		m.put("start", start);
-		m.put("count", 10);
-		return dao.selectList(m);
-	}
-
+	
 
 	public void insert(QaDto dto) {
 			
@@ -51,13 +38,34 @@ public class QaService {
 	public int updateBoard(QaDto dto) {
 		return dao.updateBoard(dto);
 	}
-
-	public int deleteBoard(int no) {
-		return dao.deleteBoard(no);
-	}
-
 	
-
-
-
+	//admin qaList 전체검색
+			public List<QaDto> qaListSearch( String search,int start){
+				Map<String,Object> m = new HashMap<String, Object>();
+				m.put("search", search);
+				m.put("start", start);
+				m.put("count", 10);
+				
+				
+				if(search == null) {
+					return dao.AllqaListSearch(m);
+				}else {
+					return dao.qaListSearch(m);
+					
+				}
+				
+			}
+			
+		
+		//admin 검색
+		public int countCategorySearch(String search) {
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("search", search);
+			if(search == null) {
+				return dao.count();
+			}else {
+				return dao.countCategorySearch(m);
+				
+			}
+		}
 }
