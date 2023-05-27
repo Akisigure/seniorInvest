@@ -9,14 +9,13 @@
 <link rel="stylesheet" type="text/css" href="/css/base.css" />
 </head>
 <body>
-<div id="wrap">
-	<!-- header -->
-	<div id="header">
-		<h1>게시판 글목록</h1>
-	</div><!-- // header -->
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
 
+<div id="wrap">
 	<!-- container -->
 	<div id="container" >
+		<h1>질문 및 답변</h1>
 		<p class="all_txt">글목록 <span>(전체글 : ${count})</span></p>
 		
 		<div class="table_grp">

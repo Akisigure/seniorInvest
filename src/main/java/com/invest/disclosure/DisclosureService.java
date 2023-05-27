@@ -22,7 +22,7 @@ public class DisclosureService {
 	@Value("${DIS-API-KEY}")
 	private String crtfc_key;
 
-	LocalDate now = LocalDate.now();
+	LocalDate now = LocalDate.now().minusDays(5);
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 	String formatedNow = now.format(format);
 	

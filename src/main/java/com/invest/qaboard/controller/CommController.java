@@ -3,8 +3,10 @@ package com.invest.qaboard.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.invest.qaboard.dto.CommDto;
+import com.invest.qaboard.dto.QaDto;
 import com.invest.qaboard.service.CommService;
 
 @RestController
@@ -30,19 +33,20 @@ public class CommController {
 	}
 	
 	
-	
 	@GetMapping("/qa/commentDelete/{cno}")
 	public String deleteComm(@PathVariable int cno) {
 		service.deleteComm(cno);
 		return cno+"";
 	}
-
-	//update
-	@RequestMapping("/qa/commentUpdate")
-	public int updateComm(@RequestParam int cno, @RequestParam String content) { 
-		CommDto dto  = new CommDto();
-		dto.setCno(cno);
-		dto.setContent(content);
-		return service.updateComm(dto);
+	
+	
+	//updateForm
+	@GetMapping("/qa/commentUpdate/{cno}")
+	public String updateCommForm(@PathVariable int cno, Model m) {
+		CommDto dto = service.selectOneComm(cno);
+		Gson gson = new Gson();
+		return gson.toJson(dto);
 	}
+
+
 }
