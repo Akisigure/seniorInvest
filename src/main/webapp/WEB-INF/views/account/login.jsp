@@ -20,7 +20,7 @@
         <form  method="POST">
 
             <div class="input-box">
-                <input id="userid" type="text" name="userid" placeholder="아이디">
+                <input id="userid" type="text" name="userid" placeholder="아이디" autocomplete="off">
                 <label for="userid">아이디</label>
             </div>
             
@@ -31,7 +31,7 @@
 </c:if>
 
             <div class="input-box">
-                <input id="password" type="password" name="password" placeholder="비밀번호">
+                <input id="password" type="password" name="password" placeholder="비밀번호" autocomplete="off">
                 <label for="password">비밀번호</label>
             </div>
             <div class="href_box">

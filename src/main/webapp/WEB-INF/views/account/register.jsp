@@ -15,44 +15,44 @@
       <h2>회원가입</h2>
       <div class="textForm">
       <form:errors element="div"/>
-        <input name="userid" type="text" class="id" id="userid" placeholder="아이디"></input>
+        <input name="userid" type="text" class="id" id="userid" placeholder="아이디" autocomplete="off"></input>
         <input type="button" id="id_check" value="중복 확인" class="btn btn-primary rounded-pill px-3"><span id="id_msg"></span>
         <form:errors path="userid" delimiter=" " class="error"/>
       </div>
 
       <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
+        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
         <span id="chkpw">6~15자리를 입력해주세요</span>	
         <form:errors path="password" delimiter=" " class="error"/>
        	 
       </div>
        <div class="textForm">
-         <input type="password" placeholder="비밀번호 확인" id="passwordCheck" class="pw" name="passwordCheck">
+         <input type="password" placeholder="비밀번호 확인" id="passwordCheck" class="pw" name="passwordCheck" autocomplete="off">
         	<span id="alert-clear" style="display: none;">비밀번호가 일치합니다.</span>
     		<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호를 확인해주세요</span>
       </div>
       <div class="textForm">
-        <input name="userName" type="text" class="name" placeholder="이름" id="userName">
+        <input name="userName" type="text" class="name" placeholder="이름" id="userName" autocomplete="off">
         <form:errors path="userName" delimiter=" " class="error"/>
       </div>
  
        <div class="textForm">
- 		<input name="email" id="email" class="email" placeholder="이메일">
+ 		<input name="email" id="email" class="email" placeholder="이메일" autocomplete="off">
         <input type="button" id="mail_ck" value="메일 인증" class="btn btn-primary rounded-pill px-3"><span id="email_msg"></span>
         <form:errors path="email" delimiter=" " class="error" />
       </div>
       <div class="textForm" style="display : none;" id="ck_form">
-      		<div id="input" ><input id="ck_num" class="email" placeholder="인증번호 입력"> <input type="button" id="ck_b" value="인증 확인" class="btn btn-primary rounded-pill px-3"></div>
+      		<div id="input" ><input id="ck_num" class="email" placeholder="인증번호 입력" autocomplete="off"> <input type="button" id="ck_b" value="인증 확인" class="btn btn-primary rounded-pill px-3"></div>
 		<div id="result">
 		</div>
       </div>
       <div class="textForm">
-        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호 -없이 입력" id="phoneNumber">
+        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호 -없이 입력" id="phoneNumber" autocomplete="off">
         <form:errors path="phoneNumber" delimiter=" " class="error" />
       </div>
         <div class="textForm">
         <input name="address" type="text" class="address" placeholder="주소" id="address" readonly></input>
-         	<input name="addressDetail" type="text" class="address" placeholder="상세주소" id="addressDetail"></input>
+         	<input name="addressDetail" type="text" class="address" placeholder="상세주소" id="addressDetail" autocomplete="off"></input>
         <input name="addressNumber" type="text" class="address" placeholder="우편번호" id="addressNumber" readonly></input>
         <input type="button" name="search" id="addbtn" value="우편번호 검색" onclick="addPost()" class="btn btn-primary rounded-pill px-3">
      	</div>
