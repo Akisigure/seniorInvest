@@ -13,9 +13,7 @@
 	rel="stylesheet">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="/css/style.css">
-
 </head>
-
 <body>
 	<!-- Main Content -->
 	<jsp:include page="header.jsp"></jsp:include>
@@ -37,7 +35,7 @@
 		<section id="section-2" class="row vh-100 m-0">
 			<div class="col section-container">
 				<div class="container">
-					<jsp:include page="/favoriteStock"></jsp:include>
+					<jsp:include page="/stockFavorite"></jsp:include>
 				</div>
 			</div>
 		</section>

@@ -36,7 +36,10 @@
 								<td class="star-icon"><i id="star-${stock.itmsNm}"
 									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
 									data-itms-nm="${stock.itmsNm}"
-									onclick="toggleFavorite(this.id, this.dataset.itmsNm)"></i></td>
+								 	data-vs="${stock.vs}"
+       								data-mkp="${stock.mkp}"
+       								data-flt-rt="${stock.fltRt}"
+									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i></td>
 								<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
 								<td><c:out value="${stock.vs}" /></td>
 								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}"><c:out
@@ -55,15 +58,18 @@
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-		function toggleFavorite(elementId, itmsNm) {
+		function toggleFavorite(elementId, itmsNm, vs, mkp, fltRt) {
 			var element = $('#' + elementId);
 			var favorited = element.hasClass('fas');
 
 			var requestData = {
-				userid : '${username}', // 로그인한 사용자 아이디
+				userid : '${username}',
 				accountId : '${currentUser.accountId}',
 				itmsNm : itmsNm,
-				favorited : favorited
+				favorited : favorited,
+				vs : vs,
+				mkp : mkp,
+				fltRt : fltRt	
 			};
 
 			var url = '/favoriteStock/addOrRemoveFavorite';

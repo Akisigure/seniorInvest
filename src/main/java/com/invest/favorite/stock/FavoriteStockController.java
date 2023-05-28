@@ -4,17 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.invest.stock.dto.StockDto;
-import com.invest.user.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -27,12 +19,10 @@ import java.util.Optional;
 @RequestMapping("/favoriteStock")
 public class FavoriteStockController {
     private final FavoriteStockService favoriteStockService;
-    private final UserService userService;
 
     @Autowired
-    public FavoriteStockController(FavoriteStockService favoriteStockService, UserService userService) {
+    public FavoriteStockController(FavoriteStockService favoriteStockService) {
         this.favoriteStockService = favoriteStockService;
-        this.userService = userService;
     }
 
     @ModelAttribute
@@ -58,30 +48,14 @@ public class FavoriteStockController {
 
         return "stock/stockFavorite";
     }
-    
-
-    @PostMapping("/addfavoriteStock")
-    public ResponseEntity<Integer> addFavoriteStock(@RequestBody FavoriteStockDto favoriteStockDto) {
-        int result = favoriteStockService.addFavoriteStock(favoriteStockDto);
-        return ResponseEntity.ok(result);
-    }
-
-    @GetMapping("/getfavoriteStock")
-    public List<StockDto> getFavoriteStocks(@RequestParam String userid) {
-        return favoriteStockService.getFavoriteStocks(userid);
-    }
-
-    @DeleteMapping("/removefavoriteStock/{no}")
-    public int removeFavoriteStock(@PathVariable int no) {
-        return favoriteStockService.removeFavoriteStock(no);
-    }
 
     @PostMapping("/addOrRemoveFavorite")
     public ResponseEntity<FavoriteStockDto> addOrRemoveFavorite(@RequestBody FavoriteStockDto favoriteStockDto) {
         favoriteStockService.addOrRemoveFavorite(favoriteStockDto);
         // Check the status of the favorite stock after operation
-        Optional<FavoriteStockDto> favoriteStock = favoriteStockService.findByUserIdAndAccountIdAnditmsNm(
-                favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm(),favoriteStockDto.getMkp(),favoriteStockDto.getFltRt(),favoriteStockDto.getMkp());
+        Optional<FavoriteStockDto> favoriteStock = favoriteStockService.findByUserIdAndAccountIdAndItmsNm(
+                favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm(),
+                favoriteStockDto.getVs(), favoriteStockDto.getFltRt(), favoriteStockDto.getMkp());
         return ResponseEntity.ok(favoriteStock.orElse(null));
     }
 
@@ -90,5 +64,4 @@ public class FavoriteStockController {
         List<StockDto> favorites = favoriteStockService.getFavoriteStocks(userid);
         return ResponseEntity.ok(favorites);
     }
-
 }
