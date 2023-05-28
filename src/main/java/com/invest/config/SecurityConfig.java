@@ -21,12 +21,13 @@ public class SecurityConfig {
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-		
+		 
 		security.authorizeHttpRequests()
-        .requestMatchers("/user/**").authenticated()
+        .requestMatchers("/*").authenticated()
         .requestMatchers("/admin/**").hasRole("ADMIN")
+        .requestMatchers("/updatePassword").authenticated()
         .anyRequest().permitAll()
-        .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true")
+        .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true").permitAll()
         .and().exceptionHandling().accessDeniedPage("/account/accessDenied")
         .and().logout().invalidateHttpSession(true).logoutSuccessUrl("/login");
 		

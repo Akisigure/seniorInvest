@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
@@ -36,7 +37,7 @@ public interface UserDao {
 	boolean findPassword(@Param("email") String email);
 	
 	@Update("update users set password = #{password} where email= #{email}")
-	int updatePassword(Findpwd findpwd);
+	int temPassword(Findpwd findpwd);
 	
 	@Select("select userName from users where userName=#{userName}")
 	Users getUserByUsername(String userName);
@@ -44,4 +45,6 @@ public interface UserDao {
 	@Select("select userid, email from users where email=#{email}")
 	Users findByEmail(String email);
 	
+	@Update("update users set password = #{password} where userid=#{userid}")
+	int updatePassword(@Param("userid") String userid,@Param("password") String password);
 }

@@ -1,25 +1,27 @@
 package com.invest.favorite.stock;
 
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 public interface FavoriteStockDao {
+	@Update("UPDATE favoriteStock SET favorited = #{favorited} WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm}")
+	void updateFavoriteStock(FavoriteStockDto favoriteStockDto);
 
-    @Insert("insert into favoriteStock (no, userid, accountId, itmsNm) values(#{no}, #{userid}, #{accountId}, #{itmsNm})")
+
+    @Insert("insert into favoriteStock (userid, accountId, itmsNm, favorited) values(#{userid}, #{accountId}, #{itmsNm}, #{favorited})")
     int addFavoriteStock(FavoriteStockDto favoriteStockDto);
-
-    @Select("select * from favoriteStock where userid = #{userid} and accountId = #{accountId}")
-    List<FavoriteStockDto> getFavoriteStocks(@Param("userid") String userid, @Param("accountId") String accountId);
 
     @Delete("delete from favoriteStock where no = #{no}")
     int removeFavoriteStock(int no);
 
     @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm}")
     Optional<FavoriteStockDto> findByUserIdAndAccountIdAnditmsNm(@Param("userid") String userid, @Param("accountId") String accountId, @Param("itmsNm") String itmsNm);
+    
+    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND favorited = true")
+    List<FavoriteStockDto> getFavoriteStocks(@Param("userid") String userid);
 
-    // Commented out until the database column 'favorited' is confirmed
-    // @Update("update favoriteStock set favorited = #{favorited} where no = #{no}")
-    // int updateFavoriteStatus(@Param("no") int no, @Param("favorited") boolean favorited);
+
 }

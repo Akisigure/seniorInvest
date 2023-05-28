@@ -12,7 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <!-- Custom CSS -->
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/header.css">
 <!--  Custom script -->
 <script src="/js/script.js"></script>
 <!-- Bootstrap Bundle-->
@@ -21,7 +21,7 @@
 </head>
 <header class="sticky-top">
 
-	<nav class="navbar navbar-expand navbar-dark bg-success">
+	<nav class="navbar navbar-expand nav-custom-color">
 		<div class="container">
 			<ul class="navbar-nav" style="margin-left: auto;">
 				<li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
@@ -48,14 +48,11 @@
 					<li class="nav-item"><a class="nav-link" href="/intstock">관심종목</a></li>
 					<li class="nav-item"><a class="nav-link" href="/rtstock">실시간종목</a></li>
 					<li class="nav-item"><a class="nav-link" href="/selling">매도주문</a></li>
-					<li class="nav-item"><a class="nav-link" href="/qa">Q&A</a></li>아웃</a></li>
+					<li class="nav-item"><a class="nav-link" href="/qa">Q&A</a></li>
 					<jsp:include page="/stockSearch"></jsp:include>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
-	<!-- 작은 네비게이션 바 -->
-
 </header>
 </html>

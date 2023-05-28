@@ -26,4 +26,6 @@ public class SeniorInvestApplication {
 		//HTTP 요청 후 JSON, XML, String과 같은 응답 (Java Object)을 받음
 	}
 	
+	
+	
 }

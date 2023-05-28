@@ -11,6 +11,7 @@ public class StockWarningService {
 	@Autowired
 	StockDao dao;
 	
+	//유의 종목일 시 count 증가
 	public int warningStock(String srtnCd) {
 		int count = dao.warningStock(srtnCd);
 		return count;
@@ -18,4 +19,6 @@ public class StockWarningService {
 	}
 	
 	
+
 }
+

@@ -8,12 +8,15 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.invest.stock.dao.StockDao;
+import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockList;
 
@@ -77,8 +80,8 @@ public class StockService {
 	    
 	}//method
 	
-	//API 갱신시간에 갱신
-	//@Scheduled(cron = "0 30 11 * * *")
+	//API 갱신시간에 갱신 (오전 11시 30분)
+	@Scheduled(cron = "0 30 11 * * *")
 	public void updateLastestStock() throws Exception {
 		
 		String serviceKey = APIKEY;
@@ -112,7 +115,7 @@ public class StockService {
 
 	    br.close();
 	    conn.disconnect();
-
+ 
 	    String jsonStr = sb.toString();
 	    Gson gson = new Gson();
 	    StockList stock = gson.fromJson(jsonStr, StockList.class);
@@ -128,8 +131,8 @@ public class StockService {
 	   }//for
 	}
 
-	
-	//@Scheduled(cron = "0 57 00 * * *")
+	//매일 저녁에 업데이트
+	@Scheduled(cron = "0 57 00 * * *")
 	public void updateStock() throws Exception {
 		
 		String serviceKey = APIKEY;
@@ -181,8 +184,8 @@ public class StockService {
 	   
 	}
 	
+	//검색 자동완성 AJAX
 	public List<Map<String, Object>>stockSearchResult(Map<String, Object> paramMap) {
-		//String srtnCd, String itmsNm
 		return dao.stockSearchResult(paramMap);
 		
 	}
@@ -191,12 +194,11 @@ public class StockService {
 		return dao.stockDetailInfo(stock);
 	}
 	
+ 
 	public List<StockDto> stockMainview() {
 	    return dao.stockMainview();
-	}
+	} 
 	
-
-	}    
-
-
-
+}
+	
+	

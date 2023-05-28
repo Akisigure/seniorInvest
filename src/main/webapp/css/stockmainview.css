@@ -15,8 +15,8 @@
 
 th, td {
 	border-bottom: 1px solid #ddd;
-	width: 25%;
-	text-align: center;
+	width: 25%; /* Divide the width equally between the cells */
+	text-align: center; /* Center the text horizontally */
 }
 
 .price {
@@ -34,8 +34,9 @@ th, td {
 table {
 	 margin-top: 60px;
 	table-layout: fixed;
+	/* Makes the table take up the full width of its container */
 	width: 100%;
-
+	/* Sets the width of the table to be 100% of its container */
 }
 
 .title {
@@ -55,8 +56,4 @@ table {
 	width: fit-content;
 	margin: 100px auto;
 
-}
-
-.fa-star {
-    margin-right: 5px;  /* 별 아이콘과 종목명 사이의 간격 조절 */
 }
