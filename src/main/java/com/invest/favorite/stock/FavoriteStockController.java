@@ -44,13 +44,13 @@ public class FavoriteStockController {
     }
 
     @GetMapping
-    public String favoriteStock(Model model, HttpServletRequest request) {
+    public String favoriteStock(Model model, HttpServletRequest request, Principal principal) {
         HttpSession session = request.getSession();
         String userid = (String) session.getAttribute("userid");
-        String accountId = (String) session.getAttribute("accountId");
 
-        if (userid != null && accountId != null) {
-            List<StockDto> favoriteStocks = favoriteStockService.getFavoriteStocks(userid, accountId);
+        if (userid != null || principal != null) {
+            userid = userid != null ? userid : principal.getName();
+            List<StockDto> favoriteStocks = favoriteStockService.getFavoriteStocks(userid);
             model.addAttribute("favoriteStocks", favoriteStocks);
         } else {
             model.addAttribute("message", "로그인 후에 즐겨찾기에 추가할 수 있습니다.");
@@ -58,6 +58,7 @@ public class FavoriteStockController {
 
         return "stock/stockFavorite";
     }
+    
 
     @PostMapping("/addfavoriteStock")
     public ResponseEntity<Integer> addFavoriteStock(@RequestBody FavoriteStockDto favoriteStockDto) {
@@ -66,8 +67,8 @@ public class FavoriteStockController {
     }
 
     @GetMapping("/getfavoriteStock")
-    public List<StockDto> getFavoriteStocks(@RequestParam String userid, @RequestParam String accountId) {
-        return favoriteStockService.getFavoriteStocks(userid, accountId);
+    public List<StockDto> getFavoriteStocks(@RequestParam String userid) {
+        return favoriteStockService.getFavoriteStocks(userid);
     }
 
     @DeleteMapping("/removefavoriteStock/{no}")
@@ -80,13 +81,13 @@ public class FavoriteStockController {
         favoriteStockService.addOrRemoveFavorite(favoriteStockDto);
         // Check the status of the favorite stock after operation
         Optional<FavoriteStockDto> favoriteStock = favoriteStockService.findByUserIdAndAccountIdAnditmsNm(
-                favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm());
+                favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm(),favoriteStockDto.getMkp(),favoriteStockDto.getFltRt(),favoriteStockDto.getMkp());
         return ResponseEntity.ok(favoriteStock.orElse(null));
     }
 
     @GetMapping("/getFavorites")
-    public ResponseEntity<List<FavoriteStockDto>> getFavorites(@RequestParam String userid) {
-        List<FavoriteStockDto> favorites = favoriteStockService.getFavoriteStocks(userid);
+    public ResponseEntity<List<StockDto>> getFavorites(@RequestParam String userid) {
+        List<StockDto> favorites = favoriteStockService.getFavoriteStocks(userid);
         return ResponseEntity.ok(favorites);
     }
 

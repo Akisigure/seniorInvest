@@ -14,6 +14,9 @@ public class FavoriteStockDto {
     private String userid;
     private String accountId;
     private String itmsNm;
+    private int vs;
+	private double fltRt;
+	private int mkp;
     private boolean favorited;
 
     public boolean isFavorited() {
