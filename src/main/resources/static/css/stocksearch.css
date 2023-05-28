@@ -6,6 +6,7 @@
     font-weight: 400;
     font-style: normal;
 }
+
 #icon {
 
     width: 60px;
@@ -60,3 +61,8 @@ p {
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
+
+  #stockSearch:hover {
+  	color: black;
+  	transition : 0.7s;
+  }

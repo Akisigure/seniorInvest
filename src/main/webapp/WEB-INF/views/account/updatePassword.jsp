@@ -39,6 +39,7 @@
     </nav>
 </header>
 <body>
+<p>비밀번호 변경</p>
 	<form method="post" class="updateForm" action="/updatePassword">
 	<div class="textForm">
         <input name="password" type="password" class="pw" placeholder="비밀번호" id="password">
