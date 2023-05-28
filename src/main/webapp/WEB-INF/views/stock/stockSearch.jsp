@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>검색 페이지</title>
+  <title>주식 검색</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
@@ -50,7 +50,9 @@
   <div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
       <input type="text" name="itmsNm" id="autoComplete">
-      <input type="submit" value="검색" id="stockSearch">
+      <div>
+      	<input type="submit" value="검색" id="stockSearch">
+    	  </div>	
     </form>
     
   </div>

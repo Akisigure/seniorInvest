@@ -6,18 +6,22 @@
 </head>
 <style>
 
+.container {
+	display: flex;
+	justify-content: center;
+}
 
-.stockBuy {
+ .stockBuy {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: auto;
   padding: 30px;
   background-color: #FFFFFF;
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 50vw;
+  height: 40vh;
 }
 
 .stockBuy p {
@@ -52,10 +56,8 @@
 }
 
 .btn {
-  display: inline-block;
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -65,12 +67,16 @@
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+  	display: inline-block;
+	width: 200px;
+	height: 100px;
 }
 
 .btn:hover {
   background: linear-gradient(125deg, #27ae60, #2ecc71, #27ae60);
-}
-}
+} 
+
+	
 </style>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -83,46 +89,23 @@
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
- <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="./img/logo1.png"> 
-            </a>
-            <a href="updatePassword">비밀번호 수정</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
-                    <li class="nav-item"><a class="nav-link" href="disclosure">공시</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notices">공지사항</a></li>
-                    <li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
-                    <li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login">로그아웃</a></li>
-                    <li class="nav-item"><a class="nav-link" href="stockSearch">주식검색</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-
+<jsp:include page="../home/header.jsp"></jsp:include>
+<div class="container">
 <form method="post" action="/orderComplete" class="stockBuy">
 
 <p>종목명 : ${itmsNm} </p>
-<p>시장가 : ${detail.mkp} </p>
+<p>시장가 : <label for="orderPrice">${detail.mkp}</label> </p>
 <p>전일대비 : ${detail.fltRt} </p>
-<p>변동가격 : ${detail.vs} </p>
+<p>변동가격 : ${detail.vs} </p><br>
 
 		<div class="textForm">
-		<input type="text" name="quantity" id="quantity" placeholder="수량을 입력해주세요">
-		<input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요">
+		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요">
+		<span>수량</span><input type="text" name="quantity" id="quantity" placeholder="수량을 입력해주세요">
 		<input type="hidden" name="srtnCd" value="${srtnCd}">
 		<input type="hidden" name="itmsNm" value="${itmsNm}">
 		</div>
 		<input type="submit" value="매수하기" class="btn">
 	</form>
+	</div>
 </body>
 </html>

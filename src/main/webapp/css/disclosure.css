@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
-.container {
+.description {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	padding-top: 3%;
 }
 
 table {
@@ -12,6 +13,7 @@ table {
 }
 
 table thead {
+	padding-top: 10%;
 	background:#000; 
 	color:#fff;
 }
@@ -30,3 +32,18 @@ table tbody td {
 table tbody tr.bg td {
 	background:#eee;
 }
+
+#holi {
+	font-size: 48px;
+	color: red;
+	padding-top: 10%;
+	margin: 0 auto;
+	text-align: center;
+}
+#info {
+	font-size: 28px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+

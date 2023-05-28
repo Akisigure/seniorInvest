@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>공시</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/disclosure.css">
@@ -13,10 +13,10 @@
 </style>
 <body>
 <jsp:include page="../home/header.jsp"></jsp:include>
-<div class="container" >
 <div class="description">
-	<h2>최근 주요 공시를 확인할 수 있어요</h2>
-	<table id="dataTable">
+<div id="info">최근 주요 공시를 확인할 수 있어요</div>
+<div id="dataTable">
+	<table>
 		<thead>
 			<tr>
 				<th>공시 대상 회사</th>
@@ -37,13 +37,28 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 	<div id="dataContainer"></div>
 	</div>
-	</div> <!-- container -->
+	<div id="holi"></div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 	$(function() {
-  reloadData(); 
+		
+		let holiday = '<c:out value="${holiday}"/>';
+		console.log(holiday);
+			
+		if(holiday == 6) {
+			$("#dataTable").hide();
+			$("#holi").append("오늘은 토요일이므로 공시가 없습니다.")
+		}if(holiday == 7) {
+			$("#dataTable").hide();
+			$("#holi").append("오늘은 일요일이므로 공시가 없습니다.")
+		}
+		
+ 		
+		
+		reloadData(); 
   
   setInterval(reloadData, 600000); // 10분 = 600000 밀리초
 });
@@ -53,6 +68,7 @@ function reloadData() {
     url: 'ajax/disclosure',
     type: 'POST',
     dataType: 'json',
+    cache: true,
     success: function(response) {
 		var dataTable = $('#dataTable tbody');
     	dataTable.empty();
