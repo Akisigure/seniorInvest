@@ -32,7 +32,7 @@ public class StockTradeService {
 	}
 	
 	//매 정각 1시간마다 지정가 주문 처리
-	@Scheduled(cron = "0 0 0/1 * * * ")
+	@Scheduled(cron = "1 0 0/1 * * * ")
 	@Transactional
 	public void stockBuyTrade() {
 		List<OrderStockDto> order = dao.orderList(); //주문일자 check

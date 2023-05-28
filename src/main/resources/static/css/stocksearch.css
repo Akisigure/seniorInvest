@@ -27,3 +27,8 @@
   	display:inline;
   	font-weight: bold;
   }
+  
+  #stockSearch:hover {
+  	color: black;
+  	transition : 0.7s;
+  }

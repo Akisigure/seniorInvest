@@ -39,7 +39,7 @@
     }
 
     .text-primary {
-        color: #007bff;
+        color: #2ecc71;
         padding-top: 20px;
     }
 
@@ -58,9 +58,16 @@
       font-size:16pt;
       font-weight: bold;
       cursor:pointer;
-      width : 120px;
-	  height : 40px;
+      width : 10vw;
+	  height : 5vh;
 	  border-radius:10px;
+	  
+    }
+    
+    #loadingAnimation {
+    		
+    		margin-top: 120px;
+    		
     }
     
     #myChart {
@@ -68,6 +75,32 @@
     		height: 25vh;
     		width: 	50vw;
     }
+    
+    #stockbuy:hover {
+	color: black;
+	transition : 0.5s;
+}
+
+#stocksell {
+
+      background: linear-gradient(125deg, #8BC34A, #4CAF50, #8BC34A);
+      color:white;
+      border:none;
+      font-size:16pt;
+      font-weight: bold;
+      cursor:pointer;
+      width : 10vw;
+	  height : 5vh;
+	  border-radius:10px;
+	  
+    
+}
+
+#stocksell:hover {
+	color: black;
+	transition : 0.5s;
+
+}
     
 </style>
 <body>
@@ -87,12 +120,14 @@
             <h2>변동가격 : ${detail.vs}</h2>
         </div>
         <div>
-            <form method="post" action="/stockBuy">
+            <form method="get" action="/stockBuy">
                 <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
                 <input type="submit" value="매수하기" id="stockbuy">
+                <input type="button" onclick="location.href='/Mypage'" value="매도하기(마이페이지)" id="stocksell">
             </form>
         </div>
+        <div id="loadingAnimation"><img src="../img/Loading_icon.gif"></div>
         <canvas id="myChart"></canvas>
     </div>
     </div> <!-- container -->
@@ -100,6 +135,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     $(function() {
+    	
+    		$("#loadingAnimation").show();
+
+    	
         const APIKEY = "<c:out value='${APIKEY}'/>";
         let stockName = "<c:out value='${itmsNm}'/>";
        	let scVs = "<c:out value='${detail.vs}'/>";
@@ -120,7 +159,9 @@
 
         $.getJSON(url + "&resultType=json&beginBasDt=" + twoWeek + "&itmsNm=" + stockName, function(data) {
         	console.log(data);
-        	
+        		
+        	$("#loadingAnimation").hide();
+        		
             let chartInfo = data.response.body.items.item;
             let monthList = [];
             let monthData = [];
