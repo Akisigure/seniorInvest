@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -30,14 +31,15 @@
 								data-itms-nm="${stock.itmsNm}" 
 								onclick="toggleFavorite(this.id, this.dataset.itmsNm)" ></i><a href="/stockDetail?itmsNm=${stock.itmsNm}">${stock.itmsNm}</a>
 									</td>
-							<td><c:out value="${stock.vs}" /></td>
+							<td><fmt:formatNumber value="${stock.vs}" type="number"></fmt:formatNumber></td>
+							
 							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.fltRt}%" /></td>
-							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><c:out value="${stock.mkp}" /></td>
+							<td class="price <c:choose><c:when test='${stock.vs ge 0}'>up</c:when><c:otherwise>down</c:otherwise></c:choose>"><fmt:formatNumber value="${stock.mkp}" type="number"></fmt:formatNumber> 원</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<a href="#" target="_blank" class="button">종목 확인하기</a>
+			<a href="stockSearch" target="_blank" class="button">주식 검색</a>
 		</div>
 	</div>
 </body>

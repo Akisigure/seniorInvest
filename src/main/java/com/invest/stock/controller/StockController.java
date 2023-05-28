@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -72,7 +73,7 @@ public class StockController {
 		return "stock/stockDetail";
 	}
 	
-	@PostMapping("/stockBuy")
+	@RequestMapping("/stockBuy")
 	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m) {
 		
 		StockDto detail = service.stockDetailInfo(stock);
@@ -92,7 +93,7 @@ public class StockController {
 	}
 	
 	
-	@PostMapping("/AgreeStockBuy")
+	@RequestMapping("/AgreeStockBuy")
 	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m) {
 		
 		StockDto detail = service.stockDetailInfo(stock);

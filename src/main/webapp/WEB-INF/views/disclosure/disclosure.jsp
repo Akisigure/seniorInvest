@@ -15,6 +15,7 @@
 <jsp:include page="../home/header.jsp"></jsp:include>
 <div class="container" >
 <div class="description">
+	<h2>최근 주요 공시를 확인할 수 있어요</h2>
 	<table id="dataTable">
 		<thead>
 			<tr>

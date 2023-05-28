@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="css/Mypage.css">
 <meta charset="UTF-8">
 <!-- Required meta tags -->
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -58,10 +57,13 @@
 			</div>
 		</nav>
 	</header>
-	<form>
+	
 	<div id="Picon">
 <div id="userN"><i class="bi bi-person fs-60">${userid}님, 환영합니다</i></div>
 </div>
+	<main>
+	<form>
+	<div id="uInfo"> 나의 정보 </div>
 		<div id="boxBalance" style="display: inline-block; , width: 50%;">
 			<div id=BaL>  나의 잔액 ></div>
 			<span class="BalNum"> 
@@ -76,32 +78,32 @@
 		<div id="stockEA">
 			<div id="Sto">보유수량 ></div>
 			<div class="content">
-				<div class="table-responsive custom-table-responsive">
-					<!--  전체 회색 박스 -->
-
-					<table class="table custom-table">
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th scope="col">종목명</th>
-								<th scope="col">보유수량</th>
-								<th scope="col">현재가</th>
-								<th scope="col">수익률</th>
-							</tr>
-						</thead>
-						<tbody>
+		<div class="container">
+			<div class="table-responsive custom-table-responsive">
+				<table class="table custom-table">
+					<thead>
+						<tr>
+							<th>종목명</th>
+							<th>보유수량</th>
+							<th>현재가</th>
+							<th>수익률</th>
+						</tr>
+					</thead>
+					<tbody>
 							<!--  ${StockEA} -->
 							<c:forEach items="${StockEA}" var="stock">
 								<tr>
-									<th scope="row"></th>
+							<tr class="spacer">
+						<td colspan="100"></td>
+						</tr>
+						<tr class="active">
 									<td>${stock.itmsNm }</td>
 									<td>${stock.stockEA}</td>
 									<td>${stock.mkp}</td>
 									<td>${stock.rofreturn }</td>
-									<td><a
-										href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}">
-											<input type="button" class="w-btn" value="매도">
-									</a></td>
+									<td><a href="StocksellDc?srtnCd=${stock.srtnCd }&tradeNo=${stock.tradeNo}">
+										<input type="button" class="w-btn" value="매도"></a>
+											</td>
 								</tr>
 							</c:forEach>
 							<tr class="spacer">
@@ -111,6 +113,7 @@
 					</table>
 				</div>
 			</div>
+		</div>
 		</div>
 		<div id="stockEA">
 			<div id="Sto">미체결 주문 ></div>
@@ -151,10 +154,12 @@
 				</div>
 			</div>
 		</div>
+	
 	</form>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+</main>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${itmsNm}</title>
+    <title>${itmsNm} : ${detail.mkp}원</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <style>
@@ -16,6 +16,12 @@
         font-family:sans-serif;
         text-align: center;
     }
+    
+    .container {
+    		display: flex;
+    		justify-content: space-between;
+    }
+    
 
     body {
         background-image:#34495e;
@@ -33,7 +39,8 @@
     }
 
     .text-primary {
-        color: #007bff;
+        color: #2ecc71;
+        padding-top: 20px;
     }
 
     .text-center {
@@ -51,40 +58,92 @@
       font-size:16pt;
       font-weight: bold;
       cursor:pointer;
-      width : 120px;
-	  height : 40px;
+      width : 10vw;
+	  height : 5vh;
 	  border-radius:10px;
+	  
     }
+    
+    #loadingAnimation {
+    		
+    		margin-top: 120px;
+    		
+    }
+    
+    #myChart {
+    		display: flex;
+    		height: 25vh;
+    		width: 	50vw;
+    }
+    
+    #stockbuy:hover {
+	color: black;
+	transition : 0.5s;
+}
+
+#stocksell {
+
+      background: linear-gradient(125deg, #8BC34A, #4CAF50, #8BC34A);
+      color:white;
+      border:none;
+      font-size:16pt;
+      font-weight: bold;
+      cursor:pointer;
+      width : 10vw;
+	  height : 5vh;
+	  border-radius:10px;
+	  
+    
+}
+
+#stocksell:hover {
+	color: black;
+	transition : 0.5s;
+
+}
+    
 </style>
 <body>
+<jsp:include page="../home/header.jsp"></jsp:include>
+<div class="container">
     <div class="text-center mx-auto">
         <div id="stockname" class="text-primary">
             <h2 class="fw-bold">이름 : ${itmsNm}</h2>
         </div>
         <div id="stockMarketPrice" class="bg">
-            <h2>가격 : ${detail.mkp}</h2>
+            <h2>가격 : <span>${detail.mkp}</span></h2>
         </div>
         <div id="stockRate" class="bg">
-            <h2>변동률 : ${detail.fltRt}% </h2>
+            <h2>전일대비 : <span>${detail.fltRt}% </span></h2>
         </div>
         <div id="stockVariance" class="bg">
             <h2>변동가격 : ${detail.vs}</h2>
         </div>
         <div>
-            <form method="post" action="/stockBuy">
+            <form method="get" action="/stockBuy">
                 <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
                 <input type="submit" value="매수하기" id="stockbuy">
+                <input type="button" onclick="location.href='/Mypage'" value="매도하기(마이페이지)" id="stocksell">
             </form>
         </div>
-        <canvas id="myChart" width="500" height="150"></canvas>
+        <div id="loadingAnimation"><img src="../img/Loading_icon.gif"></div>
+        <canvas id="myChart"></canvas>
     </div>
+    </div> <!-- container -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     $(function() {
+    	
+    		$("#loadingAnimation").show();
+
+    	
         const APIKEY = "<c:out value='${APIKEY}'/>";
         let stockName = "<c:out value='${itmsNm}'/>";
+       	let scVs = "<c:out value='${detail.vs}'/>";
+       	let scFltRt = "<c:out value='${detail.fltRt}'/>";
+       	
         let url = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=" + APIKEY;
         let y = new Date();
         let z = new Date();
@@ -100,7 +159,9 @@
 
         $.getJSON(url + "&resultType=json&beginBasDt=" + twoWeek + "&itmsNm=" + stockName, function(data) {
         	console.log(data);
-        	
+        		
+        	$("#loadingAnimation").hide();
+        		
             let chartInfo = data.response.body.items.item;
             let monthList = [];
             let monthData = [];
@@ -115,7 +176,7 @@
             });
 
             updateChart(monthList, monthData);
-        });
+        }); //API호출
 
         function updateChart(labels, data) {
             const ctx = document.getElementById('myChart').getContext('2d');
@@ -131,7 +192,7 @@
                 },
 
                 options: {
-                    responsive: true,
+                    responsive: false,
                     plugins: {
                         legend: {
                             display: false
@@ -139,8 +200,15 @@
                     }
                 }
             });
-        }
-    });
+        } //chart 호출
+       
+        $("#stockRate span").css("color", scVs < 0 ? "blue" : (scVs > 0 ? "red" : ""));
+        $("#stockVariance span").css("color", scFltRt < 0 ? "blue" : (scFltRt > 0 ? "red" : ""));
+
+        
+        
+ 
+    }); //ready
     </script>
 </body>
 </html>
