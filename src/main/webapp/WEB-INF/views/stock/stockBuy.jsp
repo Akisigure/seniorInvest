@@ -6,22 +6,24 @@
 </head>
 <style>
 
-.container {
-	display: flex;
-	justify-content: center;
+.Buy_container {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  align-items: center;
 }
 
- .stockBuy {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.stockBuy {
+  position: relative;
+  transform: translateX(-50%);
   padding: 30px;
   background-color: #FFFFFF;
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 50vw;
-  height: 40vh;
+  height: 45vh;
+  left: 25%;
+  margin: 0 auto;
 }
 
 .stockBuy p {
@@ -45,6 +47,7 @@
   font-size: 16px;
   background: none;
   transition: border-bottom-color 0.3s;
+  font-weight: bold;
 }
 
 .textForm input::placeholder {
@@ -55,26 +58,26 @@
   border-bottom-color: #2ecc71;
 }
 
-.btn {
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
+.btn_div {
   text-align: center;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-  	display: inline-block;
-	width: 200px;
-	height: 100px;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
 }
 
 .btn:hover {
-  background: linear-gradient(125deg, #27ae60, #2ecc71, #27ae60);
-} 
+  color: black;
+  transition: 0.5s;
+}
+
+.error-message {
+  padding-bottom: 20px;
+  color: red;
+  font-size: 18px;
+}
+
 
 	
 </style>
@@ -90,7 +93,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
 <jsp:include page="../home/header.jsp"></jsp:include>
-<div class="container">
+<div class="Buy_container">
 <form method="post" action="/orderComplete" class="stockBuy">
 
 <p>종목명 : ${itmsNm} </p>
@@ -99,13 +102,39 @@
 <p>변동가격 : ${detail.vs} </p><br>
 
 		<div class="textForm">
-		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요">
-		<span>수량</span><input type="text" name="quantity" id="quantity" placeholder="수량을 입력해주세요">
-		<input type="hidden" name="srtnCd" value="${srtnCd}">
-		<input type="hidden" name="itmsNm" value="${itmsNm}">
+		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요" autocomplete="off">
+		<span>수량</span><input type="text" name="quantity" id="quantity" placeholder="수량을 입력해주세요" autocomplete="off">
+			<input type="hidden" name="srtnCd" value="${srtnCd}">
+			<input type="hidden" name="itmsNm" value="${itmsNm}">
+			
 		</div>
-		<input type="submit" value="매수하기" class="btn">
+		<div class="btn_div">
+		<div class="error-message"></div>
+			<input type="submit" value="매수하기" class="btn btn-outline-success" id="buyButton">
+			<button type="button" onclick="location.href='/stockDetail?itmsNm=${itmsNm}'" class="btn btn-outline-success">돌아가기</button>
+		</div>
 	</form>
 	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#buyButton").on("click", function(event) {
+      var orderPrice = $("#orderPrice").val();
+      var quantity = $("#quantity").val();
+
+      if (orderPrice === "" || quantity === "") {
+        $(".error-message").text("값을 입력해주세요.");
+        event.preventDefault(); // 폼 제출을 막습니다.
+      } else if (!/^\d+$/.test(orderPrice) || !/^\d+$/.test(quantity)) {
+        $(".error-message").text("숫자만 입력해주세요.");
+        event.preventDefault(); // 폼 제출을 막습니다.
+      } else {
+        $(".error-message").empty();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
