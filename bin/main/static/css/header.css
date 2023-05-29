@@ -1,0 +1,51 @@
+header {
+    background-color: #000000;
+}
+
+.nav-custom-color {
+    background-color: #C7E7B3;
+}
+
+.nav-custom-color .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.logo h1 {
+    color: #28a745;
+}
+
+.nav .nav-link {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    height: 120px;
+    width: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    background-color: #28a745;
+    border-radius: 5px;
+    color: white;
+}
+
+

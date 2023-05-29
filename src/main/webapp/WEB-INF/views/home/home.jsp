@@ -18,12 +18,6 @@
 	<!-- Main Content -->
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div>
-		<p>
-			Logged in as: <span>${username}</span>
-		</p>
-	</div>
-
 	<main class="container-fluid p-0">
 		<section id="section-1" class="row vh-100 m-0">
 			<div class="col section-container">
@@ -35,7 +29,7 @@
 		<section id="section-2" class="row vh-100 m-0">
 			<div class="col section-container">
 				<div class="container">
-					<jsp:include page="/stockFavorite"></jsp:include>
+					<jsp:include page="/favoriteStock/stockFavorites"></jsp:include>
 				</div>
 			</div>
 		</section>

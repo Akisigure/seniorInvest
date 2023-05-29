@@ -197,8 +197,7 @@ public class StockService {
  
 	public List<StockDto> stockMainview() {
 	    return dao.stockMainview();
-	} 
-	
+	}
 }
 	
 	

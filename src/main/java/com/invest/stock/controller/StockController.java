@@ -109,7 +109,6 @@ public class StockController {
 	    List<StockDto> stockMainview = service.stockMainview();
 	    model.addAttribute("stockMainview", stockMainview);
 	    return "stock/stockMainview";
-	}	
-	
+	}
 
 }

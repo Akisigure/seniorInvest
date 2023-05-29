@@ -5,7 +5,6 @@
 <html>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 <link rel="stylesheet" href="/css/stockmainview.css">
 <head>
 <title>실시간 거래량 top10</title>
@@ -19,6 +18,7 @@
 					<p>${message}</p>
 				</c:if>
 			</div>
+
 			<table>
 				<thead>
 					<tr>
@@ -35,10 +35,8 @@
 							<tr>
 								<td class="star-icon"><i id="star-${stock.itmsNm}"
 									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
-									data-itms-nm="${stock.itmsNm}"
-								 	data-vs="${stock.vs}"
-       								data-mkp="${stock.mkp}"
-       								data-flt-rt="${stock.fltRt}"
+									data-itms-nm="${stock.itmsNm}" data-vs="${stock.vs}"
+									data-mkp="${stock.mkp}" data-flt-rt="${stock.fltRt}"
 									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i></td>
 								<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
 								<td><c:out value="${stock.vs}" /></td>
@@ -69,7 +67,7 @@
 				favorited : favorited,
 				vs : vs,
 				mkp : mkp,
-				fltRt : fltRt	
+				fltRt : fltRt
 			};
 
 			var url = '/favoriteStock/addOrRemoveFavorite';
@@ -92,30 +90,32 @@
 				}
 			});
 		}
-		
+
 		$(document).ready(function() {
-		    var url = '/favoriteStock/getFavorites';
-		    var type = 'GET';
+			var url = '/favoriteStock/getFavorites';
+			var type = 'GET';
 
-		    $.ajax({
-		        url: url,
-		        type: type,
-		        data: { userid: '${username}' },
-		        success: function(response) {
-		            for (var i = 0; i < response.length; i++) {
-		                var itmsNm = response[i].itmsNm;
-		                var elementId = 'star-' + itmsNm;
-		                var element = $('#' + elementId);
+			$.ajax({
+				url : url,
+				type : type,
+				data : {
+					userid : '${username}'
+				},
+				success : function(response) {
+					for (var i = 0; i < response.length; i++) {
+						var itmsNm = response[i].itmsNm;
+						var elementId = 'star-' + itmsNm;
+						var element = $('#' + elementId);
 
-		                if (element.length) {
-		                    element.addClass('fas').removeClass('far');
-		                }
-		            }
-		        },
-		        error: function(response) {
-		            // 에러 처리
-		        }
-		    });
+						if (element.length) {
+							element.addClass('fas').removeClass('far');
+						}
+					}
+				},
+				error : function(response) {
+					// 에러 처리
+				}
+			});
 		});
 	</script>
 </body>

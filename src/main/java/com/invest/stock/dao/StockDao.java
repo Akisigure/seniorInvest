@@ -37,7 +37,5 @@ public interface StockDao {
 	
 	@Select("select * from stock order by mrktTotAmt desc limit 10")
 	List<StockDto> stockMainview();
- 
-	
 	
 }
