@@ -1,5 +1,7 @@
 @charset "UTF-8";
+
 .centered-container {
+	font-size: 120px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -7,7 +9,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 .centered-content {
 	width: 100%;
 	max-width: 1200px;
@@ -15,8 +16,8 @@
 
 th, td {
 	border-bottom: 1px solid #ddd;
-	width: 25%; /* Divide the width equally between the cells */
-	text-align: center; /* Center the text horizontally */
+	width: 25%;
+	text-align: center;
 }
 
 .price {
@@ -32,21 +33,18 @@ th, td {
 }
 
 table {
-	 margin-top: 60px;
+	margin-top: 60px;
 	table-layout: fixed;
-	/* Makes the table take up the full width of its container */
 	width: 100%;
-	/* Sets the width of the table to be 100% of its container */
 }
 
 .title {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
-
 
 .button {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	padding: 10px 20px;
 	background-color: #28a745;
 	color: white;
@@ -55,5 +53,8 @@ table {
 	border-radius: 5px;
 	width: fit-content;
 	margin: 100px auto;
+}
 
+table tr {
+    font-size: 125px; /* 원하는 크기로 조정 */
 }

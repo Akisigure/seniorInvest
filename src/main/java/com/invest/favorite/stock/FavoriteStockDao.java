@@ -28,4 +28,9 @@ public interface FavoriteStockDao {
 
     @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND favorited = true")
     List<FavoriteStockDto> getFavoriteStocks(@Param("userid") String userid);
+    
+    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND favorited = true")
+    List<FavoriteStockDto> getFavorites(String userid);
+
 }
+

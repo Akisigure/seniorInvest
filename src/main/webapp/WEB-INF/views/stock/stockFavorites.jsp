@@ -3,39 +3,87 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="/css/stockmainview.css">
 <head>
-    <title>Favorite Stocks</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
+<title>실시간 거래량 top10</title>
 </head>
 <body>
-<h1>Favorite Stocks</h1>
+	<div class="centered-container">
+		<div class="centered-content">
+			<h1>실시간 거래량 top10</h1>
+			<div class="message">
+			</div>
 
-<!-- Display session information -->
-<p>Session ID: ${pageContext.session.id}</p>
-<p>Username: ${sessionScope.username}</p>
-<p>Userid: ${sessionScope.userid}</p>
+		<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>종목명</th>
+						<th>전일 대비</th>
+						<th>등락률</th>
+						<th>가격</th>
+					</tr>
+				</thead>
+					<c:forEach var="stock" items="${favoriteStocks}" varStatus="status">
+						<c:if test="${status.index < 8}">
+							<tr>
+								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: yellow;"
+									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
+									data-itms-nm="${stock.itmsNm}" data-vs="${stock.vs}"
+									data-mkp="${stock.mkp}" data-flt-rt="${stock.fltRt}"
+									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i></td>
+								<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
+								<td><c:out value="${stock.vs}" /></td>
+								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
+								<c:out value="${stock.fltRt}%" /></td>
+								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
+								<c:out value="${stock.mkp}" /></td>
+							</tr>
+						</c:if>
+					</c:forEach>
+			</table>
+			<a href="#" target="_blank" class="button">종목 확인하기</a>
+		</div>
+	</div>
 
-<table>
-    <tr>
-        <th>Item Name</th>
-        <th>VS</th>
-        <th>Float Rate</th>
-        <th>MKP</th>
-        <th>Favorited</th>
-    </tr>
-    <c:forEach items="${favoriteStocks}" var="stock">
-        <tr>
-            <td>${stock.itmsNm}</td>
-            <td>${stock.vs}</td>
-            <td>${stock.fltRt}</td>
-            <td>${stock.mkp}</td>
-            <td>${stock.favorited}</td>
-        </tr>
-    </c:forEach>
-</table>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		function toggleFavorite(elementId, itmsNm, vs, mkp, fltRt) {
+			var element = $('#' + elementId);
+			var favorited = element.hasClass('fas');
+
+			var requestData = {
+				userid : '${username}',
+				accountId : '${currentUser.accountId}',
+				itmsNm : itmsNm,
+				favorited : favorited,
+				vs : vs,
+				mkp : mkp,
+				fltRt : fltRt
+			};
+
+			var url = '/favoriteStock/addOrRemoveFavorite';
+			var type = 'POST';
+
+			$.ajax({
+				url : url,
+				type : type,
+				contentType : 'application/json',
+				data : JSON.stringify(requestData),
+				success : function(response) {
+					if (response.favorited) {
+						element.addClass('fas').removeClass('far');
+					} else {
+						element.addClass('far').removeClass('fas');
+					}
+				},
+				error : function(response) {
+					// 에러 처리
+				}
+			});
+		}
+	</script>
 </body>
 </html>

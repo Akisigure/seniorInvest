@@ -30,6 +30,7 @@ public class FavoriteStockController {
             model.addAttribute("userid", username);
         }
     }
+    
 
     @PostMapping("/addOrRemoveFavorite")
     public ResponseEntity<FavoriteStockDto> addOrRemoveFavorite(@RequestBody FavoriteStockDto favoriteStockDto) {
@@ -47,5 +48,13 @@ public class FavoriteStockController {
         model.addAttribute("favoriteStocks", favoriteStocks);
         return "stock/stockFavorites";
     }
+    
+    @GetMapping("/getFavorites")
+    public ResponseEntity<List<FavoriteStockDto>> getFavorites(Principal principal) {
+        String userId = principal != null ? principal.getName() : null;
+        List<FavoriteStockDto> favoriteStocks = favoriteStockService.getFavorites(userId);
+        return ResponseEntity.ok(favoriteStocks);
+    }
+
 }
 

@@ -51,9 +51,16 @@ public class FavoriteStockService {
 			favoriteStockDao.addFavoriteStock(favoriteStockDto);
 		}
 	}
+	
+
 
 	public Optional<FavoriteStockDto> findByUserIdAndAccountIdAndItmsNm(String userid, String accountId, String itmsNm,
 			int vs, double fltRt, int mkp) {
 		return favoriteStockDao.findByUserIdAndAccountIdAndItmsNm(userid, accountId, itmsNm, vs, fltRt, mkp);
 	}
+	
+	public List<FavoriteStockDto> getFavorites(String userid) {
+	    return favoriteStockDao.getFavorites(userid);
+	}
+
 }

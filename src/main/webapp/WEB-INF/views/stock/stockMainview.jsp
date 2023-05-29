@@ -14,12 +14,9 @@
 		<div class="centered-content">
 			<h1>실시간 거래량 top10</h1>
 			<div class="message">
-				<c:if test="${not empty message}">
-					<p>${message}</p>
-				</c:if>
 			</div>
 
-			<table>
+		<table>
 				<thead>
 					<tr>
 						<th></th>
@@ -29,26 +26,24 @@
 						<th>가격</th>
 					</tr>
 				</thead>
-				<tbody>
 					<c:forEach var="stock" items="${stockMainview}" varStatus="status">
 						<c:if test="${status.index < 8}">
 							<tr>
-								<td class="star-icon"><i id="star-${stock.itmsNm}"
+								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: yellow;"
 									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
 									data-itms-nm="${stock.itmsNm}" data-vs="${stock.vs}"
 									data-mkp="${stock.mkp}" data-flt-rt="${stock.fltRt}"
 									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i></td>
 								<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
 								<td><c:out value="${stock.vs}" /></td>
-								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}"><c:out
-										value="${stock.fltRt}%" /></td>
-								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}"><c:out
-										value="${stock.mkp}" /></td>
+								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
+								<c:out value="${stock.fltRt}%" /></td>
+								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
+								<c:out value="${stock.mkp}" /></td>
 							</tr>
 
 						</c:if>
 					</c:forEach>
-				</tbody>
 			</table>
 			<a href="#" target="_blank" class="button">종목 확인하기</a>
 		</div>
