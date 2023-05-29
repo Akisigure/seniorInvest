@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .centered-container {
 	display: flex;
 	justify-content: center;
@@ -14,40 +15,39 @@
 }
 
 th, td {
-    border-bottom: 1px solid #ddd;
-    width: 25%;
-    text-align: center;
-    font-size: 20px; /* 글자 크기 수정 */
-    font-weight: bold; /* 굵은 글자 설정 */
+	border-bottom: 1px solid #ddd;
+	width: 25%;
+	text-align: center;
+	font-size: 20px; /* 글자 크기 수정 */
+	font-weight: bold; /* 굵은 글자 설정 */
 }
 
 .price {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .up {
-    color: #BD423B;
+	color: #BD423B;
 }
 
 .down {
-    color: #3574D3;
+	color: #3574D3;
 }
 
 table {
-	 margin-top: 60px;
+		font-size: 40px;
+	margin-top: 60px;
 	table-layout: fixed;
 	width: 100%;
-
 }
 
 .title {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
-
 
 .button {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	padding: 10px 20px;
 	background-color: #28a745;
 	color: white;
@@ -56,9 +56,8 @@ table {
 	border-radius: 5px;
 	width: fit-content;
 	margin: 100px auto;
-
 }
 
 .fa-star {
-    margin-right: 5px;  /* 별 아이콘과 종목명 사이의 간격 조절 */
+	margin-right: 5px; /* 별 아이콘과 종목명 사이의 간격 조절 */
 }

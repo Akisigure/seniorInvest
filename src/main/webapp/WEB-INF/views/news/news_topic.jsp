@@ -13,12 +13,10 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/topicnews.css">
 </head>
 <body>
 	<!-- Main Content -->
@@ -26,17 +24,17 @@
 
 	<main class="container">
 		<h1 class="mt-5 mb-5">${topic}관련뉴스</h1>
-
-		<div class="topic-buttons">
-			<a href="/news/반도체주" class="btn btn-topic">반도체주</a> <a
-				href="/news/2차전지주" class="btn btn-topic">2차전지주</a> <a
-				href="/news/전기자동차주" class="btn btn-topic">전기자동차주</a> <a
-				href="/news/OLED주" class="btn btn-topic">OLED주</a> <a
-				href="/news/코로나주" class="btn btn-topic">코로나주</a> <a
-				href="/news/임플란트주" class="btn btn-topic">임플란트주</a> <a
-				href="/news/AI주" class="btn btn-topic">AI주</a> <a href="/news/우주항공주"
-				class="btn btn-topic">우주항공주</a>
-		</div>
+       <div class="topic-buttons">
+       <a href="/news" class="btn btn-topic">종합뉴스</a>
+	<a href="/news/반도체주" class="btn btn-topic ${topic == '반도체주' ? 'active' : ''}">반도체주</a>
+	<a href="/news/2차전지주" class="btn btn-topic ${topic == '2차전지주' ? 'active' : ''}">2차전지주</a>
+	<a href="/news/전기자동차주" class="btn btn-topic ${topic == '전기자동차주' ? 'active' : ''}">전기자동차주</a>
+	<a href="/news/OLED주" class="btn btn-topic ${topic == 'OLED주' ? 'active' : ''}">OLED주</a>
+	<a href="/news/코로나주" class="btn btn-topic ${topic == '코로나주' ? 'active' : ''}">코로나주</a>
+	<a href="/news/임플란트주" class="btn btn-topic ${topic == '임플란트주' ? 'active' : ''}">임플란트주</a>
+	<a href="/news/AI주" class="btn btn-topic ${topic == 'AI주' ? 'active' : ''}">AI주</a>
+	<a href="/news/우주항공주" class="btn btn-topic ${topic == '우주항공주' ? 'active' : ''}">우주항공주</a>
+	</div>
 
 		<c:forEach var="news" items="${newsPage.content}">
 			<div class="news-item">
@@ -86,4 +84,13 @@
 
 	</main>
 </body>
+
+<script>
+$(document).ready(function() {
+    $(".btn-topic").click(function() {
+        $(".btn-topic.active").removeClass("active"); // 기존에 active 클래스를 가진 요소에서 active 클래스 제거
+        $(this).addClass("active"); // 클릭된 요소에 active 클래스 추가
+    });
+});
+</script>
 </html>

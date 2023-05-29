@@ -24,9 +24,10 @@
 	<nav class="navbar navbar-expand nav-custom-color">
 		<div class="container">
 			<ul class="navbar-nav" style="margin-left: auto;">
-				<li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">비밀번호 변경</a></li>
-				<li class="nav-item"><a class="nav-link" href="/login">로그아웃</a></li>
+				<li class="nav-item"><a class="nav-link mininav" href="/mypage">마이페이지</a></li>
+				<li class="nav-item"><a class="nav-link mininav" href="#">비밀번호 변경</a></li>
+				<li class="nav-item"><a class="nav-link mininav" href="/login">로그아웃</a></li>
+
 			</ul>
 		</div>
 	</nav>
@@ -49,7 +50,9 @@
 					<li class="nav-item"><a class="nav-link" href="/rtstock">실시간종목</a></li>
 					<li class="nav-item"><a class="nav-link" href="/selling">매도주문</a></li>
 					<li class="nav-item"><a class="nav-link" href="/qa">Q&A</a></li>
-					<jsp:include page="/stockSearch"></jsp:include>
+					<div id="stockSearch-container">
+    					<jsp:include page="/stockSearch"></jsp:include>
+					</div>
 				</ul>
 			</div>
 		</div>
