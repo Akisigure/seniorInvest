@@ -3,15 +3,15 @@ header {
 }
 
 .navbar-custom {
-    background-color: #C7E7B3; /* 원하는 색상으로 변경하세요. */
+    background-color: #252c41 ; /* 원하는 색상으로 변경하세요. */
 }
 
 .nav-custom-color {
-    background-color: #61845b ;
+    background-color: #ffffff ;
 }
 
 .nav-custom-color .navbar-nav .nav-link {
-    color: #ffffff;
+    color: #28a745;
 }
 
 .logo h1 {
@@ -34,7 +34,7 @@ header {
     width: auto;
 }
 
-.navbar-dark .navbar-nav .nav-link {
+.navbar-custom  .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 20px;
     font-weight: bold;
