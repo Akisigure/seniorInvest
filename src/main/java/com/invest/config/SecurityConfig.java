@@ -26,7 +26,6 @@ public class SecurityConfig {
         .requestMatchers("/stockBuy").authenticated()
         .requestMatchers("/Mypage").authenticated()
         .requestMatchers("/admin/**").hasRole("ADMIN")
-        .requestMatchers("/adminhome").hasRole("ADMIN")
         .requestMatchers("/updatePassword").authenticated()
         .requestMatchers("/qa/**").authenticated()
         .requestMatchers("/StocksellDc").authenticated()
