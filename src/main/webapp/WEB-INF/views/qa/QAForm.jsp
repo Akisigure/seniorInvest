@@ -13,6 +13,7 @@ function getselect() {
 	var category = (getCategory.options[category.selectedIndex].value);
 }
 </script>
+
 </head>
 <body>
 <!-- header -->

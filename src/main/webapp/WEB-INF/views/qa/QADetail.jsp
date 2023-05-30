@@ -123,6 +123,7 @@
 					+ "</div><div>"+comm.content;
 					if(id == comm.id){
 						clist +='<button class="dbtn" id="'+comm.cno+'" style="float: right;">삭제</button>';
+					
 					} 
 					clist+="</div><br><hr>"
 					
