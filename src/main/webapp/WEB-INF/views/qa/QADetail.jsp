@@ -12,7 +12,7 @@
 <body>
 <input type="hidden" id="no" th:value="${dto.no}">
 <!-- header -->
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <!-- // header -->
 <div id="wrap">
 
