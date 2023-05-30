@@ -1,0 +1,67 @@
+header {
+    background-color: rgb(252, 75, 102);
+}
+
+.nav-custom-color {
+    background-color: rgb(255, 255, 255) ;
+}
+
+/* 헤더 위 글자 색 */
+.nav-custom-color .navbar-nav .nav-link {
+    color: #fe4365;
+}
+
+.logo h1 {
+    color: #28a745;
+}
+
+.nav .nav-link {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    height: 120px;
+    width: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    background-color: #28a745;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
+
+.align-right {
+    position: fixed;
+    right: 0;
+}
+
+.nav-link.mininav {
+    font-size: 20px; /* 글씨 크기를 30px로 변경 */
+    font-weight: bold; /* 글씨를 굵게 만듦 */
+}
+
+#stockSearch-container {
+    position: absolute;
+    right: 20%;
+}
+

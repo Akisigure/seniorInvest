@@ -1,9 +1,12 @@
 @charset "UTF-8";
 /* 스타일 설정 */
+
 @font-face {
-	font-family: 'SUITE-Regular';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')0 format('woff2');
-	font-weight: 400;
+	font-family: 'NanumSquareNeo-Variable';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+		format('woff2');
+	font-weight: normal;
 	font-style: normal;
 }
 
@@ -13,15 +16,13 @@
 	transform: translate(10%, 30%);
 }
 
-#userN { 
-	width:350px;
-	font-family: 'SUITE-Regular';
-	font-size: 17pt;
+#userN {
+	width: 350px;
+	font-family: 'TheJamsil5Bold';
 	font-size: 25pt;
-	font-weight: bold;
+	font-weight:bold;
 	top: 50%;
 	left: 50%;
-
 	transform: translate(-20%, 50%);
 }
 
@@ -34,67 +35,54 @@ main {
 
 #uInfo {
 	width: 1000px;
-	display: flex;
 	justify-content: center; /*  수평 정렬 */
 	align-items: center; /* 수직 정렬 */
-	font-weight: bold;
-	font-size: 24pt;
-	font-family: 'SUITE-Regular';
 	text-align: center;
+	font-size: 24pt;
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
 	background: #E6F0E0;
 	border-radius: 7px;
-	border: 1px solid #9CB396;
+	border: 1px solid #F5F5F5;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	transform: translate(20%, 10%);
-	align-items: center;
 }
 
 #boxBalance {
 	display: flex;
 	width: 1000px;
 	height: 75px;
-	height: 50px;
-	flex-grow: 0;
 	margin: 3% auto;
 	padding: 9%;
-	transform: translate(27%, 10%);
 	border: 1px solid #F5F5F5;
 	transform: translate(20%, 10%);
-	border: 1px solid #9CB396;
-	background: #E6F0E0;
-	border-radius: 15px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	width: 1000px;
 	border-radius: 7px;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	background: #E6F0E0;
 }
 
 #BaL {
-	width: 160px;
-	width: 160px;
+	width: 200px;
 	display: flex;
-	font-weight: bold;
-	font-size: 24pt;
-	font-family: 'SUITE-Regular';
-	text-align: center;
-	text-align: center;
 	top: 50%;
 	left: 20%;
-	transform: translate(-50%, -170%);
+	transform: translate(-40%, -170%);
+	text-align: center;
+	font-size: 24pt;
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
 }
 
 .BalNum {
 	width: 400px;
 	display: flex;
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	font-size: 80px;
 	font-weight: 800;
 	position: relative;
 	top: 50%;
 	left: 50%;
-	transform: translate(5%, -50%);
 	transform: translate(5%, -60%);
-	border: 6px solid #C4E7AE;
-	border-radius: 50px;
 }
 
 #boxAccount {
@@ -103,12 +91,9 @@ main {
 	height: 80px;
 	margin: 3% auto;
 	padding: 9%;
-	transform: translate(27%, 10%);
 	border: 1px solid #F5F5F5;
 	transform: translate(20%, 5%);
-	border: 1px solid #9CB396;
 	background: #E6F0E0;
-	border-radius: 15px;
 	border-radius: 7px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -118,7 +103,7 @@ main {
 	text-align: left;
 	font-weight: bold;
 	font-size: 24pt;
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	top: 50%;
 	left: 20%;
 	transform: translate(-10%, -150%);
@@ -127,15 +112,13 @@ main {
 .bankN {
 	width: 550px;
 	display: flex;
-	font-family: 'SUITE-Regular';
-	font-size: 120px;
-	font-size: 115px;
+	font-family: 'NanumSquareNeo-Variable';
+	font-size: 110px;
 	font-weight: 800;
 	position: relative;
 	top: 50%;
 	left: 50%;
-	transform: translate(-30%, -50%);
-	transform: translate(-20%, -75%);
+	transform: translate(-30%, -60%);
 	border-radius: 50px;
 }
 
@@ -144,11 +127,9 @@ main {
 	width: 1000px;
 	margin: 3% auto;
 	padding: 5%;
-	border: 1px solid black;
-	border-radius: 15px;
 	border: 1px solid #5C6E56;
 	border-radius: 7px;
-	background-color: white;
+	background-color: #F3F3F3;
 }
 
 #Sto {
@@ -157,18 +138,8 @@ main {
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	font-size: 25pt;
 	font-size: 40pt;
-	font-family: 'SUITE-Regular';
-}
-
-body {
-	font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		"Noto Color Emoji";
-	background-color: #fff;
-	font-weight: 300;
+	font-family: 'NanumSquareNeo-Variable';
 }
 
 p {
@@ -198,39 +169,35 @@ a, a:hover {
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .custom-table-responsive {
-	background-color: #efefef;
-	padding: 20px;
-	border-radius: 4px;
-	width: 750px;
-	font-size: 22pt;
 	width: 900px;
+	padding: 20px;
 	text-align: center;
 	justify-content: center;
+	border-radius: 4px;
+	background-color: #efefef;
+	font-size: 18pt;
+	font-weight: bold;
+	font-family: 'NanumSquareNeo-Variable';
 }
 
 .custom-table {
-	min-width: 700px;
-	min-width: 900px;
+	min-width: 600px;
 }
 
 .custom-table thead tr, .custom-table thead th {
+	letter-spacing: .1rem;
+	text-transform: uppercase;
 	border-top: none;
 	border-bottom: none !important;
 	font-size: 22px;
-	font-size: 12px;
-	text-transform: uppercase;
-	letter-spacing: .1rem;
 }
 
 .custom-table tbody th, .custom-table tbody td {
-	color: black;
-	color: #777;
-	font-weight: 400;
-	padding-bottom: 18px;
+	color: #7B7B7B;
 	padding-bottom: 20px;
 	padding-top: 20px;
 	font-weight: 300;
@@ -239,10 +206,6 @@ h2 {
 .custom-table tbody th small, .custom-table tbody td small {
 	color: #b3b3b3;
 	font-weight: 300;
-}
-
-.custom-table tbody tr th, .custom-table tbody tr td 삼성전자 {
-	
 }
 
 .custom-table tbody tr:not(.spacer) {
@@ -280,15 +243,6 @@ h2 {
 	height: 10px;
 	border-radius: 0 !important;
 	background: transparent !important;
-}
-
-Custom Checkbox
-.control {
-	display: block;
-	position: relative;
-	margin-bottom: 25px;
-	cursor: pointer;
-	font-size: 18px;
 }
 
 .control input {
@@ -380,4 +334,4 @@ button {
 	transition: 0.25s;
 	background-color: #77af9c;
 	color: white;
-} 
+}

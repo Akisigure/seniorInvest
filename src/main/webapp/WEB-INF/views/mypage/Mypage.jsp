@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>Mypage 마이페이지</title>
-<link rel="stylesheet" href="../css/MypageT.css">
+<link rel="stylesheet"  href="../../css/MypageT.css">
 <meta charset="UTF-8">
 <!-- Required meta tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,6 @@
  
 </head>
 <body>
- 
 	<header class="sticky-top">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container">
@@ -54,7 +53,6 @@
 			</div>
 		</nav>
 	</header>
-	
 	<div id="Picon">
 <div id="userN"><i class="bi bi-person fs-60">${userid}님, 환영합니다</i></div>
 </div>
