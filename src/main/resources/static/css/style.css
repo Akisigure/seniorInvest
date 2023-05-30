@@ -79,11 +79,6 @@ header {
 	text-overflow: ellipsis;
 }
 
-.latest-news img {
-	width: 100%;
-	line-height: 30px;
-}
-
 .view-article {
 	display: inline-block;
 	padding: 10px 20px;
@@ -107,9 +102,6 @@ header {
 	color: gray;
 }
 
-.news-img {
-	margin-bottom: 25px;
-}
 
 .news-title {
 	margin-bottom: 20px;
@@ -152,17 +144,11 @@ a {
 
 .news-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
 }
 
-.news-item .news-image {
-    width: 250px;
-    height: auto;
-    margin-right: 20px;
-    margin-top: 30px;
-}
 
 .news-item .news-text {
     flex-grow: 1;
@@ -183,3 +169,44 @@ a {
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
 }
+
+/* 스타일 수정 */
+.topic-buttons {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 18px;
+    font-weight: 1000; 
+    padding-bottom: 1rem;
+}
+
+.btn-topic {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 1000; 
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #28a745;
+    transition: background-color 0.3s ease;
+}
+
+.news-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.pagination::before,
+.pagination::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #dee2e6;
+    margin: 20px 0;
+}
+
+.news-item:first-child {
+    border-top: 1px solid #dee2e6;
+    padding-top: 1rem;
+}
+
