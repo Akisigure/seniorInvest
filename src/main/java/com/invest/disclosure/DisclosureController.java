@@ -24,7 +24,7 @@ public class DisclosureController {
 		
 
 		DisclosureCommand list = service.disclosureAjax();
-		
+		System.out.println(list);
 		m.addAttribute("list",list);
 	
 		

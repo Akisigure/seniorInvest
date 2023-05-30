@@ -23,7 +23,7 @@ public class DisclosureService {
 	@Value("${DIS-API-KEY}")
 	private String crtfc_key;
 
-	LocalDate now = LocalDate.now().minusDays(3);
+	LocalDate now = LocalDate.now();
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 	String formatedNow = now.format(format);
 	
@@ -40,6 +40,7 @@ public class DisclosureService {
             .queryParam("sort_mth", "desc")
             .queryParam("page_no", "1")
             .queryParam("page_count", 30)
+            .queryParam("rcept_dt", "rcept_dt")
             .encode()
             .build()
             .toUri();
