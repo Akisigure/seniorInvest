@@ -14,14 +14,16 @@ public class FavoriteStockDto {
     private String userid;
     private String accountId;
     private String itmsNm;
-    private boolean isFavorited;
+    private int vs;
+	private double fltRt;
+	private int mkp;
+    private boolean favorited;
 
     public boolean isFavorited() {
-        return isFavorited;
+        return favorited;
     }
 
     public void setFavorited(boolean favorited) {
-        isFavorited = favorited;
+        this.favorited = favorited;
     }
-    
 }

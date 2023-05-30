@@ -17,7 +17,7 @@ public interface StockQuantityDao {
 	@Select("select (ls.mkp - (tradePrice /stockEA ))/ (tradePrice /stockEA ) * 100 as rofreturn, stockEA,  s.srtncd, ls.mkp, s.itmsnm, tradeNo from lastest_stock ls,stockQuantity sq,stock s where ls.srtnCd = sq.srtnCd and sq.srtnCd = s.srtnCd and userid= #{userid}")
 	List<StockQuantityDto> getStockByUserid(String userid);
 	//선택한 주식 1개만
-	@Select("select s.itmsNm, mkp, sq.srtnCd, userid, stockEA from stock s,stockQuantity sq where s.srtnCd = sq.srtnCd and userid= #{userid} and sq.srtnCd= #{srtnCd} and sq.tradeNo = #{tradeNo}")
+	@Select("select s.itmsNm, ls.mkp, sq.srtnCd, userid, stockEA from stock s,stockQuantity sq,lastest_stock ls where s.srtnCd = sq.srtnCd and s.srtnCd = ls.srtnCd and userid= #{userid} and sq.srtnCd= #{srtnCd} and sq.tradeNo = #{tradeNo}")
 	StockQuantityDto getStockByUseridstock(Map<String, Object> map);
 	
 	//전체 보유 내역
