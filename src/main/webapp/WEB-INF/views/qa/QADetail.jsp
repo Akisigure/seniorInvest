@@ -12,7 +12,7 @@
 <body>
 <input type="hidden" id="no" th:value="${dto.no}">
 <!-- header -->
-<jsp:include page="/header"></jsp:include>
+<jsp:include page="/header.jsp"></jsp:include>
 <!-- // header -->
 <div id="wrap">
 
@@ -123,6 +123,7 @@
 					+ "</div><div>"+comm.content;
 					if(id == comm.id){
 						clist +='<button class="dbtn" id="'+comm.cno+'" style="float: right;">삭제</button>';
+					
 					} 
 					clist+="</div><br><hr>"
 					
