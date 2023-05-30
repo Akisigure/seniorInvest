@@ -9,5 +9,6 @@ public class DisclosureList {
 	String corp_name;
 	String report_nm;
 	String flr_nm;
+	String rcept_dt;
 	
 }

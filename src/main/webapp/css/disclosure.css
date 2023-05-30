@@ -1,17 +1,22 @@
 @charset "UTF-8";
 
-.container {
-	display: flex;
-	justify-content: space-around;
+.description {
+	justify-content: center;
+	padding-top: 3%;
 }
 
+
 table {
+	margin:auto;
+	position:relative;
 	width:100%; 
 	border-collapse:collapse; 
 	border:1px solid #ddd;
 }
 
 table thead {
+	
+	padding-top: 10%;
 	background:#000; 
 	color:#fff;
 }
@@ -19,7 +24,10 @@ table thead {
 table thead th {
 	padding:1em; 
 	border:1px solid #ddd;
+	position: relative;
 }
+
+
 
 table tbody td {
 	padding:1em; 
@@ -30,3 +38,41 @@ table tbody td {
 table tbody tr.bg td {
 	background:#eee;
 }
+
+#holi {
+	font-size: 48px;
+	color: red;
+	padding-top: 10%;
+	margin: 0 auto;
+	text-align: center;
+}
+#info {
+	font-weight:bold;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#loadingSpinner {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 추가 CSS 속성 */
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.show {
+  display: none;
+}
+
+
+
+
+

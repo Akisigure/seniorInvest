@@ -1,14 +1,15 @@
 package com.invest.disclosure;
 
 import java.net.URI;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -22,9 +23,12 @@ public class DisclosureService {
 	@Value("${DIS-API-KEY}")
 	private String crtfc_key;
 
-	LocalDate now = LocalDate.now().minusDays(5);
+	LocalDate now = LocalDate.now();
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 	String formatedNow = now.format(format);
+	
+	DayOfWeek getHoliday = now.getDayOfWeek();
+	int holiday = getHoliday.getValue();
 	
 	public DisclosureCommand disclosureAjax() {
 	
@@ -36,14 +40,16 @@ public class DisclosureService {
             .queryParam("sort_mth", "desc")
             .queryParam("page_no", "1")
             .queryParam("page_count", 30)
+            .queryParam("rcept_dt", "rcept_dt")
             .encode()
             .build()
             .toUri();
 	
 	DisclosureCommand list =restTemplate.getForObject(uri, DisclosureCommand.class);
-		System.out.println(list);
 	
 		return list;
 
 	}
+	
+
 }

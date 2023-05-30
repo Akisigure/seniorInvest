@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+#box_green {
+	width: 1300px;
+	height: 1200px;
+	flex-grow: 0;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 7px;
+}
+
+#box_white {
+	width: 1100px;
+	height: 1000px;
+	flex-grow: 0;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #F5F7FB;
+	border-radius: 7px;
+}
+
+#stockName {
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	font-size: 50pt;
+	font-weight: bold;
+}
+
+#currentPrice {
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	font-size: 40pt;
+}
+
+#currentP {
+	width: 150px;
+	height: 50px;
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	vertical-align: center;
+	font-size: 25pt;
+	background-color: #CFCFCF;
+	border: 1px solid black;
+	top: 50%;
+	left: 50%;
+	transform: translate(280%, 10%);
+	border-radius: 10px;
+}
+
+#Q {
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	font-size: 45pt;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	transform: translate(3%, 50%);
+}
+
+#available {
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	font-size: 30pt;
+	top: 50%;
+	left: 50%;
+	transform: translate(3%, 50%);
+}
+
+#Enter {
+	font-family: 'SUITE-Regular';
+	text-align: center;
+	font-size: 25pt;
+	top: 50%;
+	left: 50%;
+	transform: translate(3%, 70%);
+}
+
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+button {
+	margin: 20px;
+}
+
+.w-btn {
+	padding: 15px 30px;
+	border: none;
+	display: inline-block;
+	font-family: 'SUITE-Regular';
+	font-weight: 600;
+	border-radius: 15px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	transition: 0.25s;
+	position: relative;
+}
+
+.w-btn-green {
+	width: 200px;
+	padding: 10px 0;
+	font-size: 30pt;
+	font-family: 'SUITE-Regular';
+	background-color: #77af9c;
+	color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-200%, 50%);
+}

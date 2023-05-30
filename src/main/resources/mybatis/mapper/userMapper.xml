@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.invest.user.dao.UserDao">
+<mapper namespace="com.invest.admin.user.AdminUserDao">
 
 	<select id="userListSearch" parameterType="map" resultType="com.invest.user.dto.Users">
 		

@@ -4,11 +4,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>검색 페이지</title>
-  <link rel="stylesheet" href="./css/stocksearch.css">
+  <title>주식 검색</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+<link rel="stylesheet" href="./css/stocksearch.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap CSS -->
@@ -19,7 +19,7 @@
     <script src="./js/script.js"></script>
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
- <body>
+<body>
  <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -45,14 +45,14 @@
         </div>
     </nav>
 </header>
-   <p><img id="icon" src="img/search.png">주식 검색</p>
- 
+
+<body>
   <div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
-      <div id="inputForm">
-      <input type="text" name="itmsNm" id="autoComplete" placeholder="검색어 입력">
-      <input type="submit" value="검색" id="stockSearch">
-      </div>
+      <input type="text" name="itmsNm" id="autoComplete">
+      <div>
+      	<input type="submit" value="검색" id="stockSearch">
+    	  </div>	
     </form>
     
   </div>

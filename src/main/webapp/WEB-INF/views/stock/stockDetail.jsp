@@ -124,7 +124,7 @@
                 <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
                 <input type="submit" value="매수하기" id="stockbuy">
-                <input type="button" onclick="location.href='/Mypage'" value="매도하기(마이페이지)" id="stocksell">
+                <input type="button" onclick="location.href='/Mypage'" value="매도하기" id="stocksell">
             </form>
         </div>
         <div id="loadingAnimation"><img src="../img/Loading_icon.gif"></div>

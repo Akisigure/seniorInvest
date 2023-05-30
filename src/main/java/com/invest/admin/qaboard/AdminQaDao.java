@@ -26,13 +26,21 @@ public interface AdminQaDao {
 	@Update("update qaboard set subject=#{subject}, content=#{content}, category=#{category}, re_step=#{re_step} where no=#{no}")
 	int updateBoard(QaDto dto);
 
-	
+	@Update("update qaboard set ref = #{no} where no =#{no}") // 제목글일때만
+	int updateRef(int no);
+
+	@Update("update qaboard set re_step = re_step+1 where ref =#{ref} and re_step > #{re_step}")
+	int updateStep(QaDto dto);
 	
 	@Select("select * from qaboard where re_step = 0 order by regdate limit #{start}, #{count}")
 	List<QaDto> AllqaListSearch(Map<String, Object> m);
 	
 	@Select("select count(*) from qaboard")
 	int count();
+	
+	@Update("update qaboard set readcount = readcount + 1 where no = #{no}")
+	int updateReadcount(int no);
+
 	
 	List<QaDto> qaListSearch(Map<String, Object> m);
 
