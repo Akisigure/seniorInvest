@@ -7,12 +7,12 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="/css/stockmainview.css">
 <head>
-<title>실시간 거래량 top10</title>
+<title>관심 종목</title>
 </head>
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1>실시간 거래량 top10</h1>
+			<h1>관심 종목</h1>
 			<div class="message">
 			</div>
 

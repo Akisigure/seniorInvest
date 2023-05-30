@@ -2,8 +2,12 @@ header {
     background-color: #000000;
 }
 
+.navbar-custom {
+    background-color: #C7E7B3; /* 원하는 색상으로 변경하세요. */
+}
+
 .nav-custom-color {
-    background-color: #C7E7B3;
+    background-color: #61845b ;
 }
 
 .nav-custom-color .navbar-nav .nav-link {

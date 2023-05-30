@@ -1,21 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Header</title>
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Custom CSS -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/header.css">
-<!--  Custom script -->
 <script src="/js/script.js"></script>
-<!-- Bootstrap Bundle-->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -24,6 +19,11 @@
 	<nav class="navbar navbar-expand nav-custom-color">
 		<div class="container">
 			<ul class="navbar-nav" style="margin-left: auto;">
+			    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminhome">어드민 페이지 바로가기</a>
+                </li>
+            </sec:authorize>
 				<li class="nav-item"><a class="nav-link mininav" href="/mypage">마이페이지</a></li>
 				<li class="nav-item"><a class="nav-link mininav" href="#">비밀번호 변경</a></li>
 				<li class="nav-item"><a class="nav-link mininav" href="/login">로그아웃</a></li>
@@ -33,7 +33,7 @@
 	</nav>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container">
+			<div class="container">
 			<a class="navbar-brand" href="/"> <img src="/img/logo1.png">
 			</a>
 			<button class="navbar-toggler" type="button"

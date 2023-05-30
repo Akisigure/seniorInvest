@@ -89,6 +89,7 @@ a {
 
 /* 스타일 수정 */
 .topic-buttons {
+	font-weight: bold;
 	margin-top: 2rem;
 	border-top: 1px solid #dee2e6;
     margin-bottom: 2rem;
@@ -97,24 +98,6 @@ a {
     font-weight: 1000; 
     padding-bottom: 1rem;
     padding-top: 1rem;
-}
-
-.btn-topic.active {
-    color: #28a745;   /* 버튼의 글씨 색을 연두색으로 변경 */
-    border-bottom: 3px solid limegreen; /* 밑줄 추가 */
-}
-
-.btn-topic {
-    display: inline-block;
-    padding: 8px 16px;
-    margin-right: 10px;
-    font-size: 18px;
-    font-weight: 1000; 
-    text-decoration: none;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #28a745;
-    transition: background-color 0.3s ease;
 }
 
 .news-item:not(:last-child) {
@@ -136,4 +119,23 @@ a {
 }
 
 
+.btn-topic.custom-btn {
+    /* 원하는 스타일을 여기에 작성하세요 */
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 1000; 
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #28a745;
+    transition: background-color 0.3s ease;
+}
+
+.btn-topic.custom-btn.active {
+    font-weight: bold;
+    color: #28a745;
+    border-bottom: 3px solid limegreen; /* 밑줄 추가 */
+}
 
