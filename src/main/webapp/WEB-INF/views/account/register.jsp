@@ -23,7 +23,13 @@
       <div class="textForm">
         <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
         <span id="chkpw">6~15자리를 입력해주세요</span>	
-        <form:errors path="password" delimiter=" " class="error"/>
+       <div class="error">
+        	<c:if test="${not empty passwordErrors}">
+					<c:forEach items="${passwordErrors}" var="error">
+						${error} 
+					</c:forEach>
+				</c:if>
+        </div>
        	 
       </div>
        <div class="textForm">
@@ -111,6 +117,7 @@ function addPost() {
 
 
 $(function() {
+	
 	
 	let idInput = document.querySelector('#userid');
 	let idErrorMsg = document.querySelector('.error[id="userid.errors"]');
@@ -231,15 +238,31 @@ $(function() {
         }
     }); //비밀번호 확인 스크립트 
 		  
-	      $("#joinform").submit(function() {
+	      $("#register").submit(function(e) {
+	    	 e.preventDefault();
+	    	  
 	        if($("#id_ck").val() != 1) {
 	          $("#id_msg").html("아이디 중복체크를 해주세요.");
 	            return false;
 	        }
-	        if(!$("#password").val()) {
-	          alert("비밀번호를 입력하셔야 합니다.");
-	          return false;
-	        }
+	        var password = $("#password").val();
+		 	var passwordCheck = $("#passwordCheck").val();
+		 	
+		 	if(!password){
+		 		$(".error").html("비밀번호를 입력하세요.");
+		 		return false;
+		 	}		
+		 	
+		 	if(password.length < 6 || password.length > 15){
+		 		$(".error").html("비밀번호는 6글자 이상, 15글자 이하여야 합니다.");
+		 		return false;
+		 		
+		 	}
+		 	
+		 	if(password !== passwordCheck){
+		 		$(".error").html("비밀번호가 일치하지 않습니다.");
+		 		return false;
+		 	}
 	      });
 
 	  
