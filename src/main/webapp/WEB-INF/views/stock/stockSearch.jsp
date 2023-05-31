@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
   <meta charset="UTF-8">
   <title>주식 검색</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -45,16 +46,17 @@
         </div>
     </nav>
 </header>
-
-<body>
+<div class="searchInfo">
+<p><img id="icon" src="img/search.png">주식 검색</p>
+  
   <div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
-      <input type="text" name="itmsNm" id="autoComplete">
+      <input type="text" name="itmsNm" id="autoComplete" placeholder="검색어 입력">
       <div>
       	<input type="submit" value="검색" id="stockSearch">
     	  </div>	
     </form>
-    
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

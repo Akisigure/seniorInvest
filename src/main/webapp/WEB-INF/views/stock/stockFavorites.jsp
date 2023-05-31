@@ -7,12 +7,12 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="/css/stockmainview.css">
 <head>
-<title>실시간 거래량 top10</title>
+<title>관심 종목</title>
 </head>
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1>실시간 거래량 top10</h1>
+			<h1>관심 종목</h1>
 			<div class="message">
 			</div>
 
@@ -26,7 +26,7 @@
 						<th>가격</th>
 					</tr>
 				</thead>
-					<c:forEach var="stock" items="${stockMainview}" varStatus="status">
+					<c:forEach var="stock" items="${favoriteStocks}" varStatus="status">
 						<c:if test="${status.index < 8}">
 							<tr>
 								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: yellow;"
@@ -41,7 +41,6 @@
 								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
 								<c:out value="${stock.mkp}" /></td>
 							</tr>
-
 						</c:if>
 					</c:forEach>
 			</table>
@@ -85,33 +84,6 @@
 				}
 			});
 		}
-
-		$(document).ready(function() {
-			var url = '/favoriteStock/getFavorites';
-			var type = 'GET';
-
-			$.ajax({
-				url : url,
-				type : type,
-				data : {
-					userid : '${username}'
-				},
-				success : function(response) {
-					for (var i = 0; i < response.length; i++) {
-						var itmsNm = response[i].itmsNm;
-						var elementId = 'star-' + itmsNm;
-						var element = $('#' + elementId);
-
-						if (element.length) {
-							element.addClass('fas').removeClass('far');
-						}
-					}
-				},
-				error : function(response) {
-					// 에러 처리
-				}
-			});
-		});
 	</script>
 </body>
 </html>

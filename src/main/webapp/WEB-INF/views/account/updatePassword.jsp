@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>비밀번호 수정</title>
 <link rel="stylesheet" href="./css/updatePassword.css">
 <link rel="stylesheet" href="./css/style.css">

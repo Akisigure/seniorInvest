@@ -10,20 +10,22 @@
 #icon {
 
     width: 60px;
-    transform: translate(-30%, -30%);
+    transform: translate(-30%, -15%);
 }
 
-p {
+.searchInfo {
     font-family: 'SUITE-Regular';
     font-size: 40pt;
     font-weight: bold;
     text-align: center;
-    transform: translate(-1%, 250%);
+    padding-top: 2.5%;
+    display: flex;
+    padding-left: 42%;
 }
 .searchForm {
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #ffffff;

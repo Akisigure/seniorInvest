@@ -4,6 +4,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>회원가입</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
@@ -20,18 +21,18 @@
         <form:errors path="userid" delimiter=" " class="error"/>
       </div>
 
-      <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
-        <span id="chkpw">6~15자리를 입력해주세요</span>	
-       <div class="error">
-        	<c:if test="${not empty passwordErrors}">
-					<c:forEach items="${passwordErrors}" var="error">
-						${error} 
-					</c:forEach>
-				</c:if>
-        </div>
-       	 
-      </div>
+<div class="textForm">
+    <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
+    <span id="chkpw">6~15자리를 입력해주세요</span>
+    <c:choose>
+        <c:when test="${status.error && status.errorMessages.contains('NotEmpty') && status.errorMessages.contains('Length')}">
+        </c:when>
+        <c:otherwise>
+            <form:errors path="password" delimiter="<br>" class="error" cssClass="error-messages"/>
+        </c:otherwise>
+    </c:choose>
+</div>
+
        <div class="textForm">
          <input type="password" placeholder="비밀번호 확인" id="passwordCheck" class="pw" name="passwordCheck" autocomplete="off">
         	<span id="alert-clear" style="display: none;">비밀번호가 일치합니다.</span>
@@ -117,7 +118,6 @@ function addPost() {
 
 
 $(function() {
-	
 	
 	let idInput = document.querySelector('#userid');
 	let idErrorMsg = document.querySelector('.error[id="userid.errors"]');
@@ -238,31 +238,15 @@ $(function() {
         }
     }); //비밀번호 확인 스크립트 
 		  
-	      $("#register").submit(function(e) {
-	    	 e.preventDefault();
-	    	  
+	      $("#joinform").submit(function() {
 	        if($("#id_ck").val() != 1) {
 	          $("#id_msg").html("아이디 중복체크를 해주세요.");
 	            return false;
 	        }
-	        var password = $("#password").val();
-		 	var passwordCheck = $("#passwordCheck").val();
-		 	
-		 	if(!password){
-		 		$(".error").html("비밀번호를 입력하세요.");
-		 		return false;
-		 	}		
-		 	
-		 	if(password.length < 6 || password.length > 15){
-		 		$(".error").html("비밀번호는 6글자 이상, 15글자 이하여야 합니다.");
-		 		return false;
-		 		
-		 	}
-		 	
-		 	if(password !== passwordCheck){
-		 		$(".error").html("비밀번호가 일치하지 않습니다.");
-		 		return false;
-		 	}
+	        if(!$("#password").val()) {
+	          alert("비밀번호를 입력하셔야 합니다.");
+	          return false;
+	        }
 	      });
 
 	  

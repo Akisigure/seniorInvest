@@ -26,3 +26,8 @@
 	width: 200px;
 	height: 100px;	
 }
+
+#btn:hover {
+	transition : 0.5s;
+	transform: scale(1.2);
+}

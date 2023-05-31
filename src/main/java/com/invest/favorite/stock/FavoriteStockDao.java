@@ -1,27 +1,36 @@
 package com.invest.favorite.stock;
 
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 public interface FavoriteStockDao {
+    @Update("UPDATE favoriteStock SET vs = #{vs}, fltRt = #{fltRt}, mkp = #{mkp}, favorited = #{favorited} WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm}")
+    void updateFavoriteStock(FavoriteStockDto favoriteStockDto);
 
-    @Insert("insert into favoriteStock (no, userid, accountId, itmsNm) values(#{no}, #{userid}, #{accountId}, #{itmsNm})")
+    @Insert("INSERT INTO favoriteStock (userid, accountId, itmsNm, favorited, vs, fltRt, mkp) VALUES (#{userid}, #{accountId}, #{itmsNm}, #{favorited}, #{vs}, #{fltRt}, #{mkp})")
     int addFavoriteStock(FavoriteStockDto favoriteStockDto);
 
-    @Select("select * from favoriteStock where userid = #{userid} and accountId = #{accountId}")
-    List<FavoriteStockDto> getFavoriteStocks(String userid, String accountId);
-
-    @Delete("delete from favoriteStock where no = #{no}")
+    @Delete("DELETE FROM favoriteStock WHERE no = #{no}")
     int removeFavoriteStock(int no);
 
-    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm}")
-    Optional<FavoriteStockDto> findByUserIdAndAccountIdAnditmsNm(@Param("userid") String userid, @Param("accountId") String accountId, @Param("itmsNm") String itmsNm);
+    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND accountId = #{accountId} AND itmsNm = #{itmsNm} AND vs = #{vs} AND fltRt = #{fltRt} AND mkp = #{mkp}")
+    Optional<FavoriteStockDto> findByUserIdAndAccountIdAndItmsNm(
+            @Param("userid") String userid,
+            @Param("accountId") String accountId,
+            @Param("itmsNm") String itmsNm,
+            @Param("vs") int vs,
+            @Param("fltRt") double fltRt,
+            @Param("mkp") int mkp
+    );
 
-    // 추가된 메서드
-    @Update("update favoriteStock set favorited = #{favorited} where no = #{no}")
-    int updateFavoriteStatus(@Param("no") int no, @Param("favorited") boolean favorited);
+    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND favorited = true")
+    List<FavoriteStockDto> getFavoriteStocks(@Param("userid") String userid);
     
-    
+    @Select("SELECT * FROM favoriteStock WHERE userid = #{userid} AND favorited = true")
+    List<FavoriteStockDto> getFavorites(String userid);
+
 }
+

@@ -1,7 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>매수화면</title>
 </head>
 <style>
@@ -9,8 +12,9 @@
 .Buy_container {
   display: flex;
   justify-content: center;
-  padding-top: 10%;
+  padding-top: 1.5%;
   align-items: center;
+  font-size: 24px;
 }
 
 .stockBuy {
@@ -28,7 +32,6 @@
 
 .stockBuy p {
   margin: 10px 0;
-  font-size: 17pt;
   font-weight: bold;
 }
 
@@ -44,7 +47,6 @@
   border-bottom: 2px solid #adadad;
   outline: none;
   color: #636e72;
-  font-size: 16px;
   background: none;
   transition: border-bottom-color 0.3s;
   font-weight: bold;
@@ -65,17 +67,19 @@
 .btn {
   display: inline-block;
   text-align: center;
+  margin: 10px;
+  
 }
 
 .btn:hover {
   color: black;
   transition: 0.5s;
+  transform: scale(1.2);
 }
 
 .error-message {
   padding-bottom: 20px;
   color: red;
-  font-size: 18px;
 }
 
 
@@ -92,14 +96,14 @@
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-<jsp:include page="../home/header.jsp"></jsp:include>
+<!--<jsp:include page="../home/header.jsp"></jsp:include>-->
 <div class="Buy_container">
 <form method="post" action="/orderComplete" class="stockBuy">
 
 <p>종목명 : ${itmsNm} </p>
-<p>시장가 : <label for="orderPrice">${detail.mkp}</label> </p>
-<p>전일대비 : ${detail.fltRt} </p>
-<p>변동가격 : ${detail.vs} </p><br>
+<p>시장가 : <label for="orderPrice"><fmt:formatNumber value="${detail.mkp}" type="number"></fmt:formatNumber>원</label> </p>
+<p>전일대비 : <span id="stockVariance">${detail.fltRt}% </span></p>
+<p>변동가격 : <span id="stockRate"><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span> </p><br>
 
 		<div class="textForm">
 		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요" autocomplete="off">
@@ -125,15 +129,20 @@
 
       if (orderPrice === "" || quantity === "") {
         $(".error-message").text("값을 입력해주세요.");
-        event.preventDefault(); // 폼 제출을 막습니다.
+        event.preventDefault();
       } else if (!/^\d+$/.test(orderPrice) || !/^\d+$/.test(quantity)) {
         $(".error-message").text("숫자만 입력해주세요.");
-        event.preventDefault(); // 폼 제출을 막습니다.
+        event.preventDefault(); 
       } else {
         $(".error-message").empty();
       }
     });
   });
+  
+  let scVs = "<c:out value='${detail.vs}'/>";
+  let scFltRt = "<c:out value='${detail.fltRt}'/>";
+  $("#stockVariance").css("color", scFltRt < 0 ? "blue" : (scFltRt > 0 ? "red" : ""));
+  $("#stockRate").css("color", scVs < 0 ? "blue" : (scVs > 0 ? "red" : ""));
 </script>
 
 </body>

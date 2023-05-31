@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${itmsNm} : ${detail.mkp}원</title>
@@ -61,6 +63,7 @@
       width : 10vw;
 	  height : 5vh;
 	  border-radius:10px;
+	  margin-right: 10px;
 	  
     }
     
@@ -79,6 +82,7 @@
     #stockbuy:hover {
 	color: black;
 	transition : 0.5s;
+	transform: scale(1.2);
 }
 
 #stocksell {
@@ -92,6 +96,7 @@
       width : 10vw;
 	  height : 5vh;
 	  border-radius:10px;
+	  margin-left: 10px;
 	  
     
 }
@@ -99,6 +104,7 @@
 #stocksell:hover {
 	color: black;
 	transition : 0.5s;
+	transform: scale(1.2);
 
 }
     
@@ -111,15 +117,15 @@
             <h2 class="fw-bold">이름 : ${itmsNm}</h2>
         </div>
         <div id="stockMarketPrice" class="bg">
-            <h2>가격 : <span>${detail.mkp}</span></h2>
+            <h2>가격 : <span><fmt:formatNumber value="${detail.mkp}" type="number"></fmt:formatNumber>원</span></h2>
         </div>
         <div id="stockRate" class="bg">
             <h2>전일대비 : <span>${detail.fltRt}% </span></h2>
         </div>
         <div id="stockVariance" class="bg">
-            <h2>변동가격 : ${detail.vs}</h2>
+            <h2>변동가격 : <span><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span></h2>
         </div>
-        <div>
+        <div> 
             <form method="get" action="/stockBuy">
                 <input type="hidden" name="itmsNm" value="${detail.itmsNm}">
                 <input type="hidden" name="srtnCd" value="${detail.srtnCd}">
