@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>임시 비밀번호</title>
 </head>
 <body>

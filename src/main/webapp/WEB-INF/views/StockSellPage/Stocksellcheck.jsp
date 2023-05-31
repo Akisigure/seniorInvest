@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <meta charset="UTF-8">
 <title>Stock sell check 매도 결정 확인 페이지</title>
  <link rel="stylesheet" href="css/Stocksellcheck.css">

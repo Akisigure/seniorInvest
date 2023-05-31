@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>공지 작성</title>
 <style>
 	.orange{background-color: orange; width : 50px;}
