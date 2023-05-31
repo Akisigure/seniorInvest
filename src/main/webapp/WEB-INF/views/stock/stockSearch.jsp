@@ -45,11 +45,11 @@
         </div>
     </nav>
 </header>
+<p><img id="icon" src="img/search.png">주식 검색</p>
 
-<body>
   <div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
-      <input type="text" name="itmsNm" id="autoComplete">
+      <input type="text" name="itmsNm" id="autoComplete" placeholder="검색어 입력">
       <div>
       	<input type="submit" value="검색" id="stockSearch">
     	  </div>	
