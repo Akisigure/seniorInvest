@@ -6,31 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Required meta tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts/icomoon/style.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<!-- 부트스트랩 가져오기위해 필요한 링크 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Style -->
-<link rel="stylesheet" href="css/style.css">
+<title>매도 결정 페이지</title>
+<link rel="stylesheet" href="css/StocksellDcN.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="/css/header.css">
 <!--  Custom script -->
-<script src="./js/script.js"></script>
+<script src="/js/script.js"></script>
 <!-- Bootstrap Bundle-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
- 
-<title>매도 결정 페이지</title>
-<link rel="stylesheet" href="css/StocksellDcN.css">
+</head>
 </head>
 <body>
 	<header class="sticky-top">

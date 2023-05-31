@@ -76,7 +76,7 @@
 	vertical-align: center;
 	top: 50%;
 	left: 50%;
-	transform: translate(80%, 120%);
+	transform: translate(75%, 120%);
 	width: 400px;
 	height: 60px;
 	background-color: #CFCFCF;
@@ -89,7 +89,7 @@
 	font-size: 25pt;
 	top: 50%;
 	left: 50%;
-	transform: translate(33%, 50%);
+	transform: translate(30%, 50%);
 }
 
 @import

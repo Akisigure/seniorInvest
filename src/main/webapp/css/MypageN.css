@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* 스타일 설정 */
-
 @font-face {
 	font-family: 'NanumSquareNeo-Variable';
 	src:
@@ -20,7 +19,7 @@
 	width: 350px;
 	font-family: 'TheJamsil5Bold';
 	font-size: 25pt;
-	font-weight:bold;
+	font-weight: bold;
 	top: 50%;
 	left: 50%;
 	transform: translate(-20%, 50%);
@@ -45,44 +44,40 @@ main {
 	border-radius: 7px;
 	border: 1px solid #F5F5F5;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	transform: translate(20%, 10%);
+	transform: translate(20%, 50%);
 }
 
 #boxBalance {
 	display: flex;
 	width: 1000px;
-	height: 75px;
+	height: 80px;
 	margin: 3% auto;
 	padding: 9%;
 	border: 1px solid #F5F5F5;
-	transform: translate(20%, 10%);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	border-radius: 7px;
+	transform: translate(0%, 10%);
 	background: #E6F0E0;
+	border-radius: 7px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #BaL {
-	width: 200px;
-	display: flex;
-	top: 50%;
-	left: 20%;
-	transform: translate(-40%, -170%);
-	text-align: center;
-	font-size: 24pt;
-	font-family: 'NanumSquareNeo-Variable';
+	position: absolute;
 	font-weight: bold;
+	font-size: 22pt;
+	font-family: 'NanumSquareNeo-Variable';
+	margin-left: -450px;
+	margin-top: -80px;
+	top: 50%;
+	left: 50%;
 }
 
 .BalNum {
-	width: 400px;
-	display: flex;
+	font-weight: bold;
+	font-size: 50pt;
 	font-family: 'NanumSquareNeo-Variable';
-	font-size: 80px;
-	font-weight: 800;
-	position: relative;
 	top: 50%;
 	left: 50%;
-	transform: translate(5%, -60%);
+	transform: translate(90%, 30%);
 }
 
 #boxAccount {
@@ -102,7 +97,7 @@ main {
 	display: flex;
 	text-align: left;
 	font-weight: bold;
-	font-size: 24pt;
+	font-size: 22pt;
 	font-family: 'NanumSquareNeo-Variable';
 	top: 50%;
 	left: 20%;
@@ -113,7 +108,7 @@ main {
 	width: 550px;
 	display: flex;
 	font-family: 'NanumSquareNeo-Variable';
-	font-size: 110px;
+	font-size: 90px;
 	font-weight: 800;
 	position: relative;
 	top: 50%;
@@ -169,7 +164,7 @@ a, a:hover {
 }
 
 h2 {
-	font-size: 18px;
+	font-size: 15px;
 }
 
 .custom-table-responsive {
@@ -179,13 +174,15 @@ h2 {
 	justify-content: center;
 	border-radius: 4px;
 	background-color: #efefef;
-	font-size: 18pt;
+	font-size: 15pt;
 	font-weight: bold;
 	font-family: 'NanumSquareNeo-Variable';
 }
 
 .custom-table {
 	min-width: 600px;
+	border-collapse: separate;
+	border-spacing: 0 10px;
 }
 
 .custom-table thead tr, .custom-table thead th {
