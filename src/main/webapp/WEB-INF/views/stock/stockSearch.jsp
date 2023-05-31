@@ -46,8 +46,9 @@
         </div>
     </nav>
 </header>
+<div class="searchInfo">
 <p><img id="icon" src="img/search.png">주식 검색</p>
-
+  
   <div class="searchForm">
     <form method="post" action="/stockDetail" id="searchForm">
       <input type="text" name="itmsNm" id="autoComplete" placeholder="검색어 입력">
@@ -55,7 +56,7 @@
       	<input type="submit" value="검색" id="stockSearch">
     	  </div>	
     </form>
-    
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
