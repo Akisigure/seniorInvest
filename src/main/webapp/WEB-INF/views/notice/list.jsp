@@ -37,6 +37,7 @@ a {
 </style>
 </head>
 <body>
+<jsp:include page="/header"></jsp:include>
 	<div id="center">
 		<h1>게시글 목록</h1>
 		

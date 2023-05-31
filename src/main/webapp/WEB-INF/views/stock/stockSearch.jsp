@@ -21,7 +21,7 @@
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
- <header class="sticky-top">
+ <!-- <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -45,8 +45,8 @@
             </div>
         </div>
     </nav>
-</header>
-
+</header> -->
+<jsp:include page="/header"></jsp:include>
 <div class="searchInfo">
 <p><img id="icon" src="img/search.png">주식 검색</p>
   
