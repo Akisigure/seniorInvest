@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
   <meta charset="UTF-8">
   <title>주식 검색</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <!--  bList begin end count pageNum totalPages -->
 <title>글 목록</title>
 <style>

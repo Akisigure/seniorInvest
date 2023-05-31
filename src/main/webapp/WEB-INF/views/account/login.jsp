@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="./css/login.css">
 
     <head>
+    <title>로그인</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
         <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     </head>
     <body>
