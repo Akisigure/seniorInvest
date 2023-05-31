@@ -1,4 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Pragma", "no-cache");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +43,6 @@ window.history.forward(); function noBack(){
 document.onkeydown = noEvent;
 
 </script>
-
 
 <body oncontextmenu="return false">
 </html>

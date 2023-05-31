@@ -46,6 +46,7 @@
         </div>
     </nav>
 </header>
+
 <div class="searchInfo">
 <p><img id="icon" src="img/search.png">주식 검색</p>
   

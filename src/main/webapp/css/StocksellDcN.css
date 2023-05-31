@@ -1,28 +1,26 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family: 'SUITE-Regular';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
-		format('woff2');
-	font-weight: 400;
+	font-family: 'NanumSquareNeo-Variable';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+	font-weight: normal;
 	font-style: normal;
 }
 
 #box_green {
 	width: 1300px;
-	height: 1200px;
+	height: 1300px;
 	flex-grow: 0;
 	margin: 3% auto;
 	padding: 5%;
 	border: 1px solid #F5F5F5;
-	background: #E6F0E0;
+	background: #C2D0BE;
 	border-radius: 7px;
 }
 
 #box_white {
 	width: 1100px;
-	height: 1000px;
+	height: 1100px;
 	flex-grow: 0;
 	margin: 3% auto;
 	padding: 5%;
@@ -32,37 +30,38 @@
 }
 
 #stockName {
-	font-family: 'SUITE-Regular';
 	text-align: center;
-	font-size: 50pt;
+	font-family: 'NanumSquareNeo-Variable';
 	font-weight: bold;
+	font-size: 55pt;
+	color: #414F3E;
 }
 
 #currentPrice {
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	text-align: center;
-	font-size: 40pt;
+	font-size: 35pt;
 }
 
 #currentP {
-	width: 150px;
-	height: 50px;
-	font-family: 'SUITE-Regular';
+	width: 300px;
+	height: 60px;
+	font-family: 'NanumSquareNeo-Variable';
 	text-align: center;
 	vertical-align: center;
-	font-size: 25pt;
+	font-size: 30pt;
 	background-color: #CFCFCF;
 	border: 1px solid black;
 	top: 50%;
 	left: 50%;
-	transform: translate(280%, 10%);
+	transform: translate(115%, 10%);
 	border-radius: 10px;
 }
 
 #Q {
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	text-align: center;
-	font-size: 45pt;
+	font-size: 50pt;
 	font-weight: bold;
 	top: 50%;
 	left: 50%;
@@ -70,21 +69,27 @@
 }
 
 #available {
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	text-align: center;
-	font-size: 30pt;
+	font-size: 25pt;
+	text-align: center;
+	vertical-align: center;
 	top: 50%;
 	left: 50%;
-	transform: translate(3%, 50%);
+	transform: translate(75%, 120%);
+	width: 400px;
+	height: 60px;
+	background-color: #CFCFCF;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
 #Enter {
-	font-family: 'SUITE-Regular';
-	text-align: center;
+	font-family: 'NanumSquareNeo-Variable';
 	font-size: 25pt;
 	top: 50%;
 	left: 50%;
-	transform: translate(3%, 70%);
+	transform: translate(30%, 60%);
 }
 
 @import
@@ -98,7 +103,7 @@ button {
 	padding: 15px 30px;
 	border: none;
 	display: inline-block;
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	font-weight: 600;
 	border-radius: 15px;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -108,13 +113,14 @@ button {
 }
 
 .w-btn-green {
-	width: 200px;
+	width: 250px;
 	padding: 10px 0;
 	font-size: 30pt;
-	font-family: 'SUITE-Regular';
+	font-family: 'NanumSquareNeo-Variable';
 	background-color: #77af9c;
 	color: white;
 	top: 50%;
 	left: 50%;
-	transform: translate(-200%, 50%);
+	transform: translate(-220%, 280%);
 }
+
