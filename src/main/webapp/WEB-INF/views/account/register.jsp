@@ -20,12 +20,18 @@
         <form:errors path="userid" delimiter=" " class="error"/>
       </div>
 
-      <div class="textForm">
-        <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
-        <span id="chkpw">6~15자리를 입력해주세요</span>	
-        <form:errors path="password" delimiter=" " class="error"/>
-       	 
-      </div>
+<div class="textForm">
+    <input name="password" type="password" class="pw" placeholder="비밀번호" id="password" autocomplete="off">
+    <span id="chkpw">6~15자리를 입력해주세요</span>
+    <c:choose>
+        <c:when test="${status.error && status.errorMessages.contains('NotEmpty') && status.errorMessages.contains('Length')}">
+        </c:when>
+        <c:otherwise>
+            <form:errors path="password" delimiter="<br>" class="error" cssClass="error-messages"/>
+        </c:otherwise>
+    </c:choose>
+</div>
+
        <div class="textForm">
          <input type="password" placeholder="비밀번호 확인" id="passwordCheck" class="pw" name="passwordCheck" autocomplete="off">
         	<span id="alert-clear" style="display: none;">비밀번호가 일치합니다.</span>
