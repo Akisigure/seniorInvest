@@ -10,7 +10,7 @@
 #icon {
 
     width: 60px;
-    transform: translate(-30%, -30%);
+    transform: translate(-30%, -15%);
 }
 
 p {
@@ -18,7 +18,7 @@ p {
     font-size: 40pt;
     font-weight: bold;
     text-align: center;
-    transform: translate(-1%, 250%);
+    transform: translate(-1%, 200%);
 }
 .searchForm {
   display: flex;
