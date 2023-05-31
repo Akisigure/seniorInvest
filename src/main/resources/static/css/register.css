@@ -15,8 +15,8 @@ body {
 
 .joinForm {
   position:absolute;
-  width:400px;
-  height:400px;
+  width:500px;
+  height:750px;
   padding: 30px, 20px;
   background-color:#FFFFFF;
   text-align:center;
@@ -42,7 +42,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -52,7 +52,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -62,7 +62,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -72,7 +72,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -82,7 +82,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -94,7 +94,7 @@ body {
   border:none;
   outline:none;
   color: #636e72;
-  font-size:16px;
+  font-size:20px;
   height:25px;
   background: none;
 }
@@ -105,7 +105,7 @@ body {
   transform: translateX(-50%);
   margin-bottom: 40px;
   width:80%;
-  height:40px;
+  height:50px;
   background: linear-gradient(125deg, #2ecc71, #27ae60, #2ecc71);
   background-position: left;
   background-size: 200%;
@@ -115,13 +115,13 @@ body {
   cursor:pointer;
   transition: 0.4s;
   display:inline;
-   font-size: 24px;
+   font-size: 28px;
 }
 #id_check {
 	width : 120px;
-	height : 40px;
+	height : 45px;
 	float : right;
-	font-size : 18px;
+	font-size : 20px;
 	margin : -37px;
 	padding-left: -20px;
 }
@@ -161,6 +161,8 @@ body {
 	right : -180px;
 	width : 200px;
 	height : 20px;
+	overflow: visible;
+	font-size: 17px;
 
 }
 
@@ -179,12 +181,18 @@ body {
 
 .error{
 	color:red;
+	font-size:20px;
 }
 
 .error-messages {
 		color: red;
-white-space: pre-line;
+	white-space: pre-line;
+	font-size:20px;
 	
 }
 
+span{
+	font-size: 20px;
+	
+}
 
