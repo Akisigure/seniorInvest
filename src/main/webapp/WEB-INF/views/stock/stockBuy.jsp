@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Pragma", "no-cache");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +123,6 @@
 		</div>
 	</form>
 	</div>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
@@ -144,6 +147,5 @@
   $("#stockVariance").css("color", scFltRt < 0 ? "blue" : (scFltRt > 0 ? "red" : ""));
   $("#stockRate").css("color", scVs < 0 ? "blue" : (scVs > 0 ? "red" : ""));
 </script>
-
 </body>
 </html>

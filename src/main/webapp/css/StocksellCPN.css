@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'NanumSquareNeo-Variable';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#box_green {
+	width: 1300px;
+	height: 1000px;
+	flex-grow: 0;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #C2D0BE;
+	border-radius: 7px;
+}
+
+#box_white {
+	width: 1100px;
+	height: 250px;
+	flex-grow: 0;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #F5F5F5;
+	background: #F5F7FB;
+	border-radius: 7px;
+}
+
+#sinCP {
+	text-align: left;
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
+	font-size: 45pt;
+	color: #414F3E;
+}
+
+#another {
+	text-align: left;
+	font-family: 'NanumSquareNeo-Variable';
+	font-size: 23pt;
+}
+
+#sinCom {
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
+	font-size: 45pt;
+	top: 50%;
+	left: 50%;
+	transform: translate(3%, 40%);
+}
+
+#sinCCom {
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
+	font-size: 45pt;
+	top: 50%;
+	left: 50%;
+	transform: translate(3%, 40%);
+}
+
+.my-color {
+	color: #414F3E;
+}
+
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
+	;
+
+.w-btn {
+	border: none;
+	width: 250px;
+	padding: 30px;
+	transition: 0.25s;
+	text-align: center;
+	margin: 0 100px; /* 버튼 사이의 간격 조절 */
+	font-weight: 600;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	text-decoration: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(0%, 150%);
+}
+
+.w-btn-green1 {
+	width: 350px;
+	background-color: #77af9c;
+	color: white;
+	font-size: 20pt;
+	padding: 25px;
+}
+
+.w-btn-green2 {
+	width: 350px;
+	background-color: #77af9c;
+	color: white;
+	font-size: 20pt;
+	padding: 25px;
+}

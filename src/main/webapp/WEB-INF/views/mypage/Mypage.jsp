@@ -5,45 +5,52 @@
 <html>
 <head>
 <title>Mypage 마이페이지</title>
-<link rel="stylesheet" href="../css/MypageT.css">
+<link rel="stylesheet"  href="../../css/MypageN.css">
 <meta charset="UTF-8">
-<!-- Required meta tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fonts/icomoon/style.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<!-- 부트스트랩 가져오기위해 필요한 링크 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Style -->
-<link rel="stylesheet" href="css/style.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="/css/header.css">
 <!--  Custom script -->
-<script src="./js/script.js"></script>
+<script src="/js/script.js"></script>
 <!-- Bootstrap Bundle-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
- 
 </head>
 <body>
-<jsp:include page="../home/header.jsp"></jsp:include> 
-
+	<header class="sticky-top">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="/"> <img src="./img/logo1.png"></a> 
+				<a href="updatepw">비밀번호 수정</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="news">뉴스</a></li>
+						<li class="nav-item"><a class="nav-link" href="disclosure">공시</a></li>
+						<li class="nav-item"><a class="nav-link" href="notices">공지사항</a></li>
+						<li class="nav-item"><a class="nav-link" href="intstock">관심종목</a></li>
+						<li class="nav-item"><a class="nav-link" href="Mypage">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" href="qa">Q&A</a></li>
+						<li class="nav-item"><a class="nav-link" href="login">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" href="stockSearch">주식검색</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 	<div id="Picon">
-<div id="userN"><i class="bi bi-person fs-60">${userid}님, 환영합니다</i></div>
-</div>
+		<div id="userN">${userid}님, 환영합니다</div>
+	</div>
 	<main>
 	<form>
 	<div id="uInfo"> 나의 정보 </div>
-		<div id="boxBalance" style="display: inline-block; , width: 50%;">
+		<div id="boxBalance">
 			<div id=BaL>  나의 잔액 ></div>
-			<span class="BalNum"> 
-			<fmt:formatNumber value="${Balance.balance}" type="number"></fmt:formatNumber>원
-			</span>
+			<div class="BalNum"> 
+			<fmt:formatNumber value="${Balance.balance}" type="number"></fmt:formatNumber>원</div>
 		</div>
 		<div id="boxAccount" style="display: inline-block; , width: 30%;">
 			<div id=Acc>나의 계좌번호 ></div>
