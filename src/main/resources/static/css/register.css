@@ -180,3 +180,11 @@ body {
 .error{
 	color:red;
 }
+
+.error-messages {
+		color: red;
+white-space: pre-line;
+	
+}
+
+

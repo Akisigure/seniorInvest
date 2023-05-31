@@ -23,7 +23,7 @@ public class Users {
 	private String accountid;
 	 
 	@NotBlank(message = "비밀번호는 필수 입력 값입니다.")
-	@Length(min = 6, max = 15, message="")
+	@Length(min = 6, max = 15, message="6글자 이상 15글자 이하로 해주세요")
 	private String password;
 	
 	@Pattern(regexp = "^[가-힣]*$", message = "한글만 입력해주세요")

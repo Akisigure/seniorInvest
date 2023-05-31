@@ -71,31 +71,32 @@ public class UserController {
 	}
 	
 	@PostMapping("/register")
-	public String register(@Validated Users user,BindingResult result, Model m) throws Exception {
-	
-		 String accountid = regService.randomAccount();//계좌
-		
-		System.out.println(user.toString());
-		
-		if(result.hasErrors()) {
-	           List<ObjectError> errors = result.getAllErrors();
-	            for(ObjectError error : errors){
-	                System.out.println(error.getDefaultMessage());
-		}
-	            return "account/register";
-		}
-		
-		try {
-			user.setAccountid(accountid);
-			regService.registerUser(user);
-		
-			
-		} catch(IllegalStateException e) {
-			e.printStackTrace();
-			m.addAttribute("errorMessage", e.getMessage());
-			return "account/register";
-		}
-		return "redirect:/login";
+	public String register(@Validated Users user, BindingResult result, Model m) throws Exception {
+
+	    String accountid = regService.randomAccount();
+
+	    System.out.println(user.toString());
+
+	    if (result.hasErrors()) {
+	        StringBuilder errorMessage = new StringBuilder();
+	        for (ObjectError error : result.getAllErrors()) {
+	            errorMessage.append(error.getDefaultMessage()).append("\n");
+	        }
+	        System.out.println(errorMessage.toString());
+	        m.addAttribute("errorMessage", errorMessage.toString());
+	        return "account/register";
+	    }
+
+	    try {
+	        user.setAccountid(accountid);
+	        regService.registerUser(user);
+	    } catch (IllegalStateException e) {
+	        e.printStackTrace();
+	        m.addAttribute("errorMessage", e.getMessage());
+	        return "account/register";
+	    }
+
+	    return "redirect:/login";
 	}
 	
 	@PostMapping("/login")
