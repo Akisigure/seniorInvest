@@ -11,7 +11,7 @@ header {
 }
 
 .nav-custom-color .navbar-nav .nav-link {
-    color: #28a745;
+    color: 000;
 }
 
 .logo h1 {
@@ -36,9 +36,9 @@ header {
 
 .navbar-custom  .navbar-nav .nav-link {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 2px;
+    margin: 10px;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -12,7 +13,7 @@
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1>실시간 거래량 top10</h1>
+			<h1 style="text-align: center;">시가총액 상위 10</h1>
 			<div class="message">
 			</div>
 
@@ -29,23 +30,23 @@
 					<c:forEach var="stock" items="${stockMainview}" varStatus="status">
 						<c:if test="${status.index < 8}">
 							<tr>
-								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: yellow;"
+								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: #B70404;"
 									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
 									data-itms-nm="${stock.itmsNm}" data-vs="${stock.vs}"
 									data-mkp="${stock.mkp}" data-flt-rt="${stock.fltRt}"
-									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i></td>
-								<td class="stock-name"><c:out value="${stock.itmsNm}" /></td>
+									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i> </td>
+								<td class="stock-name"><a href="/stockDetail?itmsNm=${stock.itmsNm}" style="text-decoration: none;">${stock.itmsNm}</a></td>
 								<td><c:out value="${stock.vs}" /></td>
 								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
 								<c:out value="${stock.fltRt}%" /></td>
 								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
-								<c:out value="${stock.mkp}" /></td>
+								<fmt:formatNumber value="${stock.mkp}" type="number"></fmt:formatNumber> 원</td>
 							</tr>
 
 						</c:if>
 					</c:forEach>
 			</table>
-			<a href="#" target="_blank" class="button">종목 확인하기</a>
+			<a href="/stockSearch" target="_blank" class="button">종목 확인하기</a>
 		</div>
 	</div>
 

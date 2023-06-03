@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
  <link rel="stylesheet" href="css/StocksellCPN.css">
 <title>Stock sell complete 매도 완료 페이지</title>
 <!-- jQuery -->

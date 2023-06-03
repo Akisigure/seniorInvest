@@ -5,7 +5,8 @@
 <html>
 <head>
 <title>Mypage 마이페이지</title>
-<link rel="stylesheet"  href="../../css/MypageN.css">
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
+<link rel="stylesheet"  href="/css/MypageN.css">
 <meta charset="UTF-8">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,7 +20,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<header class="sticky-top">
+<!-- 	<header class="sticky-top">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container">
 				<a class="navbar-brand" href="/"> <img src="./img/logo1.png"></a> 
@@ -40,7 +41,8 @@
 				</div>
 			</div>
 		</nav>
-	</header>
+	</header> -->
+	<jsp:include page="/header"></jsp:include>
 	<div id="Picon">
 		<div id="userN">${userid}님, 환영합니다</div>
 	</div>

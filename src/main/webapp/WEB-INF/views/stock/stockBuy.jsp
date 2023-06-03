@@ -100,7 +100,7 @@
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-<!--<jsp:include page="../home/header.jsp"></jsp:include>-->
+<jsp:include page="/header"></jsp:include>
 <div class="Buy_container">
 <form method="post" action="/orderComplete" class="stockBuy">
 

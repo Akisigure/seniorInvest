@@ -74,13 +74,13 @@ public class NoticeController {
 	public String updateForm(@PathVariable int noticeNo, Model m) {
 		NoticeDto dto = service.noticeOne(noticeNo);
 		m.addAttribute("dto",dto);
-		return "board/updateForm";
+		return "notice/updateForm";
 	}
 	 
 	@PutMapping("admin/notice/update")
 	public String update(NoticeDto dto) {
 		service.updateNotice(dto);
-		return"redirect:list";
+		return"redirect:/notice/list";
 	}
 	
 	@GetMapping("admin/notice/delete/{noticeNo}")

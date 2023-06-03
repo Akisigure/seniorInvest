@@ -10,7 +10,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>주문 완료</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="./css/orderComplete.css">
+<link rel="stylesheet" href="/css/orderComplete.css">
 </head>
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 <div class="complete_container">
