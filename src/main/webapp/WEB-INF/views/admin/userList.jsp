@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="/css/base.css" />
 </head>
 <body>
+<!-- header -->
+<jsp:include page="/adminheader"></jsp:include>
+<!-- // header -->
 	<div id="wrap">		
 		<!-- header -->
 		<div id="header">

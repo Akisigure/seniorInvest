@@ -8,7 +8,7 @@
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <!--  bList begin end count pageNum totalPages -->
-<title>글 목록</title>
+<title>공지사항</title>
 <style>
 #center {
 	width: 700px;
@@ -23,7 +23,7 @@ table {
 }
 
 th {border: 1px solid black;
-	background-color: orange;
+	background-color: olive;
 	width: 150px;
 }
 td{border: 1px solid black;}
@@ -38,11 +38,10 @@ a {
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
-	<div id="center">
+	<div id="center" style="padding-top: 2.5%">
 		<h1>게시글 목록</h1>
 		
 		<div align="right">
-			<a href="/">메인화면</a>
 			<sec:authorize access="hasRole('ROLE_ADMIN')" > 
 				<a href="/admin/notice/write">새글 등록</a>
 			</sec:authorize>

@@ -30,10 +30,11 @@ public class SecurityConfig {
         .requestMatchers("/updatePassword").authenticated()
         .requestMatchers("/qa/**").authenticated()
         .requestMatchers("/StocksellDc").authenticated()
+        .requestMatchers("/notice/**").authenticated()
         .anyRequest().permitAll()
         .and().formLogin().loginPage("/login").defaultSuccessUrl("/", true).usernameParameter("userid").failureUrl("/login?error=true").permitAll()
         .and().exceptionHandling().accessDeniedPage("/account/accessDenied")
-        .and().logout().invalidateHttpSession(true).logoutSuccessUrl("/login");
+        .and().logout().logoutSuccessUrl("/").invalidateHttpSession(true);
 		
 		security.userDetailsService(investUserDetailsService);
 		security.csrf().disable();

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>매도 결정 페이지</title>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <link rel="stylesheet" href="css/StocksellDcN.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

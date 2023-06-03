@@ -5,7 +5,8 @@
 <html>
 <head>
 <title>Mypage 마이페이지</title>
-<link rel="stylesheet"  href="../../css/MypageN.css">
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
+<link rel="stylesheet"  href="/css/MypageN.css">
 <meta charset="UTF-8">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -102,7 +102,7 @@
 </div><!-- // wrap -->
 
 	<div class="btn_align_02">
-			<a href="qaRegister" class="btn btnF_03 btnC_02" style="float: right;">
+			<a href="qaRegister" class="btn btnF_03 btnC_02" style="text-align: center;">
 				<span>등록하기</span>
 			</a>
 	</div><br>

@@ -30,12 +30,12 @@
 					<c:forEach var="stock" items="${stockMainview}" varStatus="status">
 						<c:if test="${status.index < 8}">
 							<tr>
-								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: yellow;"
+								<td class="star-icon"><i id="star-${stock.itmsNm}"  style="color: #B70404;"
 									class="fa-star ${stock.favorited ? 'fas' : 'far'}"
 									data-itms-nm="${stock.itmsNm}" data-vs="${stock.vs}"
 									data-mkp="${stock.mkp}" data-flt-rt="${stock.fltRt}"
 									onclick="toggleFavorite(this.id, this.dataset.itmsNm,'${stock.vs}', '${stock.mkp}', '${stock.fltRt}')"></i> </td>
-								<td class="stock-name"><a href="/stockDetail?itmsNm=${stock.itmsNm}">${stock.itmsNm}</a></td>
+								<td class="stock-name"><a href="/stockDetail?itmsNm=${stock.itmsNm}" style="text-decoration: none;">${stock.itmsNm}</a></td>
 								<td><c:out value="${stock.vs}" /></td>
 								<td class="price ${stock.vs ge 0 ? 'up' : 'down'}">
 								<c:out value="${stock.fltRt}%" /></td>

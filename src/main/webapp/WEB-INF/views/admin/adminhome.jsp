@@ -15,7 +15,7 @@
 
 <div class="grid-container">
   <div class="grid-item">
-    <jsp:include page="/admin/notice/write"></jsp:include>
+    <jsp:include page="/notices/form"></jsp:include>
   </div>
   <div class="grid-item">
     <jsp:include page="/stockMainview"></jsp:include>
