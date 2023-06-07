@@ -20,13 +20,17 @@
 			<ul class="navbar-nav" style="margin-left: auto;">
 			    <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <li class="nav-item">
-                    <a class="nav-link" href="/adminhome">어드민 페이지 바로가기</a>
+                    <a class="nav-link mininav" href="/adminhome">어드민 페이지</a>
                 </li>
             </sec:authorize>
-				<li class="nav-item"><a class="nav-link mininav" href="/mypage">마이페이지</a></li>
-				<li class="nav-item"><a class="nav-link mininav" href="#">비밀번호 변경</a></li>
-				<li class="nav-item"><a class="nav-link mininav" href="/login">로그아웃</a></li>
-
+            <sec:authorize access="isAuthenticated()">
+   		 	  <li class="nav-item"><a class="nav-link mininav" href="/Mypage">마이페이지</a></li>
+   			  <li class="nav-item"><a class="nav-link mininav" href="/updatePassword">비밀번호 변경</a></li>
+   			  <li class="nav-item"><a class="nav-link mininav" href="/logout">로그아웃</a></li>
+			</sec:authorize>
+			<sec:authorize access="!isAuthenticated()">
+    		  <li class="nav-item"><a class="nav-link mininav" href="/login">로그인</a></li>
+			</sec:authorize>	
 			</ul>
 		</div>
 	</nav>
@@ -41,17 +45,18 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="collapse navbar-collapse" id="navbarNav" style="margin-left:10%; ">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
-					<li class="nav-item"><a class="nav-link" href="/notices">공지사항</a></li>
-					<li class="nav-item"><a class="nav-link" href="/intstock">관심종목</a></li>
-					<li class="nav-item"><a class="nav-link" href="/rtstock">실시간종목</a></li>
-					<li class="nav-item"><a class="nav-link" href="/selling">매도주문</a></li>
-					<li class="nav-item"><a class="nav-link" href="/qa">Q&A</a></li>
-					<div id="stockSearch-container">
-    					<jsp:include page="/stockSearch"></jsp:include>
-					</div>
+					<li class="nav-item"><a class="nav-link" href="/disclosure">공시</a></li>
+					<sec:authorize access="isAuthenticated()">
+					<li class="nav-item"><a class="nav-link" href="/notice/list">공지사항</a></li>
+					</sec:authorize>
+					<li class="nav-item"><a class="nav-link" href="/Mypage">주식매도</a></li>
+					<sec:authorize access="isAuthenticated()">
+					<li class="nav-item"><a class="nav-link" href="qa/qaList">Q&A</a></li>
+					</sec:authorize>
+					<li class="nav-item"><a class="nav-link" href="/stockSearch">주식검색</a></li>
 				</ul>
 			</div>
 		</div>

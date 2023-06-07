@@ -13,15 +13,16 @@ function getselect() {
 	var category = (getCategory.options[category.selectedIndex].value);
 }
 </script>
-
 </head>
 <body>
 <!-- header -->
-<jsp:include page="/header"></jsp:include>
+<jsp:include page="/adminheader"></jsp:include>
 <!-- // header -->
-
 <div id="wrap">
-
+	<!-- header -->
+	
+	
+	<!-- // header -->
 	
 	<!-- container -->
 	<div id="container">
@@ -43,12 +44,9 @@ function getselect() {
 								<tr>
 									<th scope="row">제목</th>
 									<td>
-										<c:if test="${dto.no == 0 }">
-										<input type="text" class="txt" name="subject" maxlength="50" />	
-										</c:if>
-										<c:if test="${dto.no != 0 }">
-										<input type="text" class="txt" name="subject" maxlength="50" value="[답변]" />	
-										</c:if>
+										<input type="text" class="txt" name="subject" maxlength="50" value="[답변] ${dto.subject }"/>	
+										
+									
 									</td>
 								</tr>
 								
@@ -56,18 +54,15 @@ function getselect() {
 									<th scope="row">카테고리</th>
 									<td>
 										<select name="category" id ="category" onChange="getselect()" required>
-										    <option value="">카테고리를 선택해주세요</option>
-										    <option value="단순문의">단순문의</option>
-											<option value="결제문의">결제문의</option>
-											<option value="보안문의">보안문의</option>
-											<option value="기술문의">기술문의</option>
+										    <option value="답변">답변</option>
+										    
 										</select>
 									</td>
 								</tr>
 							</tbody>
 							</table>
 							<div class="textarea_grp">
-											<pre><textarea name="content"></textarea></pre>
+											<pre><textarea name="content">${dto.content}</textarea></pre>
 							</div>
 					</div>
 					<div class="btn_align_02" style="float: right;">

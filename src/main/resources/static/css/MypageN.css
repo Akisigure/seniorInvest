@@ -1,0 +1,332 @@
+@charset "UTF-8";
+/* 스타일 설정 */
+@font-face {
+	font-family: 'NanumSquareNeo-Variable';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+#userN {
+	color: #5D7D55;
+	font-family: 'TheJamsil5Bold';
+	font-size: 23pt;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 3%;
+}
+
+main {
+	display:flex;
+	text-align:center;
+	justify-content:center;
+	background-color: #F7F8F7;
+}
+
+#uInfo {
+	justify-content: center; /*  수평 정렬 */
+	align-items: center; /* 수직 정렬 */
+	text-align: center;
+	font-size: 24pt;
+	font-family: 'NanumSquareNeo-Variable';
+	font-weight: bold;
+	background: #E6F0E0;
+	border-radius: 7px;
+	border: 1px solid #F5F5F5;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	top: 50%;
+	left: 50%;
+	transform: translate(0%, 40%);
+}
+
+#boxBalance {
+	display: flex;
+	width: 1000px;
+	height: 80px;
+	margin: 3% auto;
+	padding: 9%;
+	border: 1px solid #F5F5F5;
+	transform: translate(0%, 10%);
+	background: #E6F0E0;
+	border-radius: 7px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#BaL {
+	position: absolute;
+	font-weight: bold;
+	font-size: 22pt;
+	font-family: 'NanumSquareNeo-Variable';
+	margin-left: -450px;
+	margin-top: -80px;
+	top: 50%;
+	left: 50%;
+	transform: translate(0%, 30%);
+}
+
+.BalNum {
+	font-weight: bold;
+	font-size: 45pt;
+	font-family: 'NanumSquareNeo-Variable';
+	transform: translate(90%, -20%);
+	height: 100px;
+}
+
+#boxAccount {
+	display: flex;
+	width: 1000px;
+	height: 80px;
+	margin: 3% auto;
+	padding: 9%;
+	border: 1px solid #F5F5F5;
+	background: #E6F0E0;
+	border-radius: 7px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#Acc {
+	display: flex;
+	text-align: left;
+	font-weight: bold;
+	font-size: 22pt;
+	font-family: 'NanumSquareNeo-Variable';
+	top: 50%;
+	left: 20%;
+	transform: translate(-5%, -150%);
+}
+
+.bankN {
+	width: 550px;
+	display: flex;
+	font-family: 'NanumSquareNeo-Variable';
+	font-size: 90px;
+	font-weight: 800;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-30%, -60%);
+	border-radius: 7px;
+	padding-bottom: 5%;
+}
+
+#stockEA {
+	display: block;
+	width: 1000px;
+	margin: 3% auto;
+	padding: 5%;
+	border: 1px solid #5C6E56;
+	border-radius: 7px;
+	background-color: #F3F3F3;
+}
+
+#Sto {
+	height: 10px;
+	display: flex;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 40pt;
+	font-family: 'NanumSquareNeo-Variable';
+}
+
+p {
+	color: #b3b3b3;
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
+}
+
+a {
+	-webkit-transition: .3s all ease;
+	-o-transition: .3s all ease;
+	transition: .3s all ease;
+}
+
+a, a:hover {
+	text-decoration: none !important;
+}
+
+.content {
+	padding: 7rem 0;
+}
+
+h2 {
+	font-size: 15px;
+}
+
+.custom-table-responsive {
+	padding: 20px;
+	text-align: center;
+	justify-content: center;
+	border-radius: 4px;
+	background-color: #efefef;
+	font-size: 15pt;
+	font-weight: bold;
+	font-family: 'NanumSquareNeo-Variable';
+}
+
+.custom-table {
+	min-width: 600px;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
+
+.custom-table thead tr, .custom-table thead th {
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	border-top: none;
+	border-bottom: none !important;
+	font-size: 22px;
+}
+
+.custom-table tbody th, .custom-table tbody td {
+	color: #7B7B7B;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	font-weight: 300;
+}
+
+.custom-table tbody th small, .custom-table tbody td small {
+	color: #b3b3b3;
+	font-weight: 300;
+}
+
+.custom-table tbody tr:not(.spacer) {
+	border-radius: 7px;
+	overflow: hidden;
+	-webkit-transition: .3s all ease;
+	-o-transition: .3s all ease;
+	transition: .3s all ease;
+}
+
+.custom-table tbody tr:not(.spacer):hover {
+	-webkit-box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table tbody tr th, .custom-table tbody tr td {
+	background: #fff;
+	border: none;
+}
+
+.custom-table tbody tr th:first-child, .custom-table tbody tr td:first-child
+	{
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.custom-table tbody tr th:last-child, .custom-table tbody tr td:last-child
+	{
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.custom-table tbody tr.spacer td {
+	padding: 0 !important;
+	height: 10px;
+	border-radius: 0 !important;
+	background: transparent !important;
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 4px;
+	border: 2px solid #ccc;
+	background: transparent;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+.control:hover input ~ .control__indicator, .control input:focus ~
+	.control__indicator {
+	border: 2px solid #007bff;
+}
+
+.control input:checked ~ .control__indicator {
+	border: 2px solid #007bff;
+	background: #007bff;
+}
+
+.control input:disabled ~ .control__indicator {
+	background: #e6e6e6;
+	opacity: 0.6;
+	pointer-events: none;
+	border: 2px solid #ccc;
+}
+
+.control__indicator:after {
+	font-family: 'icomoon';
+	content: '\e5ca';
+	position: absolute;
+	display: none;
+}
+
+.control input:checked ~ .control__indicator:after {
+	display: block;
+	color: #fff;
+}
+
+.control--checkbox .control__indicator:after {
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -52%);
+	-ms-transform: translate(-50%, -52%);
+	transform: translate(-50%, -52%);
+}
+
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #7b7b7b;
+}
+
+.control--checkbox input:disabled:checked ~ .control__indicator {
+	background-color: #007bff;
+	opacity: .2;
+	border: 2px solid #007bff;
+}
+
+@import
+	url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap")
+	;
+
+button {
+	margin: 10px;
+}
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'SUITE-Regular';
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	background-color: #77af9c;
+	color: white;
+}

@@ -32,7 +32,7 @@ public class StockTradeService {
 	}
 	
 	//매 정각 1시간마다 지정가 주문 처리
-	@Scheduled(cron = "1 0 0/1 * * * ")
+	@Scheduled(cron = "1 * * * * * ")
 	@Transactional
 	public void stockBuyTrade() {
 		List<OrderStockDto> order = dao.orderList(); //주문일자 check
@@ -52,12 +52,7 @@ public class StockTradeService {
 					dao.tradeResult(list); // 보유 수량 추가
 					dao.buyTradeInfo(list); //개래내역 추가
 				} 
-				//미채결 시 
-				else {  
-					//거래 취소 시 주문 금액 되돌려주기
-					dao.stockBuyBalance(balance+(list.getQuantity() * list.getOrderPrice()), list.getAccountid()); 
 					
-				}
 			}
 		}
 	}
