@@ -147,8 +147,8 @@ public class UserController {
 	    String temporaryPassword = generateTemporaryPassword();
 	    findpwService.temPassword(email, encoder.encode(temporaryPassword));
 	    
-
 	    model.addAttribute("temporaryPassword",temporaryPassword);
+	    model.addAttribute("users",user);
 	    
 	    return "account/temPassword"; 
 	  }

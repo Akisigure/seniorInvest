@@ -17,7 +17,7 @@
 			<div class="message">
 			</div>
 
-		<table>
+		<table id="favoriteStockTable">
 				<thead>
 					<tr>
 						<th></th>
@@ -27,6 +27,7 @@
 						<th>가격</th>
 					</tr>
 				</thead>
+				<tbody>
 					<c:forEach var="stock" items="${favoriteStocks}" varStatus="status">
 						<c:if test="${status.index < 8}">
 							<tr>
@@ -44,6 +45,7 @@
 							</tr>
 						</c:if>
 					</c:forEach>
+					</tbody>
 			</table>
 			<a href="/stockSearch" target="_blank" class="button">종목 확인하기</a>
 		</div>
@@ -51,40 +53,79 @@
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-		function toggleFavorite(elementId, itmsNm, vs, mkp, fltRt) {
-			var element = $('#' + elementId);
-			var favorited = element.hasClass('fas');
+	$(document).ready(function () {
+	    updateFavoriteStocksTable(); // 페이지 로드 시 초기 데이터 가져오기
+	  });
+	
+	function toggleFavorite(elementId, itmsNm, vs, mkp, fltRt) {
+	    var element = $('#' + elementId);
+	    var favorited = element.hasClass('fas');
 
-			var requestData = {
-				userid : '${username}',
-				accountId : '${currentUser.accountId}',
-				itmsNm : itmsNm,
-				favorited : favorited,
-				vs : vs,
-				mkp : mkp,
-				fltRt : fltRt
-			};
+	    var requestData = {
+	      userid: '${username}',
+	      accountId: '${currentUser.accountId}',
+	      itmsNm: itmsNm,
+	      favorited: favorited,
+	      vs: vs,
+	      mkp: mkp,
+	      fltRt: fltRt
+	    };
 
-			var url = '/favoriteStock/addOrRemoveFavorite';
-			var type = 'POST';
+	    var url = '/favoriteStock/addOrRemoveFavorite';
+	    var type = 'POST';
 
-			$.ajax({
-				url : url,
-				type : type,
-				contentType : 'application/json',
-				data : JSON.stringify(requestData),
-				success : function(response) {
-					if (response.favorited) {
-						element.addClass('fas').removeClass('far');
-					} else {
-						element.addClass('far').removeClass('fas');
-					}
-				},
-				error : function(response) {
-					// 에러 처리
-				}
-			});
-		}
+	    $.ajax({
+	      url: url,
+	      type: type,
+	      contentType: 'application/json',
+	      data: JSON.stringify(requestData),
+	      success: function (response) {
+	        if (response.favorited) {
+	          element.addClass('fas').removeClass('far');
+	        } else {
+	          element.addClass('far').removeClass('fas');
+	        }
+
+	        updateFavoriteStocksTable(); // 관심 종목 업데이트
+	      },
+	      error: function (response) {
+	        // 에러 처리
+	      }
+	    });
+	  }
+
+	  $(document).ready(function () {
+	    updateFavoriteStocksTable(); // 페이지 로드 시 초기 데이터 가져오기
+	  });
+
+	  function updateFavoriteStocksTable() {
+	    var url = '/favoriteStock/getFavorites';
+
+	    $.ajax({
+	      url: url,
+	      type: 'GET',
+	      success: function (response) {
+	        var favoriteStocks = response;
+	        var tableBody = $('#favoriteStockTable tbody');
+	        tableBody.empty(); // 기존 내용 제거
+
+	        favoriteStocks.forEach(function (stock) {
+	          var starIconClass = stock.favorited ? 'fas' : 'far';
+	          var row = '<tr>' +
+	            '<td class="star-icon"><i id="star-' + stock.itmsNm + '" style="color:#B70404;" class="fa-star ' + starIconClass + '" data-itms-nm="' + stock.itmsNm + '" data-vs="' + stock.vs + '" data-mkp="' + stock.mkp + '" data-flt-rt="' + stock.fltRt + '" onclick="toggleFavorite(this.id, this.dataset.itmsNm,' + stock.vs + ', \'' + stock.mkp + '\', ' + stock.fltRt + ')"></i></td>' +
+	            '<td class="stock-name"><a href="/stockDetail?itmsNm=' + stock.itmsNm + '" style="text-decoration: none;">' + stock.itmsNm + '</a></td>' +
+	            '<td>' + stock.vs + '</td>' +
+	            '<td class="price ' + (stock.vs >= 0 ? 'up' : 'down') + '">' + stock.fltRt + '%</td>' +
+	            '<td class="price ' + (stock.vs >= 0 ? 'up' : 'down') + '">' + stock.mkp + ' 원</td>' +
+	            '</tr>';
+	          tableBody.append(row);
+	        });
+	      },
+	      error: function (response) {
+	        // 에러 처리
+	      }
+	    });
+	  }
 	</script>
 </body>
 </html>

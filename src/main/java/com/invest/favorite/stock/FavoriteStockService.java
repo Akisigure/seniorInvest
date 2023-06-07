@@ -39,18 +39,16 @@ public class FavoriteStockService {
 	}
 
 	public void addOrRemoveFavorite(FavoriteStockDto favoriteStockDto) {
-		Optional<FavoriteStockDto> favoriteStock = favoriteStockDao.findByUserIdAndAccountIdAndItmsNm(
-				favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm(),
-				favoriteStockDto.getVs(), favoriteStockDto.getFltRt(), favoriteStockDto.getMkp());
-		if (favoriteStock.isPresent()) {
-			FavoriteStockDto existingFavoriteStock = favoriteStock.get();
-			existingFavoriteStock.setFavorited(!existingFavoriteStock.isFavorited());
-			favoriteStockDao.updateFavoriteStock(existingFavoriteStock);
-		} else {
-			favoriteStockDto.setFavorited(true);
-			favoriteStockDao.addFavoriteStock(favoriteStockDto);
-		}
-	}
+        Optional<FavoriteStockDto> favoriteStock = favoriteStockDao.findByUserIdAndAccountIdAndItmsNm(
+                favoriteStockDto.getUserid(), favoriteStockDto.getAccountId(), favoriteStockDto.getItmsNm(),
+                favoriteStockDto.getVs(), favoriteStockDto.getFltRt(), favoriteStockDto.getMkp());
+        if (favoriteStock.isPresent()) {
+            favoriteStockDao.removeFavoriteStock(favoriteStock.get().getNo()); // 추가된 부분: 삭제 처리
+        } else {
+            favoriteStockDto.setFavorited(true);
+            favoriteStockDao.addFavoriteStock(favoriteStockDto);
+        }
+    }
 	
 
 
