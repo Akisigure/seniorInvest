@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to seniorInvest 👋</h1>
+<h1 align="center">[3조] 안심증권 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/Akisigure99" target="_blank">
@@ -6,15 +6,15 @@
   </a>
 </p>
 
-> 노년층을 위한 주식투자
+ 노년층을 위한 주식투자 : 안심증권
+<hr>
+> 프로젝트 설명
 
-### ✨ [Demo](http://localhost:8079)
 
-## Author
+## 작성자
 
 👤 **Akisigure**
 
-* Website: github.com/Akisigure
 * Twitter: [@Akisigure99](https://twitter.com/Akisigure99)
 * Github: [@Akisigure](https://github.com/Akisigure)
 
