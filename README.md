@@ -24,18 +24,13 @@
 
  *  [요구사항 명세서](https://github.com/Akisigure/seniorInvest/issues/58#issue-1747037645)
 
-
-
-
  * UML (유즈케이스 다이어그램)
 ![UML](https://github.com/Akisigure/seniorInvest/assets/122990146/f725eed1-23f8-4a72-aaf5-4230d205cd04)
 
  * ERD
+ ![안심증권](https://github.com/Akisigure/seniorInvest/assets/122990146/a9523c47-72ad-4b96-9bb9-8694afed81ee)
 
-
-
-
- * 스토리보드
+ * [스토리보드](https://github.com/Akisigure/seniorInvest/files/11684842/_3.pdf) 
  
 ### 기술스택
 
