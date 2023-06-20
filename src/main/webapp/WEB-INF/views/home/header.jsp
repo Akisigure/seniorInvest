@@ -30,6 +30,7 @@
 			</sec:authorize>
 			<sec:authorize access="!isAuthenticated()">
     		  <li class="nav-item"><a class="nav-link mininav" href="/login">로그인</a></li>
+			  <li class="nav-item"><a class="nav-link mininav" href="/register">회원가입</a></li>
 			</sec:authorize>	
 			</ul>
 		</div>

@@ -5,6 +5,7 @@
 <head>
 <title>안심증권</title>
 <link rel="stylesheet" href="/css/base.css" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <script src="/js/script.js"></script>
 <script>
 function getselect() {

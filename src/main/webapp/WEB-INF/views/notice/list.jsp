@@ -39,7 +39,7 @@ a {
 <body>
 <jsp:include page="/header"></jsp:include>
 	<div id="center" style="padding-top: 2.5%">
-		<h1>게시글 목록</h1>
+		<h1 style="text-align:center">공지사항</h1>
 		
 		<div align="right">
 			<sec:authorize access="hasRole('ROLE_ADMIN')" > 
@@ -57,7 +57,7 @@ a {
 				<c:forEach items="${nList}" var="notice">
 					<tr>
 						<td><a href ="content/${notice.noticeNo}">${notice.title}</a></td>
-						<td>${notice.userid}</td>
+						<td>관리자</td>
 						<td><fmt:formatDate value="${notice.regdate }" dateStyle="short"/> </td>
 						<td>${notice.readcount }</td>
 					</tr>

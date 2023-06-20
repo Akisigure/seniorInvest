@@ -89,12 +89,12 @@ public class StockService {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String formatedNow = now.format(format);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="
-	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow;
+	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow; 
 	 
 	    URL url = new URL(requestUrl);
 	    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	    conn.setRequestMethod("GET"); 
-	    conn.setRequestProperty("Content-type", "application/json");
+	    conn.setRequestProperty("Content-type", "application/json"); 
 	    conn.setRequestProperty("mrktCls", "KOSPI");
 	    conn.setRequestProperty("basDt", formatedNow);
 	    System.out.println("Response code: " + conn.getResponseCode());
@@ -115,7 +115,8 @@ public class StockService {
 
 	    br.close();
 	    conn.disconnect();
- 
+
+	
 	    String jsonStr = sb.toString();
 	    Gson gson = new Gson();
 	    StockList stock = gson.fromJson(jsonStr, StockList.class);
@@ -128,7 +129,8 @@ public class StockService {
 		    	 dao.updateLastestStock(st);
 		    	 
 		    }
-	   }//for
+	  }//for
+		   
 	}
 
 	//매일 저녁에 업데이트
@@ -136,7 +138,7 @@ public class StockService {
 	public void updateStock() throws Exception {
 		
 		String serviceKey = APIKEY;
-		LocalDate now = LocalDate.now().minusDays(3);
+		LocalDate now = LocalDate.now().minusDays(2);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String formatedNow = now.format(format);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="

@@ -25,11 +25,11 @@
   position: relative;
   transform: translateX(-50%);
   padding: 30px;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF; 
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 50vw;
-  height: 45vh;
+  height: 70vh;
   left: 25%;
   margin: 0 auto;
 }
@@ -107,7 +107,8 @@
 <p>종목명 : ${itmsNm} </p>
 <p>시장가 : <label for="orderPrice"><fmt:formatNumber value="${detail.mkp}" type="number"></fmt:formatNumber>원</label> </p>
 <p>전일대비 : <span id="stockVariance">${detail.fltRt}% </span></p>
-<p>변동가격 : <span id="stockRate"><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span> </p><br>
+<p>변동가격 : <span id="stockRate"><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span> </p>
+<p>현재잔액 : <span id="userBalance"><fmt:formatNumber value="${balance}" type="number"></fmt:formatNumber>원</span> </p><br>
 
 		<div class="textForm">
 		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요" autocomplete="off">
@@ -129,7 +130,11 @@
     $("#buyButton").on("click", function(event) {
       var orderPrice = $("#orderPrice").val();
       var quantity = $("#quantity").val();
-
+      var balance = "<c:out value='${balance}'/>";
+      var totalPrice = orderPrice * quantity;
+	
+      console.log(balance);
+      console.log(totalPrice);
       if (orderPrice === "" || quantity === "") {
         $(".error-message").text("값을 입력해주세요.");
         event.preventDefault();
@@ -139,6 +144,14 @@
       } else {
         $(".error-message").empty();
       }
+      
+      if(totalPrice > balance) {
+    	  $(".error-message").text("잔액이 부족합니다.");
+    	  event.preventDefault();
+      }
+      
+   
+      
     });
   });
   

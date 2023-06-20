@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>안심증권</title>
 <script type="text/javascript">
 	window.setTimeout('window.location.reload()',60000); //1분마다 새로 고침
