@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <meta charset="UTF-8">
 <title>안심증권-뉴스페이지-</title>
 <!-- jQuery -->

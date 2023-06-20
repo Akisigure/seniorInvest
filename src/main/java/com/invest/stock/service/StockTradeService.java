@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.invest.stock.dao.StockTradeDao;
 import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockQuantityDto;
+import com.invest.user.dto.UserAccountInfo;
 
 @Service
 public class StockTradeService {
@@ -39,11 +40,6 @@ public class StockTradeService {
 		
 		System.out.println("지정가 거래 스케줄러 작동.");
 		for (OrderStockDto list : order) {
-			
-			
-			long balance = dao.getBalance(list.getAccountid());
-		
-			if(balance > list.getQuantity() * list.getOrderPrice()) {
 				
 			 int price = dao.getPrice(list.getSrtnCd());
 				//거래 채결 시
@@ -52,8 +48,6 @@ public class StockTradeService {
 					dao.tradeResult(list); // 보유 수량 추가
 					dao.buyTradeInfo(list); //개래내역 추가
 				} 
-					
-			}
 		}
 	}
 	
@@ -89,6 +83,12 @@ public class StockTradeService {
 		System.out.println(dto);
 		dao.cancelTrade(dto);
 		dao.stockBuyBalance(balance+(dto.getQuantity() * dto.getOrderPrice()), dto.getAccountid()); 
+	}
+	
+	public long balanceInfo(String userid) {
+		String accountid = dao.getAccountId(userid);
+		long balance = dao.getBalance(accountid);
+		return balance;
 	}
 	
 }

@@ -6,7 +6,9 @@
 <title>공지 작성</title>
 <style>
 	.orange{background-color: orange; width : 50px;}
-	table{border-collapse : collapse; width : 800px;}
+	table{
+ border-collapse:collapse;
+}
 </style>
 </head>
 <body>
@@ -18,7 +20,8 @@
 		</tr>
 		<tr>
 			<td class="orange">작성자</td>
-			<td><input name="userid" value="${userid}" readonly></td>
+			<td><input type="hidden" name="userid" value="${userid}" readonly>
+			<input type="text" value="관리자" readonly></td>
 		</tr>
 		<tr>
 			<td class="orange">내용</td>

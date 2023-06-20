@@ -20,13 +20,10 @@ public class DisclosureController {
 	@PostMapping("ajax/disclosure") //API AJAX호출
 	@ResponseBody
 	public DisclosureCommand ajaxDisclosure(Model m) {
-		
-		
 
 		DisclosureCommand list = service.disclosureAjax();
 		System.out.println(list);
 		m.addAttribute("list",list);
-	
 		
 		return list;
 	}
