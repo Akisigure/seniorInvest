@@ -156,14 +156,14 @@
 
         y.setDate(y.getDate() - 1); // 어제 날짜 세팅
         z.setDate(z.getDate() - 10);
-        let yesterday = y.getFullYear() + "-" + ("0" + (y.getMonth() + 1)).slice(-2) + "-" + ("0" + y.getDate()).slice(-2);
+        let yesterday = y.getFullYear() +("0" + (y.getMonth() + 1)).slice(-2) +("0" + y.getDate()).slice(-2);
 
-        let twoWeek = z.getFullYear() + "-" + ("0" + (z.getMonth() + 1)).slice(-2) + "-" + ("0" + z.getDate()).slice(-2);
+        let twoWeek = z.getFullYear() + ("0" + (z.getMonth() + 1)).slice(-2) +("0" + z.getDate()).slice(-2);
 
         console.log(yesterday);
         console.log(twoWeek);
 
-        $.getJSON(url + "&resultType=json&beginBasDt=" + twoWeek + "&itmsNm=" + stockName, function(data) {
+        $.getJSON(url + "&resultType=json&beginBasDt=" + twoWeek + "&endBasDt="+ yesterday + "&itmsNm=" + stockName, function(data) {
         	console.log(data);
         		
         	$("#loadingAnimation").hide();
@@ -179,6 +179,7 @@
                 let formattedDate = date.substring(0, 4) + "년" + date.substring(4, 6) + "월" + date.substring(6) + "일";
                 monthList.unshift(formattedDate);
                 monthData.unshift(price);
+                
             });
 
             updateChart(monthList, monthData);

@@ -34,22 +34,22 @@ public class AcBalStockEAController {
 	StockTradeService tradeService;
 
 	@GetMapping("/Mypage")
-	public String MyPage(@AuthenticationPrincipal SecurityUser user, Model m) {
-		String userid = user.getUsers().getUserid();
+	   public String MyPage(@AuthenticationPrincipal SecurityUser user, Model m) {
+	      String userid = user.getUsers().getUserid();
 
-		UserAccountInfo info = accountBalanceService.getUserBalance(user.getUsers().getAccountid());
-		List<OrderStockDto> cList = tradeService.cancelTradeList(userid);//   미체결
-		
-		m.addAttribute("userid",userid);
-		m.addAttribute("Balance", info);
-		m.addAttribute("cList", cList);
+	      UserAccountInfo info = accountBalanceService.getUserBalance(user.getUsers().getAccountid());
+	      List<OrderStockDto> cList = tradeService.cancelTradeList(userid);//   미체결
+	      
+	      m.addAttribute("userid",userid);
+	      m.addAttribute("Balance", info);
+	      m.addAttribute("cList", cList);
 
-		List<StockQuantityDto> quan = stockQuantityService.getOrderPrice(userid);//보유
+	      List<StockQuantityDto> quan = stockQuantityService.getOrderPrice(userid);//보유
 
-		m.addAttribute("StockEA", quan);
-		return "mypage/Mypage";
+	      m.addAttribute("StockEA", quan);
+	      return "mypage/Mypage";
 
-	}
+	   }
 	
 
 	@GetMapping("/Stocksell")

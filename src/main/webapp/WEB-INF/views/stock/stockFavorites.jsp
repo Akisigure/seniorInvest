@@ -94,10 +94,6 @@
 	    });
 	  }
 
-	  $(document).ready(function () {
-	    updateFavoriteStocksTable(); // 페이지 로드 시 초기 데이터 가져오기
-	  });
-
 	  function updateFavoriteStocksTable() {
 	    var url = '/favoriteStock/getFavorites';
 
