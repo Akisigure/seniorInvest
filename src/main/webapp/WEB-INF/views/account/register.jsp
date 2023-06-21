@@ -54,7 +54,7 @@
 		</div>
       </div>
       <div class="textForm">
-        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="전화번호 -없이 입력" id="phoneNumber" autocomplete="off">
+        <input name="phoneNumber" type="text" class="cellphoneNo" placeholder="핸드폰번호 -없이 입력" id="phoneNumber" autocomplete="off">
         <form:errors path="phoneNumber" delimiter=" " class="error" />
       </div>
         <div class="textForm">
@@ -186,6 +186,11 @@ $(function() {
 			  return false;
 		  }
 		  
+		  if (!/^\w+@\w+\.com$/.test(email)) {
+			    $("#email_msg").html("이메일 형식이 올바르지 않습니다.");
+			    return false;
+			  }
+		  
 		  $.ajax({url:"/emailCheck", data:"email="+email,datatype:"text"}
 	      ).done(function(data) {
 
@@ -218,6 +223,15 @@ $(function() {
 	          $("#email_msg").html("이미 사용중인 이메일 입니다.");
 	        }
 	      })//이메일 중복 확인 click
+	    });
+	  
+	  $("#phoneNumber").on("input", function() {
+	      // 핸드폰 번호 입력값 체크
+	      let phoneNumber = $(this).val();
+	      if (!/^[0-9]*$/.test(phoneNumber)) {
+	        alert("핸드폰 번호는 숫자만 입력 가능합니다.");
+	        $(this).val("");
+	      }
 	    });
 		  
 	  
