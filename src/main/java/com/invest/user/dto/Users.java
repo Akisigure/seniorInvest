@@ -33,7 +33,7 @@ public class Users {
 	@Pattern(regexp = "^010[0-9]{4}[0-9]{4}$", message = "핸드폰 번호를 입력해주세요.")
 	private String phoneNumber;
 	
-	@Pattern(regexp = "!/^\\w+@\\w+\\.com$/", message = "이메일 형식이 올바르지 않습니다.")
+	@Pattern(regexp = "!/^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/", message = "이메일 형식이 올바르지 않습니다.")
 	@NotBlank(message = "")
 	private String email;
 	

@@ -132,9 +132,9 @@ public class UserController {
 	}
 	
 	 @PostMapping("/findPassword")
-	  public String findPassword(@RequestParam("email") String email, Model model) {
+	  public String findPassword(@RequestParam("email") String email, @RequestParam("userid") String userid, Model model) {
 	    // 이메일을 통해 사용자 정보를 조회합니다.
-	    Users user = findpwService.findByEmail(email);
+	    Users user = findpwService.findByUser(email, userid);
 	    
 	    System.out.println(user);
 	    

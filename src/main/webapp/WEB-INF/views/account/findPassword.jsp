@@ -16,6 +16,7 @@
 	<h2>비밀번호 찾기</h2>
 	<div class="textForm">
 	<form:errors element="div"/>
+	<input name="userid" type="text" class="id" id="userid" placeholder="아이디" autocomplete="off"></input>
 	<input name="email" id="email" class="email" placeholder="이메일">
         <input type="button" id="mail_ck" value="메일 인증" class="btn btn-primary rounded-pill px-3"><span id="email_msg"></span>
          <form:errors path="email" delimiter=" " class="error" />

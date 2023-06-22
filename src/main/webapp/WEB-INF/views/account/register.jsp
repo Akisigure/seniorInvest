@@ -186,7 +186,7 @@ $(function() {
 			  return false;
 		  }
 		  
-		  if (!/^\w+@\w+\.com$/.test(email)) {
+		  if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
 			    $("#email_msg").html("이메일 형식이 올바르지 않습니다.");
 			    return false;
 			  }
