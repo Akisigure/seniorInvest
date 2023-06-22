@@ -17,7 +17,7 @@ function getselect() {
 </head>
 <body>
 <!-- header -->
-<jsp:include page="/adminheader"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <!-- // header -->
 <div id="wrap">
 	<!-- header -->

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.invest.stock.dao.StockTradeDao;
 import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockQuantityDto;
-import com.invest.user.dto.UserAccountInfo;
 
 @Service
 public class StockTradeService {

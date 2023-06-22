@@ -29,7 +29,7 @@ public interface StockDao {
 	@Select("select srtnCd,itmsNm from stock where itmsNm like concat(#{value} , '%')")
 	List<Map<String, Object>> stockSearchResult(Map<String, Object> paramMap);
 	
-	@Select("select ls.srtnCd,s.itmsNm,ls.mkp,ls.fltRt,vs from stock s,lastest_stock ls where s.itmsNm= #{itmsNm} and ls.itmsNm = #{itmsNm}  ")
+	@Select("select * from stock where itmsNm = #{itmsNm} ")
 	StockDto stockDetailInfo(StockDto stock);
 	
 	@Select("select count(*) from stock where fltRt not between -5 and 5 and srtnCd = #{srtnCd}")

@@ -8,26 +8,47 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/adminstyle.css">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
-<title>Insert title here</title>
+    <style>
+    	.admin_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 400px;
+    		text-align: center;	
+    		justify-content: center;
+    		font-size: 36px;
+    		text-decoration: none;
+ 			background-color: #efefef;
+ 			border-radius: 5%;
+    	}
+    	
+    	.admin_container p{
+    		margin-top: 10%;
+    	}
+    	
+    	.link {
+    		text-decoration: none;
+    		color: black;
+    		 font-weight: bold;
+
+    	}
+    	
+
+    	
+    
+    
+    
+    </style>
+<title>관리자 대시보드</title>
 </head>
 <body>
-
-<jsp:include page="/adminheader"></jsp:include>
-
-<div class="grid-container">
-  <div class="grid-item">
-    <jsp:include page="/notices/form"></jsp:include>
-  </div>
-  <div class="grid-item">
-    <jsp:include page="/stockMainview"></jsp:include>
-  </div>
-  <div class="grid-item">
-    <jsp:include page="/board3"></jsp:include>
-  </div>
-  <div class="grid-item">
-    <jsp:include page="/board4"></jsp:include>
-  </div>
-</div>
-  
+<jsp:include page="/header"></jsp:include>
+	<div class="admin_container">
+		<p><a href="/admin/qaList" class="link">Q&A 관리하기</a></p>
+		<p><a href="/notice/list" class="link">공지사항 관리하기</a></p>
+		<p><a href="/admin/tradeList" class="link">거래내역 확인하기</a></p>
+	</div>
 </body>
 </html>

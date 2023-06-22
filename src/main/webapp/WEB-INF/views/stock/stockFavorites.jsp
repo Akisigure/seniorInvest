@@ -14,7 +14,7 @@
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1 style="text-align: center;">관심 종목</h1>
+			<h1 style="text-align: center;"><b>관심 종목</b></h1>
 			<div class="message">
 			</div>
 

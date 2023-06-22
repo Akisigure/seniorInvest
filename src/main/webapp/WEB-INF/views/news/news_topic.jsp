@@ -24,7 +24,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min
     <jsp:include page="/header"></jsp:include>
 
     <main class="container">
-        <h1 class="mt-5 mb-5">${topic} 관련 뉴스</h1>
+        <h1 class="mt-5 mb-5"><b>${topic} 관련 뉴스</b></h1>
         <c:forEach var="news" items="${newsPage.content}">
             <div class="news-item">
                 <a href=${news.url } class="news-title">${news.title}</a>
