@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'NanumSquareNeo-Variable';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	padding-top: 10%;
+	font-family: 'NanumSquareNeo-Variable';
+}
+
+.orange {
+	background-color: #f9f7f9;
+	width: 50px;
+}
+
+table {
+	border-collapse: collapse;
+}

@@ -15,9 +15,9 @@
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 <div class="complete_container">
 
-	<h2>매수주문이 완료되었습니다.</h2>
+	<h2><b>매수주문이 완료되었습니다.</b></h2>
 	<br><br><br>
-	<h4>새로운 주식을 확인해보세요</h4>
+	<h4><b>새로운 주식을 확인해보세요</b></h4>
 
 <div class="div_btn">
 <button class="button" id="btn" onclick="location.href='/stockSearch'">주식 검색</button>

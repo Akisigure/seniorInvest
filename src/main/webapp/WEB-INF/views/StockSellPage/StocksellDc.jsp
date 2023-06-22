@@ -22,7 +22,6 @@
 </head>
 </head>
 <body>
-<jsp:include page="/header"></jsp:include>
 	<main>
 	<div id="box_green">
 		<div id="box_white">

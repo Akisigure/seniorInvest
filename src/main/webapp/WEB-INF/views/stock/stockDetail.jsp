@@ -37,7 +37,10 @@
     }
 
     .fw-bold {
+    	font-size:30pt;
         font-weight: bold;
+        color: black;
+        
     }
 
     .text-primary {

@@ -41,8 +41,8 @@ public interface UserDao {
 	@Select("select userName from users where userName=#{userName}")
 	Users getUserByUsername(String userName);
 	
-	@Select("select userid, email from users where email=#{email}")
-	Users findByEmail(String email);
+	@Select("select userid, email from users where email=#{email} and userid=#{userid}")
+	Users findByUser(@Param("email")String email, @Param("userid")String userid);
 	
 	@Update("update users set password = #{password} where userid=#{userid}")
 	int updatePassword(@Param("userid") String userid,@Param("password") String password);

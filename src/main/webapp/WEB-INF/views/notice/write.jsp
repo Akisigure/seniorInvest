@@ -4,12 +4,7 @@
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>공지 작성</title>
-<style>
-	.orange{background-color: orange; width : 50px;}
-	table{
- border-collapse:collapse;
-}
-</style>
+ <link rel="stylesheet" href="/css/write.css">
 </head>
 <body>
 <form method="post" id="writeform" action="write">
