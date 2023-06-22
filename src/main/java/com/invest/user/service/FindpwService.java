@@ -35,8 +35,8 @@ public class FindpwService {
 		return dao.findPassword(email);
 	}
 	
-	public Users findByEmail(String email) {
-		return dao.findByEmail(email);
+	public Users findByUser(String email, String userid) {
+		return dao.findByUser(email, userid);
 	}
 	
 	public int temPassword(String email, String newPassword) {

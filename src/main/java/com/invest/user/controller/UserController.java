@@ -121,11 +121,11 @@ public class UserController {
 	}
 	
 	 @PostMapping("/findPassword")
-	  public String findPassword(@RequestParam("email") String email, Model model) {
-	    // 이메일을 통해 사용자 정보를 조회합니다.
-	    Users user = findpwService.findByEmail(email);
-	    
-	    System.out.println(user);
+	  public String findPassword(@RequestParam("email") String email, @RequestParam("userid") String userid, Model model) {
+		    // 이메일을 통해 사용자 정보를 조회합니다.
+		    Users user = findpwService.findByUser(email, userid);
+
+		    System.out.println(user);
 	    
 	    if (user == null) {
 	      model.addAttribute("error", "해당 이메일로 등록된 사용자가 없습니다.");

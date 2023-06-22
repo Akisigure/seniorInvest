@@ -22,7 +22,6 @@
 </head>
 <body>
 	<main>
-	<jsp:include page="/header"></jsp:include>
     <div id="box_green">
     	<div id="box_white">
     		<div id="stockNm">${order.itmsNm }</div>
