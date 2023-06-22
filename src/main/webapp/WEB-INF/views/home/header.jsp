@@ -29,6 +29,7 @@
    			  <li class="nav-item"><a class="nav-link mininav" href="/logout">로그아웃</a></li>
 			</sec:authorize>
 			<sec:authorize access="!isAuthenticated()">
+			  <li class="nav-item"><a class="nav-link mininav" href="/Mypage">마이페이지</a></li>
     		  <li class="nav-item"><a class="nav-link mininav" href="/login">로그인</a></li>
 			  <li class="nav-item"><a class="nav-link mininav" href="/register">회원가입</a></li>
 			</sec:authorize>	

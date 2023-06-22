@@ -9,14 +9,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.invest.stock.dao.StockDao;
-import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockList;
 
@@ -81,7 +79,7 @@ public class StockService {
 	}//method
 	
 	//API 갱신시간에 갱신 (오전 11시 30분)
-	@Scheduled(cron = "0 30 11 * * *")
+	// @Scheduled(cron = "0 30 11 * * *")
 	public void updateLastestStock() throws Exception {
 		
 		String serviceKey = APIKEY;
@@ -134,13 +132,15 @@ public class StockService {
 	}
 
 	//매일 저녁에 업데이트
-	@Scheduled(cron = "0 57 00 * * *")
+	// @Scheduled(cron = "0 57 00 * * *")
 	public void updateStock() throws Exception {
 		
 		String serviceKey = APIKEY;
 		LocalDate now = LocalDate.now().minusDays(2);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
+		
 		String formatedNow = now.format(format);
+		System.out.println(formatedNow);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="
 	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow; 
 	 

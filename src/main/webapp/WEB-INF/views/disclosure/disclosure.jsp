@@ -20,9 +20,9 @@
 	<table style="margin-left: auto; margin-right: auto;">
 		<thead>
 			<tr>
-				<th>공시 대상 회사</th>
-				<th>보고서 명</th>
-				<th>제출인</th>
+				<th><b>공시 회사</b></th>
+				<th><b>보고서 명</b></th>
+				<th><b>제출인</b></th>
 			</tr>
 		</thead>
 		<tbody>

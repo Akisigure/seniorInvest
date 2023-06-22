@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.invest.config.SecurityUser;
 import com.invest.stock.dto.OrderStockDto;
@@ -72,7 +70,7 @@ public class AcBalStockEAController {
 	
 
 	@PostMapping("/Stocksellcheck") 
-	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto, @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity) {
+	public String stocksellcheck(@ModelAttribute("order") StockQuantityDto dto, @AuthenticationPrincipal SecurityUser user, Model m,String srtnCd,int tradeNo,int quantity,int mkp) {
 		StockQuantityDto quan = stockQuantityService.getStockByUserid(user.getUsers().getUserid(), srtnCd,tradeNo);
 		m.addAttribute("quan",quan);
 		m.addAttribute("srtnCd",srtnCd);
@@ -85,7 +83,7 @@ public class AcBalStockEAController {
 	// 정말 판매하시겠습니까? 예를 누를 시 주식 매도
 	@PostMapping("/StocksellCP")
 	public String stocksellCP(@ModelAttribute("order") StockQuantityDto dto, @AuthenticationPrincipal SecurityUser user,
-			Model m, String srtnCd, int tradeNo, int quantity) {
+			Model m, String srtnCd, int tradeNo, int quantity,int mkp) {
 		String userid = user.getUsers().getUserid();
 		tradeService.stockSellTrade(userid, dto);
 		return "StockSellPage/StocksellCP";

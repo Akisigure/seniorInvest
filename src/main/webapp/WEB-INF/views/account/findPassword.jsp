@@ -42,7 +42,7 @@ $(function(){
 		
 		$.ajax({url:"/saveEmailCheck", data:"email="+email,datatype:"text"}
 		).done(function(data){
-			 $("#email_msg").html(data === "true" ? "사용할 수 있는 이메일 입니다." : "존재하지 않는 이메일 입니다.");
+			 $("#email_msg").html(data === "true" ? "존재하는 이메일 입니다." : "존재하지 않는 이메일 입니다.");
 			 $("#email_msg").append("<input type='hidden' id='email_ck' value='" + (data === "true" ? "1" : "0") + "'>");
 			if(data === "true"){
 				$.ajax({

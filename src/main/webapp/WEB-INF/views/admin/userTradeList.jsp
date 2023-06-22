@@ -15,7 +15,7 @@
 </head>
 <body>
 <!-- header -->
-<jsp:include page="/adminheader"></jsp:include>
+<jsp:include page="header"></jsp:include>
 <!-- // header -->
 	<div id="wrap">		
 		<!-- header -->
@@ -81,13 +81,13 @@
 			<div class="paging">
 				<div id="page">
 					<c:if test="${begin > pageNum }">
-						<a href="search?p=${begin-1}&search=${search}&searchn=${searchn}">[이전]</a>
+						<a href="search?p=${begin-1}">[이전]</a>
 					</c:if>
 					<c:forEach begin="${begin }" end="${end}" var="i">
-						<a href="search?p=${i}&search=${search}&searchn=${searchn}">${i}</a>
+						<a href="search?p=${i}">${i}</a>
 					</c:forEach>
 					<c:if test="${end < totalPages }">
-						<a href="search?p=${end+1}&search=${search}&searchn=${searchn}">[다음]</a>
+						<a href="search?p=${end+1}">[다음]</a>
 					</c:if>
 				</div>
 			</div>

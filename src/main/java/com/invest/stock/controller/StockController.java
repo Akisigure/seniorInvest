@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.invest.config.SecurityUser;
-import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
 import com.invest.stock.service.StockTradeService;
 import com.invest.stock.service.StockWarningService;
-import com.invest.user.dto.UserAccountInfo;
 
 @Controller
 public class StockController {
@@ -65,9 +63,10 @@ public class StockController {
 	@GetMapping("/stockDetail")
 	public String stockDetail( String itmsNm,StockDto stock, Model m,String SrtnCd) {
 		
-		System.out.println("itmsNm"+itmsNm);
+		System.out.println("itmsNm : "+itmsNm);
 		
 		StockDto detail = service.stockDetailInfo(stock);
+		
 		m.addAttribute("APIKEY",service.getAPIKEY());
 		m.addAttribute("itmsNm",itmsNm);
 		m.addAttribute("srtnCd",SrtnCd);
@@ -90,7 +89,7 @@ public class StockController {
 		
 		int count = warningService.warningStock(srtnCd);
 		
-		if(count == 1) {
+		if(count >= 1) {
 			return "stock/warning"; //유의종목일 시 이동
 		}else { 
 			return "stock/stockBuy";
@@ -100,13 +99,15 @@ public class StockController {
 	
 	
 	@RequestMapping("/AgreeStockBuy")
-	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m) {
+	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m,@AuthenticationPrincipal SecurityUser user) {
 		
+		String userid = user.getUsers().getUserid();
 		StockDto detail = service.stockDetailInfo(stock);
-		
+		long balance = tradeService.balanceInfo(userid);
 		m.addAttribute("srtnCd",srtnCd);
 		m.addAttribute("itmsNm",itmsNm);
 		m.addAttribute("detail",detail);
+		m.addAttribute("balance",balance);
 		
 		return "stock/stockBuy";
 	}
