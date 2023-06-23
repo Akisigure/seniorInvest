@@ -30,10 +30,11 @@ public class Users {
 	@Length(min =2, message = "한글만 입력해주세요")
 	private String userName;
 	
-	@Pattern(regexp = "^010[0-9]{4}[0-9]{4}$", message = "핸드폰 번호를 입력해주세요.")
+	@Pattern(regexp = "^[0-9]*$", message = "숫자만 입력해주세요")
+	@NotBlank(message = "전화번호는 필수 입력 사항 입니다.")
 	private String phoneNumber;
 	
-	@Pattern(regexp = "!/^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/", message = "이메일 형식이 올바르지 않습니다.")
+	@Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$", message = "이메일 형식이 올바르지 않습니다.")
 	@NotBlank(message = "")
 	private String email;
 	
