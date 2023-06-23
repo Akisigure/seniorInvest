@@ -28,7 +28,7 @@
         <c:when test="${status.error && status.errorMessages.contains('NotEmpty') && status.errorMessages.contains('Length')}">
         </c:when>
         <c:otherwise>
-            <form:errors path="password" delimiter="<br>" class="error" cssClass="error-messages"/>
+            <form:errors path="password" delimiter="<br>" class="error"/>
         </c:otherwise>
     </c:choose>
 </div>
@@ -128,11 +128,11 @@ $(function() {
 	
 	
 	let pwInput = document.querySelector('#password');
-	let pwErrorMsg = document.querySelector('.error[id="password.errors"]');
+    let pwErrorMsg = document.querySelector('.error[id="password.errors"]');
 
-	pwInput.addEventListener('input', () => {
-		pwErrorMsg.style.display = 'none';
-	});
+    pwInput.addEventListener('input', () => {
+        pwErrorMsg.style.display = 'none';
+    });
 	
 	let emailInput = document.querySelector('#email');
 	let emailErrorMsg = document.querySelector('.error[id="email.errors"]');

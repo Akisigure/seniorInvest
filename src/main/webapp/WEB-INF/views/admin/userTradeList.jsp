@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>안심증권</title>
 <script type="text/javascript">
 	window.setTimeout('window.location.reload()',60000); //1분마다 새로 고침
@@ -13,6 +14,9 @@
 <link rel="stylesheet" type="text/css" href="/css/base.css" />
 </head>
 <body>
+<!-- header -->
+<jsp:include page="header"></jsp:include>
+<!-- // header -->
 	<div id="wrap">		
 		<!-- header -->
 		<div id="header">
@@ -77,13 +81,13 @@
 			<div class="paging">
 				<div id="page">
 					<c:if test="${begin > pageNum }">
-						<a href="search?p=${begin-1}&search=${search}&searchn=${searchn}">[이전]</a>
+						<a href="search?p=${begin-1}">[이전]</a>
 					</c:if>
 					<c:forEach begin="${begin }" end="${end}" var="i">
-						<a href="search?p=${i}&search=${search}&searchn=${searchn}">${i}</a>
+						<a href="search?p=${i}">${i}</a>
 					</c:forEach>
 					<c:if test="${end < totalPages }">
-						<a href="search?p=${end+1}&search=${search}&searchn=${searchn}">[다음]</a>
+						<a href="search?p=${end+1}">[다음]</a>
 					</c:if>
 				</div>
 			</div>

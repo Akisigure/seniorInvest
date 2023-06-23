@@ -39,11 +39,6 @@ public class StockTradeService {
 		
 		System.out.println("지정가 거래 스케줄러 작동.");
 		for (OrderStockDto list : order) {
-			
-			
-			long balance = dao.getBalance(list.getAccountid());
-		
-			if(balance > list.getQuantity() * list.getOrderPrice()) {
 				
 			 int price = dao.getPrice(list.getSrtnCd());
 				//거래 채결 시
@@ -51,12 +46,7 @@ public class StockTradeService {
 					dao.updateAddOrder(list.getNo());//  체결 상태 변경
 					dao.tradeResult(list); // 보유 수량 추가
 					dao.buyTradeInfo(list); //개래내역 추가
-				} 
-					
-			}
-		}
-	}
-	
+				} 	
 	//매도는 실시간으로 처리
 	@Transactional
 	public void stockSellTrade(String userid, StockQuantityDto stockQuantity) {
@@ -89,6 +79,12 @@ public class StockTradeService {
 		System.out.println(dto);
 		dao.cancelTrade(dto);
 		dao.stockBuyBalance(balance+(dto.getQuantity() * dto.getOrderPrice()), dto.getAccountid()); 
+	}
+	
+	public long balanceInfo(String userid) {
+		String accountid = dao.getAccountId(userid);
+		long balance = dao.getBalance(accountid);
+		return balance;
 	}
 	
 }

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.invest.config.SecurityUser;
-import com.invest.stock.dto.OrderStockDto;
 import com.invest.stock.dto.StockDto;
 import com.invest.stock.service.StockService;
 import com.invest.stock.service.StockTradeService;
@@ -32,7 +31,7 @@ public class StockController {
 	StockTradeService tradeService;
 	
 	//DB저장용 최초 실행 코드 한번만 호출해야 함
-	  @GetMapping("/getStockPriceInfo")
+	  @GetMapping("/admin/getStockPriceInfo")
 	  public String stockDetailPage() throws Exception {
 		  
 		  service.stockInsert();
@@ -41,6 +40,7 @@ public class StockController {
 	        
 	    }
 
+	//주식 검색 페이지
 	@GetMapping("/stockSearch")
 	public String stockSearch() {
 		return "stock/stockSearch";
@@ -61,30 +61,35 @@ public class StockController {
 
 
 	@GetMapping("/stockDetail")
-	public String stockDetail( String itmsNm,StockDto stock, Model m) {
+	public String stockDetail( String itmsNm,StockDto stock, Model m,String SrtnCd) {
 		
-		System.out.println("itmsNm"+itmsNm);
+		System.out.println("itmsNm : "+itmsNm);
 		
 		StockDto detail = service.stockDetailInfo(stock);
+		
 		m.addAttribute("APIKEY",service.getAPIKEY());
 		m.addAttribute("itmsNm",itmsNm);
+		m.addAttribute("srtnCd",SrtnCd);
 		m.addAttribute("detail",detail);
 		
 		return "stock/stockDetail";
 	}
 	
 	@RequestMapping("/stockBuy")
-	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m) {
+	public String stockBuyPage(String srtnCd,String itmsNm,StockDto stock, Model m,@AuthenticationPrincipal SecurityUser user) {
 		
+		String userid = user.getUsers().getUserid();
 		StockDto detail = service.stockDetailInfo(stock);
+		long balance = tradeService.balanceInfo(userid);
 		
 		m.addAttribute("srtnCd",srtnCd);
 		m.addAttribute("itmsNm",itmsNm);
 		m.addAttribute("detail",detail);
+		m.addAttribute("balance",balance);
 		
 		int count = warningService.warningStock(srtnCd);
 		
-		if(count == 1) {
+		if(count >= 1) {
 			return "stock/warning"; //유의종목일 시 이동
 		}else { 
 			return "stock/stockBuy";
@@ -94,13 +99,15 @@ public class StockController {
 	
 	
 	@RequestMapping("/AgreeStockBuy")
-	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m) {
+	public String AgreeStockBuy(String srtnCd,String itmsNm,StockDto stock , Model m,@AuthenticationPrincipal SecurityUser user) {
 		
+		String userid = user.getUsers().getUserid();
 		StockDto detail = service.stockDetailInfo(stock);
-		
+		long balance = tradeService.balanceInfo(userid);
 		m.addAttribute("srtnCd",srtnCd);
 		m.addAttribute("itmsNm",itmsNm);
 		m.addAttribute("detail",detail);
+		m.addAttribute("balance",balance);
 		
 		return "stock/stockBuy";
 	}
@@ -111,7 +118,18 @@ public class StockController {
 	    model.addAttribute("stockMainview", stockMainview);
 	    return "stock/stockMainview";
 	}
+	
+	@GetMapping("/admin/LastestStockPriceUpdate")
+	public String lastestStockPriceUpdate() throws Exception {
+		service.updateLastestStock();
+		return "redirect:/";
+	}
 
+	@GetMapping("/admin/stockPriceUpdate")
+	public String stockPriceUpdate() throws Exception {
+		service.updateStock();
+		return "redirect:/";
+	}
 	
 	
 	

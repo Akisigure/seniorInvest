@@ -13,14 +13,14 @@ public interface AdminStockDao {
 	 * B.name;
 	 */
 	//매수인 경우
-	@Select("select DISTINCT t.tradeInfoNo, t.userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
+	@Select("select DISTINCT t.tradeInfoNo, CONCAT(SUBSTRING(t.userid, 1, 3), '***') AS userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
 			+ "from TradeInfo t left join stock s on t.srtnCd = s.srtnCd "
 			+ "where t.tradeType = 'B' "
 			+ "order by t.orderDate asc limit #{start}, #{count}")
 	List<TradeInfo> getTradeList(Map<String, Object> m);
 	
 	//매도인 경우
-	@Select("select DISTINCT t.tradeInfoNo, t.userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
+	@Select("select DISTINCT t.tradeInfoNo, CONCAT(SUBSTRING(t.userid, 1, 3), '***') AS userid, t.srtnCd, t.tradeQuantity, t.orderDate, t.orderPrice, t.accountid, t.tradeType, s.mkp, s.itmsNm "
 			+ "from TradeInfo t left join stock s on t.srtnCd = s.srtnCd "
 			+ "where t.tradeType = 'S' order by t.orderDate asc limit #{start}, #{count}")
 	List<TradeInfo> getTradeOrderList(Map<String, Object> m);

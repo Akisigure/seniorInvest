@@ -56,6 +56,10 @@
 			<a href="http://localhost:8079/Mypage">
 			<input type="button" onclick="alert('취소하시겠습니까? 취소 하시면 마이페이지로 돌아갑니다.')" class="w-btn w-btn-pink" value="취소"></a>
 			<input type="submit" onclick="alert('정말 판매하시겠습니까?')"class="w-btn w-btn-blue" value="확인">
+			<form action="StocksellCP" method="post" id="sellForm">
+			<div class="button_center">
+			<input type="button" onclick="cancel();" class="w-btn w-btn-pink" value="취소">
+			<input type="button" onclick="sellComplete();"class="w-btn w-btn-blue" value="확인">
 			</div>
 			<input type="hidden" name="srtnCd" value="${order.srtnCd}">
 			<input type="hidden" name="mkp" value="${order.mkp}">	
@@ -67,5 +71,34 @@
 			</div>	
     	</div>
 	</main>
+	<script>
+		function cancel() {
+			
+			let result = confirm('취소하시겠습니까? 취소 하시면 마이페이지로 돌아갑니다.')
+			
+			if(result == true) {
+				location.href='/Mypage';
+			} else {
+				return false;
+			}
+			
+		}
+		
+	function sellComplete() {
+			
+			let result = confirm('정말 판매하시겠습니까?')
+			
+			if(result == true) {
+				let form = event.target.form;
+				form.submit();
+			}else {
+				return false;
+			}
+		
+	}
+	
+	
+	
+	</script>
 </body>
 </html> 

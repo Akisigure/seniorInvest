@@ -35,11 +35,33 @@ a {
 	text-align: center;
 }
 </style>
+ <link rel="stylesheet" href="/css/list.css">
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
 	<div id="center" style="padding-top: 2.5%">
 		<h1>게시글 목록</h1>
+	<section class="notice">
+  <div class="page-title">
+        <div class="container">
+            <h3><b>공지사항</b></h3>
+        </div>
+    </div>
+       <!-- board seach area -->
+    <div id="board-search">
+        <div class="container">
+            <div class="search-window">
+                <form action="">
+                    <div class="search-wrap">
+                        <label for="search" class="blind">공지사항 내용 검색</label>
+                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+                        <button type="submit" class="btn btn-dark">검색</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
 		
 		<div align="right">
 			<sec:authorize access="hasRole('ROLE_ADMIN')" > 
@@ -47,31 +69,39 @@ a {
 			</sec:authorize>
 		</div>
 		<c:if test="${count != 0 }">
-			<table>
+		 <!-- board list area -->
+    <div id="board-list">
+        <div class="container">
+            <table class="board-table">
+                <thead>
 				<tr>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
-				</tr>
+					<th scope="col" class="th-title">제목</th>
+					<th scope="col" class="th-title">작성자</th>
+					<th scope="col" class="th-date">작성일</th>
+					<th scope="col" class="th-num">조회수</th>
+				 </tr>
+                </thead>
+                <tbody>
 				<c:forEach items="${nList}" var="notice">
 					<tr>
 						<td><a href ="content/${notice.noticeNo}">${notice.title}</a></td>
-						<td>${notice.userid}</td>
+						<td>관리자</td>
 						<td><fmt:formatDate value="${notice.regdate }" dateStyle="short"/> </td>
 						<td>${notice.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
+			</div>
+			</div>
 			<div id="page">
 				<c:if test="${begin > pageNum }">
-					<a href="list?p=${begin-1 }">[이전]</a>
+					<a href="list?p=${begin-1 }"  class="new">[이전]</a>
 				</c:if>
 				<c:forEach begin="${begin}" end="${end}" var="i">
-					<a href="list?p=${i}">${i}</a>
+					<a href="list?p=${i}"  class="new">${i}</a>
 				</c:forEach>
 				<c:if test="${end < totalPages }">
-					<a href="list?p=${end+1}">[다음]</a>
+					<a href="list?p=${end+1}"  class="new">[다음]</a>
 				</c:if>
 			</div>
 
@@ -79,17 +109,11 @@ a {
 		<c:if test="${count == 0 }">
 	아직 입력한 글이 없습니다.
 </c:if>
-<div id = "search" align="center">
-<form action="search">
-	<select name="searchn">
-		<option value="0">제목</option>
-		<option value="1">내용</option>
-		<option value="2">작성자</option>
-	</select>
-	<input type="text" name="search" size="15" maxlength="50" />
-	<input type="submit" value="검색" />
-</form>
-</div>
-	</div>
+<div class="new">
+			<sec:authorize access="hasRole('ROLE_ADMIN')" > 
+			<button onclick="location.href='/admin/notice/write'">새글 등록</button>
+			</sec:authorize>
+		</div>
+</section>
 </body>
 </html>

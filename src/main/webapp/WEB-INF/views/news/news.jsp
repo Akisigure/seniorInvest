@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <meta charset="UTF-8">
 <title>안심증권-뉴스페이지-</title>
 <!-- jQuery -->
@@ -24,7 +25,7 @@
 	<jsp:include page="/header"></jsp:include>
 
 	<main class="container">
-		<h1 class="mt-5 mb-5">종합 최신 뉴스</h1>
+		<h1 class="mt-5 mb-5"><b>종합 최신 뉴스</b></h1>
 
 		<!-- Topic Buttons -->
 		<div class="topic-buttons">

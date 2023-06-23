@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>안심증권</title>
 <link rel="stylesheet" type="text/css" href="/css/base.css" />

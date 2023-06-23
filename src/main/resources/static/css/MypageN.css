@@ -112,6 +112,12 @@ main {
 	top: 50%;
 	left: 50%;
 	transform: translate(-30%, -60%);
+	font-size: 70px;
+	font-weight: 800;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-7%, -60%);
 	border-radius: 7px;
 	padding-bottom: 5%;
 }

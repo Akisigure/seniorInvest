@@ -2,13 +2,11 @@ package com.invest.user.controller;
 
 
 import java.security.Principal;
-import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,27 +15,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.invest.user.dao.UserDao;
-import com.invest.user.dto.Findpwd;
 import com.invest.user.dto.Users;
 import com.invest.user.service.RegisterService;
 
 
 import jakarta.mail.Authenticator;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
 import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
-import jakarta.mail.Transport;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
 
 import com.invest.user.service.FindpwService;
 import com.invest.user.service.LoginService;
@@ -132,11 +121,11 @@ public class UserController {
 	}
 	
 	 @PostMapping("/findPassword")
-	  public String findPassword(@RequestParam("email") String email, Model model) {
-	    // 이메일을 통해 사용자 정보를 조회합니다.
-	    Users user = findpwService.findByEmail(email);
-	    
-	    System.out.println(user);
+	  public String findPassword(@RequestParam("email") String email, @RequestParam("userid") String userid, Model model) {
+		    // 이메일을 통해 사용자 정보를 조회합니다.
+		    Users user = findpwService.findByUser(email, userid);
+
+		    System.out.println(user);
 	    
 	    if (user == null) {
 	      model.addAttribute("error", "해당 이메일로 등록된 사용자가 없습니다.");
@@ -147,8 +136,8 @@ public class UserController {
 	    String temporaryPassword = generateTemporaryPassword();
 	    findpwService.temPassword(email, encoder.encode(temporaryPassword));
 	    
-
 	    model.addAttribute("temporaryPassword",temporaryPassword);
+	    model.addAttribute("users",user);
 	    
 	    return "account/temPassword"; 
 	  }

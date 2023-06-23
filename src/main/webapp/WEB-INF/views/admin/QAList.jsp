@@ -6,10 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>안심증권</title>
 <link rel="stylesheet" type="text/css" href="/css/base.css" />
 </head>
 <body>
+<!-- header -->
+<jsp:include page="/header"></jsp:include>
+<!-- // header -->
 	<div id="wrap">		
 	<div id="header">
 			<h1> 아직 답변하지 않은 QA 게시글 리스트 </h1>
@@ -58,7 +62,6 @@
 						<td><fmt:formatDate value="${qlist.regdate}" dateStyle="short"/> </td>
 						<td>${qlist.category}</td>
 						<td><div class="btn_align_02" style="float: right;">
-						<!-- 답변으로 등록하려면 새로 controller method정의해야함? -->
 
 							<a href="/qa/qaReRegister/${qlist.no}" class="btn btnP_05 btnC_02">
 								<span>등록</span>

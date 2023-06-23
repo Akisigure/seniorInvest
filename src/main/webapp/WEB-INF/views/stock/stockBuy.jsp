@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+    response.setHeader("Cache-Control", "no-cache");
+    response.setHeader("Pragma", "no-cache");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +25,11 @@
   position: relative;
   transform: translateX(-50%);
   padding: 30px;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF; 
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: 50vw;
-  height: 45vh;
+  height: 70vh;
   left: 25%;
   margin: 0 auto;
 }
@@ -96,14 +100,15 @@
     <!-- Bootstrap Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-<!--<jsp:include page="../home/header.jsp"></jsp:include>-->
+<jsp:include page="/header"></jsp:include>
 <div class="Buy_container">
 <form method="post" action="/orderComplete" class="stockBuy">
 
 <p>종목명 : ${itmsNm} </p>
 <p>시장가 : <label for="orderPrice"><fmt:formatNumber value="${detail.mkp}" type="number"></fmt:formatNumber>원</label> </p>
 <p>전일대비 : <span id="stockVariance">${detail.fltRt}% </span></p>
-<p>변동가격 : <span id="stockRate"><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span> </p><br>
+<p>변동가격 : <span id="stockRate"><fmt:formatNumber value="${detail.vs}" type="number"></fmt:formatNumber>원</span> </p>
+<p>현재잔액 : <span id="userBalance"><fmt:formatNumber value="${balance}" type="number"></fmt:formatNumber>원</span> </p><br>
 
 		<div class="textForm">
 		<span>주문가</span><input type="text" name="orderPrice" id="orderPrice" placeholder="원하시는 가격대를 적어주세요" autocomplete="off">
@@ -119,14 +124,17 @@
 		</div>
 	</form>
 	</div>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
     $("#buyButton").on("click", function(event) {
       var orderPrice = $("#orderPrice").val();
       var quantity = $("#quantity").val();
-
+      var balance = "<c:out value='${balance}'/>";
+      var totalPrice = orderPrice * quantity;
+	
+      console.log(balance);
+      console.log(totalPrice);
       if (orderPrice === "" || quantity === "") {
         $(".error-message").text("값을 입력해주세요.");
         event.preventDefault();
@@ -136,6 +144,14 @@
       } else {
         $(".error-message").empty();
       }
+      
+      if(totalPrice > balance) {
+    	  $(".error-message").text("잔액이 부족합니다.");
+    	  event.preventDefault();
+      }
+      
+   
+      
     });
   });
   
@@ -144,6 +160,5 @@
   $("#stockVariance").css("color", scFltRt < 0 ? "blue" : (scFltRt > 0 ? "red" : ""));
   $("#stockRate").css("color", scVs < 0 ? "blue" : (scVs > 0 ? "red" : ""));
 </script>
-
 </body>
 </html>

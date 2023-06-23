@@ -10,9 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.invest.stock.dto.OrderStockDto;
-import com.invest.stock.dto.StockDto;
 import com.invest.stock.dto.StockQuantityDto;
-import com.invest.stock.dto.StockTradeDto;
 
 @Mapper
 public interface StockTradeDao {
@@ -41,7 +39,7 @@ public interface StockTradeDao {
 	@Update("update useraccountinfo set balance = #{balance} where accountid = #{accountid}")
 	int stockBuyBalance(@Param("balance") long balance, @Param("accountid") String accountid);
 	
-	@Update("update stockquantity set stockEA = stockEA - #{quantity} where userid = #{userid} and tradeNo = #{tradeNo} and srtnCd = #{srtnCd}")
+	@Update("update stockquantity set stockEA = stockEA - #{quantity}, tradeprice = tradeprice - #{quantity} * #{mkp} where userid = #{userid} and tradeNo = #{tradeNo} and srtnCd = #{srtnCd}")
 	int stockSellUpdate(StockQuantityDto stockQuantity);
 	
 	@Delete("delete from stockquantity where userid= #{userid} and stockEA = 0")

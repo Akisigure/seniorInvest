@@ -4,10 +4,7 @@
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>공지 작성</title>
-<style>
-	.orange{background-color: orange; width : 50px;}
-	table{border-collapse : collapse; width : 800px;}
-</style>
+ <link rel="stylesheet" href="/css/write.css">
 </head>
 <body>
 <form method="post" id="writeform" action="write">
@@ -18,7 +15,8 @@
 		</tr>
 		<tr>
 			<td class="orange">작성자</td>
-			<td><input name="userid" value="${userid}" readonly></td>
+			<td><input type="hidden" name="userid" value="${userid}" readonly>
+			<input type="text" value="관리자" readonly></td>
 		</tr>
 		<tr>
 			<td class="orange">내용</td>

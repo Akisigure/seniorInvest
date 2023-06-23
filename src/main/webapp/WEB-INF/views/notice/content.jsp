@@ -8,19 +8,53 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <title>${dto.title}</title>
 <style>
-#container {width: 70%;}
+
+* {
+	font-size: 20px;
+
+
+}
+
+#notice_container {
+  padding-top:10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 table{width: 100%;}
+table td {
+  padding: 10px; /* 셀 내부 여백을 추가합니다. */
+  /* 원하는 너비와 높이 값으로 설정하세요. */
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+}
+
+.link {
+	padding-top: 5%;
+}
+
+a {
+text-decoration:none;
+justify-content:center;
+margin-right: 30px;
+}
+
 </style>
 </head>
 <body>
-<div id="container">
-<table border="1">
-	<tr><td>제목</td><td>${dto.title}</td></tr>
-	<tr><td>작성자</td><td>${dto.userid}</td></tr>
-	<tr><td>내용</td><td>${dto.content}</td></tr>
-	<tr><td>등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td></tr>
-	<tr><td>조회수</td><td>${dto.readcount}</td></tr>
-	<tr><td colspan="2" align="right">
+<jsp:include page="/header"></jsp:include>
+<div id="notice_container">
+<div class="tbl">
+<table border="0"> 
+	<tr><td style="text-align:center;">제목</td><td>${dto.title}</td></tr>
+	<tr><td style="text-align:center;">작성자</td><td>${dto.userid}</td></tr>
+	<tr><td style="text-align:center;">내용</td><td>${dto.content}</td></tr>
+	<tr><td style="text-align:center;">등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td></tr>
+	<tr><td style="text-align:center;">조회수</td><td>${dto.readcount}</td></tr>
+</table>
+</div>
+<div class = "link"> 
 	<sec:authorize access="hasRole('ROLE_ADMIN')" >
 	<c:if test="${ userid == dto.userid }">
 		<a href="/admin/notice/update/${dto.noticeNo}">글 수정 </a> 
@@ -28,8 +62,7 @@ table{width: 100%;}
 	</c:if>
 	</sec:authorize>
 	<a href="../list">목록 이동</a> 
-	</td></tr>
-</table>
+</div>
 <!--  cList : List<CommDto>-->
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

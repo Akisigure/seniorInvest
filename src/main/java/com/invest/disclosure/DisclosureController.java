@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import jakarta.mail.Service;
 
 @Controller
 public class DisclosureController {
@@ -20,13 +19,10 @@ public class DisclosureController {
 	@PostMapping("ajax/disclosure") //API AJAX호출
 	@ResponseBody
 	public DisclosureCommand ajaxDisclosure(Model m) {
-		
-		
 
 		DisclosureCommand list = service.disclosureAjax();
 		System.out.println(list);
 		m.addAttribute("list",list);
-	
 		
 		return list;
 	}
