@@ -45,10 +45,10 @@ function getselect() {
 									<th scope="row">제목</th>
 									<td>
 										<c:if test="${dto.no == 0 }">
-										<input type="text" class="txt" name="subject" maxlength="50" />	
+										<input type="text" class="txt" name="subject" maxlength="50" / autocomplete="off">	
 										</c:if>
 										<c:if test="${dto.no != 0 }">
-										<input type="text" class="txt" name="subject" maxlength="50" value="[답변]" />	
+										<input type="text" class="txt" name="subject" maxlength="50" value="[답변]" / autocomplete="off">	
 										</c:if>
 									</td>
 								</tr>

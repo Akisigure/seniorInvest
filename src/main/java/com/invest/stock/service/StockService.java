@@ -78,14 +78,16 @@ public class StockService {
 	    
 	}//method
 	
-	//API 갱신시간에 갱신 (오전 11시 30분)
-	// @Scheduled(cron = "0 30 11 * * *")
+	 //API 갱신시간에 갱신 (오전 14시 30분)
+	 @Scheduled(cron = "0 30 14 * * *")
 	public void updateLastestStock() throws Exception {
 		
 		String serviceKey = APIKEY;
-		LocalDate now = LocalDate.now().minusDays(1);
+		LocalDate now = LocalDate.now().minusDays(2);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
+		
 		String formatedNow = now.format(format);
+		System.out.println(formatedNow);
 	    String requestUrl = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey="
 	           + serviceKey + "&numOfRows=948&resultType=json&mrktCls=KOSPI&basDt="+formatedNow; 
 	 
@@ -128,15 +130,15 @@ public class StockService {
 		    	 
 		    }
 	  }//for
-		   
+	   
 	}
 
-	//매일 저녁에 업데이트
-	// @Scheduled(cron = "0 57 00 * * *")
+	 //매일 저녁에 업데이트
+	 @Scheduled(cron = "0 30 23 * * *")
 	public void updateStock() throws Exception {
 		
 		String serviceKey = APIKEY;
-		LocalDate now = LocalDate.now().minusDays(2);
+		LocalDate now = LocalDate.now().minusDays(3);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		
 		String formatedNow = now.format(format);
