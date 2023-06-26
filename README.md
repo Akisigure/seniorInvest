@@ -3,22 +3,65 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/Akisigure99" target="_blank">
-    <img alt="Twitter: Akisigure99" src="https://img.shields.io/twitter/follow/Akisigure99.svg?style=social" />
   </a>
 </p>
 
+<hr>
 
+<b>안심증권</b>은 주식에 관심이 많은 고령층들을 타겟으로 한 주식 웹 서비스입니다.
 
+### 핵심내용
+<hr>
 
-개요
-=====
+* 사용자는 모의계좌를 발급받아 투자를 연습을 할 수 있습니다.
+* 주식에 관련된 최신 뉴스와 공시를 참고할 수 있습니다.
 
-### 프로젝트 설명
+### 전제조건
+<hr>
 
- * 노년층을 위한 주식투자 : 안심증권
- * 주제 선정 이유 및 설명
- * 제작 기간
- * 참여 인원
+* 공공데이터포털, 전자공시 OPEN DART에서 API키를 발급받아야 합니다.
+* properties 파일을 수정 할 수 있는 TextEditor가 필요합니다.
+* JVM이 설치되어있어야 합니다.
+
+### 환경설정
+<hr>
+
+1. 프로젝트를 Fork 합니다.
+
+2. git clone후 local로 받습니다.
+  ```git
+  git clone (repo URL)
+  ```
+3. 발급받은 API키를 수정해야 합니다.
+   API키는 src/main/resources/application-API-KEY.properties 에서 수정할 수 있습니다.
+
+   ```application-API-KEY.properties
+    API-KEY = # 공공데이터포털 금융위원회_주식시세정보 에서 발급받은 API-KEY
+    DIS-API-KEY = # 전자공시 OPEN DART에서 발급받은 API-KEY
+   ```
+
+4. DB에 test 계정 및 test 스키마를 생성합니다. 관련 설정은 application.properties 파일에 작성 되어 있습니다.
+
+5. gradle project를 import 후 spring boot application server를 실행합니다.
+
+### 사용 기술
+<hr>
+
+```front end```
+* HTML
+* CSS
+* JavaScript
+  * JQuery
+
+```back end```
+* JAVA
+* Spring boot
+* Spring security
+
+```DBMS```
+* MySQL
+  * mybatis
+
 
 ### 프로젝트 정보
 
@@ -32,7 +75,9 @@
 
  * [스토리보드](https://github.com/Akisigure/seniorInvest/files/11684842/_3.pdf) 
  
-### 기술스택
+
+
+
 
 ### 구현 기능
 
