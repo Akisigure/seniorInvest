@@ -106,6 +106,12 @@ main {
 	width: 550px;
 	display: flex;
 	font-family: 'NanumSquareNeo-Variable';
+	font-size: 90px;
+	font-weight: 800;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-30%, -60%);
 	font-size: 70px;
 	font-weight: 800;
 	position: relative;

@@ -1,4 +1,4 @@
-package com.invest.stock.dao;
+ package com.invest.stock.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -39,5 +39,5 @@ public interface StockDao {
 	List<StockDto> stockMainview();
  
 	
-	
+	 
 }

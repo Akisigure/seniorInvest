@@ -46,10 +46,7 @@ public class StockTradeService {
 					dao.updateAddOrder(list.getNo());//  체결 상태 변경
 					dao.tradeResult(list); // 보유 수량 추가
 					dao.buyTradeInfo(list); //개래내역 추가
-				} 
-		}
-	}
-	
+				} 	
 	//매도는 실시간으로 처리
 	@Transactional
 	public void stockSellTrade(String userid, StockQuantityDto stockQuantity) {

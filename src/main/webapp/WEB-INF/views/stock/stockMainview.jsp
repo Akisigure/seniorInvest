@@ -14,7 +14,7 @@
 <body>
 	<div class="centered-container">
 		<div class="centered-content">
-			<h1 style="text-align: center;"><b>시가총액 상위 10</b></h1>
+			<h1 style="text-align: center;">시가총액 상위 10</h1>
 			<div class="message">
 			</div>
 

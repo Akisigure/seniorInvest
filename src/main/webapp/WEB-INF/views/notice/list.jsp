@@ -9,10 +9,38 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon-removebg-preview.ico" />
 <!--  bList begin end count pageNum totalPages -->
 <title>공지사항</title>
+<style>
+#center {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table {
+	border: 1px solid black;
+	width: 700px;
+	border-collapse: collapse;
+}
+
+th {border: 1px solid black;
+	background-color: olive;
+	width: 150px;
+}
+td{border: 1px solid black;}
+a {
+	margin: 10px auto;
+}
+
+#page {
+	text-align: center;
+}
+</style>
  <link rel="stylesheet" href="/css/list.css">
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
+	<div id="center" style="padding-top: 2.5%">
+		<h1>게시글 목록</h1>
 	<section class="notice">
   <div class="page-title">
         <div class="container">
@@ -35,6 +63,11 @@
     </div>
     
 		
+		<div align="right">
+			<sec:authorize access="hasRole('ROLE_ADMIN')" > 
+				<a href="/admin/notice/write">새글 등록</a>
+			</sec:authorize>
+		</div>
 		<c:if test="${count != 0 }">
 		 <!-- board list area -->
     <div id="board-list">
