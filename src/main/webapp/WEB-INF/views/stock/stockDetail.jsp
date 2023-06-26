@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${itmsNm} : ${detail.mkp}원</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./js/api.js"></script>
 </head>
 <style>
     * {
@@ -146,9 +147,8 @@
     $(function() {
     	
     		$("#loadingAnimation").show();
-
     	
-        const APIKEY = "<c:out value='${APIKEY}'/>";
+        const APIKEY = "${APIKEY}";
         let stockName = "<c:out value='${itmsNm}'/>";
        	let scVs = "<c:out value='${detail.vs}'/>";
        	let scFltRt = "<c:out value='${detail.fltRt}'/>";
@@ -156,7 +156,9 @@
         let url = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo?serviceKey=" + APIKEY;
         let y = new Date();
         let z = new Date();
-
+	
+        
+        
         y.setDate(y.getDate() - 1); // 어제 날짜 세팅
         z.setDate(z.getDate() - 12);
         

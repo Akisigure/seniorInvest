@@ -1,16 +1,19 @@
 package com.invest.news;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.*;
-import org.apache.ibatis.annotations.*;
 
-import java.util.List;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 @EnableScheduling
@@ -19,7 +22,7 @@ public class NewsService {
     @Autowired
     private NewsDao newsDao;
 
-    //@Scheduled(cron = "1 * *  * * *  ")
+    @Scheduled(cron = "* * 0/1 * * *  ")
     public void updateNews() {
         newsDao.deleteAll();
         System.out.println("NEWS 스케줄러 작동");

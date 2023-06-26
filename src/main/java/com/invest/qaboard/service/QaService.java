@@ -2,13 +2,10 @@ package com.invest.qaboard.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.invest.qaboard.dao.QaDao;
 import com.invest.qaboard.dto.QaDto;
-import com.invest.user.dto.Users;
 
 
 

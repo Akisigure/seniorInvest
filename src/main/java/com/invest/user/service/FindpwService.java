@@ -58,7 +58,7 @@ public class FindpwService {
 		 findpwd.setPassword(password);
 		 
 		 int isUpdated = dao.updatePassword(userid, password);
-		
+		 System.out.println(isUpdated);
 		 return rowsAffected;
 	}
 	
