@@ -65,22 +65,49 @@
 
 ### 프로젝트 정보
 
- *  [요구사항 명세서](https://github.com/Akisigure/seniorInvest/issues/58#issue-1747037645)
+ <details>
+<summary> 요구사항 명세서 </summary>
+<div markdown="1">
 
- * 유즈케이스 다이어그램
-    ![유즈케이스 다이어그램](https://github.com/Akisigure/seniorInvest/assets/122990146/b0e35f5c-5b15-40b5-81ee-c3f924fb2bce)
+![요구사항 명세서](https://github.com/Akisigure/seniorInvest/assets/122990146/5f1a6685-12a9-471a-90ff-1ed4b7875b2e)
 
 
- * ERD
-![ERD](https://github.com/Akisigure/seniorInvest/assets/122990146/0145bb32-815d-4329-a6e0-1b18bcea7c47)
-
- * [스토리보드](https://github.com/Akisigure/seniorInvest/files/11684842/_3.pdf) 
+</div>
+</details>
  
 
+ <details>
+<summary> 유즈케이스 다이어그램 </summary>
+<div markdown="1">
 
+![유즈케이스 다이어그램](https://github.com/Akisigure/seniorInvest/assets/122990146/b0e35f5c-5b15-40b5-81ee-c3f924fb2bce)
 
+</div>
+</details>
 
-### 구현 기능
+ <details>
+<summary> ERD </summary>
+<div markdown="1">
+
+![ERD](https://github.com/Akisigure/seniorInvest/assets/122990146/0145bb32-815d-4329-a6e0-1b18bcea7c47)
+
+</div>
+</details>
+
+ <details>
+<summary> 스토리보드(PDF) </summary>
+<div markdown="1">
+
+ * [스토리보드](https://github.com/Akisigure/seniorInvest/files/11684842/_3.pdf) 
+
+</div>
+</details>
+
+### 구현기능
+
+ <details>
+<summary> 토글접기/펼치기 </summary>
+<div markdown="1">
 
  * 로그인 / 회원가입
 
@@ -99,6 +126,11 @@
  * Q&A
  
  * 관리자 페이지
+
+</div>
+</details>
+
+
 
 ## 작성자
 
